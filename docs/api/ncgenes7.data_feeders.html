@@ -1,0 +1,415 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>ncgenes7.data_feeders package &mdash; ncgenes7 v0.10.0 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../_static/icon.ico"/>
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="ncgenes7.data_fields package" href="ncgenes7.data_fields.html" />
+    <link rel="prev" title="ncgenes7.callbacks package" href="ncgenes7.callbacks.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> ncgenes7
+          
+
+          
+            
+            <img src="../_static/icon.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.10.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../Introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ProjectSamples.html">Sample projects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Contribution.html">Contribution</a></li>
+</ul>
+<p class="caption"><span class="caption-text">API:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="ncgenes7.augmentations.html">ncgenes7.augmentations package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ncgenes7.callbacks.html">ncgenes7.callbacks package</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">ncgenes7.data_feeders package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-ncgenes7.data_feeders.image">ncgenes7.data_feeders.image module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-ncgenes7.data_feeders">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="ncgenes7.data_fields.html">ncgenes7.data_fields package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ncgenes7.data_filters.html">ncgenes7.data_filters package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ncgenes7.data_readers.html">ncgenes7.data_readers package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ncgenes7.file_lists.html">ncgenes7.file_lists package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ncgenes7.kpis.html">ncgenes7.kpis package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ncgenes7.learning_rate_manipulators.html">ncgenes7.learning_rate_manipulators package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ncgenes7.losses.html">ncgenes7.losses package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ncgenes7.metrics.html">ncgenes7.metrics package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ncgenes7.plugins.html">ncgenes7.plugins package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ncgenes7.plugins.cnns.html">ncgenes7.plugins.cnns package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ncgenes7.plugins.object_detection.html">ncgenes7.plugins.object_detection package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ncgenes7.plugins.preprocessing.html">ncgenes7.plugins.preprocessing package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ncgenes7.plugins.utils.html">ncgenes7.plugins.utils package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ncgenes7.postprocessors.html">ncgenes7.postprocessors package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ncgenes7.summaries.html">ncgenes7.summaries package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ncgenes7.third_party.html">ncgenes7.third_party package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ncgenes7.third_party.object_detection.html">ncgenes7.third_party.object_detection package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ncgenes7.utils.html">ncgenes7.utils package</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">ncgenes7</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>ncgenes7.data_feeders package</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/api/ncgenes7.data_feeders.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="ncgenes7-data-feeders-package">
+<h1>ncgenes7.data_feeders package<a class="headerlink" href="#ncgenes7-data-feeders-package" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-ncgenes7.data_feeders.image">
+<span id="ncgenes7-data-feeders-image-module"></span><h2>ncgenes7.data_feeders.image module<a class="headerlink" href="#module-ncgenes7.data_feeders.image" title="Permalink to this headline">¶</a></h2>
+<p>Image DataFeeders</p>
+<dl class="class">
+<dt id="ncgenes7.data_feeders.image.CameraImageDataFeeder">
+<em class="property">class </em><code class="sig-prename descclassname">ncgenes7.data_feeders.image.</code><code class="sig-name descname">CameraImageDataFeeder</code><span class="sig-paren">(</span><em class="sig-param">*</em>, <em class="sig-param">convert_image_to_gray=False</em>, <em class="sig-param">image_size=None</em>, <em class="sig-param">camera_index=0</em>, <em class="sig-param">number_of_iterations=100</em>, <em class="sig-param">**data_feeder_kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ncgenes7/data_feeders/image.html#CameraImageDataFeeder"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ncgenes7.data_feeders.image.CameraImageDataFeeder" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">nucleus7.data.data_feeder.DataFeeder</span></code></p>
+<p>Class for the feeding the images data to the tensorflow graph</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>convert_image_to_gray</strong> – controls if colored camera image should be converted to grey scale</p></li>
+<li><p><strong>image_size</strong> – size of image; if specified, loaded images will be resized to it;
+[h, w]</p></li>
+<li><p><strong>camera_index</strong> – camera index; to open camera <code class="xref py py-obj docutils literal notranslate"><span class="pre">cv2.VideoCapture</span></code> is used</p></li>
+<li><p><strong>number_of_iterations</strong> – number of iterations until StopIteration occur; if set to 0 or None,
+will create infinite generator</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="attribute">
+<dt id="ncgenes7.data_feeders.image.CameraImageDataFeeder.generated_keys">
+<code class="sig-name descname">generated_keys</code><a class="headerlink" href="#ncgenes7.data_feeders.image.CameraImageDataFeeder.generated_keys" title="Permalink to this definition">¶</a></dt>
+<dd><ul class="simple">
+<li><p>images : images</p></li>
+<li><p>images_fnames : strings in format cam_{camera_id}_{timestamp}</p></li>
+</ul>
+</dd></dl>
+
+<dl class="method">
+<dt id="ncgenes7.data_feeders.image.CameraImageDataFeeder.build_generator">
+<code class="sig-name descname">build_generator</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ncgenes7/data_feeders/image.html#CameraImageDataFeeder.build_generator"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ncgenes7.data_feeders.image.CameraImageDataFeeder.build_generator" title="Permalink to this definition">¶</a></dt>
+<dd><p>Build generator for data</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="ncgenes7.data_feeders.image.CameraImageDataFeeder.create_data_from_generator">
+<code class="sig-name descname">create_data_from_generator</code><span class="sig-paren">(</span><em class="sig-param">data</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ncgenes7/data_feeders/image.html#CameraImageDataFeeder.create_data_from_generator"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ncgenes7.data_feeders.image.CameraImageDataFeeder.create_data_from_generator" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create data from generator</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>data</strong> – output of generator</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt>
+<code class="sig-name descname">generated_keys</code><em class="property"> = ['images', 'images_fnames']</em></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="ncgenes7.data_feeders.image.ImageDataFeeder">
+<em class="property">class </em><code class="sig-prename descclassname">ncgenes7.data_feeders.image.</code><code class="sig-name descname">ImageDataFeeder</code><span class="sig-paren">(</span><em class="sig-param">*</em>, <em class="sig-param">file_list</em>, <em class="sig-param">image_number_of_channels=3</em>, <em class="sig-param">image_size=None</em>, <em class="sig-param">**data_feeder_kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ncgenes7/data_feeders/image.html#ImageDataFeeder"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ncgenes7.data_feeders.image.ImageDataFeeder" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">nucleus7.data.data_feeder.DataFeederFileList</span></code></p>
+<p>Class for the feeding the images data to the tensorflow graph</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>image_number_of_channels</strong> – number of image channels</p></li>
+<li><p><strong>image_size</strong> – size of image as  [height, width]; if specified, loaded images will be
+resized to it; if not specified, then images will have the
+original size; may cause errors if sizes are different across images,
+since it is not possible to combine them to the batch</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="attribute">
+<dt id="ncgenes7.data_feeders.image.ImageDataFeeder.generated_keys">
+<code class="sig-name descname">generated_keys</code><a class="headerlink" href="#ncgenes7.data_feeders.image.ImageDataFeeder.generated_keys" title="Permalink to this definition">¶</a></dt>
+<dd><ul class="simple">
+<li><p>images : images</p></li>
+<li><p>images_fnames : file names of images</p></li>
+</ul>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ncgenes7.data_feeders.image.ImageDataFeeder.file_list_keys">
+<code class="sig-name descname">file_list_keys</code><em class="property"> = ['images']</em><a class="headerlink" href="#ncgenes7.data_feeders.image.ImageDataFeeder.file_list_keys" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt>
+<code class="sig-name descname">generated_keys</code><em class="property"> = ['images', 'images_fnames']</em></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="ncgenes7.data_feeders.image.ImageDataFeeder.read_element_from_file_names">
+<code class="sig-name descname">read_element_from_file_names</code><span class="sig-paren">(</span><em class="sig-param">images</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ncgenes7/data_feeders/image.html#ImageDataFeeder.read_element_from_file_names"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ncgenes7.data_feeders.image.ImageDataFeeder.read_element_from_file_names" title="Permalink to this definition">¶</a></dt>
+<dd><p>Take the dict of file names and return dictionary of data element</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>**fnames</strong> – dict of strings with file names</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>element data</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>element_data</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="ncgenes7.data_feeders.image.ImageMultiScaleDataFeeder">
+<em class="property">class </em><code class="sig-prename descclassname">ncgenes7.data_feeders.image.</code><code class="sig-name descname">ImageMultiScaleDataFeeder</code><span class="sig-paren">(</span><em class="sig-param">*</em>, <em class="sig-param">scales=None</em>, <em class="sig-param">use_horizontal_flip=False</em>, <em class="sig-param">interpolation_order=1</em>, <em class="sig-param">**data_feeder_kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ncgenes7/data_feeders/image.html#ImageMultiScaleDataFeeder"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ncgenes7.data_feeders.image.ImageMultiScaleDataFeeder" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#ncgenes7.data_feeders.image.ImageDataFeeder" title="ncgenes7.data_feeders.image.ImageDataFeeder"><code class="xref py py-class docutils literal notranslate"><span class="pre">ncgenes7.data_feeders.image.ImageDataFeeder</span></code></a></p>
+<p>Class for the feeding the images data to the tensorflow graph
+in multi scales</p>
+<p>Result of get_batch function is then list of same like dicts
+for different scales and different hflips.
+In case of horizontal flips, order is following
+[scale0, flipped scale0, scale1, flipped scale1 ..]</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>scales</strong> – list of scales of the data images to use;</p></li>
+<li><p><strong>use_horizontal_flip</strong> – if the images should be additionally flipped horizontally;</p></li>
+<li><p><strong>interpolation_order</strong> – interpolation order for scaling; see
+<code class="xref py py-obj docutils literal notranslate"><span class="pre">skimage.transform.rescale</span></code></p></li>
+</ul>
+</dd>
+</dl>
+<dl class="attribute">
+<dt id="ncgenes7.data_feeders.image.ImageMultiScaleDataFeeder.generated_keys">
+<code class="sig-name descname">generated_keys</code><a class="headerlink" href="#ncgenes7.data_feeders.image.ImageMultiScaleDataFeeder.generated_keys" title="Permalink to this definition">¶</a></dt>
+<dd><ul class="simple">
+<li><p>image : image</p></li>
+<li><p>image_fname : file name of read image</p></li>
+</ul>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.8)">list</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt>
+<code class="sig-name descname">generated_keys</code><em class="property"> = ['images', 'images_fnames']</em></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="ncgenes7.data_feeders.image.ImageMultiScaleDataFeeder.get_batch">
+<code class="sig-name descname">get_batch</code><span class="sig-paren">(</span><em class="sig-param">batch_size</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ncgenes7/data_feeders/image.html#ImageMultiScaleDataFeeder.get_batch"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ncgenes7.data_feeders.image.ImageMultiScaleDataFeeder.get_batch" title="Permalink to this definition">¶</a></dt>
+<dd><p>Read the data and generates the feed_dict to inputs</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>batch_size</strong> – batch size to use</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>mapping generated_keys to feeding value</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>batch</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-ncgenes7.data_feeders">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-ncgenes7.data_feeders" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="ncgenes7.data_fields.html" class="btn btn-neutral float-right" title="ncgenes7.data_fields package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="ncgenes7.callbacks.html" class="btn btn-neutral float-left" title="ncgenes7.callbacks package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Audi Electronics Venture GmbH
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

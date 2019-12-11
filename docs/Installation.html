@@ -1,0 +1,339 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Installation &mdash; ncgenes7 v0.10.0 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="_static/icon.ico"/>
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Sample projects" href="ProjectSamples.html" />
+    <link rel="prev" title="Introduction" href="Introduction.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> ncgenes7
+          
+
+          
+            
+            <img src="_static/icon.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.10.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="Introduction.html">Introduction</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#dependencies-download-a-name-dependencies-download-a">Dependencies download <span class="raw-html-m2r"><a name="dependencies-download"></a></span></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#package-installation-a-name-package-installation-a">Package installation <span class="raw-html-m2r"><a name="package-installation"></a></span></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#local-installation-a-name-local-installation-a">Local installation <span class="raw-html-m2r"><a name="local-installation"></a></span></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#build-documentation-a-name-api-documentation-a">Build documentation <span class="raw-html-m2r"><a name="api-documentation"></a></span></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="ProjectSamples.html">Sample projects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Contribution.html">Contribution</a></li>
+</ul>
+<p class="caption"><span class="caption-text">API:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="api/ncgenes7.augmentations.html">ncgenes7.augmentations package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/ncgenes7.callbacks.html">ncgenes7.callbacks package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/ncgenes7.data_feeders.html">ncgenes7.data_feeders package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/ncgenes7.data_fields.html">ncgenes7.data_fields package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/ncgenes7.data_filters.html">ncgenes7.data_filters package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/ncgenes7.data_readers.html">ncgenes7.data_readers package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/ncgenes7.file_lists.html">ncgenes7.file_lists package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/ncgenes7.kpis.html">ncgenes7.kpis package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/ncgenes7.learning_rate_manipulators.html">ncgenes7.learning_rate_manipulators package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/ncgenes7.losses.html">ncgenes7.losses package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/ncgenes7.metrics.html">ncgenes7.metrics package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/ncgenes7.plugins.html">ncgenes7.plugins package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/ncgenes7.plugins.cnns.html">ncgenes7.plugins.cnns package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/ncgenes7.plugins.object_detection.html">ncgenes7.plugins.object_detection package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/ncgenes7.plugins.preprocessing.html">ncgenes7.plugins.preprocessing package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/ncgenes7.plugins.utils.html">ncgenes7.plugins.utils package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/ncgenes7.postprocessors.html">ncgenes7.postprocessors package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/ncgenes7.summaries.html">ncgenes7.summaries package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/ncgenes7.third_party.html">ncgenes7.third_party package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/ncgenes7.third_party.object_detection.html">ncgenes7.third_party.object_detection package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/ncgenes7.utils.html">ncgenes7.utils package</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">ncgenes7</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Installation</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/Installation.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="installation">
+<h1>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h1>
+<div class="contents local topic" id="contents">
+<ul class="simple">
+<li><p><a class="reference internal" href="#dependencies-download-a-name-dependencies-download-a" id="id2">Dependencies download <span class="raw-html-m2r"><a name="dependencies-download"></a></span></a></p></li>
+<li><p><a class="reference internal" href="#package-installation-a-name-package-installation-a" id="id3">Package installation <span class="raw-html-m2r"><a name="package-installation"></a></span></a></p></li>
+<li><p><a class="reference internal" href="#local-installation-a-name-local-installation-a" id="id4">Local installation <span class="raw-html-m2r"><a name="local-installation"></a></span></a></p></li>
+<li><p><a class="reference internal" href="#build-documentation-a-name-api-documentation-a" id="id5">Build documentation <span class="raw-html-m2r"><a name="api-documentation"></a></span></a></p></li>
+</ul>
+</div>
+<div class="section" id="dependencies-download-a-name-dependencies-download-a">
+<h2><a class="toc-backref" href="#id2">Dependencies download <span class="raw-html-m2r"><a name="dependencies-download"></a></span></a><a class="headerlink" href="#dependencies-download-a-name-dependencies-download-a" title="Permalink to this headline">¶</a></h2>
+<p>For some modules to work, you need to download some packages from github,
+since they cannot be installed using some package manager.
+Supported versions are controlled over commit hashes, but you
+can try the most recent ones if you want so. Following table shows what and
+when you need:</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>nucleotides</p></th>
+<th class="head"><p>required dependency github link</p></th>
+<th class="head"><p>latest supported commit</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>object detection related nucleotides, like plugins, losses etc.</p></td>
+<td><p><a class="reference external" href="https://github.com/tensorflow/models/tree/master/research/object_detection">github</a></p></td>
+<td><p>8044453</p></td>
+</tr>
+</tbody>
+</table>
+<p>Default download and activation, e.g. adding the modules to PYTHONPATH can be
+done using following scripts:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>chmod <span class="m">750</span> download_dependencies.sh
+./download_dependencies.sh
+<span class="nb">source</span> activate_dependencies.sh
+</pre></div>
+</div>
+<p>This will download dependencies in the folder <code class="docutils literal notranslate"><span class="pre">../ncgenes7_dependencies/</span></code>
+and add this folder to PYTHONPATH. You need to have the packages inside
+of PYTHONPATH for both types of installation / activation.</p>
+<p>Also you can install the dependencies directly to you site-packages using:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python3 setup.py install_additional_deps
+</pre></div>
+</div>
+<p>This is best to use with virtualenv, like shown below.</p>
+<p><strong>Important</strong>: object_detection has its own dependencies, which will not be
+installed by this installation. So refer to <a class="reference external" href="https://github.com/tensorflow/models/tree/master/research/object_detection">github</a>
+installation guide. Also you need to have the protobuf installed prior the
+<code class="docutils literal notranslate"><span class="pre">./download_dependencies.sh</span></code> or <code class="docutils literal notranslate"><span class="pre">python3</span> <span class="pre">setup.py</span> <span class="pre">install_additional_deps</span></code>.</p>
+</div>
+<div class="section" id="package-installation-a-name-package-installation-a">
+<h2><a class="toc-backref" href="#id3">Package installation <span class="raw-html-m2r"><a name="package-installation"></a></span></a><a class="headerlink" href="#package-installation-a-name-package-installation-a" title="Permalink to this headline">¶</a></h2>
+<p>Make sure, that nucleus7 already installed with appropriate version!</p>
+<p>To install it, just type (remove virtual environment commands if you want to
+install in the default environment):</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>virtualenv --python<span class="o">=</span>python3.6 ~/.env-ncgenes7
+<span class="nb">source</span> ~/.env-ncgenes7/bin/activate
+python3 setup.py install
+</pre></div>
+</div>
+<p>You are free to select the tensorflow version, but it was tested with
+tensorflow(-gpu) &gt;=1.11, &lt;2.0</p>
+</div>
+<div class="section" id="local-installation-a-name-local-installation-a">
+<h2><a class="toc-backref" href="#id4">Local installation <span class="raw-html-m2r"><a name="local-installation"></a></span></a><a class="headerlink" href="#local-installation-a-name-local-installation-a" title="Permalink to this headline">¶</a></h2>
+<p>First you need to install the <a class="reference external" href="./requirements.txt">requirements</a>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip3 install -r requirements.txt
+</pre></div>
+</div>
+<p>or <a class="reference external" href="./requirements_docs.txt">documentation requirements</a> (includes requirements for docs build):</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip3 install -r requirements_docs.txt
+</pre></div>
+</div>
+<p>To add ncgenes7 to <code class="docutils literal notranslate"><span class="pre">PYTHONPATH</span></code> just source the <code class="docutils literal notranslate"><span class="pre">activate.sh</span></code> which will
+setup everything inside the current shell session:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">source</span> activate.sh
+</pre></div>
+</div>
+</div>
+<div class="section" id="build-documentation-a-name-api-documentation-a">
+<h2><a class="toc-backref" href="#id5">Build documentation <span class="raw-html-m2r"><a name="api-documentation"></a></span></a><a class="headerlink" href="#build-documentation-a-name-api-documentation-a" title="Permalink to this headline">¶</a></h2>
+<p>Most important methods and classes are documented inside of its docstring using
+[NumpyDoc][numpydoc] format. So we can build
+the documentation using sphinx.
+So first <a class="reference external" href="https://www.sphinx-doc.org/en/master/usage/installation.html">install sphinx</a> if you don’t have it,
+and the build the docs:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> docs
+make html
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="ProjectSamples.html" class="btn btn-neutral float-right" title="Sample projects" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="Introduction.html" class="btn btn-neutral float-left" title="Introduction" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Audi Electronics Venture GmbH
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

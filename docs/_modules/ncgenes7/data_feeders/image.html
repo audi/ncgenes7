@@ -1,0 +1,521 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>ncgenes7.data_feeders.image &mdash; ncgenes7 v0.10.0 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../../_static/icon.ico"/>
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> ncgenes7
+          
+
+          
+            
+            <img src="../../../_static/icon.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.10.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../Introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../ProjectSamples.html">Sample projects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Contribution.html">Contribution</a></li>
+</ul>
+<p class="caption"><span class="caption-text">API:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/ncgenes7.augmentations.html">ncgenes7.augmentations package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/ncgenes7.callbacks.html">ncgenes7.callbacks package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/ncgenes7.data_feeders.html">ncgenes7.data_feeders package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/ncgenes7.data_fields.html">ncgenes7.data_fields package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/ncgenes7.data_filters.html">ncgenes7.data_filters package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/ncgenes7.data_readers.html">ncgenes7.data_readers package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/ncgenes7.file_lists.html">ncgenes7.file_lists package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/ncgenes7.kpis.html">ncgenes7.kpis package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/ncgenes7.learning_rate_manipulators.html">ncgenes7.learning_rate_manipulators package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/ncgenes7.losses.html">ncgenes7.losses package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/ncgenes7.metrics.html">ncgenes7.metrics package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/ncgenes7.plugins.html">ncgenes7.plugins package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/ncgenes7.plugins.cnns.html">ncgenes7.plugins.cnns package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/ncgenes7.plugins.object_detection.html">ncgenes7.plugins.object_detection package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/ncgenes7.plugins.preprocessing.html">ncgenes7.plugins.preprocessing package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/ncgenes7.plugins.utils.html">ncgenes7.plugins.utils package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/ncgenes7.postprocessors.html">ncgenes7.postprocessors package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/ncgenes7.summaries.html">ncgenes7.summaries package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/ncgenes7.third_party.html">ncgenes7.third_party package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/ncgenes7.third_party.object_detection.html">ncgenes7.third_party.object_detection package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/ncgenes7.utils.html">ncgenes7.utils package</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">ncgenes7</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../index.html">Module code</a> &raquo;</li>
+        
+      <li>ncgenes7.data_feeders.image</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for ncgenes7.data_feeders.image</h1><div class="highlight"><pre>
+<span></span><span class="c1"># ==============================================================================</span>
+<span class="c1"># Copyright (c) 2019 Audi Electronics Venture GmbH. All rights reserved.</span>
+<span class="c1">#</span>
+<span class="c1"># This Source Code Form is subject to the terms of the Mozilla</span>
+<span class="c1"># Public License, v. 2.0. If a copy of the MPL was not distributed</span>
+<span class="c1"># with this file, You can obtain one at https://mozilla.org/MPL/2.0/.</span>
+<span class="c1"># ==============================================================================</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Image DataFeeders</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span>
+<span class="kn">import</span> <span class="nn">logging</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Optional</span>
+
+<span class="c1"># pylint: disable=wrong-import-order</span>
+<span class="c1"># is issue with pylint</span>
+<span class="kn">import</span> <span class="nn">cv2</span>
+<span class="kn">import</span> <span class="nn">nucleus7</span> <span class="k">as</span> <span class="nn">nc7</span>
+<span class="kn">from</span> <span class="nn">nucleus7.data.data_feeder</span> <span class="kn">import</span> <span class="n">DataFeeder</span>
+<span class="kn">from</span> <span class="nn">nucleus7.data.data_feeder</span> <span class="kn">import</span> <span class="n">DataFeederFileList</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">skimage.io</span>
+<span class="kn">import</span> <span class="nn">skimage.transform</span>
+
+<span class="kn">from</span> <span class="nn">ncgenes7.data_fields.images</span> <span class="kn">import</span> <span class="n">ImageDataFields</span>
+
+
+<div class="viewcode-block" id="ImageDataFeeder"><a class="viewcode-back" href="../../../api/ncgenes7.data_feeders.html#ncgenes7.data_feeders.image.ImageDataFeeder">[docs]</a><span class="k">class</span> <span class="nc">ImageDataFeeder</span><span class="p">(</span><span class="n">DataFeederFileList</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Class for the feeding the images data to the tensorflow graph</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    image_number_of_channels</span>
+<span class="sd">        number of image channels</span>
+<span class="sd">    image_size</span>
+<span class="sd">        size of image as  [height, width]; if specified, loaded images will be</span>
+<span class="sd">        resized to it; if not specified, then images will have the</span>
+<span class="sd">        original size; may cause errors if sizes are different across images,</span>
+<span class="sd">        since it is not possible to combine them to the batch</span>
+
+<span class="sd">    Attributes</span>
+<span class="sd">    ----------</span>
+<span class="sd">    generated_keys</span>
+<span class="sd">        * images : images</span>
+<span class="sd">        * images_fnames : file names of images</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">file_list_keys</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="n">ImageDataFields</span><span class="o">.</span><span class="n">images</span><span class="p">,</span>
+    <span class="p">]</span>
+    <span class="n">generated_keys</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="n">ImageDataFields</span><span class="o">.</span><span class="n">images</span><span class="p">,</span>
+        <span class="n">ImageDataFields</span><span class="o">.</span><span class="n">images_fnames</span><span class="p">,</span>
+    <span class="p">]</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span>
+                 <span class="n">file_list</span><span class="p">:</span> <span class="n">nc7</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">FileList</span><span class="p">,</span>
+                 <span class="n">image_number_of_channels</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">3</span><span class="p">,</span>
+                 <span class="n">image_size</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">list</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+                 <span class="o">**</span><span class="n">data_feeder_kwargs</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">image_number_of_channels</span> <span class="o">=</span> <span class="n">image_number_of_channels</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">image_size</span> <span class="o">=</span> <span class="n">image_size</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">file_list</span><span class="o">=</span><span class="n">file_list</span><span class="p">,</span> <span class="o">**</span><span class="n">data_feeder_kwargs</span><span class="p">)</span>
+
+<div class="viewcode-block" id="ImageDataFeeder.read_element_from_file_names"><a class="viewcode-back" href="../../../api/ncgenes7.data_feeders.html#ncgenes7.data_feeders.image.ImageDataFeeder.read_element_from_file_names">[docs]</a>    <span class="k">def</span> <span class="nf">read_element_from_file_names</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">images</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+        <span class="c1"># pylint: disable=arguments-differ</span>
+        <span class="c1"># base class has more generic signature</span>
+        <span class="n">res</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="n">images_fnames</span> <span class="o">=</span> <span class="n">images</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">image</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_read_image</span><span class="p">(</span><span class="n">images_fnames</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">OSError</span><span class="p">:</span>
+            <span class="n">image</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_default_image</span><span class="p">(</span><span class="n">images_fnames</span><span class="p">)</span>
+        <span class="n">res</span><span class="p">[</span><span class="n">ImageDataFields</span><span class="o">.</span><span class="n">images</span><span class="p">]</span> <span class="o">=</span> <span class="n">image</span>
+        <span class="n">res</span><span class="p">[</span><span class="n">ImageDataFields</span><span class="o">.</span><span class="n">images_fnames</span><span class="p">]</span> <span class="o">=</span> <span class="n">images_fnames</span>
+        <span class="k">return</span> <span class="n">res</span></div>
+
+    <span class="k">def</span> <span class="nf">_read_image</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">fname</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
+        <span class="n">image</span> <span class="o">=</span> <span class="n">skimage</span><span class="o">.</span><span class="n">io</span><span class="o">.</span><span class="n">imread</span><span class="p">(</span><span class="n">fname</span><span class="p">)</span>
+        <span class="n">image</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_process_image</span><span class="p">(</span><span class="n">image</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">image</span>
+
+    <span class="k">def</span> <span class="nf">_get_default_image</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">images_fnames</span><span class="p">):</span>
+        <span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s2">&quot;Image from </span><span class="si">%s</span><span class="s2"> is corrupted!&quot;</span><span class="p">,</span> <span class="n">images_fnames</span><span class="p">)</span>
+        <span class="n">image_size</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">image_size</span> <span class="ow">or</span> <span class="p">[</span><span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">]</span>
+        <span class="n">image</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">image_size</span>
+                         <span class="o">+</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">image_number_of_channels</span><span class="p">],</span> <span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">image</span>
+
+    <span class="k">def</span> <span class="nf">_process_image</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">image</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">):</span>
+        <span class="n">image</span> <span class="o">=</span> <span class="n">_format_last_dimension</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">image_number_of_channels</span><span class="p">)</span>
+        <span class="n">image</span> <span class="o">=</span> <span class="n">_rescale_according_to_dtype</span><span class="p">(</span><span class="n">image</span><span class="p">)</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">image_size</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">image</span> <span class="o">=</span> <span class="n">skimage</span><span class="o">.</span><span class="n">transform</span><span class="o">.</span><span class="n">resize</span><span class="p">(</span>
+                <span class="n">image</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">image_size</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;reflect&#39;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">image</span></div>
+
+
+<div class="viewcode-block" id="ImageMultiScaleDataFeeder"><a class="viewcode-back" href="../../../api/ncgenes7.data_feeders.html#ncgenes7.data_feeders.image.ImageMultiScaleDataFeeder">[docs]</a><span class="k">class</span> <span class="nc">ImageMultiScaleDataFeeder</span><span class="p">(</span><span class="n">ImageDataFeeder</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Class for the feeding the images data to the tensorflow graph</span>
+<span class="sd">    in multi scales</span>
+
+<span class="sd">    Result of get_batch function is then list of same like dicts</span>
+<span class="sd">    for different scales and different hflips.</span>
+<span class="sd">    In case of horizontal flips, order is following</span>
+<span class="sd">    [scale0, flipped scale0, scale1, flipped scale1 ..]</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    scales</span>
+<span class="sd">        list of scales of the data images to use;</span>
+<span class="sd">    use_horizontal_flip</span>
+<span class="sd">        if the images should be additionally flipped horizontally;</span>
+<span class="sd">    interpolation_order</span>
+<span class="sd">        interpolation order for scaling; see</span>
+<span class="sd">        :obj:`skimage.transform.rescale`</span>
+
+<span class="sd">    Attributes</span>
+<span class="sd">    ----------</span>
+<span class="sd">    generated_keys : list</span>
+<span class="sd">        * image : image</span>
+<span class="sd">        * image_fname : file name of read image</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">generated_keys</span> <span class="o">=</span> <span class="p">[</span><span class="n">ImageDataFields</span><span class="o">.</span><span class="n">images</span><span class="p">,</span>
+                      <span class="n">ImageDataFields</span><span class="o">.</span><span class="n">images_fnames</span><span class="p">]</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span>
+                 <span class="n">scales</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">list</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+                 <span class="n">use_horizontal_flip</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+                 <span class="n">interpolation_order</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span>
+                 <span class="o">**</span><span class="n">data_feeder_kwargs</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">**</span><span class="n">data_feeder_kwargs</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">scales</span> <span class="o">=</span> <span class="n">scales</span> <span class="ow">or</span> <span class="p">[</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">use_horizontal_flip</span> <span class="o">=</span> <span class="n">use_horizontal_flip</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">interpolation_order</span> <span class="o">=</span> <span class="n">interpolation_order</span>
+
+<div class="viewcode-block" id="ImageMultiScaleDataFeeder.get_batch"><a class="viewcode-back" href="../../../api/ncgenes7.data_feeders.html#ncgenes7.data_feeders.image.ImageMultiScaleDataFeeder.get_batch">[docs]</a>    <span class="k">def</span> <span class="nf">get_batch</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">batch_size</span><span class="p">):</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_generator</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_generator</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">build_generator</span><span class="p">()</span>
+        <span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+        <span class="n">batch</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_multiscale_batch</span><span class="p">(</span><span class="n">batch_size</span><span class="p">)</span>
+
+        <span class="n">data_from_first_key</span> <span class="o">=</span> <span class="n">batch</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="bp">self</span><span class="o">.</span><span class="n">generated_keys</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span>
+        <span class="n">is_exhausted</span> <span class="o">=</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">data_from_first_key</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">or</span>
+                        <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">data_from_first_key</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">batch_size</span> <span class="o">-</span> <span class="mi">1</span><span class="p">))</span>
+
+        <span class="k">if</span> <span class="n">is_exhausted</span> <span class="ow">and</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">allow_smaller_final_batch</span><span class="p">:</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;generator of </span><span class="si">%s</span><span class="s1"> is exhausted&#39;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="p">)</span>
+            <span class="k">raise</span> <span class="ne">StopIteration</span><span class="p">()</span>
+
+        <span class="n">feeded_values</span> <span class="o">=</span> <span class="p">[{</span><span class="n">k</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">stack</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+                          <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">batch_</span><span class="o">.</span><span class="n">items</span><span class="p">()}</span> <span class="k">for</span> <span class="n">batch_</span> <span class="ow">in</span> <span class="n">batch</span><span class="p">]</span>
+
+        <span class="k">return</span> <span class="n">feeded_values</span></div>
+
+    <span class="k">def</span> <span class="nf">_get_multiscale_batch</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">batch_size</span><span class="p">):</span>
+        <span class="n">scales</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">scales</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">use_horizontal_flip</span><span class="p">:</span>
+            <span class="n">scales</span> <span class="o">=</span> <span class="p">[</span><span class="n">sc_</span> <span class="k">for</span> <span class="n">sc</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">scales</span><span class="p">,</span> <span class="n">scales</span><span class="p">)</span> <span class="k">for</span> <span class="n">sc_</span> <span class="ow">in</span> <span class="n">sc</span><span class="p">]</span>
+        <span class="n">horizontal_flip_indicator</span> <span class="o">=</span> <span class="p">(</span>
+            <span class="p">[</span><span class="kc">False</span><span class="p">,</span> <span class="kc">True</span><span class="p">]</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">scales</span><span class="p">)</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">use_horizontal_flip</span> <span class="k">else</span>
+            <span class="p">[</span><span class="kc">False</span><span class="p">]</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">scales</span><span class="p">)</span>
+        <span class="p">)</span>
+        <span class="n">batch</span> <span class="o">=</span> <span class="p">[{</span><span class="n">n</span><span class="p">:</span> <span class="p">[]</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">generated_keys</span><span class="p">}</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="n">scales</span><span class="p">]</span>
+        <span class="n">number_of_samples</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">while</span> <span class="n">number_of_samples</span> <span class="o">&lt;</span> <span class="n">batch_size</span><span class="p">:</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">data_element</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">read_element_from_file_names</span><span class="p">(</span>
+                    <span class="o">**</span><span class="nb">next</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_generator</span><span class="p">))</span>
+
+                <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">data_filter_true</span><span class="p">(</span><span class="o">**</span><span class="n">data_element</span><span class="p">):</span>
+                    <span class="k">continue</span>
+
+                <span class="n">image</span> <span class="o">=</span> <span class="n">data_element</span><span class="p">[</span><span class="n">ImageDataFields</span><span class="o">.</span><span class="n">images</span><span class="p">]</span>
+                <span class="n">image_fname</span> <span class="o">=</span> <span class="n">data_element</span><span class="p">[</span><span class="n">ImageDataFields</span><span class="o">.</span><span class="n">images_fnames</span><span class="p">]</span>
+                <span class="k">for</span> <span class="n">isc</span><span class="p">,</span> <span class="p">(</span><span class="n">scale</span><span class="p">,</span> <span class="n">perform_flip</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span>
+                        <span class="nb">zip</span><span class="p">(</span><span class="n">scales</span><span class="p">,</span> <span class="n">horizontal_flip_indicator</span><span class="p">)):</span>
+                    <span class="n">image_transformed</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_transform_image</span><span class="p">(</span>
+                        <span class="n">image</span><span class="p">,</span> <span class="n">scale</span><span class="p">,</span> <span class="n">perform_flip</span><span class="p">)</span>
+                    <span class="n">batch</span><span class="p">[</span><span class="n">isc</span><span class="p">][</span><span class="n">ImageDataFields</span><span class="o">.</span><span class="n">images</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">image_transformed</span><span class="p">)</span>
+                    <span class="n">batch</span><span class="p">[</span><span class="n">isc</span><span class="p">][</span><span class="n">ImageDataFields</span><span class="o">.</span><span class="n">images_fnames</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+                        <span class="n">image_fname</span><span class="p">)</span>
+                <span class="n">number_of_samples</span> <span class="o">+=</span> <span class="mi">1</span>
+            <span class="k">except</span> <span class="ne">StopIteration</span><span class="p">:</span>
+                <span class="k">break</span>
+        <span class="k">return</span> <span class="n">batch</span>
+
+    <span class="k">def</span> <span class="nf">_transform_image</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">image</span><span class="p">,</span> <span class="n">scale</span><span class="p">,</span> <span class="n">perform_flip</span><span class="p">):</span>
+        <span class="n">image_transformed</span> <span class="o">=</span> <span class="n">skimage</span><span class="o">.</span><span class="n">transform</span><span class="o">.</span><span class="n">rescale</span><span class="p">(</span>
+            <span class="n">image</span><span class="p">,</span> <span class="n">scale</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">interpolation_order</span><span class="p">,</span>
+            <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;constant&#39;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">perform_flip</span><span class="p">:</span>
+            <span class="n">image_transformed</span> <span class="o">=</span> <span class="n">image_transformed</span><span class="p">[:,</span> <span class="p">::</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="p">:]</span>
+        <span class="k">return</span> <span class="n">image_transformed</span></div>
+
+
+<div class="viewcode-block" id="CameraImageDataFeeder"><a class="viewcode-back" href="../../../api/ncgenes7.data_feeders.html#ncgenes7.data_feeders.image.CameraImageDataFeeder">[docs]</a><span class="k">class</span> <span class="nc">CameraImageDataFeeder</span><span class="p">(</span><span class="n">DataFeeder</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Class for the feeding the images data to the tensorflow graph</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    convert_image_to_gray</span>
+<span class="sd">        controls if colored camera image should be converted to grey scale</span>
+<span class="sd">    image_size</span>
+<span class="sd">        size of image; if specified, loaded images will be resized to it;</span>
+<span class="sd">        [h, w]</span>
+<span class="sd">    camera_index</span>
+<span class="sd">        camera index; to open camera :obj:`cv2.VideoCapture` is used</span>
+<span class="sd">    number_of_iterations</span>
+<span class="sd">        number of iterations until StopIteration occur; if set to 0 or None,</span>
+<span class="sd">        will create infinite generator</span>
+
+<span class="sd">    Attributes</span>
+<span class="sd">    ----------</span>
+<span class="sd">    generated_keys</span>
+<span class="sd">        * images : images</span>
+<span class="sd">        * images_fnames : strings in format cam_{camera_id}_{timestamp}</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">generated_keys</span> <span class="o">=</span> <span class="p">[</span><span class="n">ImageDataFields</span><span class="o">.</span><span class="n">images</span><span class="p">,</span> <span class="n">ImageDataFields</span><span class="o">.</span><span class="n">images_fnames</span><span class="p">]</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span>
+                 <span class="n">convert_image_to_gray</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+                 <span class="n">image_size</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">list</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+                 <span class="n">camera_index</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
+                 <span class="n">number_of_iterations</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">100</span><span class="p">,</span>
+                 <span class="o">**</span><span class="n">data_feeder_kwargs</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">convert_image_to_gray</span> <span class="o">=</span> <span class="n">convert_image_to_gray</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">image_size</span> <span class="o">=</span> <span class="n">image_size</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">camera_index</span> <span class="o">=</span> <span class="n">camera_index</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">number_of_iterations</span> <span class="o">=</span> <span class="n">number_of_iterations</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_cap</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">VideoCapture</span><span class="p">(</span><span class="n">camera_index</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cap</span><span class="o">.</span><span class="n">isOpened</span><span class="p">():</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Camera </span><span class="si">{}</span><span class="s2"> is in use or it is not connected!&quot;</span>
+                             <span class="s2">&quot;&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">camera_index</span><span class="p">))</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">**</span><span class="n">data_feeder_kwargs</span><span class="p">)</span>
+
+<div class="viewcode-block" id="CameraImageDataFeeder.build_generator"><a class="viewcode-back" href="../../../api/ncgenes7.data_feeders.html#ncgenes7.data_feeders.image.CameraImageDataFeeder.build_generator">[docs]</a>    <span class="k">def</span> <span class="nf">build_generator</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">number_of_iterations</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">number_of_iterations</span><span class="p">):</span>
+                <span class="k">yield</span> <span class="n">i</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+                <span class="k">yield</span> <span class="mi">0</span></div>
+
+<div class="viewcode-block" id="CameraImageDataFeeder.create_data_from_generator"><a class="viewcode-back" href="../../../api/ncgenes7.data_feeders.html#ncgenes7.data_feeders.image.CameraImageDataFeeder.create_data_from_generator">[docs]</a>    <span class="k">def</span> <span class="nf">create_data_from_generator</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
+        <span class="n">res</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="n">image</span><span class="p">,</span> <span class="n">timestamp</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_read_image</span><span class="p">()</span>
+        <span class="n">res</span><span class="p">[</span><span class="n">ImageDataFields</span><span class="o">.</span><span class="n">images</span><span class="p">]</span> <span class="o">=</span> <span class="n">image</span>
+        <span class="n">res</span><span class="p">[</span><span class="n">ImageDataFields</span><span class="o">.</span><span class="n">images_fnames</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;cam_</span><span class="si">{}</span><span class="s2">_</span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">camera_index</span><span class="p">,</span> <span class="n">timestamp</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">res</span></div>
+
+    <span class="k">def</span> <span class="nf">_read_image</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">_</span><span class="p">,</span> <span class="n">image</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cap</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+        <span class="n">timestamp</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s1">&#39;%Y-%m-</span><span class="si">%d</span><span class="s1">_%H:%M:%S.</span><span class="si">%f</span><span class="s1">&#39;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">convert_image_to_gray</span><span class="p">:</span>
+            <span class="n">image</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">cvtColor</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">cv2</span><span class="o">.</span><span class="n">COLOR_BGR2GRAY</span><span class="p">)</span>
+            <span class="n">image</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">expand_dims</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">image</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">cvtColor</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">cv2</span><span class="o">.</span><span class="n">COLOR_BGR2RGB</span><span class="p">)</span>
+        <span class="n">image</span> <span class="o">=</span> <span class="n">_rescale_according_to_dtype</span><span class="p">(</span><span class="n">image</span><span class="p">)</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">image_size</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">image</span> <span class="o">=</span> <span class="n">skimage</span><span class="o">.</span><span class="n">transform</span><span class="o">.</span><span class="n">resize</span><span class="p">(</span>
+                <span class="n">image</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">image_size</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;reflect&#39;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">image</span><span class="p">,</span> <span class="n">timestamp</span>
+
+    <span class="k">def</span> <span class="fm">__del__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_cap</span><span class="o">.</span><span class="n">release</span><span class="p">()</span></div>
+
+
+<span class="k">def</span> <span class="nf">_format_last_dimension</span><span class="p">(</span><span class="n">image</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">image_number_of_channels</span><span class="p">:</span> <span class="nb">int</span>
+                           <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">image</span><span class="o">.</span><span class="n">ndim</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+        <span class="n">image</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">expand_dims</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">last_dimension</span> <span class="o">=</span> <span class="n">image</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+    <span class="k">if</span> <span class="n">last_dimension</span> <span class="o">&gt;</span> <span class="n">image_number_of_channels</span><span class="p">:</span>
+        <span class="n">image</span> <span class="o">=</span> <span class="n">image</span><span class="p">[:,</span> <span class="p">:,</span> <span class="p">:</span><span class="n">image_number_of_channels</span><span class="p">]</span>
+    <span class="k">elif</span> <span class="n">last_dimension</span> <span class="o">&lt;</span> <span class="n">image_number_of_channels</span><span class="p">:</span>
+        <span class="n">repeat_factor</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">image_number_of_channels</span> <span class="o">/</span> <span class="n">last_dimension</span><span class="p">)</span>
+        <span class="n">image</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">tile</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">repeat_factor</span><span class="p">])</span>
+    <span class="k">return</span> <span class="n">image</span>
+
+
+<span class="k">def</span> <span class="nf">_rescale_according_to_dtype</span><span class="p">(</span><span class="n">image</span><span class="p">):</span>
+    <span class="n">image_max_format</span> <span class="o">=</span> <span class="p">{</span><span class="n">np</span><span class="o">.</span><span class="n">dtype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">uint16</span><span class="p">):</span> <span class="mi">65535</span><span class="p">,</span>
+                        <span class="n">np</span><span class="o">.</span><span class="n">dtype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">uint8</span><span class="p">):</span> <span class="mi">255</span><span class="p">,</span>
+                        <span class="n">np</span><span class="o">.</span><span class="n">dtype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">):</span> <span class="mi">1</span><span class="p">,</span>
+                        <span class="n">np</span><span class="o">.</span><span class="n">dtype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">):</span> <span class="mi">1</span><span class="p">}[</span><span class="n">image</span><span class="o">.</span><span class="n">dtype</span><span class="p">]</span>
+    <span class="n">image</span> <span class="o">=</span> <span class="n">image</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">image</span><span class="o">.</span><span class="n">max</span><span class="p">()</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="n">image</span> <span class="o">/=</span> <span class="n">image_max_format</span>
+    <span class="k">return</span> <span class="n">image</span>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Audi Electronics Venture GmbH
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

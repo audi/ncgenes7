@@ -1,0 +1,298 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>ncgenes7.data_fields.images &mdash; ncgenes7 v0.10.0 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../../_static/icon.ico"/>
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> ncgenes7
+          
+
+          
+            
+            <img src="../../../_static/icon.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.10.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../Introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../ProjectSamples.html">Sample projects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Contribution.html">Contribution</a></li>
+</ul>
+<p class="caption"><span class="caption-text">API:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/ncgenes7.augmentations.html">ncgenes7.augmentations package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/ncgenes7.callbacks.html">ncgenes7.callbacks package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/ncgenes7.data_feeders.html">ncgenes7.data_feeders package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/ncgenes7.data_fields.html">ncgenes7.data_fields package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/ncgenes7.data_filters.html">ncgenes7.data_filters package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/ncgenes7.data_readers.html">ncgenes7.data_readers package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/ncgenes7.file_lists.html">ncgenes7.file_lists package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/ncgenes7.kpis.html">ncgenes7.kpis package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/ncgenes7.learning_rate_manipulators.html">ncgenes7.learning_rate_manipulators package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/ncgenes7.losses.html">ncgenes7.losses package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/ncgenes7.metrics.html">ncgenes7.metrics package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/ncgenes7.plugins.html">ncgenes7.plugins package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/ncgenes7.plugins.cnns.html">ncgenes7.plugins.cnns package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/ncgenes7.plugins.object_detection.html">ncgenes7.plugins.object_detection package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/ncgenes7.plugins.preprocessing.html">ncgenes7.plugins.preprocessing package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/ncgenes7.plugins.utils.html">ncgenes7.plugins.utils package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/ncgenes7.postprocessors.html">ncgenes7.postprocessors package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/ncgenes7.summaries.html">ncgenes7.summaries package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/ncgenes7.third_party.html">ncgenes7.third_party package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/ncgenes7.third_party.object_detection.html">ncgenes7.third_party.object_detection package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/ncgenes7.utils.html">ncgenes7.utils package</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">ncgenes7</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../index.html">Module code</a> &raquo;</li>
+        
+      <li>ncgenes7.data_fields.images</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for ncgenes7.data_fields.images</h1><div class="highlight"><pre>
+<span></span><span class="c1"># ==============================================================================</span>
+<span class="c1"># Copyright (c) 2019 Audi Electronics Venture GmbH. All rights reserved.</span>
+<span class="c1">#</span>
+<span class="c1"># This Source Code Form is subject to the terms of the Mozilla</span>
+<span class="c1"># Public License, v. 2.0. If a copy of the MPL was not distributed</span>
+<span class="c1"># with this file, You can obtain one at https://mozilla.org/MPL/2.0/.</span>
+<span class="c1"># ==============================================================================</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Containers with names of input / outputs to use with images</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+
+<span class="c1"># pylint: disable=too-few-public-methods</span>
+<span class="c1"># serves more as a container and not as an interface</span>
+<div class="viewcode-block" id="ImageDataFields"><a class="viewcode-back" href="../../../api/ncgenes7.data_fields.html#ncgenes7.data_fields.images.ImageDataFields">[docs]</a><span class="k">class</span> <span class="nc">ImageDataFields</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Names for the input tensors.</span>
+
+<span class="sd">    Holds the standard data field names to use for identifying input tensors.</span>
+<span class="sd">    This should be used by the decoder to identify keys for the returned</span>
+<span class="sd">    tensor_dict containing input tensors.</span>
+<span class="sd">    And it should be used by the model to identify the tensors it needs.</span>
+
+<span class="sd">    Attributes</span>
+<span class="sd">    ----------</span>
+<span class="sd">    images</span>
+<span class="sd">        images</span>
+<span class="sd">    images_PNG</span>
+<span class="sd">        images encoded with PNG</span>
+<span class="sd">    images_JPEG</span>
+<span class="sd">        images encoded with JPG</span>
+<span class="sd">    images_left</span>
+<span class="sd">        left images</span>
+<span class="sd">    images_right</span>
+<span class="sd">        right images</span>
+<span class="sd">    image_pairs</span>
+<span class="sd">        paired images</span>
+<span class="sd">    images_fnames</span>
+<span class="sd">        file name of images</span>
+<span class="sd">    images_original_size</span>
+<span class="sd">        original sizes of image before it was resized</span>
+<span class="sd">    images_left_fnames</span>
+<span class="sd">        file name of left images</span>
+<span class="sd">    image_sizes</span>
+<span class="sd">        image sizes</span>
+<span class="sd">    images_right_fnames</span>
+<span class="sd">        file name of right images</span>
+<span class="sd">    image_pairs_fnames</span>
+<span class="sd">        file name of paired images</span>
+<span class="sd">    depth_images</span>
+<span class="sd">        depth images</span>
+<span class="sd">    disparity_images</span>
+<span class="sd">        disparity images</span>
+<span class="sd">    disparity_images_left</span>
+<span class="sd">        left disparity image</span>
+<span class="sd">    disparity_images_right</span>
+<span class="sd">        right disparity image</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">images</span> <span class="o">=</span> <span class="s1">&#39;images&#39;</span>
+    <span class="n">images_PNG</span> <span class="o">=</span> <span class="s2">&quot;images_PNG&quot;</span>
+    <span class="n">images_JPEG</span> <span class="o">=</span> <span class="s2">&quot;images_JPEG&quot;</span>
+    <span class="n">images_left</span> <span class="o">=</span> <span class="s2">&quot;images_left&quot;</span>
+    <span class="n">images_right</span> <span class="o">=</span> <span class="s2">&quot;images_right&quot;</span>
+    <span class="n">images_fnames</span> <span class="o">=</span> <span class="s1">&#39;images_fnames&#39;</span>
+    <span class="n">images_original_size</span> <span class="o">=</span> <span class="s1">&#39;images_original_size&#39;</span>
+    <span class="n">images_left_fnames</span> <span class="o">=</span> <span class="s2">&quot;images_left_fnames&quot;</span>
+    <span class="n">images_right_fnames</span> <span class="o">=</span> <span class="s2">&quot;images_right_fnames&quot;</span>
+    <span class="n">image_pairs</span> <span class="o">=</span> <span class="s2">&quot;image_pairs&quot;</span>
+    <span class="n">image_pairs_fnames</span> <span class="o">=</span> <span class="s2">&quot;image_pairs_fnames&quot;</span>
+    <span class="n">image_sizes</span> <span class="o">=</span> <span class="s2">&quot;image_sizes&quot;</span>
+    <span class="n">depth_images</span> <span class="o">=</span> <span class="s2">&quot;depth_images&quot;</span>
+    <span class="n">disparity_images</span> <span class="o">=</span> <span class="s2">&quot;disparity_images&quot;</span>
+    <span class="n">disparity_images_left</span> <span class="o">=</span> <span class="s2">&quot;disparity_images_left&quot;</span>
+    <span class="n">disparity_images_right</span> <span class="o">=</span> <span class="s2">&quot;disparity_images_right&quot;</span></div>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Audi Electronics Venture GmbH
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

@@ -1,0 +1,441 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>ncgenes7.callbacks.image &mdash; ncgenes7 v0.10.0 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../../_static/icon.ico"/>
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> ncgenes7
+          
+
+          
+            
+            <img src="../../../_static/icon.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.10.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../Introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../ProjectSamples.html">Sample projects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Contribution.html">Contribution</a></li>
+</ul>
+<p class="caption"><span class="caption-text">API:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/ncgenes7.augmentations.html">ncgenes7.augmentations package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/ncgenes7.callbacks.html">ncgenes7.callbacks package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/ncgenes7.data_feeders.html">ncgenes7.data_feeders package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/ncgenes7.data_fields.html">ncgenes7.data_fields package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/ncgenes7.data_filters.html">ncgenes7.data_filters package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/ncgenes7.data_readers.html">ncgenes7.data_readers package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/ncgenes7.file_lists.html">ncgenes7.file_lists package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/ncgenes7.kpis.html">ncgenes7.kpis package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/ncgenes7.learning_rate_manipulators.html">ncgenes7.learning_rate_manipulators package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/ncgenes7.losses.html">ncgenes7.losses package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/ncgenes7.metrics.html">ncgenes7.metrics package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/ncgenes7.plugins.html">ncgenes7.plugins package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/ncgenes7.plugins.cnns.html">ncgenes7.plugins.cnns package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/ncgenes7.plugins.object_detection.html">ncgenes7.plugins.object_detection package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/ncgenes7.plugins.preprocessing.html">ncgenes7.plugins.preprocessing package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/ncgenes7.plugins.utils.html">ncgenes7.plugins.utils package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/ncgenes7.postprocessors.html">ncgenes7.postprocessors package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/ncgenes7.summaries.html">ncgenes7.summaries package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/ncgenes7.third_party.html">ncgenes7.third_party package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/ncgenes7.third_party.object_detection.html">ncgenes7.third_party.object_detection package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/ncgenes7.utils.html">ncgenes7.utils package</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">ncgenes7</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../index.html">Module code</a> &raquo;</li>
+        
+      <li>ncgenes7.callbacks.image</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for ncgenes7.callbacks.image</h1><div class="highlight"><pre>
+<span></span><span class="c1"># ==============================================================================</span>
+<span class="c1"># Copyright (c) 2019 Audi Electronics Venture GmbH. All rights reserved.</span>
+<span class="c1">#</span>
+<span class="c1"># This Source Code Form is subject to the terms of the Mozilla</span>
+<span class="c1"># Public License, v. 2.0. If a copy of the MPL was not distributed</span>
+<span class="c1"># with this file, You can obtain one at https://mozilla.org/MPL/2.0/.</span>
+<span class="c1"># ==============================================================================</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">classes for general purpose callback implementation</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">warnings</span>
+
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">nucleus7</span> <span class="k">as</span> <span class="nn">nc7</span>
+<span class="kn">import</span> <span class="nn">skimage.io</span>
+
+<span class="kn">from</span> <span class="nn">ncgenes7.data_fields.images</span> <span class="kn">import</span> <span class="n">ImageDataFields</span>
+<span class="kn">from</span> <span class="nn">ncgenes7.utils</span> <span class="kn">import</span> <span class="n">image_io_utils</span>
+<span class="kn">from</span> <span class="nn">ncgenes7.utils</span> <span class="kn">import</span> <span class="n">image_utils</span>
+
+
+<div class="viewcode-block" id="ImageSaver"><a class="viewcode-back" href="../../../api/ncgenes7.callbacks.html#ncgenes7.callbacks.image.ImageSaver">[docs]</a><span class="k">class</span> <span class="nc">ImageSaver</span><span class="p">(</span><span class="n">nc7</span><span class="o">.</span><span class="n">coordinator</span><span class="o">.</span><span class="n">SaverCallback</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Image saver callback</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    save_file_extension</span>
+<span class="sd">        extension of the save file</span>
+
+<span class="sd">    Attributes</span>
+<span class="sd">    ----------</span>
+<span class="sd">    incoming_keys</span>
+<span class="sd">        * images : image or list of images, [bs, h, w, num_channels], np.float</span>
+
+<span class="sd">    Raises</span>
+<span class="sd">    ------</span>
+<span class="sd">    ValueError</span>
+<span class="sd">        if key_for_basename was provided</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">incoming_keys</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="n">ImageDataFields</span><span class="o">.</span><span class="n">images</span><span class="p">,</span>
+    <span class="p">]</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+                 <span class="n">save_file_extension</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;png&quot;</span><span class="p">,</span>
+                 <span class="o">**</span><span class="n">callback_kwargs</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">ImageSaver</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">**</span><span class="n">callback_kwargs</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">save_file_extension</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;.&quot;</span><span class="p">):</span>
+            <span class="n">save_file_extension</span> <span class="o">=</span> <span class="n">save_file_extension</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">save_file_extension</span> <span class="o">=</span> <span class="n">save_file_extension</span>
+
+<div class="viewcode-block" id="ImageSaver.save_sample"><a class="viewcode-back" href="../../../api/ncgenes7.callbacks.html#ncgenes7.callbacks.image.ImageSaver.save_sample">[docs]</a>    <span class="k">def</span> <span class="nf">save_sample</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">images</span><span class="p">):</span>
+        <span class="c1"># pylint: disable=arguments-differ</span>
+        <span class="c1"># parent method has more generic signature</span>
+        <span class="n">save_name_without_ext</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">splitext</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">save_name</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">save_fname</span> <span class="o">=</span> <span class="s2">&quot;.&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="n">save_name_without_ext</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">save_file_extension</span><span class="p">])</span>
+        <span class="k">with</span> <span class="n">warnings</span><span class="o">.</span><span class="n">catch_warnings</span><span class="p">():</span>
+            <span class="n">warnings</span><span class="o">.</span><span class="n">simplefilter</span><span class="p">(</span><span class="s2">&quot;ignore&quot;</span><span class="p">)</span>
+            <span class="n">skimage</span><span class="o">.</span><span class="n">io</span><span class="o">.</span><span class="n">imsave</span><span class="p">(</span><span class="n">save_fname</span><span class="p">,</span> <span class="n">images</span><span class="p">)</span></div></div>
+
+
+<div class="viewcode-block" id="DepthFromDisparityCalculator"><a class="viewcode-back" href="../../../api/ncgenes7.callbacks.html#ncgenes7.callbacks.image.DepthFromDisparityCalculator">[docs]</a><span class="k">class</span> <span class="nc">DepthFromDisparityCalculator</span><span class="p">(</span><span class="n">nc7</span><span class="o">.</span><span class="n">coordinator</span><span class="o">.</span><span class="n">CoordinatorCallback</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Calculate the depth out of disparity and camera properties</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    clip_distance</span>
+<span class="sd">        values after that distance will be clipped, [m]</span>
+<span class="sd">    baseline</span>
+<span class="sd">        distance between stereo cameras, [m]</span>
+<span class="sd">    focal_length</span>
+<span class="sd">        focal length of the camera, [m]</span>
+<span class="sd">    sensor_width</span>
+<span class="sd">        sensor width, [m]</span>
+
+<span class="sd">    Attributes</span>
+<span class="sd">    ----------</span>
+<span class="sd">    incoming_keys</span>
+<span class="sd">        * disparity_images : disparity for left image, [bs, h, w], np.float</span>
+<span class="sd">    generated_keys</span>
+<span class="sd">        * depth_images : images with depth, [bs, h, w], np.float</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">incoming_keys</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="n">ImageDataFields</span><span class="o">.</span><span class="n">disparity_images</span><span class="p">,</span>
+    <span class="p">]</span>
+    <span class="n">generated_keys</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="n">ImageDataFields</span><span class="o">.</span><span class="n">depth_images</span><span class="p">,</span>
+    <span class="p">]</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span>
+                 <span class="n">baseline</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.3</span><span class="p">,</span>
+                 <span class="n">focal_length</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">1.4e-3</span><span class="p">,</span>
+                 <span class="n">sensor_width</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">7.4e-3</span><span class="p">,</span>
+                 <span class="n">clip_distance</span><span class="o">=</span><span class="mi">125</span><span class="p">,</span>
+                 <span class="o">**</span><span class="n">callback_kwargs</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">DepthFromDisparityCalculator</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">**</span><span class="n">callback_kwargs</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">baseline</span> <span class="o">=</span> <span class="n">baseline</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">focal_length</span> <span class="o">=</span> <span class="n">focal_length</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">sensor_width</span> <span class="o">=</span> <span class="n">sensor_width</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">clip_distance</span> <span class="o">=</span> <span class="n">clip_distance</span>
+
+<div class="viewcode-block" id="DepthFromDisparityCalculator.on_iteration_end"><a class="viewcode-back" href="../../../api/ncgenes7.callbacks.html#ncgenes7.callbacks.image.DepthFromDisparityCalculator.on_iteration_end">[docs]</a>    <span class="k">def</span> <span class="nf">on_iteration_end</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">disparity_images</span><span class="p">):</span>
+        <span class="c1"># pylint: disable=arguments-differ</span>
+        <span class="c1"># parent method has more generic signature</span>
+        <span class="n">depth_images</span> <span class="o">=</span> <span class="n">image_utils</span><span class="o">.</span><span class="n">disparity2depth</span><span class="p">(</span>
+            <span class="n">disparity_images</span><span class="p">,</span> <span class="n">baseline_dist</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">baseline</span><span class="p">,</span>
+            <span class="n">focal_length</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">focal_length</span><span class="p">,</span> <span class="n">sensor_width</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">sensor_width</span><span class="p">,</span>
+            <span class="n">clip_distance</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">clip_distance</span><span class="p">)</span>
+        <span class="k">return</span> <span class="p">{</span><span class="n">ImageDataFields</span><span class="o">.</span><span class="n">depth_images</span><span class="p">:</span> <span class="n">depth_images</span><span class="p">}</span></div></div>
+
+
+<div class="viewcode-block" id="DepthSaver"><a class="viewcode-back" href="../../../api/ncgenes7.callbacks.html#ncgenes7.callbacks.image.DepthSaver">[docs]</a><span class="k">class</span> <span class="nc">DepthSaver</span><span class="p">(</span><span class="n">nc7</span><span class="o">.</span><span class="n">coordinator</span><span class="o">.</span><span class="n">SaverCallback</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Save the depth as 16 bit png files and isolines if depth</span>
+
+<span class="sd">    Following images are stored to log_dir:</span>
+<span class="sd">        * depth 16 bit (optional): {image_fname}_depth_16bit.png</span>
+<span class="sd">        * depth isolines (optional): {image_fname}_depth_isolines.png</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    save_16bit_depth</span>
+<span class="sd">        if the 16bit image should be saved</span>
+<span class="sd">    save_depth_isolines</span>
+<span class="sd">        if the isolines images should be saved</span>
+<span class="sd">    max_isodist</span>
+<span class="sd">        max distance to draw the isolines on, [m]</span>
+<span class="sd">    border_offset</span>
+<span class="sd">        offset from border in pixels for iso levels calculation</span>
+<span class="sd">    number_of_isolevels</span>
+<span class="sd">        number of isolevels</span>
+<span class="sd">    max_distance</span>
+<span class="sd">        max distance in depth images, [m]</span>
+
+<span class="sd">    Attributes</span>
+<span class="sd">    ----------</span>
+<span class="sd">    incoming_keys</span>
+<span class="sd">        * images : left image,[bs, h, w, num_channels], np.float</span>
+<span class="sd">        * depth_images : depth image, , [bs, h, w], np.float</span>
+<span class="sd">        * images_fnames : image file name</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">incoming_keys</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="n">ImageDataFields</span><span class="o">.</span><span class="n">depth_images</span><span class="p">,</span>
+        <span class="s2">&quot;_&quot;</span><span class="p">,</span> <span class="n">ImageDataFields</span><span class="o">.</span><span class="n">images</span><span class="p">,</span>
+    <span class="p">]</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span>
+                 <span class="n">save_16bit_depth</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+                 <span class="n">save_depth_isolines</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+                 <span class="n">max_isodist</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span>
+                 <span class="n">number_of_isolevels</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span>
+                 <span class="n">max_distance</span><span class="o">=</span><span class="mf">125.0</span><span class="p">,</span>
+                 <span class="n">border_offset</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span>
+                 <span class="o">**</span><span class="n">callback_kwargs</span><span class="p">):</span>
+
+        <span class="k">if</span> <span class="s2">&quot;key_for_basename&quot;</span> <span class="ow">in</span> <span class="n">callback_kwargs</span><span class="p">:</span>
+            <span class="n">msg</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;do not provide key_for_basename for ImageSaver. It is all &quot;</span>
+                   <span class="s2">&quot;the time images_fnames&quot;</span><span class="p">)</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">DepthSaver</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">**</span><span class="n">callback_kwargs</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">save_16bit_depth</span> <span class="o">=</span> <span class="n">save_16bit_depth</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">save_depth_isolines</span> <span class="o">=</span> <span class="n">save_depth_isolines</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">max_isodist</span> <span class="o">=</span> <span class="n">max_isodist</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">number_of_isolevels</span> <span class="o">=</span> <span class="n">number_of_isolevels</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">border_offset</span> <span class="o">=</span> <span class="n">border_offset</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">max_distance</span> <span class="o">=</span> <span class="n">max_distance</span>
+
+<div class="viewcode-block" id="DepthSaver.save_sample"><a class="viewcode-back" href="../../../api/ncgenes7.callbacks.html#ncgenes7.callbacks.image.DepthSaver.save_sample">[docs]</a>    <span class="k">def</span> <span class="nf">save_sample</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">depth_images</span><span class="p">,</span> <span class="n">images</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="c1"># pylint: disable=arguments-differ</span>
+        <span class="c1"># parent method has more generic signature</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">save_depth_isolines</span><span class="p">:</span>
+            <span class="n">isolines_fname</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">save_name</span> <span class="o">+</span> <span class="s2">&quot;_depth_isolines.png&quot;</span>
+            <span class="n">image_io_utils</span><span class="o">.</span><span class="n">save_isolines</span><span class="p">(</span>
+                <span class="n">isolines_fname</span><span class="p">,</span> <span class="n">depth_images</span><span class="p">,</span> <span class="n">images</span><span class="p">,</span>
+                <span class="n">max_isodist</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">max_isodist</span><span class="p">,</span>
+                <span class="n">number_of_isolevels</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">number_of_isolevels</span><span class="p">,</span>
+                <span class="n">border_offset</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">border_offset</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">save_16bit_depth</span><span class="p">:</span>
+            <span class="n">depth_16bit_fname</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">save_name</span> <span class="o">+</span> <span class="s2">&quot;_depth_16bit.png&quot;</span>
+            <span class="n">depth_images</span> <span class="o">=</span> <span class="n">depth_images</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">max_distance</span>
+            <span class="n">image_io_utils</span><span class="o">.</span><span class="n">save_16bit_png</span><span class="p">(</span><span class="n">depth_16bit_fname</span><span class="p">,</span> <span class="n">depth_images</span><span class="p">)</span></div></div>
+
+
+<div class="viewcode-block" id="ImagePlotterCallback"><a class="viewcode-back" href="../../../api/ncgenes7.callbacks.html#ncgenes7.callbacks.image.ImagePlotterCallback">[docs]</a><span class="k">class</span> <span class="nc">ImagePlotterCallback</span><span class="p">(</span><span class="n">nc7</span><span class="o">.</span><span class="n">coordinator</span><span class="o">.</span><span class="n">CoordinatorCallback</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Plot the image on GUI using matplotlib pyplot</span>
+
+<span class="sd">    Attributes</span>
+<span class="sd">    ----------</span>
+<span class="sd">    incoming_keys</span>
+<span class="sd">        * images : left image,[bs, h, w, num_channels], np.float</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">incoming_keys</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="n">ImageDataFields</span><span class="o">.</span><span class="n">images</span><span class="p">,</span>
+    <span class="p">]</span>
+
+<div class="viewcode-block" id="ImagePlotterCallback.on_iteration_end"><a class="viewcode-back" href="../../../api/ncgenes7.callbacks.html#ncgenes7.callbacks.image.ImagePlotterCallback.on_iteration_end">[docs]</a>    <span class="k">def</span> <span class="nf">on_iteration_end</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">images</span><span class="p">,</span> <span class="n">images_fnames</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="c1"># pylint: disable=arguments-differ</span>
+        <span class="c1"># parent method has more generic signature</span>
+        <span class="n">iteration_info</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">iteration_info</span>
+        <span class="k">for</span> <span class="n">each_sample_index</span><span class="p">,</span> <span class="n">each_image</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">images</span><span class="p">):</span>
+            <span class="n">title</span> <span class="o">=</span> <span class="s2">&quot;Epoch: </span><span class="si">{:3d}</span><span class="s2">; iteration: </span><span class="si">{:5d}</span><span class="s2">; sample: </span><span class="si">{:3d}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+                <span class="n">iteration_info</span><span class="o">.</span><span class="n">epoch_number</span><span class="p">,</span> <span class="n">iteration_info</span><span class="o">.</span><span class="n">iteration_number</span><span class="p">,</span>
+                <span class="n">each_sample_index</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">images_fnames</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">sample_file_name</span> <span class="o">=</span> <span class="n">images_fnames</span><span class="p">[</span><span class="n">each_sample_index</span><span class="p">]</span>
+                <span class="n">title</span> <span class="o">+=</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Reference file name: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">sample_file_name</span><span class="p">)</span>
+            <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+            <span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">each_image</span><span class="p">)</span>
+            <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="n">title</span><span class="p">)</span>
+            <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span></div></div>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Audi Electronics Venture GmbH
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

@@ -1,0 +1,655 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>ncgenes7.callbacks package &mdash; ncgenes7 v0.10.0 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../_static/icon.ico"/>
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="ncgenes7.data_feeders package" href="ncgenes7.data_feeders.html" />
+    <link rel="prev" title="ncgenes7.augmentations package" href="ncgenes7.augmentations.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> ncgenes7
+          
+
+          
+            
+            <img src="../_static/icon.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.10.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../Introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ProjectSamples.html">Sample projects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Contribution.html">Contribution</a></li>
+</ul>
+<p class="caption"><span class="caption-text">API:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="ncgenes7.augmentations.html">ncgenes7.augmentations package</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">ncgenes7.callbacks package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-ncgenes7.callbacks.generic">ncgenes7.callbacks.generic module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-ncgenes7.callbacks.image">ncgenes7.callbacks.image module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-ncgenes7.callbacks.monitor">ncgenes7.callbacks.monitor module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#ncgenes7-callbacks-object-detection-module">ncgenes7.callbacks.object_detection module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-ncgenes7.callbacks.semantic_segmentation">ncgenes7.callbacks.semantic_segmentation module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-ncgenes7.callbacks">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="ncgenes7.data_feeders.html">ncgenes7.data_feeders package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ncgenes7.data_fields.html">ncgenes7.data_fields package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ncgenes7.data_filters.html">ncgenes7.data_filters package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ncgenes7.data_readers.html">ncgenes7.data_readers package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ncgenes7.file_lists.html">ncgenes7.file_lists package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ncgenes7.kpis.html">ncgenes7.kpis package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ncgenes7.learning_rate_manipulators.html">ncgenes7.learning_rate_manipulators package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ncgenes7.losses.html">ncgenes7.losses package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ncgenes7.metrics.html">ncgenes7.metrics package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ncgenes7.plugins.html">ncgenes7.plugins package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ncgenes7.plugins.cnns.html">ncgenes7.plugins.cnns package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ncgenes7.plugins.object_detection.html">ncgenes7.plugins.object_detection package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ncgenes7.plugins.preprocessing.html">ncgenes7.plugins.preprocessing package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ncgenes7.plugins.utils.html">ncgenes7.plugins.utils package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ncgenes7.postprocessors.html">ncgenes7.postprocessors package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ncgenes7.summaries.html">ncgenes7.summaries package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ncgenes7.third_party.html">ncgenes7.third_party package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ncgenes7.third_party.object_detection.html">ncgenes7.third_party.object_detection package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ncgenes7.utils.html">ncgenes7.utils package</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">ncgenes7</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>ncgenes7.callbacks package</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/api/ncgenes7.callbacks.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="ncgenes7-callbacks-package">
+<h1>ncgenes7.callbacks package<a class="headerlink" href="#ncgenes7-callbacks-package" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-ncgenes7.callbacks.generic">
+<span id="ncgenes7-callbacks-generic-module"></span><h2>ncgenes7.callbacks.generic module<a class="headerlink" href="#module-ncgenes7.callbacks.generic" title="Permalink to this headline">¶</a></h2>
+<p>General purpose callback implementations</p>
+<dl class="class">
+<dt id="ncgenes7.callbacks.generic.BaseLogger">
+<em class="property">class </em><code class="sig-prename descclassname">ncgenes7.callbacks.generic.</code><code class="sig-name descname">BaseLogger</code><span class="sig-paren">(</span><em class="sig-param">*</em>, <em class="sig-param">print_header_n_lines=20</em>, <em class="sig-param">**callback_kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ncgenes7/callbacks/generic.html#BaseLogger"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ncgenes7.callbacks.generic.BaseLogger" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">nucleus7.coordinator.callback.CoordinatorCallback</span></code></p>
+<p>Callback class for base logging</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>print_header_n_lines</strong> – prints the header each print_header_n_lines lines</p>
+</dd>
+</dl>
+<dl class="attribute">
+<dt id="ncgenes7.callbacks.generic.BaseLogger.incoming_keys">
+<code class="sig-name descname">incoming_keys</code><a class="headerlink" href="#ncgenes7.callbacks.generic.BaseLogger.incoming_keys" title="Permalink to this definition">¶</a></dt>
+<dd><ul class="simple">
+<li><p>losses : (optional) list of losses to print or just one loss</p></li>
+<li><p>metrics : (optional) list of metrics to print or just one loss</p></li>
+</ul>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ncgenes7.callbacks.generic.BaseLogger._lines_printed">
+<code class="sig-name descname">_lines_printed</code><a class="headerlink" href="#ncgenes7.callbacks.generic.BaseLogger._lines_printed" title="Permalink to this definition">¶</a></dt>
+<dd><p>number of lines already printed for iteration</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ncgenes7.callbacks.generic.BaseLogger._min_col_width">
+<code class="sig-name descname">_min_col_width</code><a class="headerlink" href="#ncgenes7.callbacks.generic.BaseLogger._min_col_width" title="Permalink to this definition">¶</a></dt>
+<dd><p>minimum column width for printing</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ncgenes7.callbacks.generic.BaseLogger._header_iter">
+<code class="sig-name descname">_header_iter</code><a class="headerlink" href="#ncgenes7.callbacks.generic.BaseLogger._header_iter" title="Permalink to this definition">¶</a></dt>
+<dd><p>header string for iteration prints</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ncgenes7.callbacks.generic.BaseLogger._header_widths_iter">
+<code class="sig-name descname">_header_widths_iter</code><a class="headerlink" href="#ncgenes7.callbacks.generic.BaseLogger._header_widths_iter" title="Permalink to this definition">¶</a></dt>
+<dd><p>header width for iteration prints</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt>
+<code class="sig-name descname">incoming_keys</code><em class="property"> = ['_loss', '_metric']</em></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="ncgenes7.callbacks.generic.BaseLogger.on_iteration_end">
+<code class="sig-name descname">on_iteration_end</code><span class="sig-paren">(</span><em class="sig-param">*</em>, <em class="sig-param">loss=None</em>, <em class="sig-param">metric=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ncgenes7/callbacks/generic.html#BaseLogger.on_iteration_end"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ncgenes7.callbacks.generic.BaseLogger.on_iteration_end" title="Permalink to this definition">¶</a></dt>
+<dd><p>Execute this function after each iteration</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>**data</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.8)"><em>dict</em></a>) – keyword arguments for data</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-ncgenes7.callbacks.image">
+<span id="ncgenes7-callbacks-image-module"></span><h2>ncgenes7.callbacks.image module<a class="headerlink" href="#module-ncgenes7.callbacks.image" title="Permalink to this headline">¶</a></h2>
+<p>classes for general purpose callback implementation</p>
+<dl class="class">
+<dt id="ncgenes7.callbacks.image.DepthFromDisparityCalculator">
+<em class="property">class </em><code class="sig-prename descclassname">ncgenes7.callbacks.image.</code><code class="sig-name descname">DepthFromDisparityCalculator</code><span class="sig-paren">(</span><em class="sig-param">*</em>, <em class="sig-param">baseline=0.3</em>, <em class="sig-param">focal_length=0.0014</em>, <em class="sig-param">sensor_width=0.0074</em>, <em class="sig-param">clip_distance=125</em>, <em class="sig-param">**callback_kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ncgenes7/callbacks/image.html#DepthFromDisparityCalculator"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ncgenes7.callbacks.image.DepthFromDisparityCalculator" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">nucleus7.coordinator.callback.CoordinatorCallback</span></code></p>
+<p>Calculate the depth out of disparity and camera properties</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>clip_distance</strong> – values after that distance will be clipped, [m]</p></li>
+<li><p><strong>baseline</strong> – distance between stereo cameras, [m]</p></li>
+<li><p><strong>focal_length</strong> – focal length of the camera, [m]</p></li>
+<li><p><strong>sensor_width</strong> – sensor width, [m]</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="attribute">
+<dt id="ncgenes7.callbacks.image.DepthFromDisparityCalculator.incoming_keys">
+<code class="sig-name descname">incoming_keys</code><a class="headerlink" href="#ncgenes7.callbacks.image.DepthFromDisparityCalculator.incoming_keys" title="Permalink to this definition">¶</a></dt>
+<dd><ul class="simple">
+<li><p>disparity_images : disparity for left image, [bs, h, w], np.float</p></li>
+</ul>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ncgenes7.callbacks.image.DepthFromDisparityCalculator.generated_keys">
+<code class="sig-name descname">generated_keys</code><a class="headerlink" href="#ncgenes7.callbacks.image.DepthFromDisparityCalculator.generated_keys" title="Permalink to this definition">¶</a></dt>
+<dd><ul class="simple">
+<li><p>depth_images : images with depth, [bs, h, w], np.float</p></li>
+</ul>
+</dd></dl>
+
+<dl class="attribute">
+<dt>
+<code class="sig-name descname">generated_keys</code><em class="property"> = ['depth_images']</em></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt>
+<code class="sig-name descname">incoming_keys</code><em class="property"> = ['disparity_images']</em></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="ncgenes7.callbacks.image.DepthFromDisparityCalculator.on_iteration_end">
+<code class="sig-name descname">on_iteration_end</code><span class="sig-paren">(</span><em class="sig-param">*</em>, <em class="sig-param">disparity_images</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ncgenes7/callbacks/image.html#DepthFromDisparityCalculator.on_iteration_end"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ncgenes7.callbacks.image.DepthFromDisparityCalculator.on_iteration_end" title="Permalink to this definition">¶</a></dt>
+<dd><p>Execute this function after each iteration</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>**data</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.8)"><em>dict</em></a>) – keyword arguments for data</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="ncgenes7.callbacks.image.DepthSaver">
+<em class="property">class </em><code class="sig-prename descclassname">ncgenes7.callbacks.image.</code><code class="sig-name descname">DepthSaver</code><span class="sig-paren">(</span><em class="sig-param">*</em>, <em class="sig-param">save_16bit_depth=False</em>, <em class="sig-param">save_depth_isolines=True</em>, <em class="sig-param">max_isodist=30</em>, <em class="sig-param">number_of_isolevels=12</em>, <em class="sig-param">max_distance=125.0</em>, <em class="sig-param">border_offset=10</em>, <em class="sig-param">**callback_kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ncgenes7/callbacks/image.html#DepthSaver"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ncgenes7.callbacks.image.DepthSaver" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">nucleus7.coordinator.saver_callback.SaverCallback</span></code></p>
+<p>Save the depth as 16 bit png files and isolines if depth</p>
+<dl class="simple">
+<dt>Following images are stored to log_dir:</dt><dd><ul class="simple">
+<li><p>depth 16 bit (optional): {image_fname}_depth_16bit.png</p></li>
+<li><p>depth isolines (optional): {image_fname}_depth_isolines.png</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>save_16bit_depth</strong> – if the 16bit image should be saved</p></li>
+<li><p><strong>save_depth_isolines</strong> – if the isolines images should be saved</p></li>
+<li><p><strong>max_isodist</strong> – max distance to draw the isolines on, [m]</p></li>
+<li><p><strong>border_offset</strong> – offset from border in pixels for iso levels calculation</p></li>
+<li><p><strong>number_of_isolevels</strong> – number of isolevels</p></li>
+<li><p><strong>max_distance</strong> – max distance in depth images, [m]</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="attribute">
+<dt id="ncgenes7.callbacks.image.DepthSaver.incoming_keys">
+<code class="sig-name descname">incoming_keys</code><a class="headerlink" href="#ncgenes7.callbacks.image.DepthSaver.incoming_keys" title="Permalink to this definition">¶</a></dt>
+<dd><ul class="simple">
+<li><p>images : left image,[bs, h, w, num_channels], np.float</p></li>
+<li><p>depth_images : depth image, , [bs, h, w], np.float</p></li>
+<li><p>images_fnames : image file name</p></li>
+</ul>
+</dd></dl>
+
+<dl class="attribute">
+<dt>
+<code class="sig-name descname">incoming_keys</code><em class="property"> = ['depth_images', '_', 'images']</em></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="ncgenes7.callbacks.image.DepthSaver.save_sample">
+<code class="sig-name descname">save_sample</code><span class="sig-paren">(</span><em class="sig-param">depth_images</em>, <em class="sig-param">images=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ncgenes7/callbacks/image.html#DepthSaver.save_sample"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ncgenes7.callbacks.image.DepthSaver.save_sample" title="Permalink to this definition">¶</a></dt>
+<dd><p>Main method how to save the sample</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>sample_data</strong> – sample data to save</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="ncgenes7.callbacks.image.ImagePlotterCallback">
+<em class="property">class </em><code class="sig-prename descclassname">ncgenes7.callbacks.image.</code><code class="sig-name descname">ImagePlotterCallback</code><span class="sig-paren">(</span><em class="sig-param">*</em>, <em class="sig-param">inbound_nodes</em>, <em class="sig-param">name=None</em>, <em class="sig-param">incoming_keys_mapping=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ncgenes7/callbacks/image.html#ImagePlotterCallback"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ncgenes7.callbacks.image.ImagePlotterCallback" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">nucleus7.coordinator.callback.CoordinatorCallback</span></code></p>
+<p>Plot the image on GUI using matplotlib pyplot</p>
+<dl class="attribute">
+<dt id="ncgenes7.callbacks.image.ImagePlotterCallback.incoming_keys">
+<code class="sig-name descname">incoming_keys</code><a class="headerlink" href="#ncgenes7.callbacks.image.ImagePlotterCallback.incoming_keys" title="Permalink to this definition">¶</a></dt>
+<dd><ul class="simple">
+<li><p>images : left image,[bs, h, w, num_channels], np.float</p></li>
+</ul>
+</dd></dl>
+
+<dl class="attribute">
+<dt>
+<code class="sig-name descname">incoming_keys</code><em class="property"> = ['images']</em></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="ncgenes7.callbacks.image.ImagePlotterCallback.on_iteration_end">
+<code class="sig-name descname">on_iteration_end</code><span class="sig-paren">(</span><em class="sig-param">images</em>, <em class="sig-param">images_fnames=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ncgenes7/callbacks/image.html#ImagePlotterCallback.on_iteration_end"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ncgenes7.callbacks.image.ImagePlotterCallback.on_iteration_end" title="Permalink to this definition">¶</a></dt>
+<dd><p>Execute this function after each iteration</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>**data</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.8)"><em>dict</em></a>) – keyword arguments for data</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="ncgenes7.callbacks.image.ImageSaver">
+<em class="property">class </em><code class="sig-prename descclassname">ncgenes7.callbacks.image.</code><code class="sig-name descname">ImageSaver</code><span class="sig-paren">(</span><em class="sig-param">save_file_extension='png'</em>, <em class="sig-param">**callback_kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ncgenes7/callbacks/image.html#ImageSaver"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ncgenes7.callbacks.image.ImageSaver" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">nucleus7.coordinator.saver_callback.SaverCallback</span></code></p>
+<p>Image saver callback</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>save_file_extension</strong> – extension of the save file</p>
+</dd>
+</dl>
+<dl class="attribute">
+<dt id="ncgenes7.callbacks.image.ImageSaver.incoming_keys">
+<code class="sig-name descname">incoming_keys</code><a class="headerlink" href="#ncgenes7.callbacks.image.ImageSaver.incoming_keys" title="Permalink to this definition">¶</a></dt>
+<dd><ul class="simple">
+<li><p>images : image or list of images, [bs, h, w, num_channels], np.float</p></li>
+</ul>
+</dd></dl>
+
+<dl class="field-list simple">
+<dt class="field-odd">Raises</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#ValueError" title="(in Python v3.8)"><strong>ValueError</strong></a> – if key_for_basename was provided</p>
+</dd>
+</dl>
+<dl class="attribute">
+<dt>
+<code class="sig-name descname">incoming_keys</code><em class="property"> = ['images']</em></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="ncgenes7.callbacks.image.ImageSaver.save_sample">
+<code class="sig-name descname">save_sample</code><span class="sig-paren">(</span><em class="sig-param">images</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ncgenes7/callbacks/image.html#ImageSaver.save_sample"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ncgenes7.callbacks.image.ImageSaver.save_sample" title="Permalink to this definition">¶</a></dt>
+<dd><p>Main method how to save the sample</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>sample_data</strong> – sample data to save</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-ncgenes7.callbacks.monitor">
+<span id="ncgenes7-callbacks-monitor-module"></span><h2>ncgenes7.callbacks.monitor module<a class="headerlink" href="#module-ncgenes7.callbacks.monitor" title="Permalink to this headline">¶</a></h2>
+<p>Callbacks to monitor training process</p>
+<dl class="class">
+<dt id="ncgenes7.callbacks.monitor.EarlyStoppingCallback">
+<em class="property">class </em><code class="sig-prename descclassname">ncgenes7.callbacks.monitor.</code><code class="sig-name descname">EarlyStoppingCallback</code><span class="sig-paren">(</span><em class="sig-param">*</em>, <em class="sig-param">monitor_mode='max'</em>, <em class="sig-param">patience=10</em>, <em class="sig-param">min_delta=0</em>, <em class="sig-param">**callback_kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ncgenes7/callbacks/monitor.html#EarlyStoppingCallback"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ncgenes7.callbacks.monitor.EarlyStoppingCallback" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">nucleus7.coordinator.buffer_callback.BufferCallback</span></code></p>
+<p>Callback for early stopping of the training according to some metric.</p>
+<p>Can be used from eval mode (preferred way) to monitor some metric and then
+stop training when it is not improving.</p>
+<p>It uses run_context.request_stop() when there was no improvement in last
+patience number of epochs. It will save the best iteration information, e.g.
+epoch number and iteration number to {name}-best_iteration_info.json.</p>
+<p>It uses a AverageBuffer to save all the metrics. So the condition is
+checked when the buffer is evaluated and accumulated.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>monitor_mode</strong> – if is max, then negative change in metric is treated as degradation and
+will cause the stop</p></li>
+<li><p><strong>patience</strong> – number of epochs to monitor the metric</p></li>
+<li><p><strong>min_delta</strong> – absolute of difference that is treated as an improvement; in case of
+max mode this value will be added to current best and in case of min
+mode it will be subtracted.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="attribute">
+<dt id="ncgenes7.callbacks.monitor.EarlyStoppingCallback.incoming_keys">
+<code class="sig-name descname">incoming_keys</code><a class="headerlink" href="#ncgenes7.callbacks.monitor.EarlyStoppingCallback.incoming_keys" title="Permalink to this definition">¶</a></dt>
+<dd><ul class="simple">
+<li><p>monitor : metric to monitor, []</p></li>
+</ul>
+</dd></dl>
+
+<dl class="method">
+<dt id="ncgenes7.callbacks.monitor.EarlyStoppingCallback.begin">
+<code class="sig-name descname">begin</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ncgenes7/callbacks/monitor.html#EarlyStoppingCallback.begin"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ncgenes7.callbacks.monitor.EarlyStoppingCallback.begin" title="Permalink to this definition">¶</a></dt>
+<dd><p>This method is be called before the main run, e.g. before tensorflow
+session is created</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt>
+<code class="sig-name descname">incoming_keys</code><em class="property"> = ['monitor']</em></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="ncgenes7.callbacks.monitor.EarlyStoppingCallback.on_iteration_end">
+<code class="sig-name descname">on_iteration_end</code><span class="sig-paren">(</span><em class="sig-param">evaluate=None</em>, <em class="sig-param">*</em>, <em class="sig-param">monitor</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ncgenes7/callbacks/monitor.html#EarlyStoppingCallback.on_iteration_end"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ncgenes7.callbacks.monitor.EarlyStoppingCallback.on_iteration_end" title="Permalink to this definition">¶</a></dt>
+<dd><p>Execute this function after each iteration</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>**data</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.8)"><em>dict</em></a>) – keyword arguments for data</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="ncgenes7.callbacks.monitor.EarlyStoppingCallback.process_buffer">
+<code class="sig-name descname">process_buffer</code><span class="sig-paren">(</span><em class="sig-param">*</em>, <em class="sig-param">monitor</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ncgenes7/callbacks/monitor.html#EarlyStoppingCallback.process_buffer"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ncgenes7.callbacks.monitor.EarlyStoppingCallback.process_buffer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Main method to process the accumulated buffer</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>buffer_data</strong> – data from buffer</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>summarized data</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>summarized_data</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="ncgenes7-callbacks-object-detection-module">
+<h2>ncgenes7.callbacks.object_detection module<a class="headerlink" href="#ncgenes7-callbacks-object-detection-module" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-ncgenes7.callbacks.semantic_segmentation">
+<span id="ncgenes7-callbacks-semantic-segmentation-module"></span><h2>ncgenes7.callbacks.semantic_segmentation module<a class="headerlink" href="#module-ncgenes7.callbacks.semantic_segmentation" title="Permalink to this headline">¶</a></h2>
+<p>Callbacks for semantic segmentation</p>
+<dl class="class">
+<dt id="ncgenes7.callbacks.semantic_segmentation.SemanticSegmentationSaver">
+<em class="property">class </em><code class="sig-prename descclassname">ncgenes7.callbacks.semantic_segmentation.</code><code class="sig-name descname">SemanticSegmentationSaver</code><span class="sig-paren">(</span><em class="sig-param">*</em>, <em class="sig-param">rgb_class_mapping=None</em>, <em class="sig-param">save_file_extension='.png'</em>, <em class="sig-param">save_probabilities=False</em>, <em class="sig-param">**callback_kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ncgenes7/callbacks/semantic_segmentation.html#SemanticSegmentationSaver"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ncgenes7.callbacks.semantic_segmentation.SemanticSegmentationSaver" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">nucleus7.coordinator.saver_callback.SaverCallback</span></code></p>
+<p>Saver callback for semantic segmentation</p>
+<p>If it has incoming key as images, it will blend the rgb images generated
+from classes with original image itself (resulted image resolution is
+resolution of semantic segmentation classes)</p>
+<dl class="simple">
+<dt>Images are stored to following file names inside of log_dir:</dt><dd><ul class="simple">
+<li><p>semantic segmentation classes: {image_fname}_segmentation_classes.png</p></li>
+<li><p>raw probabilities (optional): {image_fname}_probabilities.npy</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>rgb_class_mapping</strong> – which mapping should be used to map classes to rgb codes; can be file
+name of json file or dict with mapping; if not specified, than
+{class: (class, class, class)} mapping will be used</p></li>
+<li><p><strong>save_probabilities</strong> – if probabilities should be stored as numpy arrays</p></li>
+<li><p><strong>save_file_extension</strong> – extension to use to save the image data</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="attribute">
+<dt id="ncgenes7.callbacks.semantic_segmentation.SemanticSegmentationSaver.incoming_keys">
+<code class="sig-name descname">incoming_keys</code><a class="headerlink" href="#ncgenes7.callbacks.semantic_segmentation.SemanticSegmentationSaver.incoming_keys" title="Permalink to this definition">¶</a></dt>
+<dd><ul class="simple">
+<li><p>images : image, [bs, h, w, num_channels], np.float</p></li>
+<li><p>segmentation_class_logits : (optional) class logits,
+[bs, h, w, num_classes], np.float</p></li>
+<li><p>segmentation_classes : (optional) segmented classes, [bs, h, w],
+np.float</p></li>
+<li><p>segmentation_edges : (optional) edge probabilities, [bs, h, w],
+np.float</p></li>
+<li><p>images_fnames : (optional) image file name</p></li>
+</ul>
+</dd></dl>
+
+<dl class="attribute">
+<dt>
+<code class="sig-name descname">incoming_keys</code><em class="property"> = ['_images', '_segmentation_class_logits', '_segmentation_classes']</em></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="ncgenes7.callbacks.semantic_segmentation.SemanticSegmentationSaver.on_iteration_end">
+<code class="sig-name descname">on_iteration_end</code><span class="sig-paren">(</span><em class="sig-param">*</em>, <em class="sig-param">images=None</em>, <em class="sig-param">segmentation_class_logits=None</em>, <em class="sig-param">segmentation_classes=None</em>, <em class="sig-param">save_names=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ncgenes7/callbacks/semantic_segmentation.html#SemanticSegmentationSaver.on_iteration_end"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ncgenes7.callbacks.semantic_segmentation.SemanticSegmentationSaver.on_iteration_end" title="Permalink to this definition">¶</a></dt>
+<dd><p>Execute this function after each iteration</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>**data</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.8)"><em>dict</em></a>) – keyword arguments for data</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="ncgenes7.callbacks.semantic_segmentation.SemanticSegmentationSaver.save_sample">
+<code class="sig-name descname">save_sample</code><span class="sig-paren">(</span><em class="sig-param">*</em>, <em class="sig-param">images=None</em>, <em class="sig-param">segmentation_class_logits=None</em>, <em class="sig-param">segmentation_classes=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ncgenes7/callbacks/semantic_segmentation.html#SemanticSegmentationSaver.save_sample"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ncgenes7.callbacks.semantic_segmentation.SemanticSegmentationSaver.save_sample" title="Permalink to this definition">¶</a></dt>
+<dd><p>Main method how to save the sample</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>sample_data</strong> – sample data to save</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-ncgenes7.callbacks">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-ncgenes7.callbacks" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="ncgenes7.data_feeders.html" class="btn btn-neutral float-right" title="ncgenes7.data_feeders package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="ncgenes7.augmentations.html" class="btn btn-neutral float-left" title="ncgenes7.augmentations package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Audi Electronics Venture GmbH
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

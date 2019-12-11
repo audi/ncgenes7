@@ -1,0 +1,832 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>ncgenes7.plugins.cnns.base &mdash; ncgenes7 v0.10.0 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../../../_static/icon.ico"/>
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../../" src="../../../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../../../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../../../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../../index.html" class="icon icon-home"> ncgenes7
+          
+
+          
+            
+            <img src="../../../../_static/icon.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.10.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../Introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../Installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ProjectSamples.html">Sample projects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../Contribution.html">Contribution</a></li>
+</ul>
+<p class="caption"><span class="caption-text">API:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../api/ncgenes7.augmentations.html">ncgenes7.augmentations package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../api/ncgenes7.callbacks.html">ncgenes7.callbacks package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../api/ncgenes7.data_feeders.html">ncgenes7.data_feeders package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../api/ncgenes7.data_fields.html">ncgenes7.data_fields package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../api/ncgenes7.data_filters.html">ncgenes7.data_filters package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../api/ncgenes7.data_readers.html">ncgenes7.data_readers package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../api/ncgenes7.file_lists.html">ncgenes7.file_lists package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../api/ncgenes7.kpis.html">ncgenes7.kpis package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../api/ncgenes7.learning_rate_manipulators.html">ncgenes7.learning_rate_manipulators package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../api/ncgenes7.losses.html">ncgenes7.losses package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../api/ncgenes7.metrics.html">ncgenes7.metrics package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../api/ncgenes7.plugins.html">ncgenes7.plugins package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../api/ncgenes7.plugins.cnns.html">ncgenes7.plugins.cnns package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../api/ncgenes7.plugins.object_detection.html">ncgenes7.plugins.object_detection package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../api/ncgenes7.plugins.preprocessing.html">ncgenes7.plugins.preprocessing package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../api/ncgenes7.plugins.utils.html">ncgenes7.plugins.utils package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../api/ncgenes7.postprocessors.html">ncgenes7.postprocessors package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../api/ncgenes7.summaries.html">ncgenes7.summaries package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../api/ncgenes7.third_party.html">ncgenes7.third_party package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../api/ncgenes7.third_party.object_detection.html">ncgenes7.third_party.object_detection package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../api/ncgenes7.utils.html">ncgenes7.utils package</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">ncgenes7</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../../index.html">Module code</a> &raquo;</li>
+        
+      <li>ncgenes7.plugins.cnns.base</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for ncgenes7.plugins.cnns.base</h1><div class="highlight"><pre>
+<span></span><span class="c1"># ==============================================================================</span>
+<span class="c1"># Copyright (c) 2019 Audi Electronics Venture GmbH. All rights reserved.</span>
+<span class="c1">#</span>
+<span class="c1"># This Source Code Form is subject to the terms of the Mozilla</span>
+<span class="c1"># Public License, v. 2.0. If a copy of the MPL was not distributed</span>
+<span class="c1"># with this file, You can obtain one at https://mozilla.org/MPL/2.0/.</span>
+<span class="c1"># ==============================================================================</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Base plugin for cnn encoder and decoder</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">import</span> <span class="nn">functools</span>
+<span class="kn">import</span> <span class="nn">logging</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">List</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Optional</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Union</span>
+<span class="kn">import</span> <span class="nn">warnings</span>
+
+<span class="kn">import</span> <span class="nn">nucleus7</span> <span class="k">as</span> <span class="nn">nc7</span>
+<span class="kn">from</span> <span class="nn">nucleus7.utils.tf_varscopes_utils</span> <span class="kn">import</span> <span class="n">with_name_scope</span>
+<span class="kn">import</span> <span class="nn">tensorflow</span> <span class="k">as</span> <span class="nn">tf</span>
+
+
+<span class="c1"># pylint: disable=too-many-instance-attributes</span>
+<span class="c1"># attributes cannot be combined or extracted further</span>
+<div class="viewcode-block" id="BaseCNNPlugin"><a class="viewcode-back" href="../../../../api/ncgenes7.plugins.cnns.html#ncgenes7.plugins.cnns.base.BaseCNNPlugin">[docs]</a><span class="k">class</span> <span class="nc">BaseCNNPlugin</span><span class="p">(</span><span class="n">nc7</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">ModelPlugin</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Base class for cnn plugin encoder and decoder implementations</span>
+
+<span class="sd">    Base architecture can be written as follows:</span>
+
+<span class="sd">    `[first_conv]-&gt;[first_max_pool]-&gt;[block1]-&gt;[sample]-&gt;[block2]-&gt;</span>
+<span class="sd">    [sample]-&gt;...-&gt;[last_conv]`</span>
+
+<span class="sd">    Type of sampling is defined by `sampling_type`. In case of</span>
+<span class="sd">    sampling_type==&quot;encoder&quot;, it is downsampling, in case of &quot;decoder&quot; -</span>
+<span class="sd">    upsampling. In this implementation, it is light functions like</span>
+<span class="sd">    :obj:`tf.keras.layers.MaxPool2D` and :obj:`tf.keras.layers.Conv2DTranspose`.</span>
+<span class="sd">    To change this behaviour, override method :func:`BaseCNNPlugin.sample`.</span>
+
+<span class="sd">    `auxiliary_feature_maps` are iterated in reverse order. Also they should</span>
+<span class="sd">    be produced using same padding</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    sampling_type</span>
+<span class="sd">        type of the sampling</span>
+<span class="sd">    first_conv_params</span>
+<span class="sd">        parameters for first convolution; see :obj:`tf.keras.layers.Conv2D`;</span>
+<span class="sd">        if not specified, no convolution will be performed</span>
+<span class="sd">    first_sampling_params</span>
+<span class="sd">        parameters for sampling after first convolution as defined in</span>
+<span class="sd">        sample method; see corresponding functions;</span>
+<span class="sd">        if not specified, no sampling will be performed</span>
+<span class="sd">    last_conv_params</span>
+<span class="sd">        parameters for convolution after blocks; :obj:`tf.keras.layers.Conv2D`;</span>
+<span class="sd">        if not specified, no convolution will be performed</span>
+<span class="sd">    last_conv_without_activation</span>
+<span class="sd">        if last convolution should not have an activation</span>
+<span class="sd">    sampling_params</span>
+<span class="sd">        parameters for sampling like kernel_size and strides</span>
+<span class="sd">    num_blocks</span>
+<span class="sd">        number of blocks to create</span>
+<span class="sd">    cnn_blocks_parameters</span>
+<span class="sd">        list of dicts to pass to building block method; if defined, and not of</span>
+<span class="sd">        length of num_blocks, last kwargs will be used for last remaining</span>
+<span class="sd">        blocks; if defined as one dict, it will be used for all blocks</span>
+<span class="sd">    add_skip_connections</span>
+<span class="sd">        if the skip connections should be generated</span>
+<span class="sd">        (only if auxiliary_blocks is inside of incoming_keys)</span>
+<span class="sd">    skip_connection_type</span>
+<span class="sd">        how to combine feature map with auxiliary one to build the skip</span>
+<span class="sd">        connection; one of [&#39;sum&#39;, &#39;concat&#39;]</span>
+<span class="sd">    skip_connection_resize_type</span>
+<span class="sd">        type of resizing performed on auxiliary feature map before connecting</span>
+<span class="sd">        it to original maps; if None, then original maps will be sliced to</span>
+<span class="sd">        auxiliary feature map size; it allows to preserve the original sizes</span>
+<span class="sd">        (from encoder); one of [None, &#39;pad&#39;, &#39;imresize&#39;]</span>
+<span class="sd">    auxiliary_feature_maps_start_ind</span>
+<span class="sd">        index of first auxiliary_feature_map to use in skip connections;</span>
+<span class="sd">        indexes are in normal order, e.g. 0 is first item from</span>
+<span class="sd">        auxiliary_feature_maps list in order it was passed</span>
+<span class="sd">    last_block_with_sampling</span>
+<span class="sd">        if sampling operation should be applied after last block and before</span>
+<span class="sd">        last convolution</span>
+<span class="sd">    add_block_residual_connections</span>
+<span class="sd">        flag to add residual connections in format</span>
+<span class="sd">        `x -&gt; block -&gt; sample -&gt; x1 -&gt; res(x, x1)`;</span>
+<span class="sd">        residual connection is the conv or deconv layer with same parameters</span>
+<span class="sd">        as the sampling layer and with same number of feature maps as block</span>
+<span class="sd">        output</span>
+<span class="sd">    block_residual_connection_type</span>
+<span class="sd">        type of residual connection if `add_block_residual_connections=True`;</span>
+<span class="sd">        one of [&#39;sum&#39;, &#39;concat&#39;]</span>
+
+<span class="sd">    Attributes</span>
+<span class="sd">    ----------</span>
+<span class="sd">    block_var_scope_name</span>
+<span class="sd">        suffix of block variable scope; complete name will be</span>
+<span class="sd">        block_var_scope_name_{block_number}</span>
+<span class="sd">    incoming_keys</span>
+<span class="sd">        * feature_maps : tensor of shape  [batch_size, w, h, num_channels],</span>
+<span class="sd">          tf.float32</span>
+<span class="sd">        * auxiliary_feature_maps : (optional), list of tensors of shape</span>
+<span class="sd">          [batch_size, w_i, h_i, num_channels_i] to be used for skip</span>
+<span class="sd">          connections</span>
+
+<span class="sd">    generated_keys</span>
+<span class="sd">        * feature_maps : feature maps after processing</span>
+<span class="sd">        * auxiliary_feature_maps : auxiliary feature maps for each block</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">incoming_keys</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="s2">&quot;feature_maps&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;auxiliary_feature_maps&quot;</span><span class="p">,</span>
+    <span class="p">]</span>
+    <span class="n">generated_keys</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="s2">&quot;feature_maps&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;auxiliary_feature_maps&quot;</span><span class="p">,</span>
+    <span class="p">]</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span>
+                 <span class="n">sampling_type</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;encoder&#39;</span><span class="p">,</span>
+                 <span class="n">num_blocks</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span>
+                 <span class="n">first_conv_params</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">dict</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+                 <span class="n">first_sampling_params</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">dict</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+                 <span class="n">last_conv_params</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">dict</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+                 <span class="n">last_conv_without_activation</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+                 <span class="n">last_block_with_sampling</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+                 <span class="n">cnn_blocks_parameters</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">dict</span><span class="p">],</span> <span class="nb">dict</span><span class="p">],</span>
+                 <span class="n">sampling_params</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">dict</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+                 <span class="n">add_skip_connections</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+                 <span class="n">skip_connection_type</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;concat&#39;</span><span class="p">,</span>
+                 <span class="n">skip_connection_resize_type</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+                 <span class="n">auxiliary_feature_maps_start_ind</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
+                 <span class="n">add_block_residual_connections</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+                 <span class="n">block_residual_connection_type</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;sum&#39;</span><span class="p">,</span>
+                 <span class="o">**</span><span class="n">plugin_kwargs</span><span class="p">):</span>
+        <span class="c1"># pylint: disable=too-many-locals</span>
+        <span class="c1"># all of them are constructor parameters</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">**</span><span class="n">plugin_kwargs</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">sampling_type</span> <span class="o">=</span> <span class="n">sampling_type</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">first_conv_params</span> <span class="o">=</span> <span class="n">first_conv_params</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">first_sampling_params</span> <span class="o">=</span> <span class="n">first_sampling_params</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">last_conv_params</span> <span class="o">=</span> <span class="n">last_conv_params</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">num_blocks</span> <span class="o">=</span> <span class="n">num_blocks</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">cnn_blocks_parameters</span> <span class="o">=</span> <span class="n">cnn_blocks_parameters</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">sampling_params</span> <span class="o">=</span> <span class="n">sampling_params</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">add_skip_connections</span> <span class="o">=</span> <span class="n">add_skip_connections</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">skip_connection_type</span> <span class="o">=</span> <span class="n">skip_connection_type</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">skip_connection_resize_type</span> <span class="o">=</span> <span class="n">skip_connection_resize_type</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">auxiliary_feature_maps_start_ind</span> <span class="o">=</span> <span class="p">(</span>
+            <span class="n">auxiliary_feature_maps_start_ind</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">last_conv_without_activation</span> <span class="o">=</span> <span class="n">last_conv_without_activation</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">last_block_with_sampling</span> <span class="o">=</span> <span class="n">last_block_with_sampling</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">add_block_residual_connections</span> <span class="o">=</span> <span class="n">add_block_residual_connections</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">block_residual_connection_type</span> <span class="o">=</span> <span class="n">block_residual_connection_type</span>
+        <span class="k">assert</span> <span class="bp">self</span><span class="o">.</span><span class="n">skip_connection_type</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;sum&#39;</span><span class="p">,</span> <span class="s1">&#39;concat&#39;</span><span class="p">],</span> <span class="p">(</span>
+            <span class="s2">&quot;skip_connection_type should be in [&#39;concat&#39;, &#39;sum&#39;]&quot;</span><span class="p">)</span>
+        <span class="k">assert</span> <span class="bp">self</span><span class="o">.</span><span class="n">skip_connection_resize_type</span> <span class="ow">in</span> <span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="s1">&#39;pad&#39;</span><span class="p">,</span> <span class="s1">&#39;imresize&#39;</span><span class="p">],</span> <span class="p">(</span>
+            <span class="s2">&quot;skip_connection_type should be in [None, &#39;pad&#39;, &#39;imresize&#39;]&quot;</span><span class="p">)</span>
+        <span class="k">assert</span> <span class="bp">self</span><span class="o">.</span><span class="n">block_residual_connection_type</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;sum&#39;</span><span class="p">,</span> <span class="s1">&#39;concat&#39;</span><span class="p">],</span> <span class="p">(</span>
+            <span class="s2">&quot;block_residual_connection_type should be in [&#39;sum&#39;, &#39;concat&#39;]&quot;</span><span class="p">)</span>
+        <span class="n">len_cnn_blocks_parameters</span> <span class="o">=</span> <span class="p">(</span>
+            <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">cnn_blocks_parameters</span><span class="p">)</span>
+            <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">cnn_blocks_parameters</span><span class="p">,</span> <span class="nb">list</span><span class="p">)</span> <span class="k">else</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">len_cnn_blocks_parameters</span> <span class="o">&gt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">num_blocks</span><span class="p">:</span>
+            <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span>
+                <span class="s2">&quot;Last </span><span class="si">{}</span><span class="s2"> cnn_blocks_parameters will not be used!&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+                    <span class="n">len_cnn_blocks_parameters</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">num_blocks</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_current_block_index</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">defaults</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">defaults</span> <span class="o">=</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">defaults</span>
+        <span class="n">defaults</span><span class="p">[</span><span class="s2">&quot;sampling_params&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s2">&quot;kernel_size&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s2">&quot;strides&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s2">&quot;padding&quot;</span><span class="p">:</span> <span class="s2">&quot;same&quot;</span><span class="p">}</span>
+        <span class="k">return</span> <span class="n">defaults</span>
+
+<div class="viewcode-block" id="BaseCNNPlugin.get_current_layer_full_name"><a class="viewcode-back" href="../../../../api/ncgenes7.plugins.cnns.html#ncgenes7.plugins.cnns.base.BaseCNNPlugin.get_current_layer_full_name">[docs]</a>    <span class="k">def</span> <span class="nf">get_current_layer_full_name</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">layer_name</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Get current full layer name with respect to current block_index</span>
+<span class="sd">        like block_{block_index+1}_{layer_name}_layer</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        layer_name</span>
+<span class="sd">            layer name without index</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        layer_full_name</span>
+<span class="sd">            full name of layer</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">layer_full_name</span> <span class="o">=</span> <span class="s2">&quot;_&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span>
+            <span class="p">[</span><span class="s2">&quot;block&quot;</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_current_block_index</span> <span class="o">+</span> <span class="mi">1</span><span class="p">),</span> <span class="n">layer_name</span><span class="p">,</span> <span class="s2">&quot;layer&quot;</span><span class="p">])</span>
+        <span class="k">return</span> <span class="n">layer_full_name</span></div>
+
+<div class="viewcode-block" id="BaseCNNPlugin.build_cnn_block"><a class="viewcode-back" href="../../../../api/ncgenes7.plugins.cnns.html#ncgenes7.plugins.cnns.base.BaseCNNPlugin.build_cnn_block">[docs]</a>    <span class="nd">@with_name_scope</span><span class="p">(</span><span class="s2">&quot;cnn_block&quot;</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">build_cnn_block</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">inputs</span><span class="p">:</span> <span class="n">tf</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span>
+                        <span class="o">**</span><span class="n">block_parameters</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">tf</span><span class="o">.</span><span class="n">Tensor</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Build one cnn block</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        inputs</span>
+<span class="sd">            block inputs</span>
+<span class="sd">        block_parameters</span>
+<span class="sd">            further parameters to build the block</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        result</span>
+<span class="sd">            result</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">layer_name</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_current_layer_full_name</span><span class="p">(</span><span class="s2">&quot;cnn&quot;</span><span class="p">)</span>
+        <span class="n">layer</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">add_keras_layer</span><span class="p">(</span>
+            <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Conv2D</span><span class="p">(</span><span class="n">activation</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">activation</span><span class="p">,</span>
+                                   <span class="n">bias_initializer</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">initializer</span><span class="p">,</span>
+                                   <span class="n">kernel_initializer</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">initializer</span><span class="p">,</span>
+                                   <span class="n">name</span><span class="o">=</span><span class="n">layer_name</span><span class="p">,</span>
+                                   <span class="o">**</span><span class="n">block_parameters</span><span class="p">))</span>
+        <span class="n">out</span> <span class="o">=</span> <span class="n">layer</span><span class="p">(</span><span class="n">inputs</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">out</span></div>
+
+<div class="viewcode-block" id="BaseCNNPlugin.downsample"><a class="viewcode-back" href="../../../../api/ncgenes7.plugins.cnns.html#ncgenes7.plugins.cnns.base.BaseCNNPlugin.downsample">[docs]</a>    <span class="nd">@with_name_scope</span><span class="p">(</span><span class="s2">&quot;downsample&quot;</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">downsample</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">inputs</span><span class="p">:</span> <span class="n">tf</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span>
+                   <span class="n">kernel_size</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">list</span><span class="p">,</span> <span class="nb">int</span><span class="p">],</span> <span class="n">strides</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">list</span><span class="p">,</span> <span class="nb">int</span><span class="p">],</span>
+                   <span class="n">name</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+                   <span class="o">**</span><span class="n">additional_params</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">tf</span><span class="o">.</span><span class="n">Tensor</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Downsample inputs in case of encoder</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        inputs</span>
+<span class="sd">            input tensor</span>
+<span class="sd">        kernel_size</span>
+<span class="sd">            kernel size for downsampling</span>
+<span class="sd">        strides</span>
+<span class="sd">            strides for downsampling</span>
+<span class="sd">        name</span>
+<span class="sd">            name of the operation</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        downsampled_tensor</span>
+<span class="sd">            downsampled result</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">layer_name</span> <span class="o">=</span> <span class="n">name</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_current_layer_full_name</span><span class="p">(</span><span class="s2">&quot;downsample&quot;</span><span class="p">)</span>
+        <span class="n">downsampled_layer</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">add_keras_layer</span><span class="p">(</span>
+            <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">MaxPool2D</span><span class="p">(</span><span class="n">pool_size</span><span class="o">=</span><span class="n">kernel_size</span><span class="p">,</span> <span class="n">strides</span><span class="o">=</span><span class="n">strides</span><span class="p">,</span>
+                                      <span class="n">name</span><span class="o">=</span><span class="n">layer_name</span><span class="p">,</span> <span class="o">**</span><span class="n">additional_params</span><span class="p">))</span>
+
+        <span class="n">out</span> <span class="o">=</span> <span class="n">downsampled_layer</span><span class="p">(</span><span class="n">inputs</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">out</span></div>
+
+<div class="viewcode-block" id="BaseCNNPlugin.upsample"><a class="viewcode-back" href="../../../../api/ncgenes7.plugins.cnns.html#ncgenes7.plugins.cnns.base.BaseCNNPlugin.upsample">[docs]</a>    <span class="nd">@with_name_scope</span><span class="p">(</span><span class="s2">&quot;upsample&quot;</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">upsample</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">inputs</span><span class="p">:</span> <span class="n">tf</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span>
+                 <span class="n">kernel_size</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">list</span><span class="p">,</span> <span class="nb">int</span><span class="p">],</span> <span class="n">strides</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">list</span><span class="p">,</span> <span class="nb">int</span><span class="p">],</span>
+                 <span class="n">name</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">additional_params</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">tf</span><span class="o">.</span><span class="n">Tensor</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Upsample inputs in case of decoder</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        inputs</span>
+<span class="sd">            input tensor</span>
+<span class="sd">        kernel_size</span>
+<span class="sd">            kernel size for upsampling</span>
+<span class="sd">        strides</span>
+<span class="sd">            strides for upsampling</span>
+<span class="sd">        name</span>
+<span class="sd">            name of the operation</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        upsampled_tensor</span>
+<span class="sd">            upsampled result</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">layer_name</span> <span class="o">=</span> <span class="n">name</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_current_layer_full_name</span><span class="p">(</span><span class="s2">&quot;upsample&quot;</span><span class="p">)</span>
+        <span class="n">num_filters</span> <span class="o">=</span> <span class="n">inputs</span><span class="o">.</span><span class="n">get_shape</span><span class="p">()</span><span class="o">.</span><span class="n">as_list</span><span class="p">()[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">upsample_layer</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">add_keras_layer</span><span class="p">(</span>
+            <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Conv2DTranspose</span><span class="p">(</span>
+                <span class="n">num_filters</span><span class="p">,</span> <span class="n">kernel_size</span><span class="o">=</span><span class="n">kernel_size</span><span class="p">,</span>
+                <span class="n">strides</span><span class="o">=</span><span class="n">strides</span><span class="p">,</span>
+                <span class="n">bias_initializer</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">initializer</span><span class="p">,</span>
+                <span class="n">kernel_initializer</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">initializer</span><span class="p">,</span>
+                <span class="n">activation</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">activation</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="n">layer_name</span><span class="p">,</span>
+                <span class="o">**</span><span class="n">additional_params</span><span class="p">))</span>
+        <span class="n">out</span> <span class="o">=</span> <span class="n">upsample_layer</span><span class="p">(</span><span class="n">inputs</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">out</span></div>
+
+<div class="viewcode-block" id="BaseCNNPlugin.sample"><a class="viewcode-back" href="../../../../api/ncgenes7.plugins.cnns.html#ncgenes7.plugins.cnns.base.BaseCNNPlugin.sample">[docs]</a>    <span class="k">def</span> <span class="nf">sample</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">inputs</span><span class="p">:</span> <span class="n">tf</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">sampling_params</span><span class="p">:</span> <span class="nb">dict</span><span class="p">,</span>
+               <span class="n">name</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">tf</span><span class="o">.</span><span class="n">Tensor</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Sample the inputs</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        inputs</span>
+<span class="sd">            inputs to sample</span>
+<span class="sd">        sampling_params</span>
+<span class="sd">            parameters to pass to corresponding sample method (e.g. upsample or</span>
+<span class="sd">            downsample)</span>
+<span class="sd">        name</span>
+<span class="sd">            name of the sample operation</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        sampled_result</span>
+<span class="sd">            sampled result</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">sample_fun</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;encoder&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">downsample</span><span class="p">,</span>
+                      <span class="s1">&#39;decoder&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">upsample</span><span class="p">}[</span><span class="bp">self</span><span class="o">.</span><span class="n">sampling_type</span><span class="p">]</span>
+        <span class="k">return</span> <span class="n">sample_fun</span><span class="p">(</span><span class="n">inputs</span><span class="p">,</span> <span class="o">**</span><span class="n">sampling_params</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="n">name</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="BaseCNNPlugin.create_skip_connection_maps"><a class="viewcode-back" href="../../../../api/ncgenes7.plugins.cnns.html#ncgenes7.plugins.cnns.base.BaseCNNPlugin.create_skip_connection_maps">[docs]</a>    <span class="k">def</span> <span class="nf">create_skip_connection_maps</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">auxiliary_feature_map</span><span class="p">:</span> <span class="n">tf</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span>
+                                    <span class="n">input_feature_map</span><span class="p">:</span> <span class="n">tf</span><span class="o">.</span><span class="n">Tensor</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">tf</span><span class="o">.</span><span class="n">Tensor</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Apply convolutions to auxiliary_feature_map before combining it with</span>
+<span class="sd">        inputs</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        auxiliary_feature_map</span>
+<span class="sd">            auxiliary feature maps for skip connections</span>
+<span class="sd">        input_feature_map</span>
+<span class="sd">            input feature maps for skip connections</span>
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        skip_connection_maps</span>
+<span class="sd">            skip connection maps</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">layer_name</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_current_layer_full_name</span><span class="p">(</span><span class="s2">&quot;skip_connection&quot;</span><span class="p">)</span>
+        <span class="n">num_channels_inputs</span> <span class="o">=</span> <span class="n">input_feature_map</span><span class="o">.</span><span class="n">get_shape</span><span class="p">()</span><span class="o">.</span><span class="n">as_list</span><span class="p">()[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">skip_connection_layer</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">add_keras_layer</span><span class="p">(</span>
+            <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Conv2D</span><span class="p">(</span><span class="n">num_channels_inputs</span><span class="p">,</span> <span class="n">kernel_size</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span>
+                                   <span class="n">padding</span><span class="o">=</span><span class="s1">&#39;same&#39;</span><span class="p">,</span>
+                                   <span class="n">activation</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">activation</span><span class="p">,</span>
+                                   <span class="n">bias_initializer</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">initializer</span><span class="p">,</span>
+                                   <span class="n">kernel_initializer</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">initializer</span><span class="p">,</span>
+                                   <span class="n">name</span><span class="o">=</span><span class="n">layer_name</span><span class="p">))</span>
+
+        <span class="n">skip_connection_maps</span> <span class="o">=</span> <span class="n">skip_connection_layer</span><span class="p">(</span><span class="n">auxiliary_feature_map</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">skip_connection_maps</span></div>
+
+<div class="viewcode-block" id="BaseCNNPlugin.build_skip_connection"><a class="viewcode-back" href="../../../../api/ncgenes7.plugins.cnns.html#ncgenes7.plugins.cnns.base.BaseCNNPlugin.build_skip_connection">[docs]</a>    <span class="nd">@with_name_scope</span><span class="p">(</span><span class="s2">&quot;skip_connection&quot;</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">build_skip_connection</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">inputs</span><span class="p">:</span> <span class="n">tf</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span>
+                              <span class="n">auxiliary_feature_map</span><span class="p">:</span> <span class="n">tf</span><span class="o">.</span><span class="n">Tensor</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">tf</span><span class="o">.</span><span class="n">Tensor</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        First fit input size to to auxiliary_feature_map size and then</span>
+<span class="sd">        apply skip function on them, e.g. concatenate or sum</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        auxiliary_feature_map</span>
+<span class="sd">            auxiliary feature maps for skip connections</span>
+<span class="sd">        inputs</span>
+<span class="sd">            inputs</span>
+<span class="sd">        layer_name_suffix</span>
+<span class="sd">            suffix to layer name</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        feature_maps_after_skip_connection</span>
+<span class="sd">            feature maps after skip connection</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="n">inputs</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">skip_connection_resize_type</span> <span class="o">==</span> <span class="s2">&quot;pad&quot;</span><span class="p">:</span>
+            <span class="n">auxiliary_feature_map</span> <span class="o">=</span> <span class="n">_pad_image_to_other</span><span class="p">(</span>
+                <span class="n">auxiliary_feature_map</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">skip_connection_resize_type</span> <span class="o">==</span> <span class="s2">&quot;imresize&quot;</span><span class="p">:</span>
+            <span class="n">new_shape</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">shape</span><span class="p">(</span><span class="n">x</span><span class="p">)[</span><span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="p">]</span>
+            <span class="n">auxiliary_feature_map</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">image</span><span class="o">.</span><span class="n">resize_bilinear</span><span class="p">(</span>
+                <span class="n">auxiliary_feature_map</span><span class="p">,</span> <span class="n">new_shape</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">x</span> <span class="o">=</span> <span class="n">_slice_image_to_other</span><span class="p">(</span><span class="n">auxiliary_feature_map</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+        <span class="n">skip_connection_maps</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">create_skip_connection_maps</span><span class="p">(</span>
+            <span class="n">auxiliary_feature_map</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+        <span class="n">skip_fun</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;concat&#39;</span><span class="p">:</span> <span class="n">functools</span><span class="o">.</span><span class="n">partial</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">concat</span><span class="p">,</span> <span class="n">axis</span><span class="o">=-</span><span class="mi">1</span><span class="p">),</span>
+                    <span class="s1">&#39;sum&#39;</span><span class="p">:</span> <span class="n">tf</span><span class="o">.</span><span class="n">add_n</span><span class="p">}[</span><span class="bp">self</span><span class="o">.</span><span class="n">skip_connection_type</span><span class="p">]</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="n">skip_fun</span><span class="p">([</span><span class="n">x</span><span class="p">,</span> <span class="n">skip_connection_maps</span><span class="p">])</span>
+        <span class="k">return</span> <span class="n">x</span></div>
+
+<div class="viewcode-block" id="BaseCNNPlugin.build_residual_block_connection"><a class="viewcode-back" href="../../../../api/ncgenes7.plugins.cnns.html#ncgenes7.plugins.cnns.base.BaseCNNPlugin.build_residual_block_connection">[docs]</a>    <span class="nd">@with_name_scope</span><span class="p">(</span><span class="s2">&quot;residual_connection&quot;</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">build_residual_block_connection</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">block_input</span><span class="p">:</span> <span class="n">tf</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span>
+                                        <span class="n">block_output</span><span class="p">:</span> <span class="n">tf</span><span class="o">.</span><span class="n">Tensor</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">tf</span><span class="o">.</span><span class="n">Tensor</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Create residual connection by applying convolution on block_input</span>
+<span class="sd">        and add or concatenate it with block_output</span>
+
+<span class="sd">        Applies convolution with kernel and stride from sampling_params</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        block_input</span>
+<span class="sd">            feature maps before convolution block</span>
+<span class="sd">        block_output</span>
+<span class="sd">            feature maps after convolution block</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        block_res</span>
+<span class="sd">            feature maps after residual connection</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">filters</span> <span class="o">=</span> <span class="n">block_output</span><span class="o">.</span><span class="n">get_shape</span><span class="p">()</span><span class="o">.</span><span class="n">as_list</span><span class="p">()[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">layer_name</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_current_layer_full_name</span><span class="p">(</span><span class="s2">&quot;residual&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">sampling_type</span> <span class="o">==</span> <span class="s1">&#39;encoder&#39;</span><span class="p">:</span>
+            <span class="n">residual_layer</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">add_keras_layer</span><span class="p">(</span>
+                <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Conv2D</span><span class="p">(</span>
+                    <span class="n">filters</span><span class="o">=</span><span class="n">filters</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">activation</span><span class="p">,</span>
+                    <span class="n">bias_initializer</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">initializer</span><span class="p">,</span>
+                    <span class="n">kernel_initializer</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">initializer</span><span class="p">,</span>
+                    <span class="n">name</span><span class="o">=</span><span class="n">layer_name</span><span class="p">,</span> <span class="o">**</span><span class="bp">self</span><span class="o">.</span><span class="n">sampling_params</span><span class="p">))</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">residual_layer</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">add_keras_layer</span><span class="p">(</span>
+                <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Conv2DTranspose</span><span class="p">(</span>
+                    <span class="n">filters</span><span class="o">=</span><span class="n">filters</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">activation</span><span class="p">,</span>
+                    <span class="n">bias_initializer</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">initializer</span><span class="p">,</span>
+                    <span class="n">kernel_initializer</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">initializer</span><span class="p">,</span>
+                    <span class="n">name</span><span class="o">=</span><span class="n">layer_name</span><span class="p">,</span> <span class="o">**</span><span class="bp">self</span><span class="o">.</span><span class="n">sampling_params</span><span class="p">))</span>
+
+        <span class="n">res_connection</span> <span class="o">=</span> <span class="n">residual_layer</span><span class="p">(</span><span class="n">block_input</span><span class="p">)</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">block_residual_connection_type</span> <span class="o">==</span> <span class="s1">&#39;sum&#39;</span><span class="p">:</span>
+            <span class="n">out</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">add_n</span><span class="p">([</span><span class="n">block_output</span><span class="p">,</span> <span class="n">res_connection</span><span class="p">])</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">out</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">block_output</span><span class="p">,</span> <span class="n">res_connection</span><span class="p">],</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">out</span></div>
+
+<div class="viewcode-block" id="BaseCNNPlugin.build_first_layer"><a class="viewcode-back" href="../../../../api/ncgenes7.plugins.cnns.html#ncgenes7.plugins.cnns.base.BaseCNNPlugin.build_first_layer">[docs]</a>    <span class="nd">@with_name_scope</span><span class="p">(</span><span class="s2">&quot;first_layer&quot;</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">build_first_layer</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">inputs</span><span class="p">:</span> <span class="n">tf</span><span class="o">.</span><span class="n">Tensor</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">tf</span><span class="o">.</span><span class="n">Tensor</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Build first convolution layer following max pooling before blocks</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        inputs</span>
+<span class="sd">            inputs</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        output</span>
+<span class="sd">            result of the first convolution</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">out</span> <span class="o">=</span> <span class="n">inputs</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">first_conv_params</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">conv_layer</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">add_keras_layer</span><span class="p">(</span>
+                <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Conv2D</span><span class="p">(</span><span class="n">activation</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">activation</span><span class="p">,</span>
+                                       <span class="o">**</span><span class="bp">self</span><span class="o">.</span><span class="n">first_conv_params</span><span class="p">,</span>
+                                       <span class="n">bias_initializer</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">initializer</span><span class="p">,</span>
+                                       <span class="n">kernel_initializer</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">initializer</span><span class="p">,</span>
+                                       <span class="n">name</span><span class="o">=</span><span class="s2">&quot;first_layer_conv&quot;</span><span class="p">))</span>
+            <span class="n">out</span> <span class="o">=</span> <span class="n">conv_layer</span><span class="p">(</span><span class="n">out</span><span class="p">)</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">first_sampling_params</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">out</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="n">out</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">first_sampling_params</span><span class="p">,</span>
+                              <span class="n">name</span><span class="o">=</span><span class="s2">&quot;first_layer_sample&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">out</span></div>
+
+<div class="viewcode-block" id="BaseCNNPlugin.build_last_layer"><a class="viewcode-back" href="../../../../api/ncgenes7.plugins.cnns.html#ncgenes7.plugins.cnns.base.BaseCNNPlugin.build_last_layer">[docs]</a>    <span class="nd">@with_name_scope</span><span class="p">(</span><span class="s2">&quot;last_layer&quot;</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">build_last_layer</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">inputs</span><span class="p">:</span> <span class="n">tf</span><span class="o">.</span><span class="n">Tensor</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">tf</span><span class="o">.</span><span class="n">Tensor</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Build last convolution layer after all blocks</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        inputs</span>
+<span class="sd">            inputs</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        output</span>
+<span class="sd">            result of the last convolution</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">activation</span> <span class="o">=</span> <span class="p">(</span><span class="kc">None</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">last_conv_without_activation</span> <span class="k">else</span>
+                      <span class="bp">self</span><span class="o">.</span><span class="n">activation</span><span class="p">)</span>
+        <span class="n">conv_layer</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">add_keras_layer</span><span class="p">(</span>
+            <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Conv2D</span><span class="p">(</span><span class="n">activation</span><span class="o">=</span><span class="n">activation</span><span class="p">,</span>
+                                   <span class="o">**</span><span class="bp">self</span><span class="o">.</span><span class="n">last_conv_params</span><span class="p">,</span>
+                                   <span class="n">bias_initializer</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">initializer</span><span class="p">,</span>
+                                   <span class="n">kernel_initializer</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">initializer</span><span class="p">,</span>
+                                   <span class="n">name</span><span class="o">=</span><span class="s2">&quot;last_layer_conv&quot;</span><span class="p">))</span>
+        <span class="n">out</span> <span class="o">=</span> <span class="n">conv_layer</span><span class="p">(</span><span class="n">inputs</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">out</span></div>
+
+<div class="viewcode-block" id="BaseCNNPlugin.predict"><a class="viewcode-back" href="../../../../api/ncgenes7.plugins.cnns.html#ncgenes7.plugins.cnns.base.BaseCNNPlugin.predict">[docs]</a>    <span class="k">def</span> <span class="nf">predict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">feature_maps</span><span class="p">:</span> <span class="n">tf</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span>
+                <span class="n">auxiliary_feature_maps</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">tf</span><span class="o">.</span><span class="n">Tensor</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+        <span class="c1"># pylint: disable=arguments-differ</span>
+        <span class="c1"># parent save method has more generic signature</span>
+        <span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">add_skip_connections</span><span class="p">:</span>
+            <span class="n">auxiliary_feature_maps</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="n">auxiliary_feature_maps_reversed</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="k">if</span> <span class="n">auxiliary_feature_maps</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">start_ind</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">auxiliary_feature_maps_start_ind</span>
+            <span class="n">auxiliary_feature_maps_reversed</span> <span class="o">=</span> <span class="p">(</span>
+                <span class="n">auxiliary_feature_maps</span><span class="p">[</span><span class="n">start_ind</span><span class="p">:][::</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+        <span class="n">auxiliary_feature_maps_out</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">nets</span> <span class="o">=</span> <span class="n">feature_maps</span>
+
+        <span class="c1"># add first layer</span>
+        <span class="n">nets</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">build_first_layer</span><span class="p">(</span><span class="n">nets</span><span class="p">)</span>
+
+        <span class="k">for</span> <span class="n">block_index</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">num_blocks</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_current_block_index</span> <span class="o">=</span> <span class="n">block_index</span>
+            <span class="n">block_input</span> <span class="o">=</span> <span class="n">nets</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">auxiliary_feature_maps_reversed</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">or</span>
+                    <span class="n">block_index</span> <span class="o">&gt;=</span> <span class="nb">len</span><span class="p">(</span><span class="n">auxiliary_feature_maps_reversed</span><span class="p">)):</span>
+                <span class="n">aux_map</span> <span class="o">=</span> <span class="kc">None</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">aux_map</span> <span class="o">=</span> <span class="n">auxiliary_feature_maps_reversed</span><span class="p">[</span><span class="n">block_index</span><span class="p">]</span>
+            <span class="n">cnn_blocks_parameters</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_cnn_block_parameters</span><span class="p">(</span><span class="n">block_index</span><span class="p">)</span>
+            <span class="c1"># build cnn block</span>
+            <span class="n">nets</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">build_cnn_block</span><span class="p">(</span><span class="n">inputs</span><span class="o">=</span><span class="n">nets</span><span class="p">,</span> <span class="o">**</span><span class="n">cnn_blocks_parameters</span><span class="p">)</span>
+
+            <span class="c1"># stop if it was last layer and not sample if not wanted</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">block_index</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">num_blocks</span> <span class="o">-</span> <span class="mi">1</span> <span class="ow">and</span>
+                    <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">last_block_with_sampling</span><span class="p">):</span>
+                <span class="k">break</span>
+
+            <span class="n">auxiliary_feature_maps_out</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">nets</span><span class="p">)</span>
+            <span class="c1"># sample block output</span>
+            <span class="n">nets</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="n">nets</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">sampling_params</span><span class="p">)</span>
+            <span class="c1"># add residual connection for the whole block</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">add_block_residual_connections</span><span class="p">:</span>
+                <span class="n">nets</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">build_residual_block_connection</span><span class="p">(</span><span class="n">block_input</span><span class="p">,</span> <span class="n">nets</span><span class="p">)</span>
+            <span class="c1"># add skip connections</span>
+            <span class="k">if</span> <span class="n">aux_map</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Create skip connection for block &quot;</span>
+                            <span class="s2">&quot;</span><span class="si">%s</span><span class="s2"> from auxiliary map </span><span class="si">%s</span><span class="s2"> and input </span><span class="si">%s</span><span class="s2">&quot;</span><span class="p">,</span>
+                            <span class="n">block_index</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">aux_map</span><span class="p">,</span> <span class="n">nets</span><span class="p">)</span>
+                <span class="n">nets</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">build_skip_connection</span><span class="p">(</span><span class="n">nets</span><span class="p">,</span> <span class="n">aux_map</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">last_conv_params</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">nets</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">build_last_layer</span><span class="p">(</span><span class="n">nets</span><span class="p">)</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;feature_maps&#39;</span><span class="p">:</span> <span class="n">nets</span><span class="p">,</span>
+                  <span class="s1">&#39;auxiliary_feature_maps&#39;</span><span class="p">:</span> <span class="n">auxiliary_feature_maps_out</span><span class="p">}</span>
+        <span class="k">return</span> <span class="n">result</span></div>
+
+    <span class="k">def</span> <span class="nf">_get_cnn_block_parameters</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">block_index</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">cnn_blocks_parameters</span><span class="p">,</span> <span class="nb">dict</span><span class="p">):</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">cnn_blocks_parameters</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">cnn_blocks_parameters</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">block_index</span> <span class="o">+</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">cnn_blocks_parameters</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">cnn_blocks_parameters</span><span class="p">[</span><span class="n">block_index</span><span class="p">]</span></div>
+
+
+<span class="k">def</span> <span class="nf">_pad_image_to_other</span><span class="p">(</span><span class="n">image_to_pad</span><span class="p">:</span> <span class="n">tf</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">image_large</span><span class="p">:</span> <span class="n">tf</span><span class="o">.</span><span class="n">Tensor</span>
+                        <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">tf</span><span class="o">.</span><span class="n">Tensor</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Pad image_small with zeroes to size of image_large</span>
+<span class="sd">    (only width and height)</span>
+
+<span class="sd">    image_large has larger spatial dimensions as image_small</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    image_to_pad</span>
+<span class="sd">        image to pad</span>
+<span class="sd">    image_large</span>
+<span class="sd">        image with size to pad to</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    image_small_padded : tensor</span>
+<span class="sd">        image_small padded with zeros to image_large shape</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">image_small_shape</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">shape</span><span class="p">(</span><span class="n">image_to_pad</span><span class="p">)[</span><span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="p">]</span>
+    <span class="n">image_large_shape</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">shape</span><span class="p">(</span><span class="n">image_large</span><span class="p">)[</span><span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="p">]</span>
+    <span class="n">shape_diffs</span> <span class="o">=</span> <span class="n">image_large_shape</span> <span class="o">-</span> <span class="n">image_small_shape</span>
+    <span class="n">paddings</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="n">shape_diffs</span><span class="p">[</span><span class="mi">0</span><span class="p">]],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="n">shape_diffs</span><span class="p">[</span><span class="mi">1</span><span class="p">]],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]]</span>
+    <span class="n">image_small_padded</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">pad</span><span class="p">(</span><span class="n">image_to_pad</span><span class="p">,</span> <span class="n">paddings</span><span class="p">)</span>
+    <span class="n">image_shall_shape_list</span> <span class="o">=</span> <span class="n">image_to_pad</span><span class="o">.</span><span class="n">get_shape</span><span class="p">()</span><span class="o">.</span><span class="n">as_list</span><span class="p">()</span>
+    <span class="n">image_large_shape_list</span> <span class="o">=</span> <span class="n">image_large</span><span class="o">.</span><span class="n">get_shape</span><span class="p">()</span><span class="o">.</span><span class="n">as_list</span><span class="p">()</span>
+    <span class="n">image_small_padded_new_shape</span> <span class="o">=</span> <span class="p">(</span><span class="n">image_shall_shape_list</span><span class="p">[:</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span>
+                                    <span class="n">image_large_shape_list</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="p">]</span> <span class="o">+</span>
+                                    <span class="n">image_shall_shape_list</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">:])</span>
+    <span class="n">image_small_padded</span><span class="o">.</span><span class="n">set_shape</span><span class="p">(</span><span class="n">image_small_padded_new_shape</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">image_small_padded</span>
+
+
+<span class="k">def</span> <span class="nf">_slice_image_to_other</span><span class="p">(</span><span class="n">image_small</span><span class="p">:</span> <span class="n">tf</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">image_to_slice</span><span class="p">:</span> <span class="n">tf</span><span class="o">.</span><span class="n">Tensor</span>
+                          <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">tf</span><span class="o">.</span><span class="n">Tensor</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Slice image1 to fit to dimension of image2.</span>
+
+<span class="sd">    image_large has larger spatial dimensions as image_small</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    image_small</span>
+<span class="sd">        image to slice to</span>
+<span class="sd">    image_to_slice</span>
+<span class="sd">        image to slice</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    image_large_sliced</span>
+<span class="sd">        image_large sliced to to image_small shape</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">image_small_shape</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">shape</span><span class="p">(</span><span class="n">image_small</span><span class="p">)[</span><span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="p">]</span>
+    <span class="n">image_large_shape</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">shape</span><span class="p">(</span><span class="n">image_to_slice</span><span class="p">)[</span><span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="p">]</span>
+    <span class="n">shape_diffs</span> <span class="o">=</span> <span class="n">image_large_shape</span> <span class="o">-</span> <span class="n">image_small_shape</span>
+    <span class="n">const_</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">constant</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">int32</span><span class="p">,</span> <span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,))</span>
+    <span class="n">slice_starts</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">const_</span><span class="p">,</span> <span class="n">shape_diffs</span><span class="p">,</span> <span class="n">const_</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+    <span class="n">image_large_sliced</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">slice</span><span class="p">(</span><span class="n">image_to_slice</span><span class="p">,</span> <span class="n">slice_starts</span><span class="p">,</span> <span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="mi">4</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">image_large_sliced</span>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Audi Electronics Venture GmbH
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

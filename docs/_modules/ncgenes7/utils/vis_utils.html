@@ -1,0 +1,663 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>ncgenes7.utils.vis_utils &mdash; ncgenes7 v0.10.0 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../../_static/icon.ico"/>
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> ncgenes7
+          
+
+          
+            
+            <img src="../../../_static/icon.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.10.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../Introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../ProjectSamples.html">Sample projects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Contribution.html">Contribution</a></li>
+</ul>
+<p class="caption"><span class="caption-text">API:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/ncgenes7.augmentations.html">ncgenes7.augmentations package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/ncgenes7.callbacks.html">ncgenes7.callbacks package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/ncgenes7.data_feeders.html">ncgenes7.data_feeders package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/ncgenes7.data_fields.html">ncgenes7.data_fields package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/ncgenes7.data_filters.html">ncgenes7.data_filters package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/ncgenes7.data_readers.html">ncgenes7.data_readers package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/ncgenes7.file_lists.html">ncgenes7.file_lists package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/ncgenes7.kpis.html">ncgenes7.kpis package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/ncgenes7.learning_rate_manipulators.html">ncgenes7.learning_rate_manipulators package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/ncgenes7.losses.html">ncgenes7.losses package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/ncgenes7.metrics.html">ncgenes7.metrics package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/ncgenes7.plugins.html">ncgenes7.plugins package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/ncgenes7.plugins.cnns.html">ncgenes7.plugins.cnns package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/ncgenes7.plugins.object_detection.html">ncgenes7.plugins.object_detection package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/ncgenes7.plugins.preprocessing.html">ncgenes7.plugins.preprocessing package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/ncgenes7.plugins.utils.html">ncgenes7.plugins.utils package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/ncgenes7.postprocessors.html">ncgenes7.postprocessors package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/ncgenes7.summaries.html">ncgenes7.summaries package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/ncgenes7.third_party.html">ncgenes7.third_party package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/ncgenes7.third_party.object_detection.html">ncgenes7.third_party.object_detection package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/ncgenes7.utils.html">ncgenes7.utils package</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">ncgenes7</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../index.html">Module code</a> &raquo;</li>
+        
+      <li>ncgenes7.utils.vis_utils</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for ncgenes7.utils.vis_utils</h1><div class="highlight"><pre>
+<span></span><span class="c1"># ==============================================================================</span>
+<span class="c1"># Copyright (c) 2019 Audi Electronics Venture GmbH. All rights reserved.</span>
+<span class="c1">#</span>
+<span class="c1"># This Source Code Form is subject to the terms of the Mozilla</span>
+<span class="c1"># Public License, v. 2.0. If a copy of the MPL was not distributed</span>
+<span class="c1"># with this file, You can obtain one at https://mozilla.org/MPL/2.0/.</span>
+<span class="c1"># ==============================================================================</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Utils for visualization</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="kn">import</span> <span class="nn">math</span>
+<span class="kn">import</span> <span class="nn">random</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Dict</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">List</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Optional</span>
+
+<span class="kn">from</span> <span class="nn">PIL</span> <span class="kn">import</span> <span class="n">Image</span>
+<span class="kn">from</span> <span class="nn">PIL</span> <span class="kn">import</span> <span class="n">ImageDraw</span>
+<span class="kn">from</span> <span class="nn">PIL</span> <span class="kn">import</span> <span class="n">ImageFont</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+
+<div class="viewcode-block" id="draw_keypoints_connections"><a class="viewcode-back" href="../../../api/ncgenes7.utils.html#ncgenes7.utils.vis_utils.draw_keypoints_connections">[docs]</a><span class="k">def</span> <span class="nf">draw_keypoints_connections</span><span class="p">(</span>
+        <span class="n">image</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
+        <span class="n">keypoints</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
+        <span class="n">connection_map</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">list</span><span class="p">],</span>
+        <span class="n">colors</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">list</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">thickness</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span>
+        <span class="n">add_legend</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Draw connections between keypoints according to connection map</span>
+
+<span class="sd">    If add_legend is True, then it will add the legend to an image,</span>
+<span class="sd">    so image width will be changed</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    image</span>
+<span class="sd">        np.uint8 image</span>
+<span class="sd">    keypoints</span>
+<span class="sd">        keypoints with shape [num_objects, num_keypoints, 2] in global, e.g.</span>
+<span class="sd">        image coordinates and coordinates in format [y, x]</span>
+<span class="sd">    connection_map</span>
+<span class="sd">        connection map is a dict which maps the name of connection to the</span>
+<span class="sd">        connection indices, e.g. {&quot;joint1&quot;: [1, 2]}</span>
+<span class="sd">    colors</span>
+<span class="sd">        dict with mapping of the same connection names as connection_map</span>
+<span class="sd">        to the rgb colors</span>
+<span class="sd">    thickness</span>
+<span class="sd">        thickness of the connection</span>
+<span class="sd">    add_legend</span>
+<span class="sd">        if the legend should be added to the right side of the image</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    image</span>
+<span class="sd">        image with connections drawn</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">num_objects</span> <span class="o">=</span> <span class="n">keypoints</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">colors</span> <span class="o">=</span> <span class="n">colors</span> <span class="ow">or</span> <span class="n">_create_random_connections_colors</span><span class="p">(</span><span class="n">connection_map</span><span class="p">)</span>
+    <span class="n">image_pil</span> <span class="o">=</span> <span class="n">Image</span><span class="o">.</span><span class="n">fromarray</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">uint8</span><span class="p">(</span><span class="n">image</span><span class="p">))</span><span class="o">.</span><span class="n">convert</span><span class="p">(</span><span class="s1">&#39;RGB&#39;</span><span class="p">)</span>
+    <span class="n">draw</span> <span class="o">=</span> <span class="n">ImageDraw</span><span class="o">.</span><span class="n">Draw</span><span class="p">(</span><span class="n">image_pil</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">each_object_i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_objects</span><span class="p">):</span>
+        <span class="n">draw_keypoints_connections_single_object</span><span class="p">(</span>
+            <span class="n">draw</span><span class="p">,</span> <span class="n">keypoints</span><span class="p">[</span><span class="n">each_object_i</span><span class="p">],</span> <span class="n">connection_map</span><span class="p">,</span>
+            <span class="n">colors</span><span class="p">,</span> <span class="n">thickness</span><span class="o">=</span><span class="n">thickness</span><span class="p">)</span>
+    <span class="n">np</span><span class="o">.</span><span class="n">copyto</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">image_pil</span><span class="p">))</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">add_legend</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">image</span>
+
+    <span class="n">image</span> <span class="o">=</span> <span class="n">add_legends</span><span class="p">(</span>
+        <span class="n">image</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;skeleton&quot;</span><span class="p">],</span> <span class="p">[</span><span class="n">colors</span><span class="p">],</span> <span class="n">orientation</span><span class="o">=</span><span class="s2">&quot;vertical&quot;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">image</span></div>
+
+
+<div class="viewcode-block" id="draw_keypoints_connections_single_object"><a class="viewcode-back" href="../../../api/ncgenes7.utils.html#ncgenes7.utils.vis_utils.draw_keypoints_connections_single_object">[docs]</a><span class="k">def</span> <span class="nf">draw_keypoints_connections_single_object</span><span class="p">(</span>
+        <span class="n">draw</span><span class="p">:</span> <span class="n">ImageDraw</span><span class="o">.</span><span class="n">ImageDraw</span><span class="p">,</span>
+        <span class="n">keypoints</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
+        <span class="n">connection_map</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">list</span><span class="p">],</span>
+        <span class="n">colors</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">list</span><span class="p">],</span>
+        <span class="n">thickness</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span>
+<span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Draw connections between keypoints according to connection map</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    draw</span>
+<span class="sd">        image draw</span>
+<span class="sd">    keypoints</span>
+<span class="sd">        keypoints with shape [num_keypoints, 2] in global, e.g.</span>
+<span class="sd">        image coordinates and coordinates in format [y, x]</span>
+<span class="sd">    connection_map</span>
+<span class="sd">        connection as list of lists of connections specifying connected</span>
+<span class="sd">        keypoints indices</span>
+<span class="sd">    colors</span>
+<span class="sd">        list of rgb values for each connection index</span>
+<span class="sd">    thickness</span>
+<span class="sd">        thickness of the connection</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    image</span>
+<span class="sd">        image with connections drawn</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">valid_keypoints</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">any</span><span class="p">(</span><span class="n">keypoints</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">each_connection_name</span> <span class="ow">in</span> <span class="n">connection_map</span><span class="p">:</span>
+        <span class="n">connection_start</span><span class="p">,</span> <span class="n">connection_end</span> <span class="o">=</span> <span class="n">connection_map</span><span class="p">[</span><span class="n">each_connection_name</span><span class="p">]</span>
+        <span class="n">color</span> <span class="o">=</span> <span class="n">colors</span><span class="p">[</span><span class="n">each_connection_name</span><span class="p">]</span>
+        <span class="n">is_valid_connection</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">all</span><span class="p">(</span>
+            <span class="p">[</span><span class="n">valid_keypoints</span><span class="p">[</span><span class="n">connection_start</span><span class="p">],</span>
+             <span class="n">valid_keypoints</span><span class="p">[</span><span class="n">connection_end</span><span class="p">]])</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">is_valid_connection</span><span class="p">:</span>
+            <span class="k">continue</span>
+        <span class="n">coordinates</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">(</span>
+            <span class="p">[</span><span class="n">keypoints</span><span class="p">[</span><span class="n">connection_start</span><span class="p">][::</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span>
+             <span class="n">keypoints</span><span class="p">[</span><span class="n">connection_end</span><span class="p">][::</span><span class="o">-</span><span class="mi">1</span><span class="p">]],</span> <span class="mi">0</span>
+        <span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">int32</span><span class="p">)</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+        <span class="n">draw</span><span class="o">.</span><span class="n">line</span><span class="p">(</span><span class="n">coordinates</span><span class="p">,</span> <span class="n">fill</span><span class="o">=</span><span class="nb">tuple</span><span class="p">(</span><span class="n">color</span><span class="p">),</span> <span class="n">width</span><span class="o">=</span><span class="n">thickness</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="draw_attributes_as_marks"><a class="viewcode-back" href="../../../api/ncgenes7.utils.html#ncgenes7.utils.vis_utils.draw_attributes_as_marks">[docs]</a><span class="k">def</span> <span class="nf">draw_attributes_as_marks</span><span class="p">(</span>
+        <span class="n">image</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
+        <span class="n">object_boxes</span><span class="p">,</span>
+        <span class="n">attributes</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">],</span>
+        <span class="n">class_ids_to_names_mapping</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">str</span><span class="p">]],</span>
+        <span class="n">colors</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">list</span><span class="p">]]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">thickness</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">5</span><span class="p">,</span>
+        <span class="n">add_legend</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+<span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Draws the small marks on the right or on the left of bounding boxes with</span>
+<span class="sd">    colors corresponding to the attribute value and adds a legend for attributes</span>
+<span class="sd">    to an image</span>
+
+<span class="sd">    If add_legend is True, then it will add the legend to an image,</span>
+<span class="sd">    so image width will be changed</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    image</span>
+<span class="sd">        image to draw on</span>
+<span class="sd">    object_boxes</span>
+<span class="sd">        object boxes with shape [num_objects, 4] and coordinates in format</span>
+<span class="sd">        [ymin, xmin, ymax, xmax] represented as absolute coordinates</span>
+<span class="sd">    attributes</span>
+<span class="sd">        dict which holds the attributes for all objects with every value</span>
+<span class="sd">        of shape [num_objects]; attributes with value &lt;=0 will be ignored</span>
+<span class="sd">    class_ids_to_names_mapping</span>
+<span class="sd">        mapping of type {attribute_name: {class_id: class_name}}</span>
+<span class="sd">    colors</span>
+<span class="sd">        colors as mypping of type {attribute_name: {class_id: rgb}}</span>
+<span class="sd">    thickness</span>
+<span class="sd">        thickness of the mark</span>
+<span class="sd">    add_legend</span>
+<span class="sd">        if the legend should be added to the right side of the image</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    image_with_attributes_and_legend</span>
+<span class="sd">        image with attributes as marks and corresponding legend</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># pylint: disable=too-many-locals</span>
+    <span class="c1"># TODO(oleksandr.vorobiov@audi.de): refactor</span>
+    <span class="n">difference_in_attributes_and_mapping</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">attributes</span><span class="p">)</span><span class="o">.</span><span class="n">symmetric_difference</span><span class="p">(</span>
+        <span class="nb">set</span><span class="p">(</span><span class="n">class_ids_to_names_mapping</span><span class="p">))</span>
+    <span class="k">assert</span> <span class="ow">not</span> <span class="n">difference_in_attributes_and_mapping</span><span class="p">,</span> <span class="p">(</span>
+        <span class="s2">&quot;attributes must have the same keys as class_ids_to_names_mapping&quot;</span><span class="p">)</span>
+    <span class="n">colors</span> <span class="o">=</span> <span class="p">(</span><span class="n">colors</span>
+              <span class="ow">or</span> <span class="n">_create_random_attributes_colors</span><span class="p">(</span><span class="n">class_ids_to_names_mapping</span><span class="p">))</span>
+    <span class="k">assert</span> <span class="ow">not</span> <span class="nb">set</span><span class="p">(</span><span class="n">attributes</span><span class="p">)</span><span class="o">.</span><span class="n">symmetric_difference</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">colors</span><span class="p">)),</span> <span class="p">(</span>
+        <span class="s2">&quot;attributes must have the same keys as colors&quot;</span><span class="p">)</span>
+    <span class="n">num_objects</span> <span class="o">=</span> <span class="n">object_boxes</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">valid_boxes</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">any</span><span class="p">(</span>
+        <span class="p">(</span><span class="n">object_boxes</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">2</span><span class="p">:]</span> <span class="o">-</span> <span class="n">object_boxes</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="p">:</span><span class="mi">2</span><span class="p">])</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+
+    <span class="n">image_pil</span> <span class="o">=</span> <span class="n">Image</span><span class="o">.</span><span class="n">fromarray</span><span class="p">(</span><span class="n">image</span><span class="p">)</span>
+    <span class="n">draw</span> <span class="o">=</span> <span class="n">ImageDraw</span><span class="o">.</span><span class="n">Draw</span><span class="p">(</span><span class="n">image_pil</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">each_object_i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_objects</span><span class="p">):</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">valid_boxes</span><span class="p">[</span><span class="n">each_object_i</span><span class="p">]:</span>
+            <span class="k">continue</span>
+
+        <span class="n">_draw_attribute_marks</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">draw</span><span class="p">,</span> <span class="n">attributes</span><span class="p">,</span> <span class="n">object_boxes</span><span class="p">,</span>
+                              <span class="n">each_object_i</span><span class="p">,</span> <span class="n">colors</span><span class="p">,</span> <span class="n">thickness</span><span class="p">)</span>
+
+    <span class="n">np</span><span class="o">.</span><span class="n">copyto</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">image_pil</span><span class="p">))</span>
+    <span class="n">class_names_to_colors</span> <span class="o">=</span> <span class="n">_get_class_names_to_colors</span><span class="p">(</span>
+        <span class="n">colors</span><span class="p">,</span> <span class="n">class_ids_to_names_mapping</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">add_legend</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">image</span>
+
+    <span class="n">legend_titles</span><span class="p">,</span> <span class="n">legend_items_with_colors</span> <span class="o">=</span> <span class="nb">zip</span><span class="p">(</span>
+        <span class="o">*</span><span class="nb">sorted</span><span class="p">(</span><span class="n">class_names_to_colors</span><span class="o">.</span><span class="n">items</span><span class="p">()))</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="n">add_legends</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">legend_titles</span><span class="p">,</span> <span class="n">legend_items_with_colors</span><span class="p">,</span>
+                         <span class="n">orientation</span><span class="o">=</span><span class="s2">&quot;vertical&quot;</span><span class="p">,</span> <span class="n">legend_markers</span><span class="o">=</span><span class="s2">&quot;box&quot;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">result</span></div>
+
+
+<div class="viewcode-block" id="add_legends"><a class="viewcode-back" href="../../../api/ncgenes7.utils.html#ncgenes7.utils.vis_utils.add_legends">[docs]</a><span class="k">def</span> <span class="nf">add_legends</span><span class="p">(</span><span class="n">image</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
+                <span class="n">legend_titles</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span>
+                <span class="n">legend_items_with_colors</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">list</span><span class="p">]],</span>
+                <span class="n">legend_markers</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;line&quot;</span><span class="p">,</span>
+                <span class="n">orientation</span><span class="o">=</span><span class="s2">&quot;vertical&quot;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Add legends to the image by stacking them in the direction of orientation</span>
+
+<span class="sd">    Will add the legend in vertical (to the right of image) or in horizontal</span>
+<span class="sd">    (to the bottom of image) orientations.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    image</span>
+<span class="sd">        image</span>
+<span class="sd">    legend_titles</span>
+<span class="sd">        list of legends titles</span>
+<span class="sd">    legend_items_with_colors</span>
+<span class="sd">        list of dict with mapping of legend items to its RGB colors;</span>
+<span class="sd">        inside of legend items are sorted in alphabetical order</span>
+<span class="sd">    orientation</span>
+<span class="sd">        orientation of the legend - horizontal or vertical</span>
+<span class="sd">    legend_markers</span>
+<span class="sd">        which marks to use as a legend markers</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    image_with_legend</span>
+<span class="sd">        image with legend</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">legend_titles</span><span class="p">)</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="n">legend_items_with_colors</span><span class="p">),</span> <span class="p">(</span>
+        <span class="s2">&quot;length of legend titles must be equal to lengths if legend items!&quot;</span>
+    <span class="p">)</span>
+    <span class="k">assert</span> <span class="n">legend_markers</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;box&quot;</span><span class="p">,</span> <span class="s2">&quot;line&quot;</span><span class="p">],</span> <span class="p">(</span>
+        <span class="s2">&quot;currently supported only box and line legend markers&quot;</span>
+    <span class="p">)</span>
+    <span class="n">legend_images</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">each_title</span><span class="p">,</span> <span class="n">each_items</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">legend_titles</span><span class="p">,</span> <span class="n">legend_items_with_colors</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">orientation</span> <span class="o">==</span> <span class="s2">&quot;vertical&quot;</span><span class="p">:</span>
+            <span class="n">legend_image</span> <span class="o">=</span> <span class="n">_draw_vertical_legend</span><span class="p">(</span>
+                <span class="n">each_title</span><span class="p">,</span> <span class="n">each_items</span><span class="p">,</span> <span class="n">legend_markers</span><span class="o">=</span><span class="n">legend_markers</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">legend_image</span> <span class="o">=</span> <span class="n">_draw_horizontal_legend</span><span class="p">(</span>
+                <span class="n">each_title</span><span class="p">,</span> <span class="n">each_items</span><span class="p">,</span> <span class="n">legend_markers</span><span class="o">=</span><span class="n">legend_markers</span><span class="p">)</span>
+        <span class="n">legend_images</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">legend_image</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">legend_images</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="n">legend_complete</span> <span class="o">=</span> <span class="n">_concat_images</span><span class="p">(</span><span class="n">legend_images</span><span class="p">,</span> <span class="n">orientation</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">legend_complete</span> <span class="o">=</span> <span class="n">legend_images</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="n">_concat_images</span><span class="p">(</span>
+        <span class="p">[</span><span class="n">image</span><span class="p">,</span> <span class="n">legend_complete</span><span class="p">],</span>
+        <span class="s2">&quot;horizontal&quot;</span> <span class="k">if</span> <span class="n">orientation</span> <span class="o">==</span> <span class="s2">&quot;vertical&quot;</span> <span class="k">else</span> <span class="s2">&quot;vertical&quot;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">result</span></div>
+
+
+<span class="k">def</span> <span class="nf">_get_class_names_to_colors</span><span class="p">(</span><span class="n">colors</span><span class="p">,</span> <span class="n">class_ids_to_names_mapping</span><span class="p">):</span>
+    <span class="n">class_names_to_colors</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="k">for</span> <span class="n">each_name</span><span class="p">,</span> <span class="n">each_class_id_to_name_map</span> <span class="ow">in</span> <span class="p">(</span>
+            <span class="n">class_ids_to_names_mapping</span><span class="o">.</span><span class="n">items</span><span class="p">()):</span>
+        <span class="n">class_names_to_colors</span><span class="p">[</span><span class="n">each_name</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="k">for</span> <span class="n">each_class_id</span><span class="p">,</span> <span class="n">each_class_name</span> <span class="ow">in</span> <span class="n">each_class_id_to_name_map</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="n">class_names_to_colors</span><span class="p">[</span><span class="n">each_name</span><span class="p">][</span><span class="n">each_class_name</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span>
+                <span class="n">colors</span><span class="p">[</span><span class="n">each_name</span><span class="p">][</span><span class="n">each_class_id</span><span class="p">])</span>
+    <span class="k">return</span> <span class="n">class_names_to_colors</span>
+
+
+<span class="k">def</span> <span class="nf">_draw_attribute_marks</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">draw</span><span class="p">,</span> <span class="n">attributes</span><span class="p">,</span> <span class="n">object_boxes</span><span class="p">,</span> <span class="n">object_index</span><span class="p">,</span>
+                          <span class="n">colors</span><span class="p">,</span> <span class="n">thickness</span><span class="p">):</span>
+    <span class="c1"># pylint: disable=too-many-locals</span>
+    <span class="c1"># TODO(oleksandr.vorobiov@audi.de): refactor</span>
+    <span class="n">image_width</span> <span class="o">=</span> <span class="n">image</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">object_box</span> <span class="o">=</span> <span class="n">object_boxes</span><span class="p">[</span><span class="n">object_index</span><span class="p">]</span>
+    <span class="n">box_ymin</span><span class="p">,</span> <span class="n">box_xmin</span><span class="p">,</span> <span class="n">box_ymax</span><span class="p">,</span> <span class="n">box_xmax</span> <span class="o">=</span> <span class="n">object_box</span>
+    <span class="n">box_height</span> <span class="o">=</span> <span class="n">box_ymax</span> <span class="o">-</span> <span class="n">box_ymin</span>
+
+    <span class="n">attributes_to_draw</span><span class="p">,</span> <span class="n">attributes_to_draw_colors</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="n">_select_valid_attributes_and_colors</span><span class="p">(</span><span class="n">attributes</span><span class="p">,</span> <span class="n">colors</span><span class="p">,</span> <span class="n">object_index</span><span class="p">))</span>
+
+    <span class="n">num_attributes_to_draw</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">attributes_to_draw</span><span class="p">)</span>
+
+    <span class="n">max_marks_per_height</span> <span class="o">=</span> <span class="n">box_height</span> <span class="o">//</span> <span class="n">thickness</span>
+    <span class="n">marks_per_width</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">ceil</span><span class="p">(</span><span class="n">num_attributes_to_draw</span> <span class="o">/</span> <span class="n">max_marks_per_height</span><span class="p">)</span>
+    <span class="n">marks_width</span> <span class="o">=</span> <span class="n">marks_per_width</span> <span class="o">*</span> <span class="n">thickness</span>
+    <span class="n">draw_to_the_right</span> <span class="o">=</span> <span class="kc">True</span>
+    <span class="k">if</span> <span class="n">box_xmax</span> <span class="o">+</span> <span class="n">marks_width</span> <span class="o">&gt;</span> <span class="n">image_width</span><span class="p">:</span>
+        <span class="n">draw_to_the_right</span> <span class="o">=</span> <span class="kc">False</span>
+
+    <span class="n">mark_y</span> <span class="o">=</span> <span class="n">box_ymin</span>
+    <span class="k">if</span> <span class="n">draw_to_the_right</span><span class="p">:</span>
+        <span class="n">mark_x</span> <span class="o">=</span> <span class="n">box_xmax</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">mark_x</span> <span class="o">=</span> <span class="n">box_xmin</span> <span class="o">-</span> <span class="n">thickness</span>
+
+    <span class="k">for</span> <span class="n">each_attribute_name</span> <span class="ow">in</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">attributes_to_draw</span><span class="p">):</span>
+        <span class="n">color</span> <span class="o">=</span> <span class="n">attributes_to_draw_colors</span><span class="p">[</span><span class="n">each_attribute_name</span><span class="p">]</span>
+        <span class="n">draw</span><span class="o">.</span><span class="n">rectangle</span><span class="p">([</span><span class="n">mark_x</span><span class="p">,</span> <span class="n">mark_y</span><span class="p">,</span> <span class="n">mark_x</span> <span class="o">+</span> <span class="n">thickness</span><span class="p">,</span> <span class="n">mark_y</span> <span class="o">+</span> <span class="n">thickness</span><span class="p">],</span>
+                       <span class="n">fill</span><span class="o">=</span><span class="n">color</span><span class="p">)</span>
+
+        <span class="n">mark_y</span> <span class="o">+=</span> <span class="n">thickness</span>
+        <span class="k">if</span> <span class="n">mark_y</span> <span class="o">&gt;</span> <span class="n">box_ymax</span><span class="p">:</span>
+            <span class="n">mark_y</span> <span class="o">=</span> <span class="n">box_ymin</span>
+            <span class="k">if</span> <span class="n">draw_to_the_right</span><span class="p">:</span>
+                <span class="n">mark_x</span> <span class="o">+=</span> <span class="n">thickness</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">mark_x</span> <span class="o">-=</span> <span class="n">thickness</span>
+
+
+<span class="k">def</span> <span class="nf">_select_valid_attributes_and_colors</span><span class="p">(</span><span class="n">attributes</span><span class="p">,</span> <span class="n">colors</span><span class="p">,</span> <span class="n">object_index</span><span class="p">):</span>
+    <span class="n">attributes_to_draw</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="n">attributes_to_draw_colors</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="k">for</span> <span class="n">each_attribute_name</span><span class="p">,</span> <span class="n">each_attribute</span> <span class="ow">in</span> <span class="n">attributes</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+        <span class="n">each_attribute_i</span> <span class="o">=</span> <span class="n">each_attribute</span><span class="p">[</span><span class="n">object_index</span><span class="p">]</span>
+        <span class="k">if</span> <span class="n">each_attribute_i</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">continue</span>
+        <span class="n">attributes_to_draw</span><span class="p">[</span><span class="n">each_attribute_name</span><span class="p">]</span> <span class="o">=</span> <span class="n">each_attribute_i</span>
+        <span class="n">color</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">colors</span><span class="p">[</span><span class="n">each_attribute_name</span><span class="p">][</span><span class="n">each_attribute_i</span><span class="p">])</span>
+        <span class="n">color</span> <span class="o">=</span> <span class="n">color</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">color</span><span class="p">,</span> <span class="nb">str</span><span class="p">)</span> <span class="k">else</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">color</span><span class="p">)</span>
+        <span class="n">attributes_to_draw_colors</span><span class="p">[</span><span class="n">each_attribute_name</span><span class="p">]</span> <span class="o">=</span> <span class="n">color</span>
+    <span class="k">return</span> <span class="n">attributes_to_draw</span><span class="p">,</span> <span class="n">attributes_to_draw_colors</span>
+
+
+<span class="k">def</span> <span class="nf">_concat_images</span><span class="p">(</span><span class="n">images</span><span class="p">,</span>
+                   <span class="n">orientation</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">background</span><span class="p">:</span> <span class="nb">tuple</span> <span class="o">=</span> <span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">)</span>
+                   <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">orientation</span> <span class="o">==</span> <span class="s2">&quot;horizontal&quot;</span><span class="p">:</span>
+        <span class="n">new_size</span> <span class="o">=</span> <span class="p">(</span><span class="nb">sum</span><span class="p">(</span><span class="n">each_image</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="k">for</span> <span class="n">each_image</span> <span class="ow">in</span> <span class="n">images</span><span class="p">),</span>
+                    <span class="nb">max</span><span class="p">(</span><span class="n">each_image</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">each_image</span> <span class="ow">in</span> <span class="n">images</span><span class="p">))</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">new_size</span> <span class="o">=</span> <span class="p">(</span><span class="nb">max</span><span class="p">(</span><span class="n">each_image</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="k">for</span> <span class="n">each_image</span> <span class="ow">in</span> <span class="n">images</span><span class="p">),</span>
+                    <span class="nb">sum</span><span class="p">(</span><span class="n">each_image</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">each_image</span> <span class="ow">in</span> <span class="n">images</span><span class="p">))</span>
+    <span class="n">result_image</span> <span class="o">=</span> <span class="n">Image</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="s2">&quot;RGB&quot;</span><span class="p">,</span> <span class="n">new_size</span><span class="p">,</span> <span class="n">background</span><span class="p">)</span>
+    <span class="n">x_coord</span><span class="p">,</span> <span class="n">y_coord</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">each_image</span> <span class="ow">in</span> <span class="n">images</span><span class="p">:</span>
+        <span class="n">result_image</span><span class="o">.</span><span class="n">paste</span><span class="p">(</span><span class="n">Image</span><span class="o">.</span><span class="n">fromarray</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">uint8</span><span class="p">(</span><span class="n">each_image</span><span class="p">))</span><span class="o">.</span><span class="n">convert</span><span class="p">(</span><span class="s1">&#39;RGB&#39;</span><span class="p">),</span>
+                           <span class="p">(</span><span class="n">x_coord</span><span class="p">,</span> <span class="n">y_coord</span><span class="p">))</span>
+        <span class="k">if</span> <span class="n">orientation</span> <span class="o">==</span> <span class="s2">&quot;vertical&quot;</span><span class="p">:</span>
+            <span class="n">y_coord</span> <span class="o">+=</span> <span class="n">each_image</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">x_coord</span> <span class="o">+=</span> <span class="n">each_image</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">result_image</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">_draw_vertical_legend</span><span class="p">(</span><span class="n">legend_title</span><span class="p">,</span> <span class="n">legend_items_with_colors</span><span class="p">,</span>
+                          <span class="n">background</span><span class="p">:</span> <span class="nb">tuple</span> <span class="o">=</span> <span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">),</span>
+                          <span class="n">legend_markers</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;line&quot;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
+    <span class="c1"># pylint: disable=too-many-locals</span>
+    <span class="c1"># TODO(oleksandr.vorobiov@audi.de): refactor</span>
+    <span class="n">indicator_width</span> <span class="o">=</span> <span class="mi">10</span>
+    <span class="n">font</span> <span class="o">=</span> <span class="n">_get_font</span><span class="p">()</span>
+    <span class="n">title_width</span><span class="p">,</span> <span class="n">title_height</span> <span class="o">=</span> <span class="n">font</span><span class="o">.</span><span class="n">getsize</span><span class="p">(</span><span class="n">legend_title</span><span class="p">)</span>
+    <span class="n">height_offset</span> <span class="o">=</span> <span class="n">title_height</span> <span class="o">//</span> <span class="mi">2</span>
+    <span class="n">max_width</span><span class="p">,</span> <span class="n">total_height</span> <span class="o">=</span> <span class="n">_get_legend_dimensions</span><span class="p">(</span>
+        <span class="n">legend_items_with_colors</span><span class="p">,</span> <span class="n">title_height</span><span class="p">,</span> <span class="n">title_width</span><span class="p">,</span>
+        <span class="n">height_offset</span><span class="p">,</span> <span class="n">indicator_width</span><span class="p">,</span> <span class="n">font</span><span class="p">)</span>
+    <span class="n">legend_image_pil</span> <span class="o">=</span> <span class="n">Image</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="s2">&quot;RGB&quot;</span><span class="p">,</span> <span class="p">[</span><span class="n">max_width</span><span class="p">,</span> <span class="n">total_height</span><span class="p">],</span>
+                                 <span class="n">color</span><span class="o">=</span><span class="n">background</span><span class="p">)</span>
+    <span class="n">draw</span> <span class="o">=</span> <span class="n">ImageDraw</span><span class="o">.</span><span class="n">Draw</span><span class="p">(</span><span class="n">legend_image_pil</span><span class="p">)</span>
+
+    <span class="n">y_coord</span> <span class="o">=</span> <span class="n">title_height</span> <span class="o">+</span> <span class="n">height_offset</span>
+    <span class="k">for</span> <span class="n">each_color_name</span><span class="p">,</span> <span class="n">each_color</span> <span class="ow">in</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">legend_items_with_colors</span><span class="o">.</span><span class="n">items</span><span class="p">()):</span>
+        <span class="n">_draw_item_on_legend</span><span class="p">(</span><span class="n">draw</span><span class="p">,</span> <span class="n">each_color</span><span class="p">,</span> <span class="n">each_color_name</span><span class="p">,</span> <span class="n">y_coord</span><span class="p">,</span>
+                             <span class="n">indicator_width</span><span class="p">,</span> <span class="n">legend_markers</span><span class="p">,</span> <span class="n">font</span><span class="p">)</span>
+        <span class="n">y_coord</span> <span class="o">+=</span> <span class="n">height_offset</span> <span class="o">+</span> <span class="n">font</span><span class="o">.</span><span class="n">getsize</span><span class="p">(</span><span class="n">each_color_name</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span>
+
+    <span class="n">draw</span><span class="o">.</span><span class="n">rectangle</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">max_width</span> <span class="o">-</span> <span class="mi">2</span><span class="p">,</span> <span class="n">total_height</span> <span class="o">-</span> <span class="mi">2</span><span class="p">],</span> <span class="n">outline</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
+    <span class="n">draw</span><span class="o">.</span><span class="n">rectangle</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">title_width</span> <span class="o">+</span> <span class="mi">7</span><span class="p">,</span> <span class="n">title_height</span><span class="p">],</span> <span class="n">background</span><span class="p">)</span>
+    <span class="n">draw</span><span class="o">.</span><span class="n">text</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">legend_title</span><span class="p">,</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="n">font</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">legend_image_pil</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">_get_legend_dimensions</span><span class="p">(</span><span class="n">legend_items_with_colors</span><span class="p">,</span> <span class="n">title_height</span><span class="p">,</span> <span class="n">title_width</span><span class="p">,</span>
+                           <span class="n">height_offset</span><span class="p">,</span> <span class="n">indicator_width</span><span class="p">,</span> <span class="n">font</span><span class="p">):</span>
+    <span class="n">color_widths</span><span class="p">,</span> <span class="n">color_heights</span> <span class="o">=</span> <span class="nb">zip</span><span class="p">(</span>
+        <span class="o">*</span><span class="p">[</span><span class="n">font</span><span class="o">.</span><span class="n">getsize</span><span class="p">(</span><span class="n">each_name</span><span class="p">)</span> <span class="k">for</span> <span class="n">each_name</span> <span class="ow">in</span> <span class="n">legend_items_with_colors</span><span class="p">])</span>
+    <span class="n">max_width</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">max</span><span class="p">(</span>
+        <span class="n">title_width</span> <span class="o">+</span> <span class="n">indicator_width</span> <span class="o">*</span> <span class="mf">1.5</span><span class="p">,</span>
+        <span class="o">*</span><span class="p">[</span><span class="n">each_width</span> <span class="o">+</span> <span class="n">indicator_width</span> <span class="o">*</span> <span class="mf">1.5</span> <span class="k">for</span> <span class="n">each_width</span> <span class="ow">in</span> <span class="n">color_widths</span><span class="p">]))</span>
+    <span class="n">max_width</span> <span class="o">+=</span> <span class="mi">10</span>
+    <span class="n">total_height</span> <span class="o">=</span> <span class="p">(</span><span class="n">title_height</span> <span class="o">*</span> <span class="mi">2</span>
+                    <span class="o">+</span> <span class="nb">sum</span><span class="p">(</span><span class="n">color_heights</span><span class="p">)</span> <span class="o">+</span> <span class="n">height_offset</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">color_heights</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">max_width</span><span class="p">,</span> <span class="n">total_height</span>
+
+
+<span class="k">def</span> <span class="nf">_draw_item_on_legend</span><span class="p">(</span><span class="n">draw</span><span class="p">,</span> <span class="n">each_color</span><span class="p">,</span> <span class="n">each_color_name</span><span class="p">,</span> <span class="n">y_coord</span><span class="p">,</span>
+                         <span class="n">indicator_width</span><span class="p">,</span> <span class="n">legend_markers</span><span class="p">,</span> <span class="n">font</span><span class="p">):</span>
+    <span class="n">y_indicator</span> <span class="o">=</span> <span class="n">y_coord</span> <span class="o">+</span> <span class="n">font</span><span class="o">.</span><span class="n">getsize</span><span class="p">(</span><span class="n">each_color_name</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span> <span class="o">//</span> <span class="mi">2</span>
+    <span class="n">y_text</span> <span class="o">=</span> <span class="n">y_coord</span>
+    <span class="n">each_color</span> <span class="o">=</span> <span class="p">(</span><span class="nb">tuple</span><span class="p">(</span><span class="n">each_color</span><span class="p">)</span> <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">each_color</span><span class="p">,</span> <span class="nb">str</span><span class="p">)</span>
+                  <span class="k">else</span> <span class="n">each_color</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">legend_markers</span> <span class="o">==</span> <span class="s2">&quot;line&quot;</span><span class="p">:</span>
+        <span class="n">draw</span><span class="o">.</span><span class="n">line</span><span class="p">([</span><span class="mi">5</span><span class="p">,</span> <span class="n">y_indicator</span><span class="p">,</span> <span class="mi">5</span> <span class="o">+</span> <span class="n">indicator_width</span><span class="p">,</span> <span class="n">y_indicator</span><span class="p">],</span>
+                  <span class="n">each_color</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">draw</span><span class="o">.</span><span class="n">rectangle</span><span class="p">(</span>
+            <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="n">y_indicator</span> <span class="o">-</span> <span class="n">indicator_width</span> <span class="o">//</span> <span class="mi">2</span><span class="p">,</span>
+             <span class="mi">5</span> <span class="o">+</span> <span class="n">indicator_width</span><span class="p">,</span> <span class="n">y_indicator</span> <span class="o">+</span> <span class="n">indicator_width</span> <span class="o">//</span> <span class="mi">2</span><span class="p">],</span>
+            <span class="n">fill</span><span class="o">=</span><span class="n">each_color</span><span class="p">)</span>
+    <span class="n">draw</span><span class="o">.</span><span class="n">text</span><span class="p">([</span><span class="nb">int</span><span class="p">(</span><span class="n">indicator_width</span> <span class="o">*</span> <span class="mf">1.5</span><span class="p">)</span> <span class="o">+</span> <span class="mi">5</span><span class="p">,</span> <span class="n">y_text</span><span class="p">],</span> <span class="n">each_color_name</span><span class="p">,</span>
+              <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="n">font</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">_draw_horizontal_legend</span><span class="p">(</span><span class="n">legend_title</span><span class="p">,</span> <span class="n">legend_items_with_colors</span><span class="p">,</span>
+                            <span class="n">background</span><span class="p">:</span> <span class="nb">tuple</span> <span class="o">=</span> <span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">),</span>
+                            <span class="n">legend_markers</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;line&quot;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
+    <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s2">&quot;Currently not implemented! use vertical legend!&quot;</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">_get_font</span><span class="p">():</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">font</span> <span class="o">=</span> <span class="n">ImageFont</span><span class="o">.</span><span class="n">truetype</span><span class="p">(</span><span class="s1">&#39;FreeSans.ttf&#39;</span><span class="p">,</span> <span class="mi">24</span><span class="p">)</span>
+    <span class="k">except</span> <span class="ne">IOError</span><span class="p">:</span>
+        <span class="n">font</span> <span class="o">=</span> <span class="n">ImageFont</span><span class="o">.</span><span class="n">load_default</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">font</span>
+
+
+<span class="k">def</span> <span class="nf">_create_random_attributes_colors</span><span class="p">(</span>
+        <span class="n">class_ids_to_names_mapping</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">str</span><span class="p">]]</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">]]:</span>
+    <span class="n">colors</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="k">for</span> <span class="n">each_name</span><span class="p">,</span> <span class="n">each_mapping</span> <span class="ow">in</span> <span class="n">class_ids_to_names_mapping</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+        <span class="n">colors</span><span class="p">[</span><span class="n">each_name</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="k">for</span> <span class="n">each_id</span><span class="p">,</span> <span class="n">each_class_name</span> <span class="ow">in</span> <span class="n">each_mapping</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="n">seed</span> <span class="o">=</span> <span class="nb">hash</span><span class="p">(</span><span class="n">each_name</span><span class="p">)</span> <span class="o">+</span> <span class="nb">hash</span><span class="p">(</span><span class="n">each_id</span><span class="p">)</span> <span class="o">+</span> <span class="nb">hash</span><span class="p">(</span><span class="n">each_class_name</span><span class="p">)</span>
+            <span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="n">seed</span><span class="p">)</span>
+            <span class="n">random_rgb</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">255</span><span class="p">)</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">))</span>
+            <span class="n">colors</span><span class="p">[</span><span class="n">each_name</span><span class="p">][</span><span class="n">each_id</span><span class="p">]</span> <span class="o">=</span> <span class="n">random_rgb</span>
+    <span class="k">return</span> <span class="n">colors</span>
+
+
+<span class="k">def</span> <span class="nf">_create_random_connections_colors</span><span class="p">(</span><span class="n">connection_map</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">list</span><span class="p">]</span>
+                                      <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">]:</span>
+    <span class="n">colors</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="k">for</span> <span class="n">each_name</span><span class="p">,</span> <span class="n">each_item</span> <span class="ow">in</span> <span class="n">connection_map</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+        <span class="n">seed</span> <span class="o">=</span> <span class="nb">hash</span><span class="p">(</span><span class="nb">tuple</span><span class="p">(</span><span class="n">each_item</span><span class="p">))</span> <span class="o">+</span> <span class="nb">hash</span><span class="p">(</span><span class="n">each_name</span><span class="p">)</span>
+        <span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="n">seed</span><span class="p">)</span>
+        <span class="n">random_rgb</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">255</span><span class="p">)</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">))</span>
+        <span class="n">colors</span><span class="p">[</span><span class="n">each_name</span><span class="p">]</span> <span class="o">=</span> <span class="n">random_rgb</span>
+    <span class="k">return</span> <span class="n">colors</span>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Audi Electronics Venture GmbH
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

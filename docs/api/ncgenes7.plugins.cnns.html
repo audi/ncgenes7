@@ -1,0 +1,1197 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>ncgenes7.plugins.cnns package &mdash; ncgenes7 v0.10.0 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../_static/icon.ico"/>
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="ncgenes7.plugins.object_detection package" href="ncgenes7.plugins.object_detection.html" />
+    <link rel="prev" title="ncgenes7.plugins package" href="ncgenes7.plugins.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> ncgenes7
+          
+
+          
+            
+            <img src="../_static/icon.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.10.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../Introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ProjectSamples.html">Sample projects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Contribution.html">Contribution</a></li>
+</ul>
+<p class="caption"><span class="caption-text">API:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="ncgenes7.augmentations.html">ncgenes7.augmentations package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ncgenes7.callbacks.html">ncgenes7.callbacks package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ncgenes7.data_feeders.html">ncgenes7.data_feeders package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ncgenes7.data_fields.html">ncgenes7.data_fields package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ncgenes7.data_filters.html">ncgenes7.data_filters package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ncgenes7.data_readers.html">ncgenes7.data_readers package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ncgenes7.file_lists.html">ncgenes7.file_lists package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ncgenes7.kpis.html">ncgenes7.kpis package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ncgenes7.learning_rate_manipulators.html">ncgenes7.learning_rate_manipulators package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ncgenes7.losses.html">ncgenes7.losses package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ncgenes7.metrics.html">ncgenes7.metrics package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ncgenes7.plugins.html">ncgenes7.plugins package</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">ncgenes7.plugins.cnns package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-ncgenes7.plugins.cnns.aev_nips2017">ncgenes7.plugins.cnns.aev_nips2017 module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-ncgenes7.plugins.cnns.base">ncgenes7.plugins.cnns.base module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-ncgenes7.plugins.cnns.cnn_blocks">ncgenes7.plugins.cnns.cnn_blocks module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-ncgenes7.plugins.cnns.densenet">ncgenes7.plugins.cnns.densenet module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-ncgenes7.plugins.cnns.duc">ncgenes7.plugins.cnns.duc module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-ncgenes7.plugins.cnns.pspnet">ncgenes7.plugins.cnns.pspnet module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-ncgenes7.plugins.cnns">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="ncgenes7.plugins.object_detection.html">ncgenes7.plugins.object_detection package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ncgenes7.plugins.preprocessing.html">ncgenes7.plugins.preprocessing package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ncgenes7.plugins.utils.html">ncgenes7.plugins.utils package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ncgenes7.postprocessors.html">ncgenes7.postprocessors package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ncgenes7.summaries.html">ncgenes7.summaries package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ncgenes7.third_party.html">ncgenes7.third_party package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ncgenes7.third_party.object_detection.html">ncgenes7.third_party.object_detection package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ncgenes7.utils.html">ncgenes7.utils package</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">ncgenes7</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="ncgenes7.plugins.html">ncgenes7.plugins package</a> &raquo;</li>
+        
+      <li>ncgenes7.plugins.cnns package</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/api/ncgenes7.plugins.cnns.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="ncgenes7-plugins-cnns-package">
+<h1>ncgenes7.plugins.cnns package<a class="headerlink" href="#ncgenes7-plugins-cnns-package" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-ncgenes7.plugins.cnns.aev_nips2017">
+<span id="ncgenes7-plugins-cnns-aev-nips2017-module"></span><h2>ncgenes7.plugins.cnns.aev_nips2017 module<a class="headerlink" href="#module-ncgenes7.plugins.cnns.aev_nips2017" title="Permalink to this headline">¶</a></h2>
+<p>NIPS2017 AEV-21 plugin for cnn encoder and decoder</p>
+<p>&#64;authors: Oleksandr Vorobiov, Rupesh Durgesh</p>
+<p>The AEV-21 in-house designed architecture for Nips-2017 demo.</p>
+<dl class="class">
+<dt id="ncgenes7.plugins.cnns.aev_nips2017.AEVNips2017Plugin">
+<em class="property">class </em><code class="sig-prename descclassname">ncgenes7.plugins.cnns.aev_nips2017.</code><code class="sig-name descname">AEVNips2017Plugin</code><span class="sig-paren">(</span><em class="sig-param">*</em>, <em class="sig-param">filters</em>, <em class="sig-param">inception_kernel_size=None</em>, <em class="sig-param">dilated_inception_kernel_size=None</em>, <em class="sig-param">dilated_inception_dilation_rate=None</em>, <em class="sig-param">**plugin_kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ncgenes7/plugins/cnns/aev_nips2017.html#AEVNips2017Plugin"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ncgenes7.plugins.cnns.aev_nips2017.AEVNips2017Plugin" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#ncgenes7.plugins.cnns.base.BaseCNNPlugin" title="ncgenes7.plugins.cnns.base.BaseCNNPlugin"><code class="xref py py-class docutils literal notranslate"><span class="pre">ncgenes7.plugins.cnns.base.BaseCNNPlugin</span></code></a></p>
+<p>NIPS2017 AEV-21 architecture</p>
+<p>The architecture uses inception, dilation, residual blocks.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>filters</strong> – list of filters number for each block</p></li>
+<li><p><strong>inception_kernels</strong> – kernel size for inception blocks</p></li>
+<li><p><strong>dilation_kernel</strong> – dilation kernel size</p></li>
+<li><p><strong>dilation_rates</strong> – dilation rates for dilation convolution block</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="attribute">
+<dt id="ncgenes7.plugins.cnns.aev_nips2017.AEVNips2017Plugin.incoming_keys">
+<code class="sig-name descname">incoming_keys</code><a class="headerlink" href="#ncgenes7.plugins.cnns.aev_nips2017.AEVNips2017Plugin.incoming_keys" title="Permalink to this definition">¶</a></dt>
+<dd><ul class="simple">
+<li><p>feature_maps : tensor of shape  [batch_size, w, h, num_channels],
+tf.float32</p></li>
+<li><p>auxiliary_feature_maps : (optional), list of tensors of shape
+[batch_size, w_i, h_i, num_channels_i] to be used for skip
+connections</p></li>
+</ul>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ncgenes7.plugins.cnns.aev_nips2017.AEVNips2017Plugin.generated_keys">
+<code class="sig-name descname">generated_keys</code><a class="headerlink" href="#ncgenes7.plugins.cnns.aev_nips2017.AEVNips2017Plugin.generated_keys" title="Permalink to this definition">¶</a></dt>
+<dd><ul class="simple">
+<li><p>feature_maps : feature maps after processing</p></li>
+<li><p>auxiliary_feature_maps : (optional)  auxiliary feature maps for
+each block</p></li>
+</ul>
+</dd></dl>
+
+<dl class="method">
+<dt id="ncgenes7.plugins.cnns.aev_nips2017.AEVNips2017Plugin.build_cnn_block">
+<code class="sig-name descname">build_cnn_block</code><span class="sig-paren">(</span><em class="sig-param">inputs</em>, <em class="sig-param">filters</em>, <em class="sig-param">kernel_size</em>, <em class="sig-param">dilated_kernel_size</em>, <em class="sig-param">dilation_rate</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ncgenes7/plugins/cnns/aev_nips2017.html#AEVNips2017Plugin.build_cnn_block"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ncgenes7.plugins.cnns.aev_nips2017.AEVNips2017Plugin.build_cnn_block" title="Permalink to this definition">¶</a></dt>
+<dd><p>Build one cnn block</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>inputs</strong> – block inputs</p></li>
+<li><p><strong>block_parameters</strong> – further parameters to build the block</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>result</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>result</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">Tensor</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt>
+<code class="sig-name descname">generated_keys</code><em class="property"> = ['feature_maps', '_auxiliary_feature_maps']</em></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt>
+<code class="sig-name descname">incoming_keys</code><em class="property"> = ['feature_maps', '_auxiliary_feature_maps']</em></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-ncgenes7.plugins.cnns.base">
+<span id="ncgenes7-plugins-cnns-base-module"></span><h2>ncgenes7.plugins.cnns.base module<a class="headerlink" href="#module-ncgenes7.plugins.cnns.base" title="Permalink to this headline">¶</a></h2>
+<p>Base plugin for cnn encoder and decoder</p>
+<dl class="class">
+<dt id="ncgenes7.plugins.cnns.base.BaseCNNPlugin">
+<em class="property">class </em><code class="sig-prename descclassname">ncgenes7.plugins.cnns.base.</code><code class="sig-name descname">BaseCNNPlugin</code><span class="sig-paren">(</span><em class="sig-param">*</em>, <em class="sig-param">sampling_type='encoder'</em>, <em class="sig-param">num_blocks=2</em>, <em class="sig-param">first_conv_params=None</em>, <em class="sig-param">first_sampling_params=None</em>, <em class="sig-param">last_conv_params=None</em>, <em class="sig-param">last_conv_without_activation=False</em>, <em class="sig-param">last_block_with_sampling=True</em>, <em class="sig-param">cnn_blocks_parameters</em>, <em class="sig-param">sampling_params=None</em>, <em class="sig-param">add_skip_connections=False</em>, <em class="sig-param">skip_connection_type='concat'</em>, <em class="sig-param">skip_connection_resize_type=None</em>, <em class="sig-param">auxiliary_feature_maps_start_ind=0</em>, <em class="sig-param">add_block_residual_connections=False</em>, <em class="sig-param">block_residual_connection_type='sum'</em>, <em class="sig-param">**plugin_kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ncgenes7/plugins/cnns/base.html#BaseCNNPlugin"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ncgenes7.plugins.cnns.base.BaseCNNPlugin" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">nucleus7.model.plugin.ModelPlugin</span></code></p>
+<p>Base class for cnn plugin encoder and decoder implementations</p>
+<p>Base architecture can be written as follows:</p>
+<p><cite>[first_conv]-&gt;[first_max_pool]-&gt;[block1]-&gt;[sample]-&gt;[block2]-&gt;
+[sample]-&gt;…-&gt;[last_conv]</cite></p>
+<p>Type of sampling is defined by <cite>sampling_type</cite>. In case of
+sampling_type==”encoder”, it is downsampling, in case of “decoder” -
+upsampling. In this implementation, it is light functions like
+<code class="xref py py-obj docutils literal notranslate"><span class="pre">tf.keras.layers.MaxPool2D</span></code> and <code class="xref py py-obj docutils literal notranslate"><span class="pre">tf.keras.layers.Conv2DTranspose</span></code>.
+To change this behaviour, override method <a class="reference internal" href="#ncgenes7.plugins.cnns.base.BaseCNNPlugin.sample" title="ncgenes7.plugins.cnns.base.BaseCNNPlugin.sample"><code class="xref py py-func docutils literal notranslate"><span class="pre">BaseCNNPlugin.sample()</span></code></a>.</p>
+<p><cite>auxiliary_feature_maps</cite> are iterated in reverse order. Also they should
+be produced using same padding</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>sampling_type</strong> – type of the sampling</p></li>
+<li><p><strong>first_conv_params</strong> – parameters for first convolution; see <code class="xref py py-obj docutils literal notranslate"><span class="pre">tf.keras.layers.Conv2D</span></code>;
+if not specified, no convolution will be performed</p></li>
+<li><p><strong>first_sampling_params</strong> – parameters for sampling after first convolution as defined in
+sample method; see corresponding functions;
+if not specified, no sampling will be performed</p></li>
+<li><p><strong>last_conv_params</strong> – parameters for convolution after blocks; <code class="xref py py-obj docutils literal notranslate"><span class="pre">tf.keras.layers.Conv2D</span></code>;
+if not specified, no convolution will be performed</p></li>
+<li><p><strong>last_conv_without_activation</strong> – if last convolution should not have an activation</p></li>
+<li><p><strong>sampling_params</strong> – parameters for sampling like kernel_size and strides</p></li>
+<li><p><strong>num_blocks</strong> – number of blocks to create</p></li>
+<li><p><strong>cnn_blocks_parameters</strong> – list of dicts to pass to building block method; if defined, and not of
+length of num_blocks, last kwargs will be used for last remaining
+blocks; if defined as one dict, it will be used for all blocks</p></li>
+<li><p><strong>add_skip_connections</strong> – if the skip connections should be generated
+(only if auxiliary_blocks is inside of incoming_keys)</p></li>
+<li><p><strong>skip_connection_type</strong> – how to combine feature map with auxiliary one to build the skip
+connection; one of [‘sum’, ‘concat’]</p></li>
+<li><p><strong>skip_connection_resize_type</strong> – type of resizing performed on auxiliary feature map before connecting
+it to original maps; if None, then original maps will be sliced to
+auxiliary feature map size; it allows to preserve the original sizes
+(from encoder); one of [None, ‘pad’, ‘imresize’]</p></li>
+<li><p><strong>auxiliary_feature_maps_start_ind</strong> – index of first auxiliary_feature_map to use in skip connections;
+indexes are in normal order, e.g. 0 is first item from
+auxiliary_feature_maps list in order it was passed</p></li>
+<li><p><strong>last_block_with_sampling</strong> – if sampling operation should be applied after last block and before
+last convolution</p></li>
+<li><p><strong>add_block_residual_connections</strong> – flag to add residual connections in format
+<cite>x -&gt; block -&gt; sample -&gt; x1 -&gt; res(x, x1)</cite>;
+residual connection is the conv or deconv layer with same parameters
+as the sampling layer and with same number of feature maps as block
+output</p></li>
+<li><p><strong>block_residual_connection_type</strong> – type of residual connection if <cite>add_block_residual_connections=True</cite>;
+one of [‘sum’, ‘concat’]</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="attribute">
+<dt id="ncgenes7.plugins.cnns.base.BaseCNNPlugin.block_var_scope_name">
+<code class="sig-name descname">block_var_scope_name</code><a class="headerlink" href="#ncgenes7.plugins.cnns.base.BaseCNNPlugin.block_var_scope_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>suffix of block variable scope; complete name will be
+block_var_scope_name_{block_number}</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ncgenes7.plugins.cnns.base.BaseCNNPlugin.incoming_keys">
+<code class="sig-name descname">incoming_keys</code><a class="headerlink" href="#ncgenes7.plugins.cnns.base.BaseCNNPlugin.incoming_keys" title="Permalink to this definition">¶</a></dt>
+<dd><ul class="simple">
+<li><p>feature_maps : tensor of shape  [batch_size, w, h, num_channels],
+tf.float32</p></li>
+<li><p>auxiliary_feature_maps : (optional), list of tensors of shape
+[batch_size, w_i, h_i, num_channels_i] to be used for skip
+connections</p></li>
+</ul>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ncgenes7.plugins.cnns.base.BaseCNNPlugin.generated_keys">
+<code class="sig-name descname">generated_keys</code><a class="headerlink" href="#ncgenes7.plugins.cnns.base.BaseCNNPlugin.generated_keys" title="Permalink to this definition">¶</a></dt>
+<dd><ul class="simple">
+<li><p>feature_maps : feature maps after processing</p></li>
+<li><p>auxiliary_feature_maps : auxiliary feature maps for each block</p></li>
+</ul>
+</dd></dl>
+
+<dl class="method">
+<dt id="ncgenes7.plugins.cnns.base.BaseCNNPlugin.build_cnn_block">
+<code class="sig-name descname">build_cnn_block</code><span class="sig-paren">(</span><em class="sig-param">inputs</em>, <em class="sig-param">**block_parameters</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ncgenes7/plugins/cnns/base.html#BaseCNNPlugin.build_cnn_block"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ncgenes7.plugins.cnns.base.BaseCNNPlugin.build_cnn_block" title="Permalink to this definition">¶</a></dt>
+<dd><p>Build one cnn block</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>inputs</strong> – block inputs</p></li>
+<li><p><strong>block_parameters</strong> – further parameters to build the block</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>result</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>result</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">Tensor</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="ncgenes7.plugins.cnns.base.BaseCNNPlugin.build_first_layer">
+<code class="sig-name descname">build_first_layer</code><span class="sig-paren">(</span><em class="sig-param">inputs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ncgenes7/plugins/cnns/base.html#BaseCNNPlugin.build_first_layer"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ncgenes7.plugins.cnns.base.BaseCNNPlugin.build_first_layer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Build first convolution layer following max pooling before blocks</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>inputs</strong> – inputs</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>result of the first convolution</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>output</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">Tensor</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="ncgenes7.plugins.cnns.base.BaseCNNPlugin.build_last_layer">
+<code class="sig-name descname">build_last_layer</code><span class="sig-paren">(</span><em class="sig-param">inputs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ncgenes7/plugins/cnns/base.html#BaseCNNPlugin.build_last_layer"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ncgenes7.plugins.cnns.base.BaseCNNPlugin.build_last_layer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Build last convolution layer after all blocks</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>inputs</strong> – inputs</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>result of the last convolution</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>output</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">Tensor</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="ncgenes7.plugins.cnns.base.BaseCNNPlugin.build_residual_block_connection">
+<code class="sig-name descname">build_residual_block_connection</code><span class="sig-paren">(</span><em class="sig-param">block_input</em>, <em class="sig-param">block_output</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ncgenes7/plugins/cnns/base.html#BaseCNNPlugin.build_residual_block_connection"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ncgenes7.plugins.cnns.base.BaseCNNPlugin.build_residual_block_connection" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create residual connection by applying convolution on block_input
+and add or concatenate it with block_output</p>
+<p>Applies convolution with kernel and stride from sampling_params</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>block_input</strong> – feature maps before convolution block</p></li>
+<li><p><strong>block_output</strong> – feature maps after convolution block</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>feature maps after residual connection</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>block_res</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">Tensor</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="ncgenes7.plugins.cnns.base.BaseCNNPlugin.build_skip_connection">
+<code class="sig-name descname">build_skip_connection</code><span class="sig-paren">(</span><em class="sig-param">inputs</em>, <em class="sig-param">auxiliary_feature_map</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ncgenes7/plugins/cnns/base.html#BaseCNNPlugin.build_skip_connection"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ncgenes7.plugins.cnns.base.BaseCNNPlugin.build_skip_connection" title="Permalink to this definition">¶</a></dt>
+<dd><p>First fit input size to to auxiliary_feature_map size and then
+apply skip function on them, e.g. concatenate or sum</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>auxiliary_feature_map</strong> – auxiliary feature maps for skip connections</p></li>
+<li><p><strong>inputs</strong> – inputs</p></li>
+<li><p><strong>layer_name_suffix</strong> – suffix to layer name</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>feature maps after skip connection</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>feature_maps_after_skip_connection</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">Tensor</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="ncgenes7.plugins.cnns.base.BaseCNNPlugin.create_skip_connection_maps">
+<code class="sig-name descname">create_skip_connection_maps</code><span class="sig-paren">(</span><em class="sig-param">auxiliary_feature_map</em>, <em class="sig-param">input_feature_map</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ncgenes7/plugins/cnns/base.html#BaseCNNPlugin.create_skip_connection_maps"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ncgenes7.plugins.cnns.base.BaseCNNPlugin.create_skip_connection_maps" title="Permalink to this definition">¶</a></dt>
+<dd><p>Apply convolutions to auxiliary_feature_map before combining it with
+inputs</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>auxiliary_feature_map</strong> – auxiliary feature maps for skip connections</p></li>
+<li><p><strong>input_feature_map</strong> – input feature maps for skip connections</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>skip connection maps</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>skip_connection_maps</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">Tensor</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="ncgenes7.plugins.cnns.base.BaseCNNPlugin.defaults">
+<em class="property">property </em><code class="sig-name descname">defaults</code><a class="headerlink" href="#ncgenes7.plugins.cnns.base.BaseCNNPlugin.defaults" title="Permalink to this definition">¶</a></dt>
+<dd><p>Define default values for nucleotide parameters as a dict mapping from
+attribute name to its default value. Attribute name (key in returned
+dict) must be the same as attribute name in constructor</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><strong>default_parameters</strong></p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.8)">dict</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="ncgenes7.plugins.cnns.base.BaseCNNPlugin.downsample">
+<code class="sig-name descname">downsample</code><span class="sig-paren">(</span><em class="sig-param">inputs</em>, <em class="sig-param">*</em>, <em class="sig-param">kernel_size</em>, <em class="sig-param">strides</em>, <em class="sig-param">name=None</em>, <em class="sig-param">**additional_params</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ncgenes7/plugins/cnns/base.html#BaseCNNPlugin.downsample"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ncgenes7.plugins.cnns.base.BaseCNNPlugin.downsample" title="Permalink to this definition">¶</a></dt>
+<dd><p>Downsample inputs in case of encoder</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>inputs</strong> – input tensor</p></li>
+<li><p><strong>kernel_size</strong> – kernel size for downsampling</p></li>
+<li><p><strong>strides</strong> – strides for downsampling</p></li>
+<li><p><strong>name</strong> – name of the operation</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>downsampled result</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>downsampled_tensor</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">Tensor</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt>
+<code class="sig-name descname">generated_keys</code><em class="property"> = ['feature_maps', 'auxiliary_feature_maps']</em></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="ncgenes7.plugins.cnns.base.BaseCNNPlugin.get_current_layer_full_name">
+<code class="sig-name descname">get_current_layer_full_name</code><span class="sig-paren">(</span><em class="sig-param">layer_name</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ncgenes7/plugins/cnns/base.html#BaseCNNPlugin.get_current_layer_full_name"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ncgenes7.plugins.cnns.base.BaseCNNPlugin.get_current_layer_full_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get current full layer name with respect to current block_index
+like block_{block_index+1}_{layer_name}_layer</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>layer_name</strong> – layer name without index</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>full name of layer</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>layer_full_name</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt>
+<code class="sig-name descname">incoming_keys</code><em class="property"> = ['feature_maps', 'auxiliary_feature_maps']</em></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="ncgenes7.plugins.cnns.base.BaseCNNPlugin.predict">
+<code class="sig-name descname">predict</code><span class="sig-paren">(</span><em class="sig-param">feature_maps</em>, <em class="sig-param">auxiliary_feature_maps=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ncgenes7/plugins/cnns/base.html#BaseCNNPlugin.predict"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ncgenes7.plugins.cnns.base.BaseCNNPlugin.predict" title="Permalink to this definition">¶</a></dt>
+<dd><p>Forward pass given inputs</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>**inputs</strong> – dict with input tensors</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>outputs after this layer</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>output</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="ncgenes7.plugins.cnns.base.BaseCNNPlugin.sample">
+<code class="sig-name descname">sample</code><span class="sig-paren">(</span><em class="sig-param">inputs</em>, <em class="sig-param">sampling_params</em>, <em class="sig-param">name=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ncgenes7/plugins/cnns/base.html#BaseCNNPlugin.sample"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ncgenes7.plugins.cnns.base.BaseCNNPlugin.sample" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sample the inputs</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>inputs</strong> – inputs to sample</p></li>
+<li><p><strong>sampling_params</strong> – parameters to pass to corresponding sample method (e.g. upsample or
+downsample)</p></li>
+<li><p><strong>name</strong> – name of the sample operation</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>sampled result</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>sampled_result</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">Tensor</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="ncgenes7.plugins.cnns.base.BaseCNNPlugin.upsample">
+<code class="sig-name descname">upsample</code><span class="sig-paren">(</span><em class="sig-param">inputs</em>, <em class="sig-param">*</em>, <em class="sig-param">kernel_size</em>, <em class="sig-param">strides</em>, <em class="sig-param">name=None</em>, <em class="sig-param">**additional_params</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ncgenes7/plugins/cnns/base.html#BaseCNNPlugin.upsample"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ncgenes7.plugins.cnns.base.BaseCNNPlugin.upsample" title="Permalink to this definition">¶</a></dt>
+<dd><p>Upsample inputs in case of decoder</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>inputs</strong> – input tensor</p></li>
+<li><p><strong>kernel_size</strong> – kernel size for upsampling</p></li>
+<li><p><strong>strides</strong> – strides for upsampling</p></li>
+<li><p><strong>name</strong> – name of the operation</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>upsampled result</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>upsampled_tensor</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">Tensor</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-ncgenes7.plugins.cnns.cnn_blocks">
+<span id="ncgenes7-plugins-cnns-cnn-blocks-module"></span><h2>ncgenes7.plugins.cnns.cnn_blocks module<a class="headerlink" href="#module-ncgenes7.plugins.cnns.cnn_blocks" title="Permalink to this headline">¶</a></h2>
+<p>various cnn blocks</p>
+<dl class="class">
+<dt id="ncgenes7.plugins.cnns.cnn_blocks.DUC">
+<em class="property">class </em><code class="sig-prename descclassname">ncgenes7.plugins.cnns.cnn_blocks.</code><code class="sig-name descname">DUC</code><span class="sig-paren">(</span><em class="sig-param">kernel_size</em>, <em class="sig-param">num_classes</em>, <em class="sig-param">stride_upsample</em>, <em class="sig-param">dilation_rates=(2</em>, <em class="sig-param">4</em>, <em class="sig-param">8</em>, <em class="sig-param">16)</em>, <em class="sig-param">data_format=None</em>, <em class="sig-param">use_bias=True</em>, <em class="sig-param">kernel_initializer='glorot_uniform'</em>, <em class="sig-param">bias_initializer='zeros'</em>, <em class="sig-param">kernel_regularizer=None</em>, <em class="sig-param">bias_regularizer=None</em>, <em class="sig-param">activity_regularizer=None</em>, <em class="sig-param">kernel_constraint=None</em>, <em class="sig-param">bias_constraint=None</em>, <em class="sig-param">name=None</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ncgenes7/plugins/cnns/cnn_blocks.html#DUC"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ncgenes7.plugins.cnns.cnn_blocks.DUC" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="ncgenes7.utils.html#ncgenes7.utils.keras_utils.KerasCompositionalLayer" title="ncgenes7.utils.keras_utils.KerasCompositionalLayer"><code class="xref py py-class docutils literal notranslate"><span class="pre">ncgenes7.utils.keras_utils.KerasCompositionalLayer</span></code></a></p>
+<p>DUC module</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>kernel_size</strong> – kernel size of DUC convolution</p></li>
+<li><p><strong>num_classes</strong> – number of classes</p></li>
+<li><p><strong>stride_upsample</strong> – see paper</p></li>
+<li><p><strong>dilation_rates</strong> – see paper</p></li>
+</ul>
+</dd>
+</dl>
+<p class="rubric">References</p>
+<dl class="simple">
+<dt>DUC module</dt><dd><p><a class="reference external" href="https://arxiv.org/abs/1702.08502">https://arxiv.org/abs/1702.08502</a></p>
+</dd>
+</dl>
+<dl class="method">
+<dt id="ncgenes7.plugins.cnns.cnn_blocks.DUC.call">
+<code class="sig-name descname">call</code><span class="sig-paren">(</span><em class="sig-param">inputs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ncgenes7/plugins/cnns/cnn_blocks.html#DUC.call"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ncgenes7.plugins.cnns.cnn_blocks.DUC.call" title="Permalink to this definition">¶</a></dt>
+<dd><p>This is where the layer’s logic lives.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>inputs</strong> – Input tensor, or list/tuple of input tensors.</p></li>
+<li><p><strong>**kwargs</strong> – Additional keyword arguments.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A tensor or list/tuple of tensors.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="ncgenes7.plugins.cnns.cnn_blocks.DenseBlock">
+<em class="property">class </em><code class="sig-prename descclassname">ncgenes7.plugins.cnns.cnn_blocks.</code><code class="sig-name descname">DenseBlock</code><span class="sig-paren">(</span><em class="sig-param">growth_rate</em>, <em class="sig-param">kernel_size</em>, <em class="sig-param">inception_layer_fn=&lt;class 'tensorflow.python.keras.layers.convolutional.Conv2D'&gt;</em>, <em class="sig-param">bottleneck_factor=None</em>, <em class="sig-param">dropout_fn=None</em>, <em class="sig-param">dilation_rate=1</em>, <em class="sig-param">batch_normalization_params=None</em>, <em class="sig-param">activation=None</em>, <em class="sig-param">data_format=None</em>, <em class="sig-param">use_bias=True</em>, <em class="sig-param">kernel_initializer='glorot_uniform'</em>, <em class="sig-param">bias_initializer='zeros'</em>, <em class="sig-param">kernel_regularizer=None</em>, <em class="sig-param">bias_regularizer=None</em>, <em class="sig-param">activity_regularizer=None</em>, <em class="sig-param">kernel_constraint=None</em>, <em class="sig-param">bias_constraint=None</em>, <em class="sig-param">name=None</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ncgenes7/plugins/cnns/cnn_blocks.html#DenseBlock"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ncgenes7.plugins.cnns.cnn_blocks.DenseBlock" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="ncgenes7.utils.html#ncgenes7.utils.keras_utils.KerasCompositionalLayer" title="ncgenes7.utils.keras_utils.KerasCompositionalLayer"><code class="xref py py-class docutils literal notranslate"><span class="pre">ncgenes7.utils.keras_utils.KerasCompositionalLayer</span></code></a></p>
+<p>Single DenseNet block consisting of batch normalization, dropout function
+following inception module.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>growth_rate</strong> – see paper</p></li>
+<li><p><strong>bottleneck_factor</strong> – bottleneck factor; if its is &lt;= 0, then absolute number will be used as
+number of filters in bottleneck layer, otherwise this number will be
+multiplied with growth_rate to have the number of feature maps in
+bottleneck layer</p></li>
+<li><p><strong>inception_layer_fn</strong> – function to generate the layer; it should have the same signature as
+<code class="xref py py-obj docutils literal notranslate"><span class="pre">tf.keras.layers.Conv2D</span></code></p></li>
+<li><p><strong>kernel_size</strong> – kernel size for single convolution or list of sizes if
+use_inception_module == True</p></li>
+<li><p><strong>dilation_rate</strong> – if is int, then this value will be used in whole inception module;
+else single values will be used with corresponding kernel_size values;
+if it is a list and use_inception_module == True, then
+len(dilation_rate) == len(kernel_size)</p></li>
+<li><p><strong>batch_normalization_params</strong> – parameters for batch normalization to apply on the subblock
+inputs and on the transition block inputs;
+see <code class="xref py py-obj docutils literal notranslate"><span class="pre">tf.keras.layers.BatchNormalization</span></code> for description</p></li>
+<li><p><strong>dropout_fn</strong> – dropout function, which takes only 2 arguments: input tensor and
+training flag</p></li>
+</ul>
+</dd>
+</dl>
+<p class="rubric">References</p>
+<dl class="simple">
+<dt>densenet paper</dt><dd><p><a class="reference external" href="https://arxiv.org/abs/1608.06993">https://arxiv.org/abs/1608.06993</a></p>
+</dd>
+</dl>
+<dl class="method">
+<dt id="ncgenes7.plugins.cnns.cnn_blocks.DenseBlock.call">
+<code class="sig-name descname">call</code><span class="sig-paren">(</span><em class="sig-param">inputs</em>, <em class="sig-param">training=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ncgenes7/plugins/cnns/cnn_blocks.html#DenseBlock.call"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ncgenes7.plugins.cnns.cnn_blocks.DenseBlock.call" title="Permalink to this definition">¶</a></dt>
+<dd><p>This is where the layer’s logic lives.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>inputs</strong> – Input tensor, or list/tuple of input tensors.</p></li>
+<li><p><strong>**kwargs</strong> – Additional keyword arguments.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A tensor or list/tuple of tensors.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="ncgenes7.plugins.cnns.cnn_blocks.DenseLayer">
+<em class="property">class </em><code class="sig-prename descclassname">ncgenes7.plugins.cnns.cnn_blocks.</code><code class="sig-name descname">DenseLayer</code><span class="sig-paren">(</span><em class="sig-param">number_of_blocks</em>, <em class="sig-param">growth_rate=6</em>, <em class="sig-param">kernel_size=3</em>, <em class="sig-param">inception_layer_fn=&lt;class 'tensorflow.python.keras.layers.convolutional.Conv2D'&gt;</em>, <em class="sig-param">bottleneck_factor=None</em>, <em class="sig-param">dropout_fn=None</em>, <em class="sig-param">dilation_rate=1</em>, <em class="sig-param">batch_normalization_params=None</em>, <em class="sig-param">activation=&lt;function relu&gt;</em>, <em class="sig-param">data_format=None</em>, <em class="sig-param">use_bias=True</em>, <em class="sig-param">kernel_initializer='glorot_uniform'</em>, <em class="sig-param">bias_initializer='zeros'</em>, <em class="sig-param">kernel_regularizer=None</em>, <em class="sig-param">bias_regularizer=None</em>, <em class="sig-param">activity_regularizer=None</em>, <em class="sig-param">kernel_constraint=None</em>, <em class="sig-param">bias_constraint=None</em>, <em class="sig-param">name=None</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ncgenes7/plugins/cnns/cnn_blocks.html#DenseLayer"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ncgenes7.plugins.cnns.cnn_blocks.DenseLayer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="ncgenes7.utils.html#ncgenes7.utils.keras_utils.KerasCompositionalLayer" title="ncgenes7.utils.keras_utils.KerasCompositionalLayer"><code class="xref py py-class docutils literal notranslate"><span class="pre">ncgenes7.utils.keras_utils.KerasCompositionalLayer</span></code></a></p>
+<p>DenseNet layer consisting of multiple dense blocks</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>number_of_blocks</strong> – number of dense blocks in layer</p></li>
+<li><p><strong>growth_rate</strong> – see paper</p></li>
+<li><p><strong>bottleneck_factor</strong> – bottleneck factor; if its is &lt;= 0, then absolute number will be used as
+number of filters in bottleneck layer, otherwise this number will be
+multiplied with growth_rate to have the number of feature maps in
+bottleneck layer</p></li>
+<li><p><strong>inception_layer_fn</strong> – function to generate the layer; it should have the same signature as
+<code class="xref py py-obj docutils literal notranslate"><span class="pre">tf.keras.layers.Conv2D</span></code></p></li>
+<li><p><strong>kernel_size</strong> – kernel size for single convolution or list of sizes if
+use_inception_module == True</p></li>
+<li><p><strong>dilation_rate</strong> – if is int, then this value will be used in whole inception module;
+else single values will be used with corresponding kernel_size values;
+if it is a list and use_inception_module == True, then
+len(dilation_rate) == len(kernel_size)</p></li>
+<li><p><strong>batch_normalization_params</strong> – parameters for batch normalization to apply on the subblock
+inputs and on the transition block inputs;
+see <code class="xref py py-obj docutils literal notranslate"><span class="pre">tf.keras.layers.BatchNormalization</span></code> for description</p></li>
+<li><p><strong>dropout_fn</strong> – dropout function, which takes only 2 arguments: input tensor and
+training flag; dropout will be added before every 2nd block in layer</p></li>
+</ul>
+</dd>
+</dl>
+<p class="rubric">References</p>
+<dl class="simple">
+<dt>densenet paper</dt><dd><p><a class="reference external" href="https://arxiv.org/abs/1608.06993">https://arxiv.org/abs/1608.06993</a></p>
+</dd>
+</dl>
+<dl class="method">
+<dt id="ncgenes7.plugins.cnns.cnn_blocks.DenseLayer.call">
+<code class="sig-name descname">call</code><span class="sig-paren">(</span><em class="sig-param">inputs</em>, <em class="sig-param">training=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ncgenes7/plugins/cnns/cnn_blocks.html#DenseLayer.call"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ncgenes7.plugins.cnns.cnn_blocks.DenseLayer.call" title="Permalink to this definition">¶</a></dt>
+<dd><p>This is where the layer’s logic lives.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>inputs</strong> – Input tensor, or list/tuple of input tensors.</p></li>
+<li><p><strong>**kwargs</strong> – Additional keyword arguments.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A tensor or list/tuple of tensors.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="ncgenes7.plugins.cnns.cnn_blocks.InceptionConv2D">
+<em class="property">class </em><code class="sig-prename descclassname">ncgenes7.plugins.cnns.cnn_blocks.</code><code class="sig-name descname">InceptionConv2D</code><span class="sig-paren">(</span><em class="sig-param">filters</em>, <em class="sig-param">kernel_size</em>, <em class="sig-param">data_format=None</em>, <em class="sig-param">dilation_rate=1</em>, <em class="sig-param">activation=None</em>, <em class="sig-param">use_bias=True</em>, <em class="sig-param">kernel_initializer='glorot_uniform'</em>, <em class="sig-param">bias_initializer='zeros'</em>, <em class="sig-param">kernel_regularizer=None</em>, <em class="sig-param">bias_regularizer=None</em>, <em class="sig-param">activity_regularizer=None</em>, <em class="sig-param">kernel_constraint=None</em>, <em class="sig-param">bias_constraint=None</em>, <em class="sig-param">add_1x1_conv=True</em>, <em class="sig-param">name=None</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ncgenes7/plugins/cnns/cnn_blocks.html#InceptionConv2D"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ncgenes7.plugins.cnns.cnn_blocks.InceptionConv2D" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="ncgenes7.utils.html#ncgenes7.utils.keras_utils.KerasCompositionalLayer" title="ncgenes7.utils.keras_utils.KerasCompositionalLayer"><code class="xref py py-class docutils literal notranslate"><span class="pre">ncgenes7.utils.keras_utils.KerasCompositionalLayer</span></code></a></p>
+<p>Inception which applies the convolution on inputs with different kernel
+sizes and same padding and then applies the convolution with kernel size
+of 1 on the concatenated filters from all other convolutions (if
+add_1x1_conv == True)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>filters</strong> – number of filters for each convolution</p></li>
+<li><p><strong>kernel_size</strong> – list of kernel sizes for different convolutions</p></li>
+<li><p><strong>activation</strong> – activation to use</p></li>
+<li><p><strong>dilation_rates</strong> – list of dilation rates for each of first convolutions</p></li>
+<li><p><strong>add_1x1_conv</strong> – if the 1x1 convolution should be added after concatenation</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="method">
+<dt id="ncgenes7.plugins.cnns.cnn_blocks.InceptionConv2D.call">
+<code class="sig-name descname">call</code><span class="sig-paren">(</span><em class="sig-param">inputs</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ncgenes7/plugins/cnns/cnn_blocks.html#InceptionConv2D.call"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ncgenes7.plugins.cnns.cnn_blocks.InceptionConv2D.call" title="Permalink to this definition">¶</a></dt>
+<dd><p>This is where the layer’s logic lives.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>inputs</strong> – Input tensor, or list/tuple of input tensors.</p></li>
+<li><p><strong>**kwargs</strong> – Additional keyword arguments.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A tensor or list/tuple of tensors.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="ncgenes7.plugins.cnns.cnn_blocks.PSPNetLayer">
+<em class="property">class </em><code class="sig-prename descclassname">ncgenes7.plugins.cnns.cnn_blocks.</code><code class="sig-name descname">PSPNetLayer</code><span class="sig-paren">(</span><em class="sig-param">filters</em>, <em class="sig-param">output_height</em>, <em class="sig-param">output_width</em>, <em class="sig-param">pool_sizes=(-1</em>, <em class="sig-param">-2</em>, <em class="sig-param">-3</em>, <em class="sig-param">-6)</em>, <em class="sig-param">kernel_size=3</em>, <em class="sig-param">num_classes=None</em>, <em class="sig-param">activation=None</em>, <em class="sig-param">data_format=None</em>, <em class="sig-param">use_bias=True</em>, <em class="sig-param">kernel_initializer='glorot_uniform'</em>, <em class="sig-param">bias_initializer='zeros'</em>, <em class="sig-param">kernel_regularizer=None</em>, <em class="sig-param">bias_regularizer=None</em>, <em class="sig-param">activity_regularizer=None</em>, <em class="sig-param">kernel_constraint=None</em>, <em class="sig-param">bias_constraint=None</em>, <em class="sig-param">name=None</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ncgenes7/plugins/cnns/cnn_blocks.html#PSPNetLayer"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ncgenes7.plugins.cnns.cnn_blocks.PSPNetLayer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="ncgenes7.utils.html#ncgenes7.utils.keras_utils.KerasCompositionalLayer" title="ncgenes7.utils.keras_utils.KerasCompositionalLayer"><code class="xref py py-class docutils literal notranslate"><span class="pre">ncgenes7.utils.keras_utils.KerasCompositionalLayer</span></code></a></p>
+<p>Pyramid pooling module</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>filters</strong> – number of feature maps in each convolution after pooling and after
+concatenation of psp features</p></li>
+<li><p><strong>output_height</strong> – height of the upsampled output; if negative, then it is a multiplier to
+input size; otherwise it is a size itself</p></li>
+<li><p><strong>output_width</strong> – width of the upsampled output; if negative, then it is a multiplier to
+input size; otherwise it is a size itself</p></li>
+<li><p><strong>pool_sizes</strong> – pool sizes to use; if it is negative, then it is the same as in the
+paper - bin sizes; otherwise it is a pool sizes; in case of bin sizes,
+the input spatial dimensions must be defined and so cannot be None</p></li>
+</ul>
+</dd>
+</dl>
+<p class="rubric">References</p>
+<dl class="simple">
+<dt>Pyramid Scene Parsing Network</dt><dd><p><a class="reference external" href="https:arxiv.org/abs/1612.01105">https:arxiv.org/abs/1612.01105</a></p>
+</dd>
+</dl>
+<dl class="method">
+<dt id="ncgenes7.plugins.cnns.cnn_blocks.PSPNetLayer.call">
+<code class="sig-name descname">call</code><span class="sig-paren">(</span><em class="sig-param">inputs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ncgenes7/plugins/cnns/cnn_blocks.html#PSPNetLayer.call"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ncgenes7.plugins.cnns.cnn_blocks.PSPNetLayer.call" title="Permalink to this definition">¶</a></dt>
+<dd><p>This is where the layer’s logic lives.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>inputs</strong> – Input tensor, or list/tuple of input tensors.</p></li>
+<li><p><strong>**kwargs</strong> – Additional keyword arguments.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A tensor or list/tuple of tensors.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-ncgenes7.plugins.cnns.densenet">
+<span id="ncgenes7-plugins-cnns-densenet-module"></span><h2>ncgenes7.plugins.cnns.densenet module<a class="headerlink" href="#module-ncgenes7.plugins.cnns.densenet" title="Permalink to this headline">¶</a></h2>
+<p>Versions of CNN encoder and decoder using densenet architecture</p>
+<p class="rubric">References</p>
+<dl class="simple">
+<dt>densenet paper</dt><dd><p><a class="reference external" href="https://arxiv.org/abs/1608.06993">https://arxiv.org/abs/1608.06993</a></p>
+</dd>
+</dl>
+<dl class="class">
+<dt id="ncgenes7.plugins.cnns.densenet.DensenetPlugin">
+<em class="property">class </em><code class="sig-prename descclassname">ncgenes7.plugins.cnns.densenet.</code><code class="sig-name descname">DensenetPlugin</code><span class="sig-paren">(</span><em class="sig-param">*</em>, <em class="sig-param">num_dense_blocks_per_layer</em>, <em class="sig-param">growth_rate=16</em>, <em class="sig-param">bottleneck_factor=4</em>, <em class="sig-param">transition_downsample_factor=0.5</em>, <em class="sig-param">kernel_size=3</em>, <em class="sig-param">dilation_rate=1</em>, <em class="sig-param">batch_normalization_params=None</em>, <em class="sig-param">use_inception_module=False</em>, <em class="sig-param">**plugin_kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ncgenes7/plugins/cnns/densenet.html#DensenetPlugin"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ncgenes7.plugins.cnns.densenet.DensenetPlugin" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#ncgenes7.plugins.cnns.base.BaseCNNPlugin" title="ncgenes7.plugins.cnns.base.BaseCNNPlugin"><code class="xref py py-class docutils literal notranslate"><span class="pre">ncgenes7.plugins.cnns.base.BaseCNNPlugin</span></code></a></p>
+<p>Densenet architecture with different inception modules</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>num_dense_blocks_per_layer</strong> – number of dense blocks in each building block; you do not need to
+provide num_blocks and cnn_blocks_parameters</p></li>
+<li><p><strong>growth_rate</strong> – see paper</p></li>
+<li><p><strong>bottleneck_factor</strong> – bottleneck factor; if its is &lt;= 0, then absolute number will be used as
+number of filters in bottleneck layer, otherwise this number will be
+multiplied with growth_rate to have the number of feature maps in
+bottleneck layer</p></li>
+<li><p><strong>transition_downsample_factor</strong> – see paper</p></li>
+<li><p><strong>kernel_size</strong> – kernel size for single convolution or list of sizes if
+use_inception_module == True</p></li>
+<li><p><strong>dilation_rate</strong> – if is int, then this value will be used in whole inception module;
+else single values will be used with corresponding kernel_size values;
+if it is a list and use_inception_module == True, then
+len(dilation_rate) == len(kernel_size)</p></li>
+<li><p><strong>batch_normalization_params</strong> – parameters for batch normalization to apply on the subblock
+inputs and on the transition block inputs;
+see <code class="xref py py-obj docutils literal notranslate"><span class="pre">tf.keras.layers.BatchNormalization</span></code> for description</p></li>
+<li><p><strong>use_inception_module</strong> – if the inception module with multiple convolutions on same input
+following concatenating and 1x1 convolution should be used like
+x1=conv(x, kern1); x2=conv(x, kern2); x3=concat(x1, x2); in that case
+kernel_sizel should be a list of kernel sizes for different convolutions
+in inception block; default single convolution is used</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="attribute">
+<dt id="ncgenes7.plugins.cnns.densenet.DensenetPlugin.incoming_keys">
+<code class="sig-name descname">incoming_keys</code><a class="headerlink" href="#ncgenes7.plugins.cnns.densenet.DensenetPlugin.incoming_keys" title="Permalink to this definition">¶</a></dt>
+<dd><ul class="simple">
+<li><p>feature_maps : tensor of shape  [batch_size, w, h, num_channels],
+tf.float32</p></li>
+<li><p>auxiliary_feature_maps
+[batch_size, w_i, h_i, num_channels_i] to be used for skip connections</p></li>
+</ul>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ncgenes7.plugins.cnns.densenet.DensenetPlugin.generated_keys">
+<code class="sig-name descname">generated_keys</code><a class="headerlink" href="#ncgenes7.plugins.cnns.densenet.DensenetPlugin.generated_keys" title="Permalink to this definition">¶</a></dt>
+<dd><ul class="simple">
+<li><p>feature_maps : feature maps after processing</p></li>
+<li><p>auxiliary_feature_maps : (optional)  auxiliary feature maps for
+each block</p></li>
+</ul>
+</dd></dl>
+
+<p class="rubric">References</p>
+<dl class="simple">
+<dt>densenet paper</dt><dd><p><a class="reference external" href="https://arxiv.org/abs/1608.06993">https://arxiv.org/abs/1608.06993</a></p>
+</dd>
+</dl>
+<dl class="method">
+<dt id="ncgenes7.plugins.cnns.densenet.DensenetPlugin.build_cnn_block">
+<code class="sig-name descname">build_cnn_block</code><span class="sig-paren">(</span><em class="sig-param">inputs</em>, <em class="sig-param">number_of_blocks</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ncgenes7/plugins/cnns/densenet.html#DensenetPlugin.build_cnn_block"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ncgenes7.plugins.cnns.densenet.DensenetPlugin.build_cnn_block" title="Permalink to this definition">¶</a></dt>
+<dd><p>Build one cnn block</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>inputs</strong> – block inputs</p></li>
+<li><p><strong>block_parameters</strong> – further parameters to build the block</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>result</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>result</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt>
+<code class="sig-name descname">generated_keys</code><em class="property"> = ['feature_maps', '_auxiliary_feature_maps']</em></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt>
+<code class="sig-name descname">incoming_keys</code><em class="property"> = ['feature_maps', '_auxiliary_feature_maps']</em></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-ncgenes7.plugins.cnns.duc">
+<span id="ncgenes7-plugins-cnns-duc-module"></span><h2>ncgenes7.plugins.cnns.duc module<a class="headerlink" href="#module-ncgenes7.plugins.cnns.duc" title="Permalink to this headline">¶</a></h2>
+<p>DUC module plugin</p>
+<dl class="class">
+<dt id="ncgenes7.plugins.cnns.duc.DUCPlugin">
+<em class="property">class </em><code class="sig-prename descclassname">ncgenes7.plugins.cnns.duc.</code><code class="sig-name descname">DUCPlugin</code><span class="sig-paren">(</span><em class="sig-param">kernel_size</em>, <em class="sig-param">num_classes</em>, <em class="sig-param">stride_upsample</em>, <em class="sig-param">image_height=None</em>, <em class="sig-param">image_width=None</em>, <em class="sig-param">dilation_rates=(2</em>, <em class="sig-param">4</em>, <em class="sig-param">8</em>, <em class="sig-param">16)</em>, <em class="sig-param">**plugin_kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ncgenes7/plugins/cnns/duc.html#DUCPlugin"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ncgenes7.plugins.cnns.duc.DUCPlugin" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">nucleus7.model.plugin.ModelPlugin</span></code></p>
+<p>DUC module plugin</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>kernel_size</strong> – kernel size of DUC convolution</p></li>
+<li><p><strong>num_classes</strong> – number of classes</p></li>
+<li><p><strong>stride_upsample</strong> – see paper</p></li>
+<li><p><strong>dilation_rates</strong> – see paper</p></li>
+<li><p><strong>image_height</strong> – image height to resize after duc; will be added as default_placeholder,
+so can be changed during inference</p></li>
+<li><p><strong>image_width</strong> – image width to resize after duc; will be added as default_placeholder,
+so can be changed during inference</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="attribute">
+<dt id="ncgenes7.plugins.cnns.duc.DUCPlugin.incoming_keys">
+<code class="sig-name descname">incoming_keys</code><a class="headerlink" href="#ncgenes7.plugins.cnns.duc.DUCPlugin.incoming_keys" title="Permalink to this definition">¶</a></dt>
+<dd><ul class="simple">
+<li><p>feature_maps : tensor of shape  [batch_size, w, h, num_channels],
+tf.float32</p></li>
+</ul>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ncgenes7.plugins.cnns.duc.DUCPlugin.generated_keys">
+<code class="sig-name descname">generated_keys</code><a class="headerlink" href="#ncgenes7.plugins.cnns.duc.DUCPlugin.generated_keys" title="Permalink to this definition">¶</a></dt>
+<dd><ul class="simple">
+<li><p>feature_maps : feature maps after processing</p></li>
+</ul>
+</dd></dl>
+
+<p class="rubric">References</p>
+<dl class="simple">
+<dt>DUC module</dt><dd><p><a class="reference external" href="https://arxiv.org/abs/1702.08502">https://arxiv.org/abs/1702.08502</a></p>
+</dd>
+</dl>
+<dl class="method">
+<dt id="ncgenes7.plugins.cnns.duc.DUCPlugin.create_keras_layers">
+<code class="sig-name descname">create_keras_layers</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ncgenes7/plugins/cnns/duc.html#DUCPlugin.create_keras_layers"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ncgenes7.plugins.cnns.duc.DUCPlugin.create_keras_layers" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initialize and assign the keras layers used in this plugin</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt>
+<code class="sig-name descname">generated_keys</code><em class="property"> = ['feature_maps']</em></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt>
+<code class="sig-name descname">incoming_keys</code><em class="property"> = ['feature_maps']</em></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="ncgenes7.plugins.cnns.duc.DUCPlugin.predict">
+<code class="sig-name descname">predict</code><span class="sig-paren">(</span><em class="sig-param">feature_maps</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ncgenes7/plugins/cnns/duc.html#DUCPlugin.predict"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ncgenes7.plugins.cnns.duc.DUCPlugin.predict" title="Permalink to this definition">¶</a></dt>
+<dd><p>Forward pass given inputs</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>**inputs</strong> – dict with input tensors</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>outputs after this layer</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>output</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Dict" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Dict</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Tensor</span></code>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-ncgenes7.plugins.cnns.pspnet">
+<span id="ncgenes7-plugins-cnns-pspnet-module"></span><h2>ncgenes7.plugins.cnns.pspnet module<a class="headerlink" href="#module-ncgenes7.plugins.cnns.pspnet" title="Permalink to this headline">¶</a></h2>
+<p>PSPNet plugin</p>
+<dl class="class">
+<dt id="ncgenes7.plugins.cnns.pspnet.PSPNetPlugin">
+<em class="property">class </em><code class="sig-prename descclassname">ncgenes7.plugins.cnns.pspnet.</code><code class="sig-name descname">PSPNetPlugin</code><span class="sig-paren">(</span><em class="sig-param">filters</em>, <em class="sig-param">pool_sizes</em>, <em class="sig-param">output_height</em>, <em class="sig-param">output_width</em>, <em class="sig-param">kernel_size=3</em>, <em class="sig-param">num_classes=None</em>, <em class="sig-param">**plugin_kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ncgenes7/plugins/cnns/pspnet.html#PSPNetPlugin"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ncgenes7.plugins.cnns.pspnet.PSPNetPlugin" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">nucleus7.model.plugin.ModelPlugin</span></code></p>
+<p>Plugin using pyramid pooling module</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>filters</strong> – number of feature maps in each convolution after pooling and after
+concatenation of psp features</p></li>
+<li><p><strong>output_height</strong> – height of the upsampled output; if negative, then it is a multiplier to
+input feature maps size; otherwise it is a size itself</p></li>
+<li><p><strong>output_width</strong> – width of the upsampled output; if negative, then it is a multiplier to
+input feature maps size; otherwise it is a size itself</p></li>
+<li><p><strong>pool_sizes</strong> – pool sizes to use; if it is negative, then it is the same as in the
+paper - bin sizes; otherwise it is a pool sizes; in case of bin sizes,
+the input spatial dimensions must be defined and so cannot be None</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="attribute">
+<dt id="ncgenes7.plugins.cnns.pspnet.PSPNetPlugin.incoming_keys">
+<code class="sig-name descname">incoming_keys</code><a class="headerlink" href="#ncgenes7.plugins.cnns.pspnet.PSPNetPlugin.incoming_keys" title="Permalink to this definition">¶</a></dt>
+<dd><ul class="simple">
+<li><p>feature_maps : tensor of shape  [batch_size, w, h, num_channels],
+tf.float32</p></li>
+</ul>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ncgenes7.plugins.cnns.pspnet.PSPNetPlugin.generated_keys">
+<code class="sig-name descname">generated_keys</code><a class="headerlink" href="#ncgenes7.plugins.cnns.pspnet.PSPNetPlugin.generated_keys" title="Permalink to this definition">¶</a></dt>
+<dd><ul class="simple">
+<li><p>feature_maps : feature maps after processing</p></li>
+</ul>
+</dd></dl>
+
+<p class="rubric">References</p>
+<dl class="simple">
+<dt>Pyramid Scene Parsing Network</dt><dd><p><a class="reference external" href="https:arxiv.org/abs/1612.01105">https:arxiv.org/abs/1612.01105</a></p>
+</dd>
+</dl>
+<dl class="method">
+<dt id="ncgenes7.plugins.cnns.pspnet.PSPNetPlugin.create_keras_layers">
+<code class="sig-name descname">create_keras_layers</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ncgenes7/plugins/cnns/pspnet.html#PSPNetPlugin.create_keras_layers"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ncgenes7.plugins.cnns.pspnet.PSPNetPlugin.create_keras_layers" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initialize and assign the keras layers used in this plugin</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt>
+<code class="sig-name descname">generated_keys</code><em class="property"> = ['feature_maps']</em></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt>
+<code class="sig-name descname">incoming_keys</code><em class="property"> = ['feature_maps']</em></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="ncgenes7.plugins.cnns.pspnet.PSPNetPlugin.predict">
+<code class="sig-name descname">predict</code><span class="sig-paren">(</span><em class="sig-param">feature_maps</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ncgenes7/plugins/cnns/pspnet.html#PSPNetPlugin.predict"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ncgenes7.plugins.cnns.pspnet.PSPNetPlugin.predict" title="Permalink to this definition">¶</a></dt>
+<dd><p>Forward pass given inputs</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>**inputs</strong> – dict with input tensors</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>outputs after this layer</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>output</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Dict" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Dict</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Tensor</span></code>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-ncgenes7.plugins.cnns">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-ncgenes7.plugins.cnns" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="ncgenes7.plugins.object_detection.html" class="btn btn-neutral float-right" title="ncgenes7.plugins.object_detection package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="ncgenes7.plugins.html" class="btn btn-neutral float-left" title="ncgenes7.plugins package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Audi Electronics Venture GmbH
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

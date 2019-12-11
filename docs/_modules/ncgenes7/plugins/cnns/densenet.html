@@ -1,0 +1,391 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>ncgenes7.plugins.cnns.densenet &mdash; ncgenes7 v0.10.0 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../../../_static/icon.ico"/>
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../../" src="../../../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../../../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../../../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../../index.html" class="icon icon-home"> ncgenes7
+          
+
+          
+            
+            <img src="../../../../_static/icon.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.10.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../Introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../Installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ProjectSamples.html">Sample projects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../Contribution.html">Contribution</a></li>
+</ul>
+<p class="caption"><span class="caption-text">API:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../api/ncgenes7.augmentations.html">ncgenes7.augmentations package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../api/ncgenes7.callbacks.html">ncgenes7.callbacks package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../api/ncgenes7.data_feeders.html">ncgenes7.data_feeders package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../api/ncgenes7.data_fields.html">ncgenes7.data_fields package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../api/ncgenes7.data_filters.html">ncgenes7.data_filters package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../api/ncgenes7.data_readers.html">ncgenes7.data_readers package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../api/ncgenes7.file_lists.html">ncgenes7.file_lists package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../api/ncgenes7.kpis.html">ncgenes7.kpis package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../api/ncgenes7.learning_rate_manipulators.html">ncgenes7.learning_rate_manipulators package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../api/ncgenes7.losses.html">ncgenes7.losses package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../api/ncgenes7.metrics.html">ncgenes7.metrics package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../api/ncgenes7.plugins.html">ncgenes7.plugins package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../api/ncgenes7.plugins.cnns.html">ncgenes7.plugins.cnns package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../api/ncgenes7.plugins.object_detection.html">ncgenes7.plugins.object_detection package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../api/ncgenes7.plugins.preprocessing.html">ncgenes7.plugins.preprocessing package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../api/ncgenes7.plugins.utils.html">ncgenes7.plugins.utils package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../api/ncgenes7.postprocessors.html">ncgenes7.postprocessors package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../api/ncgenes7.summaries.html">ncgenes7.summaries package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../api/ncgenes7.third_party.html">ncgenes7.third_party package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../api/ncgenes7.third_party.object_detection.html">ncgenes7.third_party.object_detection package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../api/ncgenes7.utils.html">ncgenes7.utils package</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">ncgenes7</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../../index.html">Module code</a> &raquo;</li>
+        
+      <li>ncgenes7.plugins.cnns.densenet</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for ncgenes7.plugins.cnns.densenet</h1><div class="highlight"><pre>
+<span></span><span class="c1"># ==============================================================================</span>
+<span class="c1"># Copyright (c) 2019 Audi Electronics Venture GmbH. All rights reserved.</span>
+<span class="c1">#</span>
+<span class="c1"># This Source Code Form is subject to the terms of the Mozilla</span>
+<span class="c1"># Public License, v. 2.0. If a copy of the MPL was not distributed</span>
+<span class="c1"># with this file, You can obtain one at https://mozilla.org/MPL/2.0/.</span>
+<span class="c1"># ==============================================================================</span>
+
+<span class="sd">&quot;&quot;&quot;Versions of CNN encoder and decoder using densenet architecture</span>
+
+<span class="sd">References</span>
+<span class="sd">----------</span>
+<span class="sd">densenet paper</span>
+<span class="sd">    https://arxiv.org/abs/1608.06993</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">List</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Optional</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Union</span>
+<span class="kn">import</span> <span class="nn">warnings</span>
+
+<span class="kn">from</span> <span class="nn">nucleus7.utils.tf_varscopes_utils</span> <span class="kn">import</span> <span class="n">with_name_scope</span>
+<span class="kn">import</span> <span class="nn">tensorflow</span> <span class="k">as</span> <span class="nn">tf</span>
+
+<span class="kn">from</span> <span class="nn">ncgenes7.plugins.cnns</span> <span class="kn">import</span> <span class="n">cnn_blocks</span>
+<span class="kn">from</span> <span class="nn">ncgenes7.plugins.cnns.base</span> <span class="kn">import</span> <span class="n">BaseCNNPlugin</span>
+
+
+<div class="viewcode-block" id="DensenetPlugin"><a class="viewcode-back" href="../../../../api/ncgenes7.plugins.cnns.html#ncgenes7.plugins.cnns.densenet.DensenetPlugin">[docs]</a><span class="k">class</span> <span class="nc">DensenetPlugin</span><span class="p">(</span><span class="n">BaseCNNPlugin</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Densenet architecture with different inception modules</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    num_dense_blocks_per_layer</span>
+<span class="sd">        number of dense blocks in each building block; you do not need to</span>
+<span class="sd">        provide num_blocks and cnn_blocks_parameters</span>
+<span class="sd">    growth_rate</span>
+<span class="sd">        see paper</span>
+<span class="sd">    bottleneck_factor</span>
+<span class="sd">        bottleneck factor; if its is &lt;= 0, then absolute number will be used as</span>
+<span class="sd">        number of filters in bottleneck layer, otherwise this number will be</span>
+<span class="sd">        multiplied with growth_rate to have the number of feature maps in</span>
+<span class="sd">        bottleneck layer</span>
+<span class="sd">    transition_downsample_factor</span>
+<span class="sd">        see paper</span>
+<span class="sd">    kernel_size</span>
+<span class="sd">        kernel size for single convolution or list of sizes if</span>
+<span class="sd">        use_inception_module == True</span>
+<span class="sd">    dilation_rate</span>
+<span class="sd">        if is int, then this value will be used in whole inception module;</span>
+<span class="sd">        else single values will be used with corresponding kernel_size values;</span>
+<span class="sd">        if it is a list and use_inception_module == True, then</span>
+<span class="sd">        len(dilation_rate) == len(kernel_size)</span>
+<span class="sd">    batch_normalization_params</span>
+<span class="sd">        parameters for batch normalization to apply on the subblock</span>
+<span class="sd">        inputs and on the transition block inputs;</span>
+<span class="sd">        see :obj:`tf.keras.layers.BatchNormalization` for description</span>
+<span class="sd">    use_inception_module</span>
+<span class="sd">        if the inception module with multiple convolutions on same input</span>
+<span class="sd">        following concatenating and 1x1 convolution should be used like</span>
+<span class="sd">        x1=conv(x, kern1); x2=conv(x, kern2); x3=concat(x1, x2); in that case</span>
+<span class="sd">        kernel_sizel should be a list of kernel sizes for different convolutions</span>
+<span class="sd">        in inception block; default single convolution is used</span>
+
+<span class="sd">    Attributes</span>
+<span class="sd">    ----------</span>
+<span class="sd">    incoming_keys</span>
+<span class="sd">        * feature_maps : tensor of shape  [batch_size, w, h, num_channels],</span>
+<span class="sd">          tf.float32</span>
+<span class="sd">        * auxiliary_feature_maps</span>
+<span class="sd">          [batch_size, w_i, h_i, num_channels_i] to be used for skip connections</span>
+
+<span class="sd">    generated_keys</span>
+<span class="sd">        * feature_maps : feature maps after processing</span>
+<span class="sd">        * auxiliary_feature_maps : (optional)  auxiliary feature maps for</span>
+<span class="sd">          each block</span>
+
+<span class="sd">    References</span>
+<span class="sd">    ----------</span>
+<span class="sd">    densenet paper</span>
+<span class="sd">        https://arxiv.org/abs/1608.06993</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">incoming_keys</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="s2">&quot;feature_maps&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;_auxiliary_feature_maps&quot;</span><span class="p">,</span>
+    <span class="p">]</span>
+
+    <span class="n">generated_keys</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="s2">&quot;feature_maps&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;_auxiliary_feature_maps&quot;</span><span class="p">,</span>
+    <span class="p">]</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span>
+                 <span class="n">num_dense_blocks_per_layer</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">],</span>
+                 <span class="n">growth_rate</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">16</span><span class="p">,</span>
+                 <span class="n">bottleneck_factor</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">4</span><span class="p">,</span>
+                 <span class="n">transition_downsample_factor</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.5</span><span class="p">,</span>
+                 <span class="n">kernel_size</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">],</span> <span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="mi">3</span><span class="p">,</span>
+                 <span class="n">dilation_rate</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">],</span> <span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span>
+                 <span class="n">batch_normalization_params</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">dict</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+                 <span class="n">use_inception_module</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+                 <span class="o">**</span><span class="n">plugin_kwargs</span><span class="p">):</span>
+        <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">num_dense_blocks_per_layer</span><span class="p">,</span> <span class="p">(</span><span class="nb">list</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">)),</span> <span class="p">(</span>
+            <span class="s2">&quot;num_dense_blocks_per_layer should be a list of int!!!&quot;</span><span class="p">)</span>
+        <span class="n">num_blocks</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">num_dense_blocks_per_layer</span><span class="p">)</span>
+        <span class="k">if</span> <span class="s2">&quot;num_blocks&quot;</span> <span class="ow">in</span> <span class="n">plugin_kwargs</span><span class="p">:</span>
+            <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span>
+                <span class="s2">&quot;num_blocks for </span><span class="si">{}</span><span class="s2"> is inferred from &quot;</span>
+                <span class="s2">&quot;num_dense_blocks_per_layer and is </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="p">,</span> <span class="n">num_blocks</span><span class="p">))</span>
+        <span class="k">if</span> <span class="s2">&quot;cnn_blocks_parameters&quot;</span> <span class="ow">in</span> <span class="n">plugin_kwargs</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;cnn_blocks_parameters must be not se for &quot;</span>
+                             <span class="s2">&quot;</span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="p">))</span>
+        <span class="n">cnn_blocks_parameters</span> <span class="o">=</span> <span class="p">[{</span><span class="s1">&#39;number_of_blocks&#39;</span><span class="p">:</span> <span class="n">k</span><span class="p">}</span>
+                                 <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">num_dense_blocks_per_layer</span><span class="p">]</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">num_blocks</span><span class="o">=</span><span class="n">num_blocks</span><span class="p">,</span>
+                         <span class="n">cnn_blocks_parameters</span><span class="o">=</span><span class="n">cnn_blocks_parameters</span><span class="p">,</span>
+                         <span class="o">**</span><span class="n">plugin_kwargs</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">growth_rate</span> <span class="o">=</span> <span class="n">growth_rate</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">bottleneck_factor</span> <span class="o">=</span> <span class="n">bottleneck_factor</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">transition_downsample_factor</span> <span class="o">=</span> <span class="n">transition_downsample_factor</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">kernel_size</span> <span class="o">=</span> <span class="n">kernel_size</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">dilation_rate</span> <span class="o">=</span> <span class="n">dilation_rate</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">batch_normalization_params</span> <span class="o">=</span> <span class="n">batch_normalization_params</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">use_inception_module</span> <span class="o">=</span> <span class="n">use_inception_module</span>
+
+<div class="viewcode-block" id="DensenetPlugin.build_cnn_block"><a class="viewcode-back" href="../../../../api/ncgenes7.plugins.cnns.html#ncgenes7.plugins.cnns.densenet.DensenetPlugin.build_cnn_block">[docs]</a>    <span class="nd">@with_name_scope</span><span class="p">(</span><span class="s2">&quot;densenet_block&quot;</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">build_cnn_block</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">inputs</span><span class="p">,</span> <span class="n">number_of_blocks</span><span class="p">):</span>
+        <span class="c1"># pylint: disable=arguments-differ</span>
+        <span class="c1"># parent save method has more generic signature</span>
+        <span class="n">layer_name</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_current_layer_full_name</span><span class="p">(</span><span class="s2">&quot;cnn&quot;</span><span class="p">)</span>
+        <span class="n">inception_layer_fn</span> <span class="o">=</span> <span class="p">(</span>
+            <span class="n">cnn_blocks</span><span class="o">.</span><span class="n">InceptionConv2D</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">use_inception_module</span>
+            <span class="k">else</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Conv2D</span><span class="p">)</span>
+        <span class="n">densenet_layer</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">add_keras_layer</span><span class="p">(</span>
+            <span class="n">cnn_blocks</span><span class="o">.</span><span class="n">DenseLayer</span><span class="p">(</span>
+                <span class="n">inception_layer_fn</span><span class="o">=</span><span class="n">inception_layer_fn</span><span class="p">,</span>
+                <span class="n">number_of_blocks</span><span class="o">=</span><span class="n">number_of_blocks</span><span class="p">,</span>
+                <span class="n">growth_rate</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">growth_rate</span><span class="p">,</span>
+                <span class="n">kernel_size</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">kernel_size</span><span class="p">,</span>
+                <span class="n">activation</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">activation</span><span class="p">,</span>
+                <span class="n">dropout_fn</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">dropout</span><span class="p">,</span>
+                <span class="n">bottleneck_factor</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">bottleneck_factor</span><span class="p">,</span>
+                <span class="n">dilation_rate</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">dilation_rate</span><span class="p">,</span>
+                <span class="n">batch_normalization_params</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">batch_normalization_params</span><span class="p">,</span>
+                <span class="n">kernel_initializer</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">initializer</span><span class="p">),</span>
+            <span class="n">name</span><span class="o">=</span><span class="n">layer_name</span><span class="p">)</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="n">densenet_layer</span><span class="p">(</span><span class="n">inputs</span><span class="p">,</span> <span class="n">training</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">is_training</span><span class="p">)</span>
+        <span class="c1"># sampling is performed inside of the plugin.sample operation so here</span>
+        <span class="c1"># is only a conv part of transitional layer is needed</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">batch_normalization_params</span><span class="p">:</span>
+            <span class="n">bn_layer</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">add_keras_layer</span><span class="p">(</span>
+                <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">BatchNormalization</span><span class="p">(</span>
+                    <span class="o">**</span><span class="bp">self</span><span class="o">.</span><span class="n">batch_normalization_params</span><span class="p">),</span>
+                <span class="n">name</span><span class="o">=</span><span class="n">layer_name</span> <span class="o">+</span> <span class="s2">&quot;_transition_bn_layer&quot;</span>
+            <span class="p">)</span>
+            <span class="n">x</span> <span class="o">=</span> <span class="n">bn_layer</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+
+        <span class="n">x_number_of_filters</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">get_shape</span><span class="p">()</span><span class="o">.</span><span class="n">as_list</span><span class="p">()[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">number_of_filters_transition</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span>
+            <span class="n">x_number_of_filters</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">transition_downsample_factor</span><span class="p">)</span>
+        <span class="n">conv_1x1_layer</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">add_keras_layer</span><span class="p">(</span>
+            <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Conv2D</span><span class="p">(</span><span class="n">number_of_filters_transition</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span>
+                                   <span class="n">use_bias</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;transition&#39;</span><span class="p">),</span>
+            <span class="n">name</span><span class="o">=</span><span class="n">layer_name</span> <span class="o">+</span> <span class="s2">&quot;_transition_conv_1x1&quot;</span><span class="p">)</span>
+        <span class="n">out</span> <span class="o">=</span> <span class="n">conv_1x1_layer</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">out</span></div></div>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Audi Electronics Venture GmbH
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

@@ -1,0 +1,773 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>ncgenes7.augmentations.image &mdash; ncgenes7 v0.10.0 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../../_static/icon.ico"/>
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> ncgenes7
+          
+
+          
+            
+            <img src="../../../_static/icon.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.10.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../Introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../ProjectSamples.html">Sample projects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Contribution.html">Contribution</a></li>
+</ul>
+<p class="caption"><span class="caption-text">API:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/ncgenes7.augmentations.html">ncgenes7.augmentations package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/ncgenes7.callbacks.html">ncgenes7.callbacks package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/ncgenes7.data_feeders.html">ncgenes7.data_feeders package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/ncgenes7.data_fields.html">ncgenes7.data_fields package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/ncgenes7.data_filters.html">ncgenes7.data_filters package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/ncgenes7.data_readers.html">ncgenes7.data_readers package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/ncgenes7.file_lists.html">ncgenes7.file_lists package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/ncgenes7.kpis.html">ncgenes7.kpis package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/ncgenes7.learning_rate_manipulators.html">ncgenes7.learning_rate_manipulators package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/ncgenes7.losses.html">ncgenes7.losses package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/ncgenes7.metrics.html">ncgenes7.metrics package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/ncgenes7.plugins.html">ncgenes7.plugins package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/ncgenes7.plugins.cnns.html">ncgenes7.plugins.cnns package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/ncgenes7.plugins.object_detection.html">ncgenes7.plugins.object_detection package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/ncgenes7.plugins.preprocessing.html">ncgenes7.plugins.preprocessing package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/ncgenes7.plugins.utils.html">ncgenes7.plugins.utils package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/ncgenes7.postprocessors.html">ncgenes7.postprocessors package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/ncgenes7.summaries.html">ncgenes7.summaries package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/ncgenes7.third_party.html">ncgenes7.third_party package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/ncgenes7.third_party.object_detection.html">ncgenes7.third_party.object_detection package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/ncgenes7.utils.html">ncgenes7.utils package</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">ncgenes7</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../index.html">Module code</a> &raquo;</li>
+        
+      <li>ncgenes7.augmentations.image</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for ncgenes7.augmentations.image</h1><div class="highlight"><pre>
+<span></span><span class="c1"># ==============================================================================</span>
+<span class="c1"># Copyright (c) 2019 Audi Electronics Venture GmbH. All rights reserved.</span>
+<span class="c1">#</span>
+<span class="c1"># This Source Code Form is subject to the terms of the Mozilla</span>
+<span class="c1"># Public License, v. 2.0. If a copy of the MPL was not distributed</span>
+<span class="c1"># with this file, You can obtain one at https://mozilla.org/MPL/2.0/.</span>
+<span class="c1"># ==============================================================================</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Image augmentations</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Dict</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Optional</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Sequence</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Union</span>
+
+<span class="kn">import</span> <span class="nn">nucleus7</span> <span class="k">as</span> <span class="nn">nc7</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">tensorflow</span> <span class="k">as</span> <span class="nn">tf</span>
+
+<span class="kn">from</span> <span class="nn">ncgenes7.data_fields.images</span> <span class="kn">import</span> <span class="n">ImageDataFields</span>
+<span class="kn">from</span> <span class="nn">ncgenes7.utils</span> <span class="kn">import</span> <span class="n">image_utils</span>
+<span class="kn">from</span> <span class="nn">ncgenes7.utils.general_utils</span> <span class="kn">import</span> <span class="n">broadcast_with_expand_to</span>
+
+
+<div class="viewcode-block" id="ImageRandomBrightness"><a class="viewcode-back" href="../../../api/ncgenes7.augmentations.html#ncgenes7.augmentations.image.ImageRandomBrightness">[docs]</a><span class="k">class</span> <span class="nc">ImageRandomBrightness</span><span class="p">(</span><span class="n">nc7</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">RandomAugmentationTf</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Random augmentation of brightness</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    max_delta</span>
+<span class="sd">        see `tf.image.random_brightness`</span>
+
+<span class="sd">    Attributes</span>
+<span class="sd">    ----------</span>
+<span class="sd">    incoming_keys</span>
+<span class="sd">        * images : image or list of images, [h, w, num_channels],</span>
+<span class="sd">          tf.float32</span>
+<span class="sd">    generated_keys</span>
+<span class="sd">        * images : image or list of images, [h, w, num_channels],</span>
+<span class="sd">          tf.float32</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">incoming_keys</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="n">ImageDataFields</span><span class="o">.</span><span class="n">images</span><span class="p">,</span>
+    <span class="p">]</span>
+    <span class="n">generated_keys</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="n">ImageDataFields</span><span class="o">.</span><span class="n">images</span><span class="p">,</span>
+    <span class="p">]</span>
+    <span class="n">random_variables_keys</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="s2">&quot;brightness_delta&quot;</span><span class="p">,</span>
+    <span class="p">]</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">max_delta</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="o">**</span><span class="n">augmentation_kwargs</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">**</span><span class="n">augmentation_kwargs</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">max_delta</span> <span class="o">=</span> <span class="n">max_delta</span>
+
+<div class="viewcode-block" id="ImageRandomBrightness.create_random_variables"><a class="viewcode-back" href="../../../api/ncgenes7.augmentations.html#ncgenes7.augmentations.image.ImageRandomBrightness.create_random_variables">[docs]</a>    <span class="k">def</span> <span class="nf">create_random_variables</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">delta</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">random_uniform</span><span class="p">([],</span> <span class="o">-</span><span class="bp">self</span><span class="o">.</span><span class="n">max_delta</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">max_delta</span><span class="p">,</span>
+                                  <span class="n">seed</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">get_random_seed</span><span class="p">())</span>
+        <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;brightness_delta&quot;</span><span class="p">:</span> <span class="n">delta</span><span class="p">}</span></div>
+
+<div class="viewcode-block" id="ImageRandomBrightness.augment"><a class="viewcode-back" href="../../../api/ncgenes7.augmentations.html#ncgenes7.augmentations.image.ImageRandomBrightness.augment">[docs]</a>    <span class="k">def</span> <span class="nf">augment</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">images</span><span class="p">:</span> <span class="n">tf</span><span class="o">.</span><span class="n">Tensor</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">tf</span><span class="o">.</span><span class="n">Tensor</span><span class="p">]:</span>
+        <span class="c1"># pylint: disable=arguments-differ</span>
+        <span class="c1"># base class has more generic signature</span>
+        <span class="n">images_augmented</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">image</span><span class="o">.</span><span class="n">adjust_brightness</span><span class="p">(</span>
+            <span class="n">images</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">random_variables</span><span class="p">[</span><span class="s2">&quot;brightness_delta&quot;</span><span class="p">])</span>
+        <span class="k">return</span> <span class="p">{</span><span class="n">ImageDataFields</span><span class="o">.</span><span class="n">images</span><span class="p">:</span> <span class="n">images_augmented</span><span class="p">}</span></div></div>
+
+
+<div class="viewcode-block" id="ImageRandomContrast"><a class="viewcode-back" href="../../../api/ncgenes7.augmentations.html#ncgenes7.augmentations.image.ImageRandomContrast">[docs]</a><span class="k">class</span> <span class="nc">ImageRandomContrast</span><span class="p">(</span><span class="n">nc7</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">RandomAugmentationTf</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Random augmentation of contrast</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    lower, upper</span>
+<span class="sd">        see `tf.image.random_contrast`</span>
+
+<span class="sd">    Attributes</span>
+<span class="sd">    ----------</span>
+<span class="sd">    incoming_keys</span>
+<span class="sd">        * images : image or list of images, [h, w, num_channels],</span>
+<span class="sd">          tf.float32</span>
+<span class="sd">    generated_keys</span>
+<span class="sd">        * images : image or list of images, [h, w, num_channels],</span>
+<span class="sd">          tf.float32</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">incoming_keys</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="n">ImageDataFields</span><span class="o">.</span><span class="n">images</span><span class="p">,</span>
+    <span class="p">]</span>
+    <span class="n">generated_keys</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="n">ImageDataFields</span><span class="o">.</span><span class="n">images</span><span class="p">,</span>
+    <span class="p">]</span>
+    <span class="n">random_variables_keys</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="s2">&quot;contrast_factor&quot;</span><span class="p">,</span>
+    <span class="p">]</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">lower</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">upper</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="o">**</span><span class="n">augmentation_kwargs</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">**</span><span class="n">augmentation_kwargs</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">lower</span> <span class="o">=</span> <span class="n">lower</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">upper</span> <span class="o">=</span> <span class="n">upper</span>
+
+<div class="viewcode-block" id="ImageRandomContrast.create_random_variables"><a class="viewcode-back" href="../../../api/ncgenes7.augmentations.html#ncgenes7.augmentations.image.ImageRandomContrast.create_random_variables">[docs]</a>    <span class="k">def</span> <span class="nf">create_random_variables</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">contrast_factor</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">random_uniform</span><span class="p">(</span>
+            <span class="p">[],</span> <span class="bp">self</span><span class="o">.</span><span class="n">lower</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">upper</span><span class="p">,</span> <span class="n">seed</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">get_random_seed</span><span class="p">())</span>
+        <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;contrast_factor&quot;</span><span class="p">:</span> <span class="n">contrast_factor</span><span class="p">}</span></div>
+
+<div class="viewcode-block" id="ImageRandomContrast.augment"><a class="viewcode-back" href="../../../api/ncgenes7.augmentations.html#ncgenes7.augmentations.image.ImageRandomContrast.augment">[docs]</a>    <span class="k">def</span> <span class="nf">augment</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">images</span><span class="p">:</span> <span class="n">tf</span><span class="o">.</span><span class="n">Tensor</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">tf</span><span class="o">.</span><span class="n">Tensor</span><span class="p">]:</span>
+        <span class="c1"># pylint: disable=arguments-differ</span>
+        <span class="c1"># base class has more generic signature</span>
+        <span class="n">images_augmented</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">image</span><span class="o">.</span><span class="n">adjust_contrast</span><span class="p">(</span>
+            <span class="n">images</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">random_variables</span><span class="p">[</span><span class="s2">&quot;contrast_factor&quot;</span><span class="p">])</span>
+        <span class="k">return</span> <span class="p">{</span><span class="n">ImageDataFields</span><span class="o">.</span><span class="n">images</span><span class="p">:</span> <span class="n">images_augmented</span><span class="p">}</span></div></div>
+
+
+<div class="viewcode-block" id="ImageRandomHue"><a class="viewcode-back" href="../../../api/ncgenes7.augmentations.html#ncgenes7.augmentations.image.ImageRandomHue">[docs]</a><span class="k">class</span> <span class="nc">ImageRandomHue</span><span class="p">(</span><span class="n">nc7</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">RandomAugmentationTf</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Random augmentation of hue</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    max_delta</span>
+<span class="sd">        see `tf.image.random_hue`</span>
+
+<span class="sd">    Attributes</span>
+<span class="sd">    ----------</span>
+<span class="sd">    incoming_keys</span>
+<span class="sd">        * images : image or list of images, [h, w, num_channels],</span>
+<span class="sd">          tf.float32</span>
+<span class="sd">    generated_keys</span>
+<span class="sd">        * images : image or list of images, [h, w, num_channels],</span>
+<span class="sd">          tf.float32</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">incoming_keys</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="n">ImageDataFields</span><span class="o">.</span><span class="n">images</span><span class="p">,</span>
+    <span class="p">]</span>
+    <span class="n">generated_keys</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="n">ImageDataFields</span><span class="o">.</span><span class="n">images</span><span class="p">,</span>
+    <span class="p">]</span>
+    <span class="n">random_variables_keys</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="s2">&quot;hue_delta&quot;</span><span class="p">,</span>
+    <span class="p">]</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">max_delta</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="o">**</span><span class="n">augmentation_kwargs</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">**</span><span class="n">augmentation_kwargs</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">max_delta</span> <span class="o">=</span> <span class="n">max_delta</span>
+
+<div class="viewcode-block" id="ImageRandomHue.create_random_variables"><a class="viewcode-back" href="../../../api/ncgenes7.augmentations.html#ncgenes7.augmentations.image.ImageRandomHue.create_random_variables">[docs]</a>    <span class="k">def</span> <span class="nf">create_random_variables</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">delta</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">random_uniform</span><span class="p">([],</span> <span class="o">-</span><span class="bp">self</span><span class="o">.</span><span class="n">max_delta</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">max_delta</span><span class="p">,</span>
+                                  <span class="n">seed</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">get_random_seed</span><span class="p">())</span>
+        <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;hue_delta&quot;</span><span class="p">:</span> <span class="n">delta</span><span class="p">}</span></div>
+
+<div class="viewcode-block" id="ImageRandomHue.augment"><a class="viewcode-back" href="../../../api/ncgenes7.augmentations.html#ncgenes7.augmentations.image.ImageRandomHue.augment">[docs]</a>    <span class="k">def</span> <span class="nf">augment</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">images</span><span class="p">:</span> <span class="n">tf</span><span class="o">.</span><span class="n">Tensor</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">tf</span><span class="o">.</span><span class="n">Tensor</span><span class="p">]:</span>
+        <span class="c1"># pylint: disable=arguments-differ</span>
+        <span class="c1"># base class has more generic signature</span>
+        <span class="n">images_augmented</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">image</span><span class="o">.</span><span class="n">adjust_hue</span><span class="p">(</span>
+            <span class="n">images</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">random_variables</span><span class="p">[</span><span class="s2">&quot;hue_delta&quot;</span><span class="p">])</span>
+        <span class="k">return</span> <span class="p">{</span><span class="n">ImageDataFields</span><span class="o">.</span><span class="n">images</span><span class="p">:</span> <span class="n">images_augmented</span><span class="p">}</span></div></div>
+
+
+<div class="viewcode-block" id="ImageRandomSaturation"><a class="viewcode-back" href="../../../api/ncgenes7.augmentations.html#ncgenes7.augmentations.image.ImageRandomSaturation">[docs]</a><span class="k">class</span> <span class="nc">ImageRandomSaturation</span><span class="p">(</span><span class="n">nc7</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">RandomAugmentationTf</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Random augmentation of saturation</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    lower, upper</span>
+<span class="sd">        see `tf.image.random_saturation`</span>
+
+<span class="sd">    Attributes</span>
+<span class="sd">    ----------</span>
+<span class="sd">    incoming_keys</span>
+<span class="sd">        * images : image or list of images, [h, w, num_channels],</span>
+<span class="sd">          tf.float32</span>
+<span class="sd">    generated_keys</span>
+<span class="sd">        * images : image or list of images, [h, w, num_channels],</span>
+<span class="sd">          tf.float32</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">incoming_keys</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="n">ImageDataFields</span><span class="o">.</span><span class="n">images</span><span class="p">,</span>
+    <span class="p">]</span>
+    <span class="n">generated_keys</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="n">ImageDataFields</span><span class="o">.</span><span class="n">images</span><span class="p">,</span>
+    <span class="p">]</span>
+    <span class="n">random_variables_keys</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="s2">&quot;saturation_factor&quot;</span><span class="p">,</span>
+    <span class="p">]</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">lower</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">upper</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="o">**</span><span class="n">augmentation_kwargs</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">**</span><span class="n">augmentation_kwargs</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">lower</span> <span class="o">=</span> <span class="n">lower</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">upper</span> <span class="o">=</span> <span class="n">upper</span>
+
+<div class="viewcode-block" id="ImageRandomSaturation.create_random_variables"><a class="viewcode-back" href="../../../api/ncgenes7.augmentations.html#ncgenes7.augmentations.image.ImageRandomSaturation.create_random_variables">[docs]</a>    <span class="k">def</span> <span class="nf">create_random_variables</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">saturation_factor</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">random_uniform</span><span class="p">(</span>
+            <span class="p">[],</span> <span class="bp">self</span><span class="o">.</span><span class="n">lower</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">upper</span><span class="p">,</span> <span class="n">seed</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">get_random_seed</span><span class="p">())</span>
+        <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;saturation_factor&quot;</span><span class="p">:</span> <span class="n">saturation_factor</span><span class="p">}</span></div>
+
+<div class="viewcode-block" id="ImageRandomSaturation.augment"><a class="viewcode-back" href="../../../api/ncgenes7.augmentations.html#ncgenes7.augmentations.image.ImageRandomSaturation.augment">[docs]</a>    <span class="k">def</span> <span class="nf">augment</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">images</span><span class="p">:</span> <span class="n">tf</span><span class="o">.</span><span class="n">Tensor</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">tf</span><span class="o">.</span><span class="n">Tensor</span><span class="p">]:</span>
+        <span class="c1"># pylint: disable=arguments-differ</span>
+        <span class="c1"># base class has more generic signature</span>
+        <span class="n">images_augmented</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">image</span><span class="o">.</span><span class="n">adjust_saturation</span><span class="p">(</span>
+            <span class="n">images</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">random_variables</span><span class="p">[</span><span class="s2">&quot;saturation_factor&quot;</span><span class="p">])</span>
+        <span class="k">return</span> <span class="p">{</span><span class="n">ImageDataFields</span><span class="o">.</span><span class="n">images</span><span class="p">:</span> <span class="n">images_augmented</span><span class="p">}</span></div></div>
+
+
+<div class="viewcode-block" id="ImageHorizontalFlip"><a class="viewcode-back" href="../../../api/ncgenes7.augmentations.html#ncgenes7.augmentations.image.ImageHorizontalFlip">[docs]</a><span class="k">class</span> <span class="nc">ImageHorizontalFlip</span><span class="p">(</span><span class="n">nc7</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">RandomAugmentationTf</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Random horizontal image flipping</span>
+
+<span class="sd">    Attributes</span>
+<span class="sd">    ----------</span>
+<span class="sd">    incoming_keys</span>
+<span class="sd">        * images : image or list of images, [h, w, num_channels],</span>
+<span class="sd">          tf.float32</span>
+<span class="sd">    generated_keys</span>
+<span class="sd">        * images : image or list of images, [h, w, num_channels],</span>
+<span class="sd">          tf.float32</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">incoming_keys</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="n">ImageDataFields</span><span class="o">.</span><span class="n">images</span><span class="p">,</span>
+    <span class="p">]</span>
+    <span class="n">generated_keys</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="n">ImageDataFields</span><span class="o">.</span><span class="n">images</span><span class="p">,</span>
+    <span class="p">]</span>
+
+<div class="viewcode-block" id="ImageHorizontalFlip.augment"><a class="viewcode-back" href="../../../api/ncgenes7.augmentations.html#ncgenes7.augmentations.image.ImageHorizontalFlip.augment">[docs]</a>    <span class="k">def</span> <span class="nf">augment</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">images</span><span class="p">:</span> <span class="n">tf</span><span class="o">.</span><span class="n">Tensor</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">tf</span><span class="o">.</span><span class="n">Tensor</span><span class="p">]:</span>
+        <span class="c1"># pylint: disable=arguments-differ</span>
+        <span class="c1"># base class has more generic signature</span>
+        <span class="n">images_augmented</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">image</span><span class="o">.</span><span class="n">flip_left_right</span><span class="p">(</span><span class="n">images</span><span class="p">)</span>
+        <span class="k">return</span> <span class="p">{</span><span class="n">ImageDataFields</span><span class="o">.</span><span class="n">images</span><span class="p">:</span> <span class="n">images_augmented</span><span class="p">}</span></div></div>
+
+
+<div class="viewcode-block" id="ImageFlipUpDown"><a class="viewcode-back" href="../../../api/ncgenes7.augmentations.html#ncgenes7.augmentations.image.ImageFlipUpDown">[docs]</a><span class="k">class</span> <span class="nc">ImageFlipUpDown</span><span class="p">(</span><span class="n">nc7</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">RandomAugmentationTf</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Random up down flipping</span>
+
+<span class="sd">    Attributes</span>
+<span class="sd">    ----------</span>
+<span class="sd">    incoming_keys</span>
+<span class="sd">        * images : image or list of images, [h, w, num_channels],</span>
+<span class="sd">          tf.float32</span>
+<span class="sd">    generated_keys</span>
+<span class="sd">        * images : image or list of images, [h, w, num_channels],</span>
+<span class="sd">          tf.float32</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">incoming_keys</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="n">ImageDataFields</span><span class="o">.</span><span class="n">images</span><span class="p">,</span>
+    <span class="p">]</span>
+    <span class="n">generated_keys</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="n">ImageDataFields</span><span class="o">.</span><span class="n">images</span><span class="p">,</span>
+    <span class="p">]</span>
+
+<div class="viewcode-block" id="ImageFlipUpDown.augment"><a class="viewcode-back" href="../../../api/ncgenes7.augmentations.html#ncgenes7.augmentations.image.ImageFlipUpDown.augment">[docs]</a>    <span class="k">def</span> <span class="nf">augment</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">images</span><span class="p">:</span> <span class="n">tf</span><span class="o">.</span><span class="n">Tensor</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">tf</span><span class="o">.</span><span class="n">Tensor</span><span class="p">]:</span>
+        <span class="c1"># pylint: disable=arguments-differ</span>
+        <span class="c1"># base class has more generic signature</span>
+        <span class="n">images_augmented</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">image</span><span class="o">.</span><span class="n">flip_up_down</span><span class="p">(</span><span class="n">images</span><span class="p">)</span>
+        <span class="k">return</span> <span class="p">{</span><span class="n">ImageDataFields</span><span class="o">.</span><span class="n">images</span><span class="p">:</span> <span class="n">images_augmented</span><span class="p">}</span></div></div>
+
+
+<span class="k">class</span> <span class="nc">_ImageRandomRotation</span><span class="p">(</span><span class="n">nc7</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">RandomAugmentationTf</span>
+                           <span class="p">):</span>  <span class="c1"># pylint: disable=abstract-method</span>
+    <span class="n">random_variables_keys</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="s2">&quot;rotation_angle&quot;</span><span class="p">,</span>
+    <span class="p">]</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span>
+                 <span class="n">max_angle</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
+                 <span class="o">**</span><span class="n">augmentation_kwargs</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">**</span><span class="n">augmentation_kwargs</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">max_angle</span> <span class="o">=</span> <span class="n">max_angle</span>
+
+    <span class="k">def</span> <span class="nf">create_random_variables</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">max_angle_rad</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">max_angle</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">/</span> <span class="mi">180</span>
+        <span class="n">rotation_angle</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">random_uniform</span><span class="p">([],</span> <span class="o">-</span><span class="n">max_angle_rad</span><span class="p">,</span> <span class="n">max_angle_rad</span><span class="p">,</span>
+                                           <span class="n">seed</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">get_random_seed</span><span class="p">())</span>
+        <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;rotation_angle&quot;</span><span class="p">:</span> <span class="n">rotation_angle</span><span class="p">}</span>
+
+
+<div class="viewcode-block" id="ImageRandomRotation"><a class="viewcode-back" href="../../../api/ncgenes7.augmentations.html#ncgenes7.augmentations.image.ImageRandomRotation">[docs]</a><span class="k">class</span> <span class="nc">ImageRandomRotation</span><span class="p">(</span><span class="n">_ImageRandomRotation</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Image rotation</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    max_angle</span>
+<span class="sd">        defines boundaries for random angle generation in grads</span>
+
+<span class="sd">    Attributes</span>
+<span class="sd">    ----------</span>
+<span class="sd">    incoming_keys</span>
+<span class="sd">        * images : image or list of images, [h, w, num_channels],</span>
+<span class="sd">          tf.float32</span>
+<span class="sd">    generated_keys</span>
+<span class="sd">        * images : image or list of images, [h, w, num_channels],</span>
+<span class="sd">          tf.float32</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">incoming_keys</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="n">ImageDataFields</span><span class="o">.</span><span class="n">images</span><span class="p">,</span>
+    <span class="p">]</span>
+    <span class="n">generated_keys</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="n">ImageDataFields</span><span class="o">.</span><span class="n">images</span><span class="p">,</span>
+    <span class="p">]</span>
+
+<div class="viewcode-block" id="ImageRandomRotation.augment"><a class="viewcode-back" href="../../../api/ncgenes7.augmentations.html#ncgenes7.augmentations.image.ImageRandomRotation.augment">[docs]</a>    <span class="k">def</span> <span class="nf">augment</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">images</span><span class="p">:</span> <span class="n">tf</span><span class="o">.</span><span class="n">Tensor</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">tf</span><span class="o">.</span><span class="n">Tensor</span><span class="p">]:</span>
+        <span class="c1"># pylint: disable=arguments-differ</span>
+        <span class="c1"># base class has more generic signature</span>
+        <span class="n">interpolation</span> <span class="o">=</span> <span class="n">image_utils</span><span class="o">.</span><span class="n">interpolation_method_by_dtype</span><span class="p">(</span>
+            <span class="n">images</span><span class="p">,</span> <span class="n">as_str</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="n">images_augmented</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">contrib</span><span class="o">.</span><span class="n">image</span><span class="o">.</span><span class="n">rotate</span><span class="p">(</span>
+            <span class="n">images</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">random_variables</span><span class="p">[</span><span class="s2">&quot;rotation_angle&quot;</span><span class="p">],</span> <span class="n">interpolation</span><span class="p">)</span>
+        <span class="k">return</span> <span class="p">{</span><span class="n">ImageDataFields</span><span class="o">.</span><span class="n">images</span><span class="p">:</span> <span class="n">images_augmented</span><span class="p">}</span></div></div>
+
+
+<span class="k">class</span> <span class="nc">_ImageRandomCrop</span><span class="p">(</span><span class="n">nc7</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">RandomAugmentationTf</span>
+                       <span class="p">):</span>  <span class="c1"># pylint: disable=abstract-method</span>
+    <span class="n">random_variables_keys</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="s2">&quot;crop_offset&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;crop_scale&quot;</span><span class="p">,</span>
+    <span class="p">]</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span>
+                 <span class="n">min_scale</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
+                 <span class="n">max_scale</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">float</span><span class="p">],</span>
+                 <span class="n">resize_to_original</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+                 <span class="o">**</span><span class="n">augmentation_kwargs</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">**</span><span class="n">augmentation_kwargs</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">max_scale</span><span class="p">:</span>
+            <span class="k">assert</span> <span class="n">max_scale</span> <span class="o">&gt;</span> <span class="n">min_scale</span><span class="p">,</span> <span class="p">(</span>
+                <span class="s2">&quot;max_scale must be greater then min_scale&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">min_scale</span> <span class="o">=</span> <span class="n">min_scale</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">max_scale</span> <span class="o">=</span> <span class="n">max_scale</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">resize_to_original</span> <span class="o">=</span> <span class="n">resize_to_original</span>
+
+    <span class="k">def</span> <span class="nf">create_random_variables</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">max_scale</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">crop_scale</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">constant</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">min_scale</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">crop_scale</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">random_uniform</span><span class="p">(</span>
+                <span class="p">[],</span> <span class="n">minval</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">min_scale</span><span class="p">,</span> <span class="n">maxval</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">max_scale</span><span class="p">,</span>
+                <span class="n">dtype</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">float32</span><span class="p">,</span> <span class="n">seed</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">get_random_seed</span><span class="p">())</span>
+
+        <span class="n">crop_offset</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">stack</span><span class="p">(</span>
+            <span class="p">[</span><span class="n">tf</span><span class="o">.</span><span class="n">random_uniform</span><span class="p">(</span>
+                <span class="p">[],</span> <span class="n">minval</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">maxval</span><span class="o">=</span><span class="mi">1</span> <span class="o">-</span> <span class="n">crop_scale</span><span class="p">,</span>
+                <span class="n">seed</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">get_random_seed</span><span class="p">())</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">)])</span>
+        <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;crop_scale&quot;</span><span class="p">:</span> <span class="n">crop_scale</span><span class="p">,</span>
+                <span class="s2">&quot;crop_offset&quot;</span><span class="p">:</span> <span class="n">crop_offset</span><span class="p">}</span>
+
+
+<div class="viewcode-block" id="ImageRandomCrop"><a class="viewcode-back" href="../../../api/ncgenes7.augmentations.html#ncgenes7.augmentations.image.ImageRandomCrop">[docs]</a><span class="k">class</span> <span class="nc">ImageRandomCrop</span><span class="p">(</span><span class="n">_ImageRandomCrop</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Crop images to random scale from [min_scale, max_scale].</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    min_scale</span>
+<span class="sd">        min scale to crop the image</span>
+<span class="sd">    max_scale</span>
+<span class="sd">        max scale to crop the image; if not provided, then constant</span>
+<span class="sd">        scale = min_scale will be used</span>
+<span class="sd">    resize_to_original</span>
+<span class="sd">        if resulted images should be resized to original size after cropping</span>
+
+<span class="sd">    Attributes</span>
+<span class="sd">    ----------</span>
+<span class="sd">    incoming_keys</span>
+<span class="sd">        * images : image or list of images, [h, w, num_channels],</span>
+<span class="sd">          tf.float32</span>
+<span class="sd">    generated_keys</span>
+<span class="sd">        * images : image or list of images, [h, w, num_channels],</span>
+<span class="sd">          tf.float32</span>
+
+<span class="sd">    Raises</span>
+<span class="sd">    ------</span>
+<span class="sd">    AssertionError if both or none of size and scale are provided</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">incoming_keys</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="n">ImageDataFields</span><span class="o">.</span><span class="n">images</span><span class="p">,</span>
+    <span class="p">]</span>
+    <span class="n">generated_keys</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="n">ImageDataFields</span><span class="o">.</span><span class="n">images</span><span class="p">,</span>
+    <span class="p">]</span>
+
+<div class="viewcode-block" id="ImageRandomCrop.augment"><a class="viewcode-back" href="../../../api/ncgenes7.augmentations.html#ncgenes7.augmentations.image.ImageRandomCrop.augment">[docs]</a>    <span class="k">def</span> <span class="nf">augment</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">images</span><span class="p">:</span> <span class="n">tf</span><span class="o">.</span><span class="n">Tensor</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">tf</span><span class="o">.</span><span class="n">Tensor</span><span class="p">]:</span>
+        <span class="c1"># pylint: disable=arguments-differ</span>
+        <span class="c1"># base class has more generic signature</span>
+        <span class="n">images_augmented</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_crop_resize_image</span><span class="p">(</span><span class="n">images</span><span class="p">)</span>
+        <span class="k">return</span> <span class="p">{</span><span class="n">ImageDataFields</span><span class="o">.</span><span class="n">images</span><span class="p">:</span> <span class="n">images_augmented</span><span class="p">}</span></div>
+
+    <span class="k">def</span> <span class="nf">_crop_resize_image</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">images</span><span class="p">:</span> <span class="n">tf</span><span class="o">.</span><span class="n">Tensor</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">tf</span><span class="o">.</span><span class="n">Tensor</span><span class="p">:</span>
+        <span class="n">interpolation</span> <span class="o">=</span> <span class="n">image_utils</span><span class="o">.</span><span class="n">interpolation_method_by_dtype</span><span class="p">(</span><span class="n">images</span><span class="p">)</span>
+        <span class="n">images_size</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">shape</span><span class="p">(</span><span class="n">images</span><span class="p">)[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">images_size_float</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">cast</span><span class="p">(</span><span class="n">images_size</span><span class="p">,</span> <span class="n">tf</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
+        <span class="n">new_size_absolute</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">cast</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">floor</span><span class="p">(</span>
+            <span class="n">images_size_float</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">random_variables</span><span class="p">[</span><span class="s2">&quot;crop_scale&quot;</span><span class="p">]),</span> <span class="n">tf</span><span class="o">.</span><span class="n">int32</span><span class="p">)</span>
+        <span class="n">new_size_absolute</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">concat</span><span class="p">(</span>
+            <span class="p">[</span><span class="n">new_size_absolute</span><span class="p">,</span> <span class="p">[</span><span class="n">images</span><span class="o">.</span><span class="n">get_shape</span><span class="p">()</span><span class="o">.</span><span class="n">as_list</span><span class="p">()[</span><span class="o">-</span><span class="mi">1</span><span class="p">]]],</span> <span class="mi">0</span><span class="p">)</span>
+
+        <span class="n">offset_absolute</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">cast</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">floor</span><span class="p">(</span>
+            <span class="n">images_size_float</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">random_variables</span><span class="p">[</span><span class="s2">&quot;crop_offset&quot;</span><span class="p">]),</span> <span class="n">tf</span><span class="o">.</span><span class="n">int32</span><span class="p">)</span>
+        <span class="n">offset_absolute</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">offset_absolute</span><span class="p">,</span> <span class="p">[</span><span class="mi">0</span><span class="p">]],</span> <span class="mi">0</span><span class="p">)</span>
+
+        <span class="n">image_cropped</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">slice</span><span class="p">(</span><span class="n">images</span><span class="p">,</span> <span class="n">offset_absolute</span><span class="p">,</span> <span class="n">new_size_absolute</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">resize_to_original</span><span class="p">:</span>
+            <span class="n">image_cropped</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">image</span><span class="o">.</span><span class="n">resize_images</span><span class="p">(</span>
+                <span class="n">image_cropped</span><span class="p">,</span> <span class="n">images_size</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="n">interpolation</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">image_cropped</span></div>
+
+
+<span class="k">class</span> <span class="nc">_ImageRandomCutout</span><span class="p">(</span><span class="n">nc7</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">RandomAugmentationTf</span>
+                         <span class="p">):</span>  <span class="c1"># pylint: disable=abstract-method</span>
+    <span class="n">random_variables_keys</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="s2">&quot;cut_lengths&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;cut_offset&quot;</span><span class="p">,</span>
+    <span class="p">]</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+                 <span class="n">min_cut_length</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="n">Sequence</span><span class="p">[</span><span class="nb">float</span><span class="p">]]</span> <span class="o">=</span> <span class="mf">0.01</span><span class="p">,</span>
+                 <span class="n">max_cut_length</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="n">Sequence</span><span class="p">[</span><span class="nb">float</span><span class="p">]]</span> <span class="o">=</span> <span class="mf">0.05</span><span class="p">,</span>
+                 <span class="n">is_normalized</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+                 <span class="o">**</span><span class="n">augmentation_kwargs</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">**</span><span class="n">augmentation_kwargs</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">is_normalized</span> <span class="o">=</span> <span class="n">is_normalized</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">min_cut_length</span><span class="p">,</span> <span class="nb">float</span><span class="p">):</span>
+            <span class="n">min_cut_length</span> <span class="o">=</span> <span class="p">(</span><span class="n">min_cut_length</span><span class="p">,</span> <span class="n">min_cut_length</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">min_cut_length</span><span class="p">)</span> <span class="o">==</span> <span class="mi">2</span><span class="p">,</span> <span class="p">(</span>
+                <span class="s2">&quot;min_cut_length must be either a float or have length of 2&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">max_cut_length</span><span class="p">,</span> <span class="nb">float</span><span class="p">):</span>
+            <span class="n">max_cut_length</span> <span class="o">=</span> <span class="p">(</span><span class="n">max_cut_length</span><span class="p">,</span> <span class="n">max_cut_length</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">max_cut_length</span><span class="p">)</span> <span class="o">==</span> <span class="mi">2</span><span class="p">,</span> <span class="p">(</span>
+                <span class="s2">&quot;max_cut_length must be either a float or have length of 2&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">min_cut_length</span> <span class="o">=</span> <span class="n">min_cut_length</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">max_cut_length</span> <span class="o">=</span> <span class="n">max_cut_length</span>
+
+    <span class="k">def</span> <span class="nf">create_random_variables</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">cut_lengths</span> <span class="o">=</span> <span class="p">[</span>
+            <span class="n">tf</span><span class="o">.</span><span class="n">random_uniform</span><span class="p">([],</span> <span class="n">min_len_dim</span><span class="p">,</span> <span class="n">max_len_dim</span><span class="p">,</span>
+                              <span class="n">dtype</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">float32</span><span class="p">,</span> <span class="n">seed</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">get_random_seed</span><span class="p">())</span>
+            <span class="k">for</span> <span class="n">min_len_dim</span><span class="p">,</span> <span class="n">max_len_dim</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">min_cut_length</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">max_cut_length</span><span class="p">)]</span>
+        <span class="n">cut_lengths</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">stack</span><span class="p">(</span><span class="n">cut_lengths</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+
+        <span class="n">cut_offset</span> <span class="o">=</span> <span class="p">[</span>
+            <span class="n">tf</span><span class="o">.</span><span class="n">random_uniform</span><span class="p">([],</span> <span class="n">minval</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">maxval</span><span class="o">=</span><span class="mi">1</span> <span class="o">-</span> <span class="n">cut_lengths</span><span class="p">[</span><span class="n">i</span><span class="p">],</span>
+                              <span class="n">seed</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">get_random_seed</span><span class="p">())</span>
+            <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">)]</span>
+        <span class="n">cut_offset</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">stack</span><span class="p">(</span><span class="n">cut_offset</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;cut_lengths&quot;</span><span class="p">:</span> <span class="n">cut_lengths</span><span class="p">,</span>
+                <span class="s2">&quot;cut_offset&quot;</span><span class="p">:</span> <span class="n">cut_offset</span><span class="p">}</span>
+
+
+<div class="viewcode-block" id="ImageRandomCutout"><a class="viewcode-back" href="../../../api/ncgenes7.augmentations.html#ncgenes7.augmentations.image.ImageRandomCutout">[docs]</a><span class="k">class</span> <span class="nc">ImageRandomCutout</span><span class="p">(</span><span class="n">_ImageRandomCutout</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Set a random rectangle in the image to zero</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    min_cut_length</span>
+<span class="sd">        Minimum rectangle length in each direction relative to image size, e.g.</span>
+<span class="sd">        in [0, 1]; if single int, then it will be the same for all dimensions</span>
+<span class="sd">    max_cut_length</span>
+<span class="sd">        Maximum rectangle_length in each direction relative to image size, e.g.</span>
+<span class="sd">        in [0, 1]; if single int, then it will be the same for all dimensions</span>
+<span class="sd">    is_normalized</span>
+<span class="sd">        Whether or not the image is already normalized, e.g. its mean = 0</span>
+
+<span class="sd">    Attributes</span>
+<span class="sd">    ----------</span>
+<span class="sd">    incoming_keys</span>
+<span class="sd">        * images : image or list of images, [h, w, num_channels],</span>
+<span class="sd">          tf.float32</span>
+<span class="sd">    generated_keys</span>
+<span class="sd">        * images : image or list of images, [h, w, num_channels],</span>
+<span class="sd">          tf.float32</span>
+
+<span class="sd">    References</span>
+<span class="sd">    ----------</span>
+<span class="sd">    DeVries, T., &amp; Taylor, G. W. (2017). Improved regularization of</span>
+<span class="sd">    convolutional neural networks with cutout. arXiv preprint arXiv:1708.04552.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">incoming_keys</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="n">ImageDataFields</span><span class="o">.</span><span class="n">images</span><span class="p">,</span>
+    <span class="p">]</span>
+    <span class="n">generated_keys</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="n">ImageDataFields</span><span class="o">.</span><span class="n">images</span><span class="p">,</span>
+    <span class="p">]</span>
+
+<div class="viewcode-block" id="ImageRandomCutout.augment"><a class="viewcode-back" href="../../../api/ncgenes7.augmentations.html#ncgenes7.augmentations.image.ImageRandomCutout.augment">[docs]</a>    <span class="k">def</span> <span class="nf">augment</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">images</span><span class="p">:</span> <span class="n">tf</span><span class="o">.</span><span class="n">Tensor</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">tf</span><span class="o">.</span><span class="n">Tensor</span><span class="p">]:</span>
+        <span class="c1"># pylint: disable=arguments-differ</span>
+        <span class="c1"># base class has more generic signature</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_normalized</span><span class="p">:</span>
+            <span class="n">replace_value</span> <span class="o">=</span> <span class="mf">0.0</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">replace_value</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">reduce_mean</span><span class="p">(</span><span class="n">images</span><span class="p">,</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">keepdims</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="n">images_augmented</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cutout</span><span class="p">(</span><span class="n">images</span><span class="p">,</span> <span class="n">replace_value</span><span class="p">)</span>
+        <span class="k">return</span> <span class="p">{</span><span class="n">ImageDataFields</span><span class="o">.</span><span class="n">images</span><span class="p">:</span> <span class="n">images_augmented</span><span class="p">}</span></div>
+
+<div class="viewcode-block" id="ImageRandomCutout.cutout"><a class="viewcode-back" href="../../../api/ncgenes7.augmentations.html#ncgenes7.augmentations.image.ImageRandomCutout.cutout">[docs]</a>    <span class="k">def</span> <span class="nf">cutout</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+               <span class="n">image</span><span class="p">:</span> <span class="n">tf</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span>
+               <span class="n">replace_value</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="n">tf</span><span class="o">.</span><span class="n">Tensor</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.0</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">tf</span><span class="o">.</span><span class="n">Tensor</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Apply cutout to the given image</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        image</span>
+<span class="sd">            input image</span>
+<span class="sd">        replace_value</span>
+<span class="sd">            the value to which the rectangle is set</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        img_with_cutoff</span>
+<span class="sd">            the input images after applying cutout</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">image_size</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">shape</span><span class="p">(</span><span class="n">image</span><span class="p">)[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">image_size_float</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">cast</span><span class="p">(</span><span class="n">image_size</span><span class="p">,</span> <span class="n">tf</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
+        <span class="n">cut_lengths_absolute</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">cast</span><span class="p">(</span>
+            <span class="n">tf</span><span class="o">.</span><span class="n">floor</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">random_variables</span><span class="p">[</span><span class="s2">&quot;cut_lengths&quot;</span><span class="p">]</span>
+                     <span class="o">*</span> <span class="n">image_size_float</span><span class="p">),</span> <span class="n">tf</span><span class="o">.</span><span class="n">int32</span><span class="p">)</span>
+        <span class="n">cut_offset_absolute</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">cast</span><span class="p">(</span>
+            <span class="n">tf</span><span class="o">.</span><span class="n">floor</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">random_variables</span><span class="p">[</span><span class="s2">&quot;cut_offset&quot;</span><span class="p">]</span>
+                     <span class="o">*</span> <span class="n">image_size_float</span><span class="p">),</span> <span class="n">tf</span><span class="o">.</span><span class="n">int32</span><span class="p">)</span>
+
+        <span class="n">mask</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_create_cutout_mask</span><span class="p">(</span>
+            <span class="n">cut_offset_absolute</span><span class="p">,</span> <span class="n">cut_lengths_absolute</span><span class="p">,</span> <span class="n">image_size</span><span class="p">)</span>
+        <span class="n">mask</span> <span class="o">=</span> <span class="n">broadcast_with_expand_to</span><span class="p">(</span><span class="n">mask</span><span class="p">,</span> <span class="n">image</span><span class="p">)</span>
+        <span class="n">mask_with_replaced_value</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">cast</span><span class="p">(</span><span class="n">mask</span><span class="p">,</span> <span class="n">image</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span> <span class="o">*</span> <span class="n">replace_value</span>
+        <span class="n">image_with_cutoff</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">mask</span><span class="p">,</span>
+                                     <span class="n">mask_with_replaced_value</span><span class="p">,</span>
+                                     <span class="n">image</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">image_with_cutoff</span></div>
+
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">_create_cutout_mask</span><span class="p">(</span><span class="n">cut_offset_absolute</span><span class="p">,</span> <span class="n">cut_lengths_absolute</span><span class="p">,</span>
+                            <span class="n">image_size</span><span class="p">):</span>
+        <span class="n">grid</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">range</span><span class="p">(</span><span class="n">image_size</span><span class="p">[</span><span class="mi">1</span><span class="p">]),</span> <span class="n">tf</span><span class="o">.</span><span class="n">range</span><span class="p">(</span><span class="n">image_size</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
+        <span class="n">limits</span> <span class="o">=</span> <span class="n">cut_lengths_absolute</span> <span class="o">+</span> <span class="n">cut_offset_absolute</span>
+        <span class="n">offset_exp</span> <span class="o">=</span> <span class="n">cut_offset_absolute</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">tf</span><span class="o">.</span><span class="n">newaxis</span><span class="p">,</span> <span class="n">tf</span><span class="o">.</span><span class="n">newaxis</span><span class="p">]</span>
+        <span class="n">limits_exp</span> <span class="o">=</span> <span class="n">limits</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">tf</span><span class="o">.</span><span class="n">newaxis</span><span class="p">,</span> <span class="n">tf</span><span class="o">.</span><span class="n">newaxis</span><span class="p">]</span>
+        <span class="n">mask</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">reduce_all</span><span class="p">(</span>
+            <span class="n">tf</span><span class="o">.</span><span class="n">logical_and</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">greater_equal</span><span class="p">(</span><span class="n">grid</span><span class="p">,</span> <span class="n">offset_exp</span><span class="p">),</span>
+                           <span class="n">tf</span><span class="o">.</span><span class="n">less_equal</span><span class="p">(</span><span class="n">grid</span><span class="p">,</span> <span class="n">limits_exp</span><span class="p">)),</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">mask</span></div>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Audi Electronics Venture GmbH
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

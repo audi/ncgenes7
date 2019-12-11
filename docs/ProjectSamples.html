@@ -1,0 +1,789 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Sample projects &mdash; ncgenes7 v0.10.0 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="_static/icon.ico"/>
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Contribution" href="Contribution.html" />
+    <link rel="prev" title="Installation" href="Installation.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> ncgenes7
+          
+
+          
+            
+            <img src="_static/icon.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.10.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="Introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Installation.html">Installation</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Sample projects</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#data-extraction-coco-dataset">Data extraction COCO dataset</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#download-dataset-a-name-coco-download-dataset-a">Download dataset <span class="raw-html-m2r"><a name="coco-download-dataset"></a></span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#project-description-a-name-coco-project-description-a">Project description <span class="raw-html-m2r"><a name="coco-project-description"></a></span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#generate-tfrecords-a-name-coco-generate-tfrecords-a">Generate tfrecords <span class="raw-html-m2r"><a name="coco-generate-tfrecords"></a></span></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#data-extraction-a2d2-dataset">Data extraction A2D2 dataset</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#download-dataset-a-name-a2d2-download-dataset-a">Download dataset <span class="raw-html-m2r"><a name="a2d2-download-dataset"></a></span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#project-description-a-name-a2d2-project-description-a">Project description <span class="raw-html-m2r"><a name="a2d2-project-description"></a></span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#generate-tfrecords-a-name-a2d2-generate-tfrecords-a">Generate tfrecords <span class="raw-html-m2r"><a name="a2d2-generate-tfrecords"></a></span></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#semantic-segmentation">Semantic segmentation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#data-preparation-a-name-segm-coco-data-preparation-a">Data preparation <span class="raw-html-m2r"><a name="segm-coco-data-preparation"></a></span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#model-description-a-name-segm-coco-model-description-a">Model description <span class="raw-html-m2r"><a name="segm-coco-model-description"></a></span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#training-a-name-segm-coco-training-a">Training <span class="raw-html-m2r"><a name="segm-coco-training"></a></span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#inference-a-name-segm-coco-inference-a">Inference <span class="raw-html-m2r"><a name="segm-coco-inference"></a></span></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#kpi-evaluation-a-name-segm-coco-kpi-evaluation-a">KPI evaluation <span class="raw-html-m2r"><a name="segm-coco-kpi-evaluation"></a></span></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#object-detection">Object detection</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#data-preparation-a-name-fasterrcnn-coco-data-preparation-a">Data preparation <span class="raw-html-m2r"><a name="fasterrcnn-coco-data-preparation"></a></span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#model-description-a-name-fasterrcnn-coco-model-description-a">Model description <span class="raw-html-m2r"><a name="fasterrcnn-coco-model-description"></a></span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#training-a-name-fasterrcnn-coco-training-a">Training <span class="raw-html-m2r"><a name="fasterrcnn-coco-training"></a></span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#inference-a-name-fasterrcnn-coco-inference-a">Inference <span class="raw-html-m2r"><a name="fasterrcnn-coco-inference"></a></span></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#kpi-evaluation-a-name-fasterrcnn-coco-kpi-evaluation-a">KPI evaluation <span class="raw-html-m2r"><a name="fasterrcnn-coco-kpi-evaluation"></a></span></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#multi-tasking">Multi tasking</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#project-description-a-name-multi-coco-project-description-a">Project description <span class="raw-html-m2r"><a name="multi-coco-project-description"></a></span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#data-preparation-a-name-multi-coco-data-preparation-a">Data preparation <span class="raw-html-m2r"><a name="multi-coco-data-preparation"></a></span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#model-description-a-name-multi-coco-model-description-a">Model description <span class="raw-html-m2r"><a name="multi-coco-model-description"></a></span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#training-a-name-multi-coco-training-a">Training <span class="raw-html-m2r"><a name="multi-coco-training"></a></span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#inference-a-name-multi-coco-inference-a">Inference <span class="raw-html-m2r"><a name="multi-coco-inference"></a></span></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#kpi-evaluation-a-name-multi-coco-kpi-evaluation-a">KPI evaluation <span class="raw-html-m2r"><a name="multi-coco-kpi-evaluation"></a></span></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Contribution.html">Contribution</a></li>
+</ul>
+<p class="caption"><span class="caption-text">API:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="api/ncgenes7.augmentations.html">ncgenes7.augmentations package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/ncgenes7.callbacks.html">ncgenes7.callbacks package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/ncgenes7.data_feeders.html">ncgenes7.data_feeders package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/ncgenes7.data_fields.html">ncgenes7.data_fields package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/ncgenes7.data_filters.html">ncgenes7.data_filters package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/ncgenes7.data_readers.html">ncgenes7.data_readers package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/ncgenes7.file_lists.html">ncgenes7.file_lists package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/ncgenes7.kpis.html">ncgenes7.kpis package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/ncgenes7.learning_rate_manipulators.html">ncgenes7.learning_rate_manipulators package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/ncgenes7.losses.html">ncgenes7.losses package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/ncgenes7.metrics.html">ncgenes7.metrics package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/ncgenes7.plugins.html">ncgenes7.plugins package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/ncgenes7.plugins.cnns.html">ncgenes7.plugins.cnns package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/ncgenes7.plugins.object_detection.html">ncgenes7.plugins.object_detection package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/ncgenes7.plugins.preprocessing.html">ncgenes7.plugins.preprocessing package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/ncgenes7.plugins.utils.html">ncgenes7.plugins.utils package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/ncgenes7.postprocessors.html">ncgenes7.postprocessors package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/ncgenes7.summaries.html">ncgenes7.summaries package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/ncgenes7.third_party.html">ncgenes7.third_party package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/ncgenes7.third_party.object_detection.html">ncgenes7.third_party.object_detection package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/ncgenes7.utils.html">ncgenes7.utils package</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">ncgenes7</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Sample projects</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/ProjectSamples.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="sample-projects">
+<h1>Sample projects<a class="headerlink" href="#sample-projects" title="Permalink to this headline">¶</a></h1>
+<div class="contents local topic" id="contents">
+<ul class="simple">
+<li><p><a class="reference internal" href="#data-extraction-coco-dataset" id="id25">Data extraction COCO dataset</a></p>
+<ul>
+<li><p><a class="reference internal" href="#download-dataset-a-name-coco-download-dataset-a" id="id26">Download dataset <span class="raw-html-m2r"><a name="coco-download-dataset"></a></span></a></p></li>
+<li><p><a class="reference internal" href="#project-description-a-name-coco-project-description-a" id="id27">Project description <span class="raw-html-m2r"><a name="coco-project-description"></a></span></a></p></li>
+<li><p><a class="reference internal" href="#generate-tfrecords-a-name-coco-generate-tfrecords-a" id="id28">Generate tfrecords <span class="raw-html-m2r"><a name="coco-generate-tfrecords"></a></span></a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#data-extraction-a2d2-dataset" id="id29">Data extraction A2D2 dataset</a></p>
+<ul>
+<li><p><a class="reference internal" href="#download-dataset-a-name-a2d2-download-dataset-a" id="id30">Download dataset <span class="raw-html-m2r"><a name="a2d2-download-dataset"></a></span></a></p></li>
+<li><p><a class="reference internal" href="#project-description-a-name-a2d2-project-description-a" id="id31">Project description <span class="raw-html-m2r"><a name="a2d2-project-description"></a></span></a></p></li>
+<li><p><a class="reference internal" href="#generate-tfrecords-a-name-a2d2-generate-tfrecords-a" id="id32">Generate tfrecords <span class="raw-html-m2r"><a name="a2d2-generate-tfrecords"></a></span></a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#semantic-segmentation" id="id33">Semantic segmentation</a></p>
+<ul>
+<li><p><a class="reference internal" href="#data-preparation-a-name-segm-coco-data-preparation-a" id="id34">Data preparation <span class="raw-html-m2r"><a name="segm-coco-data-preparation"></a></span></a></p></li>
+<li><p><a class="reference internal" href="#model-description-a-name-segm-coco-model-description-a" id="id35">Model description <span class="raw-html-m2r"><a name="segm-coco-model-description"></a></span></a></p></li>
+<li><p><a class="reference internal" href="#training-a-name-segm-coco-training-a" id="id36">Training <span class="raw-html-m2r"><a name="segm-coco-training"></a></span></a></p></li>
+<li><p><a class="reference internal" href="#inference-a-name-segm-coco-inference-a" id="id37">Inference <span class="raw-html-m2r"><a name="segm-coco-inference"></a></span></a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#kpi-evaluation-a-name-segm-coco-kpi-evaluation-a" id="id38">KPI evaluation <span class="raw-html-m2r"><a name="segm-coco-kpi-evaluation"></a></span></a></p></li>
+<li><p><a class="reference internal" href="#object-detection" id="id39">Object detection</a></p>
+<ul>
+<li><p><a class="reference internal" href="#data-preparation-a-name-fasterrcnn-coco-data-preparation-a" id="id40">Data preparation <span class="raw-html-m2r"><a name="fasterrcnn-coco-data-preparation"></a></span></a></p></li>
+<li><p><a class="reference internal" href="#model-description-a-name-fasterrcnn-coco-model-description-a" id="id41">Model description <span class="raw-html-m2r"><a name="fasterrcnn-coco-model-description"></a></span></a></p></li>
+<li><p><a class="reference internal" href="#training-a-name-fasterrcnn-coco-training-a" id="id42">Training <span class="raw-html-m2r"><a name="fasterrcnn-coco-training"></a></span></a></p></li>
+<li><p><a class="reference internal" href="#inference-a-name-fasterrcnn-coco-inference-a" id="id43">Inference <span class="raw-html-m2r"><a name="fasterrcnn-coco-inference"></a></span></a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#kpi-evaluation-a-name-fasterrcnn-coco-kpi-evaluation-a" id="id44">KPI evaluation <span class="raw-html-m2r"><a name="fasterrcnn-coco-kpi-evaluation"></a></span></a></p></li>
+<li><p><a class="reference internal" href="#multi-tasking" id="id45">Multi tasking</a></p>
+<ul>
+<li><p><a class="reference internal" href="#project-description-a-name-multi-coco-project-description-a" id="id46">Project description <span class="raw-html-m2r"><a name="multi-coco-project-description"></a></span></a></p></li>
+<li><p><a class="reference internal" href="#data-preparation-a-name-multi-coco-data-preparation-a" id="id47">Data preparation <span class="raw-html-m2r"><a name="multi-coco-data-preparation"></a></span></a></p></li>
+<li><p><a class="reference internal" href="#model-description-a-name-multi-coco-model-description-a" id="id48">Model description <span class="raw-html-m2r"><a name="multi-coco-model-description"></a></span></a></p></li>
+<li><p><a class="reference internal" href="#training-a-name-multi-coco-training-a" id="id49">Training <span class="raw-html-m2r"><a name="multi-coco-training"></a></span></a></p></li>
+<li><p><a class="reference internal" href="#inference-a-name-multi-coco-inference-a" id="id50">Inference <span class="raw-html-m2r"><a name="multi-coco-inference"></a></span></a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#kpi-evaluation-a-name-multi-coco-kpi-evaluation-a" id="id51">KPI evaluation <span class="raw-html-m2r"><a name="multi-coco-kpi-evaluation"></a></span></a></p></li>
+</ul>
+</div>
+<div class="section" id="data-extraction-coco-dataset">
+<h2><a class="toc-backref" href="#id25">Data extraction COCO dataset</a><a class="headerlink" href="#data-extraction-coco-dataset" title="Permalink to this headline">¶</a></h2>
+<p>Coco dataset has multiple types of data. In this tutorial we will generate
+tfrecords files with semantic segmentation, bounding boxes and keypoints
+labels for training and validation sets.</p>
+<div class="section" id="download-dataset-a-name-coco-download-dataset-a">
+<h3><a class="toc-backref" href="#id26">Download dataset <span class="raw-html-m2r"><a name="coco-download-dataset"></a></span></a><a class="headerlink" href="#download-dataset-a-name-coco-download-dataset-a" title="Permalink to this headline">¶</a></h3>
+<p>Refer to <a class="reference external" href="http://cocodataset.org/#download">coco page</a> for information how to download it and
+extract archives. You will need following data:</p>
+<ul class="simple">
+<li><p>2017 Train images</p></li>
+<li><p>2017 Val images</p></li>
+<li><p>2017 Train/Val annotations</p></li>
+<li><p>2017 Panoptic Train/Val annotations</p></li>
+</ul>
+<p>In later we assume that you extracted all archives to <code class="docutils literal notranslate"><span class="pre">raw_data</span></code> folder.</p>
+</div>
+<div class="section" id="project-description-a-name-coco-project-description-a">
+<h3><a class="toc-backref" href="#id27">Project description <span class="raw-html-m2r"><a name="coco-project-description"></a></span></a><a class="headerlink" href="#project-description-a-name-coco-project-description-a" title="Permalink to this headline">¶</a></h3>
+<p>We will save following data to tfrecord files:</p>
+<ul class="simple">
+<li><p>Images encoded as png inside of key “images_PNG” using <code class="docutils literal notranslate"><span class="pre">ImageDataReader</span></code>
+following <code class="docutils literal notranslate"><span class="pre">ImageEncoder</span></code> processor</p></li>
+<li><p>Object data using <code class="docutils literal notranslate"><span class="pre">CocoObjectsReader</span></code>:</p>
+<ul>
+<li><p>bounding boxes under “object_boxes” key</p></li>
+<li><p>class id under “object_classes” key</p></li>
+<li><p>instance id under “object_instance_ids” key</p></li>
+</ul>
+</li>
+<li><p>Semantic segmentation out of panoptic annotations as images with png encoding
+under “segmentation_classes” key using <code class="docutils literal notranslate"><span class="pre">CocoSemanticSegmentationReader</span></code>
+following <code class="docutils literal notranslate"><span class="pre">ImageEncoder</span></code> processor.</p></li>
+<li><p>Persons keypoints data using <code class="docutils literal notranslate"><span class="pre">CocoPersonKeypointsReader</span></code>:</p>
+<ul>
+<li><p>keypoints are saved under “object_keypoints” key</p></li>
+<li><p>keypoints visibilities are saved under “object_keypoints_visibilities” key</p></li>
+<li><p>bounding boxes under “object_boxes_from_keypoints” key</p></li>
+<li><p>class id under “object_classes_from_keypoints” key</p></li>
+<li><p>instance id under “object_instance_ids_from_keypoints” key</p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="generate-tfrecords-a-name-coco-generate-tfrecords-a">
+<h3><a class="toc-backref" href="#id28">Generate tfrecords <span class="raw-html-m2r"><a name="coco-generate-tfrecords"></a></span></a><a class="headerlink" href="#generate-tfrecords-a-name-coco-generate-tfrecords-a" title="Permalink to this headline">¶</a></h3>
+<p>To generate tfrecords files, we will use the <code class="docutils literal notranslate"><span class="pre">data_extraction</span></code> task for nucleus7
+project and create 2 sets - train and eval.
+Configs for it are inside of <code class="docutils literal notranslate"><span class="pre">data_extraction/configs</span></code> and the run
+specific configs are inside of <code class="docutils literal notranslate"><span class="pre">data_extraction/train/configs</span></code> and
+<code class="docutils literal notranslate"><span class="pre">data_extraction/eval/configs</span></code>.</p>
+<p>All tfrecords files will be compressed using GZIP compression and for training
+set, there will be up to 50 samples per file and for evaluation - up to 1000
+samples per file.</p>
+<p>Now we can generate the tfrecord files for training / validation using following
+scripts:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># run from parent coco (this) folder, e.g. data_extraction</span>
+
+<span class="c1"># 1. For training subset</span>
+
+nc7-extract_data coco --run_name train
+
+<span class="c1"># 2. Extract evaluation subset</span>
+
+nc7-extract_data coco --run_name <span class="nb">eval</span>
+</pre></div>
+</div>
+<p>Now we have generated tfrecord files with semantic segmentation and 2D bounding
+boxes and corresponding images for coco dataset inside of
+<code class="docutils literal notranslate"><span class="pre">data_extraction/train/extracted/</span></code> and <code class="docutils literal notranslate"><span class="pre">data_extraction/eval/extracted/</span></code>
+folders respectively.</p>
+</div>
+</div>
+<div class="section" id="data-extraction-a2d2-dataset">
+<h2><a class="toc-backref" href="#id29">Data extraction A2D2 dataset</a><a class="headerlink" href="#data-extraction-a2d2-dataset" title="Permalink to this headline">¶</a></h2>
+<p>A2D2 has multiple types of data like images from different cameras,
+semantic segmentation, 3D bounding boxes, LIDAR points etc.
+In this tutorial we will generate
+tfrecords files with semantic segmentation for training and validation sets.</p>
+<div class="section" id="download-dataset-a-name-a2d2-download-dataset-a">
+<h3><a class="toc-backref" href="#id30">Download dataset <span class="raw-html-m2r"><a name="a2d2-download-dataset"></a></span></a><a class="headerlink" href="#download-dataset-a-name-a2d2-download-dataset-a" title="Permalink to this headline">¶</a></h3>
+<p>Refer to <a class="reference external" href="http://www.a2d2.audi">a2d2</a> for information how to download the dataset. You
+will need <strong>Semantic Segmentation part</strong>. Extract the downloaded archive to
+<code class="docutils literal notranslate"><span class="pre">raw_data</span></code> folder (to get <code class="docutils literal notranslate"><span class="pre">raw_data/camera_lidar_semantic/*</span></code>).</p>
+</div>
+<div class="section" id="project-description-a-name-a2d2-project-description-a">
+<h3><a class="toc-backref" href="#id31">Project description <span class="raw-html-m2r"><a name="a2d2-project-description"></a></span></a><a class="headerlink" href="#project-description-a-name-a2d2-project-description-a" title="Permalink to this headline">¶</a></h3>
+<p>We will save following data to tfrecord files:</p>
+<ul class="simple">
+<li><p>Images encoded as png inside of key “images_PNG” using <code class="docutils literal notranslate"><span class="pre">ImageDataReader</span></code>
+following <code class="docutils literal notranslate"><span class="pre">ImageEncoder</span></code> processor</p></li>
+<li><p>Semantic segmentation segmentation images with png encoding
+under “segmentation_classes” key using <code class="docutils literal notranslate"><span class="pre">ImageDataReader</span></code>
+following <code class="docutils literal notranslate"><span class="pre">ImageEncoder</span></code> processor.</p></li>
+</ul>
+</div>
+<div class="section" id="generate-tfrecords-a-name-a2d2-generate-tfrecords-a">
+<h3><a class="toc-backref" href="#id32">Generate tfrecords <span class="raw-html-m2r"><a name="a2d2-generate-tfrecords"></a></span></a><a class="headerlink" href="#generate-tfrecords-a-name-a2d2-generate-tfrecords-a" title="Permalink to this headline">¶</a></h3>
+<p>To generate tfrecords files, we will use the <code class="docutils literal notranslate"><span class="pre">data_extraction</span></code> task for nucleus7
+project and create 2 sets - train and eval.
+Configs for it are inside of <code class="docutils literal notranslate"><span class="pre">data_extraction/configs</span></code> and the run
+specific configs are inside of <code class="docutils literal notranslate"><span class="pre">data_extraction/train/configs</span></code> and
+<code class="docutils literal notranslate"><span class="pre">data_extraction/eval/configs</span></code>.</p>
+<p>All tfrecords files will be compressed using GZIP compression and for training
+set, there will be up to 50 samples per file and for evaluation - up to 1000
+samples per file.</p>
+<p>Now we can generate the tfrecord files for training / validation using following
+scripts:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># run from parent a2d2 (this) folder, e.g. data_extraction</span>
+
+<span class="c1"># 1. For training subset</span>
+
+nc7-extract_data a2d2 --run_name train
+
+<span class="c1"># 2. Extract evaluation subset</span>
+
+nc7-extract_data a2d2 --run_name <span class="nb">eval</span>
+</pre></div>
+</div>
+<p>Now we have generated tfrecord files with semantic segmentation and
+corresponding images for A2D2 dataset inside of
+<code class="docutils literal notranslate"><span class="pre">data_extraction/train/extracted/</span></code> and <code class="docutils literal notranslate"><span class="pre">data_extraction/eval/extracted/</span></code>
+folders respectively.</p>
+</div>
+</div>
+<div class="section" id="semantic-segmentation">
+<h2><a class="toc-backref" href="#id33">Semantic segmentation</a><a class="headerlink" href="#semantic-segmentation" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="data-preparation-a-name-segm-coco-data-preparation-a">
+<h3><a class="toc-backref" href="#id34">Data preparation <span class="raw-html-m2r"><a name="segm-coco-data-preparation"></a></span></a><a class="headerlink" href="#data-preparation-a-name-segm-coco-data-preparation-a" title="Permalink to this headline">¶</a></h3>
+<p>This project assumes that you have extracted the data to tfrecords format using
+<a class="reference external" href="ProjectSamples.html#data-extraction-coco-dataset">coco extractor</a>. But you can apply it on your data in
+tfrecords format with following fields:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">images_PNG</span></code>: images with PNG encoding</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">segmentation_classes_PNG</span></code>: images with segmentation classes with 1 channel
+and PNG encoding</p></li>
+</ul>
+<p>The data must be inside of
+<code class="docutils literal notranslate"><span class="pre">ncgenes7/sample_projects/data_extraction/coco/train/extracted</span></code> for train
+subset and <code class="docutils literal notranslate"><span class="pre">ncgenes7/sample_projects/data_extraction/coco/eval/extracted</span></code>
+for eval subset and it assumes that tfrecord files have GZIP compression.</p>
+</div>
+<div class="section" id="model-description-a-name-segm-coco-model-description-a">
+<h3><a class="toc-backref" href="#id35">Model description <span class="raw-html-m2r"><a name="segm-coco-model-description"></a></span></a><a class="headerlink" href="#model-description-a-name-segm-coco-model-description-a" title="Permalink to this headline">¶</a></h3>
+<p>Model includes following nucleotides:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="training/configs/datasets.json">datasets</a>:</p>
+<ul>
+<li><p>read data from tfrecords using <code class="docutils literal notranslate"><span class="pre">ImageDataReaderTfRecords</span></code> and
+<code class="docutils literal notranslate"><span class="pre">SemanticSegmentationReaderTfRecords</span></code></p></li>
+<li><p>apply augmentation like random contrast and brightness change,
+random horizontal flip and random crop during training</p></li>
+</ul>
+</li>
+<li><p><a class="reference external" href="training/configs/trainer.json">trainer</a> - to specify the
+training parameters like batch size, number of iterations in one epoch,
+optimizer etc.</p></li>
+<li><p><a class="reference external" href="training/configs/plugins">Plugins</a>:</p>
+<ul>
+<li><p>encoder - deep CNN model using inception modules used by AEV on NIPS2017</p></li>
+<li><p>decoder with skip connections with same like architecture as encoder</p></li>
+<li><p>DUC module as alternative to conventional deconvolution on logits layer</p></li>
+</ul>
+</li>
+<li><p><a class="reference external" href="training/configs/losses">Losses</a>:</p>
+<ul>
+<li><p>softmax cross entropy loss</p></li>
+</ul>
+</li>
+<li><p><a class="reference external" href="training/configs/postprocessors">Postprocessors</a></p>
+<ul>
+<li><p>argmax on logits to get the class</p></li>
+<li><p>identity just to rename the argmax to prediction_segmentation_classes</p></li>
+</ul>
+</li>
+<li><p><a class="reference external" href="training/configs/callbacks/base_logger.json">Logger</a>
+callback to print status for each iteration</p></li>
+<li><p><a class="reference external" href="training/configs/metrics">Metrics</a>
+to monitor the confusion matrix and IoU class wise and mean over training time
+during evaluation stage</p></li>
+<li><p><a class="reference external" href="training/configs/summaries">Summaries</a>:
+to draw predicted segmentation classes together with groundtruth for further
+use on tensorboard</p></li>
+<li><p><a class="reference external" href="training/configs/callbacks_eval/segmentation_early_stopping.json">Early stopping callback</a>:
+will stop the training if the segmentation metric did not improve more than
+0.5 in IOU in last 10 epochs</p></li>
+</ul>
+<p>You can try following to visualize the model dna:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>nc7-visualize_project_dna . -t train
+</pre></div>
+</div>
+</div>
+<div class="section" id="training-a-name-segm-coco-training-a">
+<h3><a class="toc-backref" href="#id36">Training <span class="raw-html-m2r"><a name="segm-coco-training"></a></span></a><a class="headerlink" href="#training-a-name-segm-coco-training-a" title="Permalink to this headline">¶</a></h3>
+<p>To start the training, use:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>nc7-train .
+</pre></div>
+</div>
+</div>
+<div class="section" id="inference-a-name-segm-coco-inference-a">
+<h3><a class="toc-backref" href="#id37">Inference <span class="raw-html-m2r"><a name="segm-coco-inference"></a></span></a><a class="headerlink" href="#inference-a-name-segm-coco-inference-a" title="Permalink to this headline">¶</a></h3>
+<p>Inference will be done on the coco val images, which will be rescaled to be
+[480, 640] and final predictions will be stored as png images with every RGB
+value representing the class id
+(inside of <a class="reference external" href="inference/last_run/results">inference run folder</a>).</p>
+<p>To start the inference, use:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>nc7-infer . --batch_size <span class="o">{</span>your batch size<span class="o">}</span>
+</pre></div>
+</div>
+<p>Inference configs are stored in <a class="reference external" href="inference/configs">folder</a></p>
+</div>
+</div>
+<div class="section" id="kpi-evaluation-a-name-segm-coco-kpi-evaluation-a">
+<h2><a class="toc-backref" href="#id38">KPI evaluation <span class="raw-html-m2r"><a name="segm-coco-kpi-evaluation"></a></span></a><a class="headerlink" href="#kpi-evaluation-a-name-segm-coco-kpi-evaluation-a" title="Permalink to this headline">¶</a></h2>
+<p>To calculate KPI of the inferred results use:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>nc7-evaluate_kpi . --batch_size <span class="o">{</span>your batch size<span class="o">}</span>
+</pre></div>
+</div>
+<p>KPI will be saved to <a class="reference external" href="kpi_evaluation/last_run/results">kpi run folder</a></p>
+</div>
+<div class="section" id="object-detection">
+<h2><a class="toc-backref" href="#id39">Object detection</a><a class="headerlink" href="#object-detection" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="data-preparation-a-name-fasterrcnn-coco-data-preparation-a">
+<h3><a class="toc-backref" href="#id40">Data preparation <span class="raw-html-m2r"><a name="fasterrcnn-coco-data-preparation"></a></span></a><a class="headerlink" href="#data-preparation-a-name-fasterrcnn-coco-data-preparation-a" title="Permalink to this headline">¶</a></h3>
+<p>This project assumes that you have extracted the data to tfrecords format using
+<a class="reference external" href="ProjectSamples.html#data-extraction-coco-dataset">coco extractor</a>. But you can apply it on your data in
+tfrecords format with following fields:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">images_PNG</span></code>: images with PNG encoding</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">object_boxes</span></code>: normalized object boxes with shape [None, 4] and tf.float32
+dtype</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">object_classes</span></code>: 1-based object classes</p></li>
+</ul>
+<p>The data must be inside of
+<code class="docutils literal notranslate"><span class="pre">ncgenes7/sample_projects/data_extraction/coco/train/extracted</span></code> for train
+subset and <code class="docutils literal notranslate"><span class="pre">ncgenes7/sample_projects/data_extraction/coco/eval/extracted</span></code>
+for eval subset and it assumes that tfrecord files have GZIP compression.</p>
+</div>
+<div class="section" id="model-description-a-name-fasterrcnn-coco-model-description-a">
+<h3><a class="toc-backref" href="#id41">Model description <span class="raw-html-m2r"><a name="fasterrcnn-coco-model-description"></a></span></a><a class="headerlink" href="#model-description-a-name-fasterrcnn-coco-model-description-a" title="Permalink to this headline">¶</a></h3>
+<p>Model includes following nucleotides:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="training/configs/datasets.json">datasets</a>:</p>
+<ul>
+<li><p>read data from tfrecords using <code class="docutils literal notranslate"><span class="pre">ImageDataReaderTfRecords</span></code> and
+<code class="docutils literal notranslate"><span class="pre">ObjectDetectionReaderTfRecords</span></code></p></li>
+<li><p>apply augmentation like random contrast and brightness change,
+random horizontal flip, random crop and random cutout during training</p></li>
+</ul>
+</li>
+<li><p><a class="reference external" href="training/configs/trainer.json">trainer</a> - to specify the
+training parameters like batch size, number of iterations in one epoch,
+optimizer etc.</p></li>
+<li><p><a class="reference external" href="training/configs/plugins">Plugins</a>:</p>
+<ul>
+<li><p>RPN feature extractor (DenseNet121 from keras application pretrained on
+imagenet)</p></li>
+<li><p>positive balanced sampler</p></li>
+<li><p>Faster RCNN first stage box predictor</p></li>
+<li><p>ROI pooling</p></li>
+<li><p>Second stage feature extractor (custom densenet, random initialized)</p></li>
+<li><p>Faster RCNN second stage predictor</p></li>
+</ul>
+</li>
+<li><p><a class="reference external" href="training/configs/losses">Losses</a>:</p>
+<ul>
+<li><p>first stage loss</p></li>
+<li><p>second stage loss</p></li>
+</ul>
+</li>
+<li><p><a class="reference external" href="training/configs/postprocessors">Postprocessors</a></p>
+<ul>
+<li><p>convert first stage predictions to absolute coordinates</p></li>
+<li><p>format first stage predictions</p></li>
+<li><p>filter second stage predictions by dimension of the bounding box</p></li>
+<li><p>apply NMS on the filtered second stage predictions</p></li>
+<li><p>format second stage predictions and increment the object_classes
+to have 1-based indexing and not 0-based</p></li>
+</ul>
+</li>
+<li><p><a class="reference external" href="training/configs/callbacks/base_logger.json">Logger</a>
+callback to print status for each iteration</p></li>
+<li><p><a class="reference external" href="training/configs/callbacks_eval/map_kpieval.json">KPI Evaluator</a>
+to evaluation mean average precision during evaluation stage on different
+matching thresholds - 0.5 and 0.7 (will track also each class average
+precision)</p></li>
+<li><p><a class="reference external" href="training/configs/summaries">Summaries</a>:
+to draw objects from groundtruth, first and second stages, combine them
+together in one image and save it to tensorboard</p></li>
+</ul>
+<p>You can try following to visualize the model dna:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>nc7-visualize_project_dna . -t train
+</pre></div>
+</div>
+</div>
+<div class="section" id="training-a-name-fasterrcnn-coco-training-a">
+<h3><a class="toc-backref" href="#id42">Training <span class="raw-html-m2r"><a name="fasterrcnn-coco-training"></a></span></a><a class="headerlink" href="#training-a-name-fasterrcnn-coco-training-a" title="Permalink to this headline">¶</a></h3>
+<p>To start the training, use:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>nc7-train .
+</pre></div>
+</div>
+</div>
+<div class="section" id="inference-a-name-fasterrcnn-coco-inference-a">
+<h3><a class="toc-backref" href="#id43">Inference <span class="raw-html-m2r"><a name="fasterrcnn-coco-inference"></a></span></a><a class="headerlink" href="#inference-a-name-fasterrcnn-coco-inference-a" title="Permalink to this headline">¶</a></h3>
+<p>Inference will be done on the coco val images, which will be rescaled to be
+[480, 640] and final predictions will be stored to json format and also bounding
+boxes will be drawn on the images and saved as png
+(inside of <a class="reference external" href="inference/last_run/results">inference run folder</a>).</p>
+<p>To start the inference, use:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>nc7-infer . --batch_size <span class="o">{</span>your batch size<span class="o">}</span>
+</pre></div>
+</div>
+<p>Inference configs are stored in <a class="reference external" href="inference/configs">folder</a></p>
+</div>
+</div>
+<div class="section" id="kpi-evaluation-a-name-fasterrcnn-coco-kpi-evaluation-a">
+<h2><a class="toc-backref" href="#id44">KPI evaluation <span class="raw-html-m2r"><a name="fasterrcnn-coco-kpi-evaluation"></a></span></a><a class="headerlink" href="#kpi-evaluation-a-name-fasterrcnn-coco-kpi-evaluation-a" title="Permalink to this headline">¶</a></h2>
+<p>To calculate KPI of the inferred results use:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>nc7-evaluate_kpi . --batch_size <span class="o">{</span>your batch size<span class="o">}</span>
+</pre></div>
+</div>
+<p>KPI will be saved to <a class="reference external" href="kpi_evaluation/last_run/results">kpi run folder</a></p>
+</div>
+<div class="section" id="multi-tasking">
+<h2><a class="toc-backref" href="#id45">Multi tasking</a><a class="headerlink" href="#multi-tasking" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="project-description-a-name-multi-coco-project-description-a">
+<h3><a class="toc-backref" href="#id46">Project description <span class="raw-html-m2r"><a name="multi-coco-project-description"></a></span></a><a class="headerlink" href="#project-description-a-name-multi-coco-project-description-a" title="Permalink to this headline">¶</a></h3>
+<p>In this project, the goal is to simultaneously train one neural network to
+perform 2 different tasks - semantic segmentation and object detection using
+Faster RCNN architecture. This is achieved by sharing the region proposal
+network between 2 tasks, where it is used as an encoder for semantic
+segmentation.</p>
+<p>Here the same dataset (COCO) is used, where for each input image both labels
+types exist. But to make the sample project more general, we use 2 different
+datasets independently. Then the sample error is calculated only on the head
+which has labels for this sample and so the gradients. Other loss is masked
+out. The datasets during training phase are  sampled independently with
+different probabilities and then combined to batch.</p>
+</div>
+<div class="section" id="data-preparation-a-name-multi-coco-data-preparation-a">
+<h3><a class="toc-backref" href="#id47">Data preparation <span class="raw-html-m2r"><a name="multi-coco-data-preparation"></a></span></a><a class="headerlink" href="#data-preparation-a-name-multi-coco-data-preparation-a" title="Permalink to this headline">¶</a></h3>
+<p>This project assumes that you have extracted the data to tfrecords format using
+<a class="reference external" href="ProjectSamples.html#data-extraction-coco-dataset">coco extractor</a>. But you can apply it on your data in
+tfrecords format with following fields:</p>
+<ul class="simple">
+<li><p>object detection tfrecords:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">images_PNG</span></code>: images with PNG encoding</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">object_boxes</span></code>: normalized object boxes with shape [None, 4] and
+tf.float32 dtype</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">object_classes</span></code>: 1-based object classes</p></li>
+</ul>
+</li>
+<li><p>semantic segmentation tfrecords:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">images_PNG</span></code>: images with PNG encoding</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">segmentation_classes_PNG</span></code>: images with segmentation classes with 1 channel
+and PNG encoding</p></li>
+</ul>
+</li>
+</ul>
+<p>The data must be inside of
+<code class="docutils literal notranslate"><span class="pre">ncgenes7/sample_projects/data_extraction/coco/train/extracted</span></code> for train
+subset and <code class="docutils literal notranslate"><span class="pre">ncgenes7/sample_projects/data_extraction/coco/eval/extracted</span></code>
+for eval subset and it assumes that tfrecord files have GZIP compression.</p>
+<p>The only thing you need to modify is the mapping of class names to class ids
+and only if you want to do so.</p>
+</div>
+<div class="section" id="model-description-a-name-multi-coco-model-description-a">
+<h3><a class="toc-backref" href="#id48">Model description <span class="raw-html-m2r"><a name="multi-coco-model-description"></a></span></a><a class="headerlink" href="#model-description-a-name-multi-coco-model-description-a" title="Permalink to this headline">¶</a></h3>
+<p>Model includes following nucleotides:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="training/configs/datasets.json">datasets</a>:</p>
+<ul>
+<li><p>read data from tfrecords for training and evaluation and resize images for
+both object detection
+(uses <code class="docutils literal notranslate"><span class="pre">ImageDataReaderTfRecords</span></code> and <code class="docutils literal notranslate"><span class="pre">ObjectDetectionReaderTfRecords</span></code>)
+and segmentation
+(uses <code class="docutils literal notranslate"><span class="pre">ImageDataReaderTfRecords</span></code> and <code class="docutils literal notranslate"><span class="pre">SemanticSegmentationReaderTfRecords</span></code>)
+subsets and sample with [0.7, 0.3] probabilities out of them.</p></li>
+<li><p>apply augmentation like random contrast and brightness change,
+random horizontal flip, random crop and random cutout during training</p></li>
+</ul>
+</li>
+<li><p><a class="reference external" href="training/configs/trainer.json">trainer</a> - to specify the
+training parameters like batch size, number of iterations in one epoch,
+optimizer etc.</p></li>
+<li><p><a class="reference external" href="training/configs/plugins">Plugins</a>:</p>
+<ul>
+<li><p>RPN feature extractor (densenet)</p></li>
+<li><p>Faster RCNN first stage box predictor</p></li>
+<li><p>ROI pooling</p></li>
+<li><p>Second stage feature extractor (densenet)</p></li>
+<li><p>Faster RCNN second stage predictor</p></li>
+<li><p>semantic segmentation decoder with skip connections starting from
+rpn and predicting the logits</p></li>
+</ul>
+</li>
+<li><p><a class="reference external" href="training/configs/losses">Losses</a>:</p>
+<ul>
+<li><p>first stage loss</p></li>
+<li><p>second stage loss</p></li>
+<li><p>semantic segmentation softmax cross entropy loss</p></li>
+</ul>
+</li>
+<li><p><a class="reference external" href="training/configs/postprocessors">Postprocessors</a></p>
+<ul>
+<li><p>convert first stage predictions to absolute coordinates</p></li>
+<li><p>format first stage predictions</p></li>
+<li><p>filter second stage predictions by dimension of the bounding box</p></li>
+<li><p>apply NMS on the filtered second stage predictions</p></li>
+<li><p>format second stage predictions and increment the object_classes
+to have 1-based indexing and not 0-based</p></li>
+<li><p>argmax on semantic segmentation logits to get the class</p></li>
+<li><p>identity just to rename the argmax to prediction_segmentation_classes</p></li>
+</ul>
+</li>
+<li><p><a class="reference external" href="training/configs/callbacks/base_logger.json">Logger</a>
+callback to print status for each iteration</p></li>
+<li><p><a class="reference external" href="training/configs/callbacks_eval/map_kpieval.json">KPI Evaluator</a>
+to evaluation mean average precision during evaluation stage</p></li>
+<li><p><a class="reference external" href="training/configs/metrics">Metrics</a>
+to monitor the confusion matrix and IoU class wise and mean over training time
+during evaluation stage</p></li>
+<li><p><a class="reference external" href="training/configs/summaries">Summaries</a>:</p>
+<ul>
+<li><p>to draw objects from groundtruth, first and second stages, combine them
+together in one image and save it to tensorboard</p></li>
+<li><p>to draw predicted segmentation classes together with groundtruth for further
+use on tensorboard</p></li>
+</ul>
+</li>
+</ul>
+<p>You can try following to visualize the model dna:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>nc7-visualize_project_dna . -t train
+</pre></div>
+</div>
+</div>
+<div class="section" id="training-a-name-multi-coco-training-a">
+<h3><a class="toc-backref" href="#id49">Training <span class="raw-html-m2r"><a name="multi-coco-training"></a></span></a><a class="headerlink" href="#training-a-name-multi-coco-training-a" title="Permalink to this headline">¶</a></h3>
+<p>To start the training, use:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>nc7-train .
+</pre></div>
+</div>
+</div>
+<div class="section" id="inference-a-name-multi-coco-inference-a">
+<h3><a class="toc-backref" href="#id50">Inference <span class="raw-html-m2r"><a name="multi-coco-inference"></a></span></a><a class="headerlink" href="#inference-a-name-multi-coco-inference-a" title="Permalink to this headline">¶</a></h3>
+<p>Inference will be done on the coco val images, which will be rescaled to be
+[480, 640] and final predictions will be stored to json format and also bounding
+boxes will be drawn on the images and saved as png
+(inside of <a class="reference external" href="inference/last_run/results">inference run folder</a>).</p>
+<p>To start the inference, use:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>nc7-infer . --batch_size <span class="o">{</span>your batch size<span class="o">}</span>
+</pre></div>
+</div>
+<p>Inference configs are stored in <a class="reference external" href="inference/configs">folder</a></p>
+</div>
+</div>
+<div class="section" id="kpi-evaluation-a-name-multi-coco-kpi-evaluation-a">
+<h2><a class="toc-backref" href="#id51">KPI evaluation <span class="raw-html-m2r"><a name="multi-coco-kpi-evaluation"></a></span></a><a class="headerlink" href="#kpi-evaluation-a-name-multi-coco-kpi-evaluation-a" title="Permalink to this headline">¶</a></h2>
+<p>To calculate KPI of the inferred results use:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>nc7-evaluate_kpi . --batch_size <span class="o">{</span>your batch size<span class="o">}</span>
+</pre></div>
+</div>
+<p>KPI will be saved to <a class="reference external" href="kpi_evaluation/last_run/results">kpi run folder</a></p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="Contribution.html" class="btn btn-neutral float-right" title="Contribution" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="Installation.html" class="btn btn-neutral float-left" title="Installation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Audi Electronics Venture GmbH
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

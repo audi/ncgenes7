@@ -1,0 +1,575 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>ncgenes7.utils.coco_utils &mdash; ncgenes7 v0.10.0 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../../_static/icon.ico"/>
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> ncgenes7
+          
+
+          
+            
+            <img src="../../../_static/icon.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.10.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../Introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../ProjectSamples.html">Sample projects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Contribution.html">Contribution</a></li>
+</ul>
+<p class="caption"><span class="caption-text">API:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/ncgenes7.augmentations.html">ncgenes7.augmentations package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/ncgenes7.callbacks.html">ncgenes7.callbacks package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/ncgenes7.data_feeders.html">ncgenes7.data_feeders package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/ncgenes7.data_fields.html">ncgenes7.data_fields package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/ncgenes7.data_filters.html">ncgenes7.data_filters package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/ncgenes7.data_readers.html">ncgenes7.data_readers package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/ncgenes7.file_lists.html">ncgenes7.file_lists package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/ncgenes7.kpis.html">ncgenes7.kpis package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/ncgenes7.learning_rate_manipulators.html">ncgenes7.learning_rate_manipulators package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/ncgenes7.losses.html">ncgenes7.losses package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/ncgenes7.metrics.html">ncgenes7.metrics package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/ncgenes7.plugins.html">ncgenes7.plugins package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/ncgenes7.plugins.cnns.html">ncgenes7.plugins.cnns package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/ncgenes7.plugins.object_detection.html">ncgenes7.plugins.object_detection package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/ncgenes7.plugins.preprocessing.html">ncgenes7.plugins.preprocessing package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/ncgenes7.plugins.utils.html">ncgenes7.plugins.utils package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/ncgenes7.postprocessors.html">ncgenes7.postprocessors package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/ncgenes7.summaries.html">ncgenes7.summaries package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/ncgenes7.third_party.html">ncgenes7.third_party package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/ncgenes7.third_party.object_detection.html">ncgenes7.third_party.object_detection package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/ncgenes7.utils.html">ncgenes7.utils package</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">ncgenes7</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../index.html">Module code</a> &raquo;</li>
+        
+      <li>ncgenes7.utils.coco_utils</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for ncgenes7.utils.coco_utils</h1><div class="highlight"><pre>
+<span></span><span class="c1"># ==============================================================================</span>
+<span class="c1"># Copyright (c) 2019 Audi Electronics Venture GmbH. All rights reserved.</span>
+<span class="c1">#</span>
+<span class="c1"># This Source Code Form is subject to the terms of the Mozilla</span>
+<span class="c1"># Public License, v. 2.0. If a copy of the MPL was not distributed</span>
+<span class="c1"># with this file, You can obtain one at https://mozilla.org/MPL/2.0/.</span>
+<span class="c1"># ==============================================================================</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Utils for coco dataset</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Optional</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Union</span>
+
+<span class="kn">from</span> <span class="nn">nucleus7.utils</span> <span class="kn">import</span> <span class="n">io_utils</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="kn">from</span> <span class="nn">ncgenes7.utils.image_io_utils</span> <span class="kn">import</span> <span class="n">read_image_with_number_of_channels</span>
+<span class="kn">from</span> <span class="nn">ncgenes7.utils.image_utils</span> <span class="kn">import</span> <span class="n">decode_class_ids_from_rgb</span>
+
+
+<div class="viewcode-block" id="panoptic_categories_to_rgb_hash_fn"><a class="viewcode-back" href="../../../api/ncgenes7.utils.html#ncgenes7.utils.coco_utils.panoptic_categories_to_rgb_hash_fn">[docs]</a><span class="k">def</span> <span class="nf">panoptic_categories_to_rgb_hash_fn</span><span class="p">(</span><span class="n">fname_panoptic_annotations</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+                                       <span class="n">remove_unused_classes</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Read panoptic annotation file and create mapping in the form:</span>
+<span class="sd">        {file_name: {id: class label}}</span>
+
+<span class="sd">    Inside of panoptic_annotations[&#39;segments_info&#39;] all of segments have its</span>
+<span class="sd">    category (coco class) and its id, where id = r + g*256 + b*256**2 uses</span>
+<span class="sd">    as a hash to map rgb values on panoptic rgb images to its segment label.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    fname_panoptic_annotations</span>
+<span class="sd">        file name of panoptic annotations json file</span>
+<span class="sd">    remove_unused_classes</span>
+<span class="sd">        if the unused classes must be removed and so at the end there</span>
+<span class="sd">        are 133 class ids instead of 200</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    panoptic_image_fname_to_class_id_hash_fn</span>
+<span class="sd">        mapping of type {file_name: {id: class label}}</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">panoptic_coco</span> <span class="o">=</span> <span class="n">io_utils</span><span class="o">.</span><span class="n">load_json</span><span class="p">(</span><span class="n">fname_panoptic_annotations</span><span class="p">)</span>
+    <span class="n">panoptic_coco_categories</span> <span class="o">=</span> <span class="n">panoptic_coco</span><span class="p">[</span><span class="s1">&#39;categories&#39;</span><span class="p">]</span>
+    <span class="n">class_ids_to_name_coco</span> <span class="o">=</span> <span class="p">{</span><span class="n">p</span><span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">]:</span> <span class="n">p</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span>
+                              <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">panoptic_coco_categories</span><span class="p">}</span>
+    <span class="k">if</span> <span class="n">remove_unused_classes</span><span class="p">:</span>
+        <span class="n">_</span><span class="p">,</span> <span class="n">class_ids_mapping</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">_remove_empty_classes</span><span class="p">(</span>
+            <span class="n">class_ids_to_name_coco</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">class_ids_mapping</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="o">*</span><span class="p">[</span><span class="n">class_ids_to_name_coco</span><span class="p">]</span> <span class="o">*</span> <span class="mi">2</span><span class="p">))</span>
+
+    <span class="n">panoptic_image_fname_to_class_id_hash_fn</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="k">for</span> <span class="n">ann</span> <span class="ow">in</span> <span class="n">panoptic_coco</span><span class="p">[</span><span class="s1">&#39;annotations&#39;</span><span class="p">]:</span>
+        <span class="n">file_name</span> <span class="o">=</span> <span class="n">ann</span><span class="p">[</span><span class="s1">&#39;file_name&#39;</span><span class="p">]</span>
+        <span class="n">hash_to_class</span> <span class="o">=</span> <span class="p">{</span><span class="n">a</span><span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">]:</span> <span class="n">class_ids_mapping</span><span class="p">[</span><span class="n">a</span><span class="p">[</span><span class="s1">&#39;category_id&#39;</span><span class="p">]]</span>
+                         <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">ann</span><span class="p">[</span><span class="s1">&#39;segments_info&#39;</span><span class="p">]}</span>
+        <span class="n">hash_to_class</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="n">panoptic_image_fname_to_class_id_hash_fn</span><span class="p">[</span><span class="n">file_name</span><span class="p">]</span> <span class="o">=</span> <span class="n">hash_to_class</span>
+
+    <span class="k">return</span> <span class="n">panoptic_image_fname_to_class_id_hash_fn</span></div>
+
+
+<div class="viewcode-block" id="get_class_descriptions_mapping"><a class="viewcode-back" href="../../../api/ncgenes7.utils.html#ncgenes7.utils.coco_utils.get_class_descriptions_mapping">[docs]</a><span class="k">def</span> <span class="nf">get_class_descriptions_mapping</span><span class="p">(</span><span class="n">fname_annotations</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+                                   <span class="n">remove_unused_classes</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+                                   <span class="n">sort_objects_by_class_and_id</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+                                   <span class="n">with_keypoints</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Create mapping of type</span>
+<span class="sd">    {image_fname:</span>
+<span class="sd">    [{class_label: , id: , bbox: [ymin, xmin, ymax, xmax]}, {...}]}</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    fname_annotations</span>
+<span class="sd">        file name of instances.json</span>
+<span class="sd">    remove_unused_classes</span>
+<span class="sd">        if the unused classes must be removed and so at the end there</span>
+<span class="sd">        are 80 class ids instead of 90</span>
+<span class="sd">    sort_objects_by_class_and_id</span>
+<span class="sd">        if the result objects should be sorted first by class id and then by</span>
+<span class="sd">        instance id</span>
+<span class="sd">    with_keypoints</span>
+<span class="sd">        if the keypoints data should be read from annotations; must be used</span>
+<span class="sd">        only if fname_annotations points to person keypoints annotation file</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    image_fname_to_objects</span>
+<span class="sd">        mapping of type</span>
+<span class="sd">         {image_fname:</span>
+<span class="sd">         [{class_label: , id: , bbox: [ymin, xmin, ymax, xmax]}, {...}]}</span>
+<span class="sd">         with normalized to particular image shape bounding box coordinates</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">instances_coco</span> <span class="o">=</span> <span class="n">io_utils</span><span class="o">.</span><span class="n">load_json</span><span class="p">(</span><span class="n">fname_annotations</span><span class="p">)</span>
+    <span class="n">class_ids_coco</span> <span class="o">=</span> <span class="p">{</span><span class="n">p</span><span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">]:</span> <span class="n">p</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">instances_coco</span><span class="p">[</span><span class="s1">&#39;categories&#39;</span><span class="p">]}</span>
+    <span class="k">if</span> <span class="n">remove_unused_classes</span><span class="p">:</span>
+        <span class="n">_</span><span class="p">,</span> <span class="n">class_ids_mapping</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">_remove_empty_classes</span><span class="p">(</span><span class="n">class_ids_coco</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">class_ids_mapping</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="o">*</span><span class="p">[</span><span class="n">class_ids_coco</span><span class="p">]</span> <span class="o">*</span> <span class="mi">2</span><span class="p">))</span>
+
+    <span class="n">image_fname_to_image_size</span> <span class="o">=</span> <span class="p">{</span><span class="n">p</span><span class="p">[</span><span class="s1">&#39;file_name&#39;</span><span class="p">]:</span> <span class="p">{</span><span class="s1">&#39;width&#39;</span><span class="p">:</span> <span class="n">p</span><span class="p">[</span><span class="s1">&#39;width&#39;</span><span class="p">],</span>
+                                                  <span class="s1">&#39;height&#39;</span><span class="p">:</span> <span class="n">p</span><span class="p">[</span><span class="s1">&#39;height&#39;</span><span class="p">]}</span>
+                                 <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">instances_coco</span><span class="p">[</span><span class="s1">&#39;images&#39;</span><span class="p">]}</span>
+    <span class="n">image_id_to_fname</span> <span class="o">=</span> <span class="p">{</span><span class="n">p</span><span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">]:</span> <span class="n">p</span><span class="p">[</span><span class="s1">&#39;file_name&#39;</span><span class="p">]</span>
+                         <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">instances_coco</span><span class="p">[</span><span class="s1">&#39;images&#39;</span><span class="p">]}</span>
+    <span class="n">image_fname_to_objects</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="k">for</span> <span class="n">ann</span> <span class="ow">in</span> <span class="n">instances_coco</span><span class="p">[</span><span class="s1">&#39;annotations&#39;</span><span class="p">]:</span>
+        <span class="n">image_fname</span> <span class="o">=</span> <span class="n">image_id_to_fname</span><span class="p">[</span><span class="n">ann</span><span class="p">[</span><span class="s1">&#39;image_id&#39;</span><span class="p">]]</span>
+        <span class="n">image_size</span> <span class="o">=</span> <span class="n">image_fname_to_image_size</span><span class="p">[</span><span class="n">image_fname</span><span class="p">]</span>
+        <span class="n">object_data</span> <span class="o">=</span> <span class="n">_read_object_from_annotation</span><span class="p">(</span>
+            <span class="n">ann</span><span class="p">,</span> <span class="n">image_size</span><span class="p">,</span> <span class="n">class_ids_mapping</span><span class="p">,</span>
+            <span class="n">with_keypoints</span><span class="o">=</span><span class="n">with_keypoints</span><span class="p">)</span>
+        <span class="n">image_fname_to_objects</span><span class="o">.</span><span class="n">setdefault</span><span class="p">(</span><span class="n">image_fname</span><span class="p">,</span> <span class="p">[])</span>
+        <span class="n">image_fname_to_objects</span><span class="p">[</span><span class="n">image_fname</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">object_data</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">sort_objects_by_class_and_id</span><span class="p">:</span>
+        <span class="n">image_fname_to_objects</span> <span class="o">=</span> <span class="n">_sort_instances_by_attributes</span><span class="p">(</span>
+            <span class="n">image_fname_to_objects</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">image_fname_to_objects</span></div>
+
+
+<div class="viewcode-block" id="read_objects_from_fname"><a class="viewcode-back" href="../../../api/ncgenes7.utils.html#ncgenes7.utils.coco_utils.read_objects_from_fname">[docs]</a><span class="k">def</span> <span class="nf">read_objects_from_fname</span><span class="p">(</span><span class="n">image_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+                            <span class="n">image_fname_to_objects</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Read objects from image_fname_to_objects mapping under corresponding</span>
+<span class="sd">    image file name</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    image_id</span>
+<span class="sd">        image id to read the objects for</span>
+<span class="sd">    image_fname_to_objects</span>
+<span class="sd">        mapping of type</span>
+<span class="sd">         {image_fname:</span>
+<span class="sd">         [{class_label: , id: , bbox: [ymin, xmin, ymax, xmax]}, {...}]}</span>
+<span class="sd">         with normalized to particular image shape bounding box coordinates</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    bboxes</span>
+<span class="sd">        bounding boxes with shape [num_objects, 4] and normalized coordinates in</span>
+<span class="sd">        format [ymin, xmin, ymax, xmax]</span>
+<span class="sd">    class_labels</span>
+<span class="sd">        1-based classes for objects with shape [num_objects]</span>
+<span class="sd">    instnace_ids</span>
+<span class="sd">        instance ids with shape [num_objects]</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">image_id</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">image_fname_to_objects</span> <span class="ow">or</span>
+            <span class="ow">not</span> <span class="n">image_fname_to_objects</span><span class="p">[</span><span class="n">image_id</span><span class="p">]):</span>
+        <span class="n">instance_ids</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">([</span><span class="mi">0</span><span class="p">],</span> <span class="n">np</span><span class="o">.</span><span class="n">int64</span><span class="p">)</span>
+        <span class="n">class_labels</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">([</span><span class="mi">0</span><span class="p">],</span> <span class="n">np</span><span class="o">.</span><span class="n">int64</span><span class="p">)</span>
+        <span class="n">bboxes</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span> <span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">labels</span> <span class="o">=</span> <span class="n">image_fname_to_objects</span><span class="p">[</span><span class="n">image_id</span><span class="p">]</span>
+        <span class="n">class_labels</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">stack</span><span class="p">([</span><span class="n">l</span><span class="p">[</span><span class="s1">&#39;class_label&#39;</span><span class="p">]</span>
+                                 <span class="k">for</span> <span class="n">l</span> <span class="ow">in</span> <span class="n">labels</span><span class="p">],</span> <span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">int64</span><span class="p">)</span>
+        <span class="n">bboxes</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">stack</span><span class="p">([</span><span class="n">l</span><span class="p">[</span><span class="s1">&#39;bbox&#39;</span><span class="p">]</span> <span class="k">for</span> <span class="n">l</span> <span class="ow">in</span> <span class="n">labels</span><span class="p">],</span> <span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
+        <span class="n">instance_ids</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">stack</span><span class="p">(</span>
+            <span class="p">[</span><span class="n">l</span><span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">]</span> <span class="k">for</span> <span class="n">l</span> <span class="ow">in</span> <span class="n">labels</span><span class="p">],</span> <span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">int64</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">bboxes</span><span class="p">,</span> <span class="n">class_labels</span><span class="p">,</span> <span class="n">instance_ids</span></div>
+
+
+<div class="viewcode-block" id="read_segmentation_from_fname"><a class="viewcode-back" href="../../../api/ncgenes7.utils.html#ncgenes7.utils.coco_utils.read_segmentation_from_fname">[docs]</a><span class="k">def</span> <span class="nf">read_segmentation_from_fname</span><span class="p">(</span><span class="n">panoptic_fname</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+                                 <span class="n">panoptic_image_fname_to_class_id_hash_fn</span><span class="p">,</span>
+                                 <span class="n">image_size</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">list</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+                                 <span class="n">dtype</span><span class="o">=</span><span class="s2">&quot;uint8&quot;</span><span class="p">,</span>
+                                 <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Read segmentation labels from file name and panoptic coco labels</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    panoptic_fname</span>
+<span class="sd">        file name with panoptic image</span>
+<span class="sd">    panoptic_image_fname_to_class_id_hash_fn</span>
+<span class="sd">        mapping of type {file_name: {id: class label}}</span>
+<span class="sd">    image_size</span>
+<span class="sd">        image size if labels should be resized to; if not specified, labels will</span>
+<span class="sd">        be used as is</span>
+<span class="sd">    dtype</span>
+<span class="sd">        dtype for the result</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    segmentation_classes</span>
+<span class="sd">        segmentation classes</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="nf">_hash_fun_coco</span><span class="p">(</span><span class="n">rgb</span><span class="p">,</span> <span class="n">nd</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+        <span class="c1"># pylint: disable=unused-argument,invalid-name</span>
+        <span class="c1"># this signature is needed by the caller</span>
+        <span class="c1"># pylint: disable=unbalanced-tuple-unpacking</span>
+        <span class="n">r</span><span class="p">,</span> <span class="n">g</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">rgb</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">axis</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">r</span> <span class="o">+</span> <span class="n">g</span> <span class="o">*</span> <span class="mi">256</span> <span class="o">+</span> <span class="n">b</span> <span class="o">*</span> <span class="p">(</span><span class="mi">256</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span>
+
+    <span class="n">basename</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">basename</span><span class="p">(</span><span class="n">panoptic_fname</span><span class="p">)</span>
+    <span class="n">rgb_class_ids_mapping_hashed</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="n">panoptic_image_fname_to_class_id_hash_fn</span><span class="p">[</span><span class="n">basename</span><span class="p">])</span>
+    <span class="n">segmentation_img_rgb</span> <span class="o">=</span> <span class="n">read_image_with_number_of_channels</span><span class="p">(</span>
+        <span class="n">panoptic_fname</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">image_size</span><span class="o">=</span><span class="n">image_size</span><span class="p">,</span> <span class="n">interpolation_order</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+    <span class="n">segmentation_classes</span> <span class="o">=</span> <span class="n">decode_class_ids_from_rgb</span><span class="p">(</span>
+        <span class="n">segmentation_img_rgb</span><span class="p">,</span> <span class="n">rgb_class_ids_mapping_hashed</span><span class="p">,</span>
+        <span class="n">hash_fun</span><span class="o">=</span><span class="n">_hash_fun_coco</span><span class="p">)</span>
+    <span class="n">segmentation_classes</span> <span class="o">=</span> <span class="n">segmentation_classes</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">dtype</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">segmentation_classes</span></div>
+
+
+<div class="viewcode-block" id="read_keypoints_from_fname"><a class="viewcode-back" href="../../../api/ncgenes7.utils.html#ncgenes7.utils.coco_utils.read_keypoints_from_fname">[docs]</a><span class="k">def</span> <span class="nf">read_keypoints_from_fname</span><span class="p">(</span><span class="n">image_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+                              <span class="n">image_fname_to_objects</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Read keypoints from image_fname_to_objects mapping under corresponding</span>
+<span class="sd">    image file name</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    image_id</span>
+<span class="sd">        image id to read the objects for</span>
+<span class="sd">    image_fname_to_objects</span>
+<span class="sd">        mapping of type</span>
+<span class="sd">         {image_fname:</span>
+<span class="sd">         [{keypoints: [17, 2], keypoints_visibilities: ]}</span>
+<span class="sd">         with normalized to particular image shape bounding box coordinates</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    keypoints</span>
+<span class="sd">        keypoints with shape [num_objects, 17, 24] and normalized coordinates in</span>
+<span class="sd">        format [y, x]</span>
+<span class="sd">    keypoints_visibilities</span>
+<span class="sd">        visibilities of keypoints as [num_objects, 17]</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">image_id</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">image_fname_to_objects</span> <span class="ow">or</span>
+            <span class="ow">not</span> <span class="n">image_fname_to_objects</span><span class="p">[</span><span class="n">image_id</span><span class="p">]):</span>
+        <span class="n">keypoints</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">([</span><span class="mi">0</span><span class="p">],</span> <span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
+        <span class="n">keypoints_visibilities</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">([</span><span class="mi">0</span><span class="p">],</span> <span class="n">np</span><span class="o">.</span><span class="n">int32</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">keypoints</span><span class="p">,</span> <span class="n">keypoints_visibilities</span>
+
+    <span class="n">labels</span> <span class="o">=</span> <span class="n">image_fname_to_objects</span><span class="p">[</span><span class="n">image_id</span><span class="p">]</span>
+    <span class="n">keypoints</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">stack</span><span class="p">([</span><span class="n">each_label</span><span class="p">[</span><span class="s2">&quot;keypoints&quot;</span><span class="p">]</span> <span class="k">for</span> <span class="n">each_label</span> <span class="ow">in</span> <span class="n">labels</span><span class="p">],</span> <span class="mi">0</span>
+                         <span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
+    <span class="n">keypoints_visibilities</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">stack</span><span class="p">(</span>
+        <span class="p">[</span><span class="n">each_label</span><span class="p">[</span><span class="s2">&quot;keypoints_visibilities&quot;</span><span class="p">]</span> <span class="k">for</span> <span class="n">each_label</span> <span class="ow">in</span> <span class="n">labels</span><span class="p">],</span> <span class="mi">0</span>
+    <span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">int32</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">keypoints</span><span class="p">,</span> <span class="n">keypoints_visibilities</span></div>
+
+
+<span class="k">def</span> <span class="nf">_xywh_to_yxyx</span><span class="p">(</span><span class="n">bbox</span><span class="p">,</span> <span class="n">image_width</span><span class="p">,</span> <span class="n">image_height</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    coco uses other [xmin, ymin, width, height] to store bounding box</span>
+<span class="sd">    coordinates. Because of convension used inside of ncgenes7, this</span>
+<span class="sd">    coordinates should be in format [ymin, xmin, ymax, xmax] and be</span>
+<span class="sd">    normalized to image size</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    bbox</span>
+<span class="sd">        absolute coordinates in format [xmin, ymin, width, height]</span>
+<span class="sd">    image_width</span>
+<span class="sd">        image width</span>
+<span class="sd">    image_height</span>
+<span class="sd">        image height</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    box</span>
+<span class="sd">        normalized coordinates in format [ymin, xmin, ymax, xmax]</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">xmin</span><span class="p">,</span> <span class="n">ymin</span><span class="p">,</span> <span class="n">width</span><span class="p">,</span> <span class="n">height</span> <span class="o">=</span> <span class="n">bbox</span>
+    <span class="n">xmin</span> <span class="o">=</span> <span class="n">xmin</span> <span class="o">/</span> <span class="n">image_width</span>
+    <span class="n">ymin</span> <span class="o">=</span> <span class="n">ymin</span> <span class="o">/</span> <span class="n">image_height</span>
+    <span class="n">width</span> <span class="o">=</span> <span class="n">width</span> <span class="o">/</span> <span class="n">image_width</span>
+    <span class="n">height</span> <span class="o">=</span> <span class="n">height</span> <span class="o">/</span> <span class="n">image_height</span>
+    <span class="n">xmax</span> <span class="o">=</span> <span class="n">xmin</span> <span class="o">+</span> <span class="n">width</span>
+    <span class="n">ymax</span> <span class="o">=</span> <span class="n">ymin</span> <span class="o">+</span> <span class="n">height</span>
+    <span class="n">bbox</span> <span class="o">=</span> <span class="p">[</span><span class="n">ymin</span><span class="p">,</span> <span class="n">xmin</span><span class="p">,</span> <span class="n">ymax</span><span class="p">,</span> <span class="n">xmax</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">bbox</span>
+
+
+<span class="k">def</span> <span class="nf">_remove_empty_classes</span><span class="p">(</span><span class="n">class_ids_with_empty</span><span class="p">:</span> <span class="nb">dict</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    In coco dataset there are empty classes, e.g. 90 class definitions for</span>
+<span class="sd">    object detection and only 80 of them are inside (same for panoptic classes -</span>
+<span class="sd">    from 200 only 133 are usable)</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    class_ids_with_empty</span>
+<span class="sd">        keys are coco class ids</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    class_ids_without_empty</span>
+<span class="sd">        dict mapping new ranged class ids to same values from</span>
+<span class="sd">        class_ids_with_empty</span>
+<span class="sd">    class_ids_to_non_empty</span>
+<span class="sd">        mapping from original classes to new ranged</span>
+<span class="sd">    class_ids_non_empty_to_coco</span>
+<span class="sd">        mapping from new classes to original coco classes</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">class_ids</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">class_ids_with_empty</span><span class="p">)</span>
+    <span class="n">class_ids_without_empty</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">class_ids</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">))</span>
+    <span class="n">class_ids_to_non_empty</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">class_ids</span><span class="p">,</span> <span class="n">class_ids_without_empty</span><span class="p">))</span>
+    <span class="n">class_ids_non_empty_to_coco</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">class_ids_without_empty</span><span class="p">,</span> <span class="n">class_ids</span><span class="p">))</span>
+    <span class="n">class_ids_without_empty</span> <span class="o">=</span> <span class="p">{</span><span class="n">class_ids_to_non_empty</span><span class="p">[</span><span class="n">cl</span><span class="p">]:</span> <span class="n">v</span>
+                               <span class="k">for</span> <span class="n">cl</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">class_ids_with_empty</span><span class="o">.</span><span class="n">items</span><span class="p">()}</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">class_ids_without_empty</span><span class="p">,</span>
+            <span class="n">class_ids_to_non_empty</span><span class="p">,</span>
+            <span class="n">class_ids_non_empty_to_coco</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">_read_object_from_annotation</span><span class="p">(</span><span class="n">object_annotation</span><span class="p">,</span> <span class="n">image_size</span><span class="p">,</span>
+                                 <span class="n">class_ids_mapping</span><span class="p">,</span>
+                                 <span class="n">with_keypoints</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+    <span class="n">image_height</span> <span class="o">=</span> <span class="n">image_size</span><span class="p">[</span><span class="s1">&#39;height&#39;</span><span class="p">]</span>
+    <span class="n">image_width</span> <span class="o">=</span> <span class="n">image_size</span><span class="p">[</span><span class="s1">&#39;width&#39;</span><span class="p">]</span>
+    <span class="n">bbox</span> <span class="o">=</span> <span class="n">object_annotation</span><span class="p">[</span><span class="s1">&#39;bbox&#39;</span><span class="p">]</span>
+    <span class="n">bbox</span> <span class="o">=</span> <span class="n">_xywh_to_yxyx</span><span class="p">(</span><span class="n">bbox</span><span class="p">,</span> <span class="n">image_width</span><span class="p">,</span> <span class="n">image_height</span><span class="p">)</span>
+    <span class="n">class_label</span> <span class="o">=</span> <span class="n">class_ids_mapping</span><span class="p">[</span><span class="n">object_annotation</span><span class="p">[</span><span class="s1">&#39;category_id&#39;</span><span class="p">]]</span>
+    <span class="n">object_data</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;class_label&#39;</span><span class="p">:</span> <span class="n">class_label</span><span class="p">,</span>
+                   <span class="s1">&#39;id&#39;</span><span class="p">:</span> <span class="n">object_annotation</span><span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">],</span>
+                   <span class="s1">&#39;bbox&#39;</span><span class="p">:</span> <span class="n">bbox</span><span class="p">}</span>
+    <span class="k">if</span> <span class="n">with_keypoints</span><span class="p">:</span>
+        <span class="n">keypoints_raw</span> <span class="o">=</span> <span class="n">object_annotation</span><span class="p">[</span><span class="s2">&quot;keypoints&quot;</span><span class="p">]</span>
+        <span class="n">keypoints_reshaped</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">keypoints_raw</span><span class="p">,</span> <span class="p">[</span><span class="mi">17</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
+        <span class="n">keypoints_visibilities</span> <span class="o">=</span> <span class="n">keypoints_reshaped</span><span class="p">[:,</span> <span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">int32</span><span class="p">)</span>
+        <span class="n">keypoints_coord</span> <span class="o">=</span> <span class="n">_keypoints_xy_to_yx_norm</span><span class="p">(</span><span class="n">keypoints_reshaped</span><span class="p">[:,</span> <span class="p">:</span><span class="mi">2</span><span class="p">],</span>
+                                                   <span class="n">image_width</span><span class="p">,</span> <span class="n">image_height</span><span class="p">)</span>
+        <span class="n">object_data</span><span class="p">[</span><span class="s2">&quot;keypoints&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">keypoints_coord</span>
+        <span class="n">object_data</span><span class="p">[</span><span class="s2">&quot;keypoints_visibilities&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">keypoints_visibilities</span>
+    <span class="k">return</span> <span class="n">object_data</span>
+
+
+<span class="k">def</span> <span class="nf">_keypoints_xy_to_yx_norm</span><span class="p">(</span><span class="n">keypoints</span><span class="p">,</span> <span class="n">image_width</span><span class="p">,</span> <span class="n">image_height</span><span class="p">):</span>
+    <span class="n">point_x</span><span class="p">,</span> <span class="n">point_y</span> <span class="o">=</span> <span class="n">keypoints</span><span class="o">.</span><span class="n">transpose</span><span class="p">()</span>
+    <span class="n">point_x</span> <span class="o">=</span> <span class="n">point_x</span> <span class="o">/</span> <span class="n">image_width</span>
+    <span class="n">point_y</span> <span class="o">=</span> <span class="n">point_y</span> <span class="o">/</span> <span class="n">image_height</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">stack</span><span class="p">([</span><span class="n">point_y</span><span class="p">,</span> <span class="n">point_x</span><span class="p">],</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">_sort_instances_by_attributes</span><span class="p">(</span>
+        <span class="n">image_ids_to_data</span><span class="p">,</span>
+        <span class="n">attribute_names</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">list</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;class_label&quot;</span><span class="p">,</span> <span class="s2">&quot;id&quot;</span><span class="p">))</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+    <span class="n">image_ids_to_data_sorted</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="k">for</span> <span class="n">each_key</span><span class="p">,</span> <span class="n">each_data</span> <span class="ow">in</span> <span class="n">image_ids_to_data</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+        <span class="n">image_ids_to_data_sorted</span><span class="p">[</span><span class="n">each_key</span><span class="p">]</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span>
+            <span class="n">each_data</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="p">[</span><span class="n">x</span><span class="p">[</span><span class="n">each_attr_name</span><span class="p">]</span>
+                                      <span class="k">for</span> <span class="n">each_attr_name</span> <span class="ow">in</span> <span class="n">attribute_names</span><span class="p">])</span>
+    <span class="k">return</span> <span class="n">image_ids_to_data_sorted</span>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Audi Electronics Venture GmbH
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

@@ -1,0 +1,448 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>ncgenes7.plugins.utils.reshape &mdash; ncgenes7 v0.10.0 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../../../_static/icon.ico"/>
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../../" src="../../../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../../../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../../../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../../index.html" class="icon icon-home"> ncgenes7
+          
+
+          
+            
+            <img src="../../../../_static/icon.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.10.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../Introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../Installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ProjectSamples.html">Sample projects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../Contribution.html">Contribution</a></li>
+</ul>
+<p class="caption"><span class="caption-text">API:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../api/ncgenes7.augmentations.html">ncgenes7.augmentations package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../api/ncgenes7.callbacks.html">ncgenes7.callbacks package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../api/ncgenes7.data_feeders.html">ncgenes7.data_feeders package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../api/ncgenes7.data_fields.html">ncgenes7.data_fields package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../api/ncgenes7.data_filters.html">ncgenes7.data_filters package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../api/ncgenes7.data_readers.html">ncgenes7.data_readers package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../api/ncgenes7.file_lists.html">ncgenes7.file_lists package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../api/ncgenes7.kpis.html">ncgenes7.kpis package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../api/ncgenes7.learning_rate_manipulators.html">ncgenes7.learning_rate_manipulators package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../api/ncgenes7.losses.html">ncgenes7.losses package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../api/ncgenes7.metrics.html">ncgenes7.metrics package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../api/ncgenes7.plugins.html">ncgenes7.plugins package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../api/ncgenes7.plugins.cnns.html">ncgenes7.plugins.cnns package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../api/ncgenes7.plugins.object_detection.html">ncgenes7.plugins.object_detection package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../api/ncgenes7.plugins.preprocessing.html">ncgenes7.plugins.preprocessing package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../api/ncgenes7.plugins.utils.html">ncgenes7.plugins.utils package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../api/ncgenes7.postprocessors.html">ncgenes7.postprocessors package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../api/ncgenes7.summaries.html">ncgenes7.summaries package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../api/ncgenes7.third_party.html">ncgenes7.third_party package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../api/ncgenes7.third_party.object_detection.html">ncgenes7.third_party.object_detection package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../api/ncgenes7.utils.html">ncgenes7.utils package</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">ncgenes7</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../../index.html">Module code</a> &raquo;</li>
+        
+      <li>ncgenes7.plugins.utils.reshape</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for ncgenes7.plugins.utils.reshape</h1><div class="highlight"><pre>
+<span></span><span class="c1"># ==============================================================================</span>
+<span class="c1"># Copyright (c) 2019 Audi Electronics Venture GmbH. All rights reserved.</span>
+<span class="c1">#</span>
+<span class="c1"># This Source Code Form is subject to the terms of the Mozilla</span>
+<span class="c1"># Public License, v. 2.0. If a copy of the MPL was not distributed</span>
+<span class="c1"># with this file, You can obtain one at https://mozilla.org/MPL/2.0/.</span>
+<span class="c1"># ==============================================================================</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">File containing utilities to reshape tensors</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Dict</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Optional</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Union</span>
+
+<span class="kn">import</span> <span class="nn">nucleus7</span> <span class="k">as</span> <span class="nn">nc7</span>
+<span class="kn">from</span> <span class="nn">nucleus7.utils</span> <span class="kn">import</span> <span class="n">nest_utils</span>
+<span class="kn">import</span> <span class="nn">tensorflow</span> <span class="k">as</span> <span class="nn">tf</span>
+
+<span class="kn">from</span> <span class="nn">ncgenes7.utils.reshape_ops</span> <span class="kn">import</span> <span class="n">get_conversion_function</span>
+<span class="kn">from</span> <span class="nn">ncgenes7.utils.reshape_ops</span> <span class="kn">import</span> <span class="n">maybe_reshape</span>
+<span class="kn">from</span> <span class="nn">ncgenes7.utils.reshape_ops</span> <span class="kn">import</span> <span class="n">maybe_restore</span>
+
+
+<div class="viewcode-block" id="HideDimensionsInBatch"><a class="viewcode-back" href="../../../../api/ncgenes7.plugins.utils.html#ncgenes7.plugins.utils.reshape.HideDimensionsInBatch">[docs]</a><span class="k">class</span> <span class="nc">HideDimensionsInBatch</span><span class="p">(</span><span class="n">nc7</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">ModelPlugin</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Plugin hiding additional dimensions in the batch size.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    target_rank</span>
+<span class="sd">        Specifies the target rank. All other dimensions will be hidden in the</span>
+<span class="sd">        batch size, e.g. Input [d1, d2, d3], target_rank 2 -&gt; [d1*d2, d3]</span>
+
+<span class="sd">    Attributes</span>
+<span class="sd">    ----------</span>
+<span class="sd">    incoming_keys</span>
+<span class="sd">        * features : original tensor</span>
+
+<span class="sd">    generated_keys</span>
+<span class="sd">        * features : the input tensor with additional dimensions hidden</span>
+<span class="sd">        * shape_in_batch : the shape which is now hidden in the batch</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">incoming_keys</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="s2">&quot;features&quot;</span><span class="p">,</span>
+    <span class="p">]</span>
+    <span class="n">generated_keys</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="s2">&quot;features&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;shape_in_batch&quot;</span><span class="p">,</span>
+    <span class="p">]</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span>
+                 <span class="n">target_rank</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span>
+                 <span class="o">**</span><span class="n">plugin_kwargs</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">**</span><span class="n">plugin_kwargs</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">target_rank</span> <span class="o">=</span> <span class="n">target_rank</span>
+
+<div class="viewcode-block" id="HideDimensionsInBatch.predict"><a class="viewcode-back" href="../../../../api/ncgenes7.plugins.utils.html#ncgenes7.plugins.utils.reshape.HideDimensionsInBatch.predict">[docs]</a>    <span class="k">def</span> <span class="nf">predict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">features</span><span class="p">):</span>
+        <span class="c1"># pylint: disable=arguments-differ</span>
+        <span class="c1"># base class has more generic signature</span>
+        <span class="n">out_tensor</span><span class="p">,</span> <span class="n">shape_in_batch</span> <span class="o">=</span> <span class="n">maybe_reshape</span><span class="p">(</span><span class="n">features</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">target_rank</span><span class="p">)</span>
+        <span class="n">out_dict</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;features&#39;</span><span class="p">:</span> <span class="n">out_tensor</span><span class="p">,</span>
+                    <span class="s1">&#39;shape_in_batch&#39;</span><span class="p">:</span> <span class="n">shape_in_batch</span><span class="p">}</span>
+        <span class="k">return</span> <span class="n">out_dict</span></div></div>
+
+
+<div class="viewcode-block" id="ExtractDimensionsFromBatch"><a class="viewcode-back" href="../../../../api/ncgenes7.plugins.utils.html#ncgenes7.plugins.utils.reshape.ExtractDimensionsFromBatch">[docs]</a><span class="k">class</span> <span class="nc">ExtractDimensionsFromBatch</span><span class="p">(</span><span class="n">nc7</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">ModelPlugin</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Plugin extracting additional dimensions from the batch size</span>
+
+<span class="sd">    There are possible ways to provide needed shape:</span>
+<span class="sd">        * explicitly provide shape_in_batch (tensor with dimensions to extract</span>
+<span class="sd">          from batch) to `shape_in_batch key`</span>
+<span class="sd">        * provide a tensor, which has already the first dimensions as needed</span>
+<span class="sd">          to `tensor_with_shape_in_batch` and provide `num_dims_in_batch` arg</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    num_dims_in_batch</span>
+<span class="sd">        number of dimensions inside of batch, if tensor to infer the shape was</span>
+<span class="sd">        provided</span>
+
+<span class="sd">    Attributes</span>
+<span class="sd">    ----------</span>
+<span class="sd">    incoming_keys</span>
+<span class="sd">        * features : original tensor</span>
+<span class="sd">        * shape_in_batch : tensor specifying which dimensions have been hidden</span>
+<span class="sd">        * tensor_with_shape_in_batch : tensor with the shape that must be</span>
+<span class="sd">          unmasked up to num_dims_in_batch</span>
+
+<span class="sd">    generated_keys</span>
+<span class="sd">        * features : the input tensor with additional dimensions restored</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">incoming_keys</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="s2">&quot;features&quot;</span><span class="p">,</span>
+        <span class="s1">&#39;_shape_in_batch&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;_tensor_with_shape_in_batch&#39;</span><span class="p">,</span>
+    <span class="p">]</span>
+    <span class="n">generated_keys</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="s2">&quot;features&quot;</span><span class="p">,</span>
+    <span class="p">]</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">num_dims_in_batch</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+                 <span class="o">**</span><span class="n">plugin_kwargs</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">**</span><span class="n">plugin_kwargs</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">num_dims_in_batch</span> <span class="o">=</span> <span class="n">num_dims_in_batch</span>
+
+<div class="viewcode-block" id="ExtractDimensionsFromBatch.predict"><a class="viewcode-back" href="../../../../api/ncgenes7.plugins.utils.html#ncgenes7.plugins.utils.reshape.ExtractDimensionsFromBatch.predict">[docs]</a>    <span class="k">def</span> <span class="nf">predict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">features</span><span class="p">,</span> <span class="n">shape_in_batch</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">tf</span><span class="o">.</span><span class="n">Tensor</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+                <span class="n">tensor_with_shape_in_batch</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">tf</span><span class="o">.</span><span class="n">Tensor</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+        <span class="c1"># pylint: disable=arguments-differ</span>
+        <span class="c1"># base class has more generic signature</span>
+        <span class="k">if</span> <span class="p">((</span><span class="n">shape_in_batch</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">tensor_with_shape_in_batch</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">)</span>
+                <span class="ow">or</span> <span class="p">(</span><span class="n">shape_in_batch</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
+                    <span class="ow">and</span> <span class="n">tensor_with_shape_in_batch</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">)):</span>
+            <span class="n">msg</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;</span><span class="si">{}</span><span class="s2">: provide either shape_in_batch or &quot;</span>
+                   <span class="s2">&quot;tensor_with_shape_in_batch&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="p">(</span><span class="n">tensor_with_shape_in_batch</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
+                <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">num_dims_in_batch</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">):</span>
+            <span class="n">msg</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;</span><span class="si">{}</span><span class="s2">: Provide num_dims_in_batch to use tensor to infer the &quot;</span>
+                   <span class="s2">&quot;batch hidden shape!&quot;</span><span class="p">)</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">tensor_with_shape_in_batch</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">shape_in_batch</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">shape</span><span class="p">(</span>
+                <span class="n">tensor_with_shape_in_batch</span><span class="p">)[:</span><span class="bp">self</span><span class="o">.</span><span class="n">num_dims_in_batch</span><span class="p">]</span>
+
+        <span class="n">out_tensor</span> <span class="o">=</span> <span class="n">maybe_restore</span><span class="p">(</span><span class="n">features</span><span class="p">,</span> <span class="n">shape_in_batch</span><span class="p">)</span>
+        <span class="n">out_dict</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;features&#39;</span><span class="p">:</span> <span class="n">out_tensor</span><span class="p">}</span>
+        <span class="k">return</span> <span class="n">out_dict</span></div></div>
+
+
+<div class="viewcode-block" id="DataFormatConverter"><a class="viewcode-back" href="../../../../api/ncgenes7.plugins.utils.html#ncgenes7.plugins.utils.reshape.DataFormatConverter">[docs]</a><span class="k">class</span> <span class="nc">DataFormatConverter</span><span class="p">(</span><span class="n">nc7</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">ModelPlugin</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Plugin to convert between data formats</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    input_format</span>
+<span class="sd">        The input data format</span>
+<span class="sd">    output_format</span>
+<span class="sd">        The output data format</span>
+
+<span class="sd">    Attributes</span>
+<span class="sd">    ----------</span>
+<span class="sd">    incoming_keys</span>
+<span class="sd">        * features : original tensor</span>
+
+<span class="sd">    generated_keys</span>
+<span class="sd">        * features : the input tensor in the output_format</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">incoming_keys</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;features&quot;</span><span class="p">]</span>
+    <span class="n">generated_keys</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;features&quot;</span><span class="p">]</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+                 <span class="o">*</span><span class="p">,</span>
+                 <span class="n">input_format</span><span class="o">=</span><span class="s1">&#39;NTC&#39;</span><span class="p">,</span>
+                 <span class="n">output_format</span><span class="o">=</span><span class="s1">&#39;NHWC&#39;</span><span class="p">,</span>
+                 <span class="o">**</span><span class="n">plugin_kwargs</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">DataFormatConverter</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">**</span><span class="n">plugin_kwargs</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">input_format</span> <span class="o">=</span> <span class="n">input_format</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">output_format</span> <span class="o">=</span> <span class="n">output_format</span>
+
+<div class="viewcode-block" id="DataFormatConverter.predict"><a class="viewcode-back" href="../../../../api/ncgenes7.plugins.utils.html#ncgenes7.plugins.utils.reshape.DataFormatConverter.predict">[docs]</a>    <span class="k">def</span> <span class="nf">predict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">features</span><span class="p">):</span>
+        <span class="c1"># pylint: disable=arguments-differ</span>
+        <span class="c1"># base class has more generic signature</span>
+        <span class="n">fct</span> <span class="o">=</span> <span class="n">get_conversion_function</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">input_format</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">output_format</span><span class="p">)</span>
+        <span class="n">out_tensor</span> <span class="o">=</span> <span class="n">fct</span><span class="p">(</span><span class="n">features</span><span class="p">)</span>
+        <span class="n">out_dict</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;features&#39;</span><span class="p">:</span> <span class="n">out_tensor</span><span class="p">}</span>
+        <span class="k">return</span> <span class="n">out_dict</span></div></div>
+
+
+<div class="viewcode-block" id="ConcatPlugin"><a class="viewcode-back" href="../../../../api/ncgenes7.plugins.utils.html#ncgenes7.plugins.utils.reshape.ConcatPlugin">[docs]</a><span class="k">class</span> <span class="nc">ConcatPlugin</span><span class="p">(</span><span class="n">nc7</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">ModelPlugin</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Plugin to concat list inputs.</span>
+
+<span class="sd">    It will take all inputs to it, which must be lists,</span>
+<span class="sd">    e.g. {input1: [data1, data2, data3]} and concat it over the axis for this</span>
+<span class="sd">    key</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    axis</span>
+<span class="sd">        axis to concat the inputs; can be a dict with mapping of the input key</span>
+<span class="sd">        (also nested with &#39;//&#39; separator) or a int, which will be then the same</span>
+<span class="sd">        axis for all inputs; in case of axis mapping, &#39;default&#39; key may exist</span>
+<span class="sd">        and will be used if the key was not found inside of the axis mapping</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">dynamic_incoming_keys</span> <span class="o">=</span> <span class="kc">True</span>
+    <span class="n">dynamic_generated_keys</span> <span class="o">=</span> <span class="kc">True</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">axis</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">int</span><span class="p">],</span> <span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">**</span><span class="n">plugin_kwargs</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">ConcatPlugin</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">**</span><span class="n">plugin_kwargs</span><span class="p">)</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">axis</span><span class="p">,</span> <span class="nb">int</span><span class="p">):</span>
+            <span class="n">axis</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;default&quot;</span><span class="p">:</span> <span class="n">axis</span><span class="p">}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">axis</span> <span class="o">=</span> <span class="n">axis</span>
+
+<div class="viewcode-block" id="ConcatPlugin.predict"><a class="viewcode-back" href="../../../../api/ncgenes7.plugins.utils.html#ncgenes7.plugins.utils.reshape.ConcatPlugin.predict">[docs]</a>    <span class="k">def</span> <span class="nf">predict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">inputs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">tf</span><span class="o">.</span><span class="n">Tensor</span><span class="p">]:</span>
+        <span class="n">result_flat</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="n">default_axis</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">axis</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;default&quot;</span><span class="p">)</span>
+        <span class="n">inputs_flat</span> <span class="o">=</span> <span class="n">nest_utils</span><span class="o">.</span><span class="n">flatten_nested_struct</span><span class="p">(</span>
+            <span class="n">inputs</span><span class="p">,</span> <span class="n">flatten_lists</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">each_key</span><span class="p">,</span> <span class="n">each_input_list</span> <span class="ow">in</span> <span class="n">inputs_flat</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">each_input_list</span><span class="p">,</span> <span class="p">(</span><span class="nb">list</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">)):</span>
+                <span class="n">msg</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;</span><span class="si">{}</span><span class="s2">: all inputs to concat must be lists or tuples! &quot;</span>
+                       <span class="s2">&quot;(input for key </span><span class="si">{}</span><span class="s2"> is of type </span><span class="si">{}</span><span class="s2">)&quot;</span>
+                       <span class="p">)</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">each_key</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="n">each_input_list</span><span class="p">))</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+            <span class="n">axis_for_key</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">axis</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">each_key</span><span class="p">,</span> <span class="n">default_axis</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">axis_for_key</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">msg</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;</span><span class="si">{}</span><span class="s2">: axis for key </span><span class="si">{}</span><span class="s2"> was not provided and default key &quot;</span>
+                       <span class="s2">&quot;does not exist!&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">each_key</span><span class="p">)</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">axis_for_key</span> <span class="o">&gt;=</span> <span class="nb">len</span><span class="p">(</span><span class="n">each_input_list</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">):</span>
+                <span class="n">msg</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;</span><span class="si">{}</span><span class="s2">: axis </span><span class="si">{}</span><span class="s2"> for input key </span><span class="si">{}</span><span class="s2"> is not valid for&quot;</span>
+                       <span class="s2">&quot;inputs with shape </span><span class="si">{}</span><span class="s2">&quot;</span>
+                       <span class="p">)</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">axis_for_key</span><span class="p">,</span> <span class="n">each_key</span><span class="p">,</span>
+                                <span class="n">each_input_list</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+            <span class="n">inputs_concat</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">concat</span><span class="p">(</span><span class="n">each_input_list</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="n">axis_for_key</span><span class="p">)</span>
+            <span class="n">result_flat</span><span class="p">[</span><span class="n">each_key</span><span class="p">]</span> <span class="o">=</span> <span class="n">inputs_concat</span>
+
+        <span class="n">result</span> <span class="o">=</span> <span class="n">nest_utils</span><span class="o">.</span><span class="n">unflatten_dict_to_nested</span><span class="p">(</span><span class="n">result_flat</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">result</span></div></div>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Audi Electronics Venture GmbH
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

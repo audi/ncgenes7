@@ -1,0 +1,380 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>ncgenes7.metrics package &mdash; ncgenes7 v0.10.0 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../_static/icon.ico"/>
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="ncgenes7.plugins package" href="ncgenes7.plugins.html" />
+    <link rel="prev" title="ncgenes7.losses package" href="ncgenes7.losses.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> ncgenes7
+          
+
+          
+            
+            <img src="../_static/icon.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.10.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../Introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ProjectSamples.html">Sample projects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Contribution.html">Contribution</a></li>
+</ul>
+<p class="caption"><span class="caption-text">API:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="ncgenes7.augmentations.html">ncgenes7.augmentations package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ncgenes7.callbacks.html">ncgenes7.callbacks package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ncgenes7.data_feeders.html">ncgenes7.data_feeders package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ncgenes7.data_fields.html">ncgenes7.data_fields package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ncgenes7.data_filters.html">ncgenes7.data_filters package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ncgenes7.data_readers.html">ncgenes7.data_readers package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ncgenes7.file_lists.html">ncgenes7.file_lists package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ncgenes7.kpis.html">ncgenes7.kpis package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ncgenes7.learning_rate_manipulators.html">ncgenes7.learning_rate_manipulators package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ncgenes7.losses.html">ncgenes7.losses package</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">ncgenes7.metrics package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#ncgenes7-metrics-generic-module">ncgenes7.metrics.generic module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-ncgenes7.metrics.image">ncgenes7.metrics.image module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-ncgenes7.metrics.metric_learning">ncgenes7.metrics.metric_learning module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-ncgenes7.metrics">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="ncgenes7.plugins.html">ncgenes7.plugins package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ncgenes7.plugins.cnns.html">ncgenes7.plugins.cnns package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ncgenes7.plugins.object_detection.html">ncgenes7.plugins.object_detection package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ncgenes7.plugins.preprocessing.html">ncgenes7.plugins.preprocessing package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ncgenes7.plugins.utils.html">ncgenes7.plugins.utils package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ncgenes7.postprocessors.html">ncgenes7.postprocessors package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ncgenes7.summaries.html">ncgenes7.summaries package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ncgenes7.third_party.html">ncgenes7.third_party package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ncgenes7.third_party.object_detection.html">ncgenes7.third_party.object_detection package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ncgenes7.utils.html">ncgenes7.utils package</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">ncgenes7</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>ncgenes7.metrics package</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/api/ncgenes7.metrics.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="ncgenes7-metrics-package">
+<h1>ncgenes7.metrics package<a class="headerlink" href="#ncgenes7-metrics-package" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="ncgenes7-metrics-generic-module">
+<h2>ncgenes7.metrics.generic module<a class="headerlink" href="#ncgenes7-metrics-generic-module" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-ncgenes7.metrics.image">
+<span id="ncgenes7-metrics-image-module"></span><h2>ncgenes7.metrics.image module<a class="headerlink" href="#module-ncgenes7.metrics.image" title="Permalink to this headline">¶</a></h2>
+<p>ModelMetric for image related tasks</p>
+<dl class="class">
+<dt id="ncgenes7.metrics.image.SemanticSegmentationMetrics">
+<em class="property">class </em><code class="sig-prename descclassname">ncgenes7.metrics.image.</code><code class="sig-name descname">SemanticSegmentationMetrics</code><span class="sig-paren">(</span><em class="sig-param">*</em>, <em class="sig-param">num_classes</em>, <em class="sig-param">resize_labels_to_predictions=True</em>, <em class="sig-param">**metrics_kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ncgenes7/metrics/image.html#SemanticSegmentationMetrics"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ncgenes7.metrics.image.SemanticSegmentationMetrics" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">nucleus7.model.metric.ModelMetric</span></code></p>
+<p>Calculate IOU and confusion matrix for semantic segmentation</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>num_classes</strong> – number of classes</p></li>
+<li><p><strong>resize_labels_to_predictions</strong> – if the labels should be resized with nearest_neighbors to match
+predictions spatial dimension</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="attribute">
+<dt id="ncgenes7.metrics.image.SemanticSegmentationMetrics.incoming_keys">
+<code class="sig-name descname">incoming_keys</code><a class="headerlink" href="#ncgenes7.metrics.image.SemanticSegmentationMetrics.incoming_keys" title="Permalink to this definition">¶</a></dt>
+<dd><ul class="simple">
+<li><p>predicted_classes : predicted classes, tf.int, [bs, h, w]</p></li>
+<li><p>labels :  ground truth labels, tf.int, [bs, h, w]</p></li>
+<li><p>mask : (optional) batch mask</p></li>
+</ul>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ncgenes7.metrics.image.SemanticSegmentationMetrics.generated_keys">
+<code class="sig-name descname">generated_keys</code><a class="headerlink" href="#ncgenes7.metrics.image.SemanticSegmentationMetrics.generated_keys" title="Permalink to this definition">¶</a></dt>
+<dd><ul class="simple">
+<li><p>scalar_iou : intersection over union</p></li>
+<li><p>image_confusion_matrix : confusion matrix as image,
+[num_classes, num_classes]</p></li>
+<li><p>scalar_iou_for_class_{:02d} : iou for each class,
+This key will not be generated!</p></li>
+</ul>
+</dd></dl>
+
+<dl class="attribute">
+<dt>
+<code class="sig-name descname">generated_keys</code><em class="property"> = ['scalar_iou', 'image_confusion_matrix']</em></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt>
+<code class="sig-name descname">incoming_keys</code><em class="property"> = ['prediction_segmentation_classes', 'groundtruth_segmentation_classes', '_mask']</em></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="ncgenes7.metrics.image.SemanticSegmentationMetrics.process">
+<code class="sig-name descname">process</code><span class="sig-paren">(</span><em class="sig-param">prediction_segmentation_classes</em>, <em class="sig-param">groundtruth_segmentation_classes</em>, <em class="sig-param">mask=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ncgenes7/metrics/image.html#SemanticSegmentationMetrics.process"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ncgenes7.metrics.image.SemanticSegmentationMetrics.process" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculate metrics given inputs</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>**inputs</strong> – dict with all tensors (and ground truth tensors) as values</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>metrics</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>metrics</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-ncgenes7.metrics.metric_learning">
+<span id="ncgenes7-metrics-metric-learning-module"></span><h2>ncgenes7.metrics.metric_learning module<a class="headerlink" href="#module-ncgenes7.metrics.metric_learning" title="Permalink to this headline">¶</a></h2>
+<p>Evaluation metrics for distance metric learning</p>
+<dl class="class">
+<dt id="ncgenes7.metrics.metric_learning.ProxyMetricLearningMetrics">
+<em class="property">class </em><code class="sig-prename descclassname">ncgenes7.metrics.metric_learning.</code><code class="sig-name descname">ProxyMetricLearningMetrics</code><span class="sig-paren">(</span><em class="sig-param">*</em>, <em class="sig-param">keys_to_exclude_from_sample_mask=None</em>, <em class="sig-param">**nucleotide_kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ncgenes7/metrics/metric_learning.html#ProxyMetricLearningMetrics"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ncgenes7.metrics.metric_learning.ProxyMetricLearningMetrics" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">nucleus7.model.metric.ModelMetric</span></code></p>
+<p>Calculate accuracy for distance metric learning</p>
+<dl class="attribute">
+<dt id="ncgenes7.metrics.metric_learning.ProxyMetricLearningMetrics.incoming_keys">
+<code class="sig-name descname">incoming_keys</code><a class="headerlink" href="#ncgenes7.metrics.metric_learning.ProxyMetricLearningMetrics.incoming_keys" title="Permalink to this definition">¶</a></dt>
+<dd><ul class="simple">
+<li><p>proxy_estimates : predicted vectors in metric space, tf.float32,
+[bs, 1 or 4, proxy_dim]</p></li>
+<li><p>origins : (optional) ground truth origins, tf.int, [bs]</p></li>
+<li><p>proxies : (optional) the proxies</p></li>
+</ul>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ncgenes7.metrics.metric_learning.ProxyMetricLearningMetrics.generated_keys">
+<code class="sig-name descname">generated_keys</code><a class="headerlink" href="#ncgenes7.metrics.metric_learning.ProxyMetricLearningMetrics.generated_keys" title="Permalink to this definition">¶</a></dt>
+<dd><ul class="simple">
+<li><p>proxy_accuracy : The calculated accuracy</p></li>
+</ul>
+</dd></dl>
+
+<dl class="attribute">
+<dt>
+<code class="sig-name descname">generated_keys</code><em class="property"> = ['proxy_accuracy']</em></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt>
+<code class="sig-name descname">incoming_keys</code><em class="property"> = ['proxy_estimates', '_origins', '_proxies']</em></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="ncgenes7.metrics.metric_learning.ProxyMetricLearningMetrics.process">
+<code class="sig-name descname">process</code><span class="sig-paren">(</span><em class="sig-param">proxy_estimates</em>, <em class="sig-param">origins=None</em>, <em class="sig-param">proxies=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ncgenes7/metrics/metric_learning.html#ProxyMetricLearningMetrics.process"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ncgenes7.metrics.metric_learning.ProxyMetricLearningMetrics.process" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculate metrics given inputs</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>**inputs</strong> – dict with all tensors (and ground truth tensors) as values</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>metrics</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>metrics</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-ncgenes7.metrics">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-ncgenes7.metrics" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="ncgenes7.plugins.html" class="btn btn-neutral float-right" title="ncgenes7.plugins package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="ncgenes7.losses.html" class="btn btn-neutral float-left" title="ncgenes7.losses package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Audi Electronics Venture GmbH
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

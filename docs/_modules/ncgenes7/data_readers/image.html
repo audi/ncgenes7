@@ -1,0 +1,655 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>ncgenes7.data_readers.image &mdash; ncgenes7 v0.10.0 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../../_static/icon.ico"/>
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> ncgenes7
+          
+
+          
+            
+            <img src="../../../_static/icon.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.10.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../Introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../ProjectSamples.html">Sample projects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Contribution.html">Contribution</a></li>
+</ul>
+<p class="caption"><span class="caption-text">API:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/ncgenes7.augmentations.html">ncgenes7.augmentations package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/ncgenes7.callbacks.html">ncgenes7.callbacks package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/ncgenes7.data_feeders.html">ncgenes7.data_feeders package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/ncgenes7.data_fields.html">ncgenes7.data_fields package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/ncgenes7.data_filters.html">ncgenes7.data_filters package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/ncgenes7.data_readers.html">ncgenes7.data_readers package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/ncgenes7.file_lists.html">ncgenes7.file_lists package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/ncgenes7.kpis.html">ncgenes7.kpis package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/ncgenes7.learning_rate_manipulators.html">ncgenes7.learning_rate_manipulators package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/ncgenes7.losses.html">ncgenes7.losses package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/ncgenes7.metrics.html">ncgenes7.metrics package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/ncgenes7.plugins.html">ncgenes7.plugins package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/ncgenes7.plugins.cnns.html">ncgenes7.plugins.cnns package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/ncgenes7.plugins.object_detection.html">ncgenes7.plugins.object_detection package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/ncgenes7.plugins.preprocessing.html">ncgenes7.plugins.preprocessing package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/ncgenes7.plugins.utils.html">ncgenes7.plugins.utils package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/ncgenes7.postprocessors.html">ncgenes7.postprocessors package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/ncgenes7.summaries.html">ncgenes7.summaries package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/ncgenes7.third_party.html">ncgenes7.third_party package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/ncgenes7.third_party.object_detection.html">ncgenes7.third_party.object_detection package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/ncgenes7.utils.html">ncgenes7.utils package</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">ncgenes7</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../index.html">Module code</a> &raquo;</li>
+        
+      <li>ncgenes7.data_readers.image</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for ncgenes7.data_readers.image</h1><div class="highlight"><pre>
+<span></span><span class="c1"># ==============================================================================</span>
+<span class="c1"># Copyright (c) 2019 Audi Electronics Venture GmbH. All rights reserved.</span>
+<span class="c1">#</span>
+<span class="c1"># This Source Code Form is subject to the terms of the Mozilla</span>
+<span class="c1"># Public License, v. 2.0. If a copy of the MPL was not distributed</span>
+<span class="c1"># with this file, You can obtain one at https://mozilla.org/MPL/2.0/.</span>
+<span class="c1"># ==============================================================================</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Data readers for images</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="kn">import</span> <span class="nn">io</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Optional</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Union</span>
+<span class="kn">import</span> <span class="nn">warnings</span>
+
+<span class="kn">import</span> <span class="nn">nucleus7</span> <span class="k">as</span> <span class="nn">nc7</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">skimage.io</span>
+<span class="kn">import</span> <span class="nn">tensorflow</span> <span class="k">as</span> <span class="nn">tf</span>
+
+<span class="kn">from</span> <span class="nn">ncgenes7.data_fields.images</span> <span class="kn">import</span> <span class="n">ImageDataFields</span>
+<span class="kn">from</span> <span class="nn">ncgenes7.utils</span> <span class="kn">import</span> <span class="n">image_io_utils</span>
+<span class="kn">from</span> <span class="nn">ncgenes7.utils</span> <span class="kn">import</span> <span class="n">image_utils</span>
+
+
+<div class="viewcode-block" id="ImageDataReader"><a class="viewcode-back" href="../../../api/ncgenes7.data_readers.html#ncgenes7.data_readers.image.ImageDataReader">[docs]</a><span class="k">class</span> <span class="nc">ImageDataReader</span><span class="p">(</span><span class="n">nc7</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">DataReader</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Read images from file name to numpy array</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    image_number_of_channels</span>
+<span class="sd">        number of image channels</span>
+<span class="sd">    image_size</span>
+<span class="sd">        size of image as  [height, width]; if specified, loaded images will be</span>
+<span class="sd">        resized to it; if not specified, then images will have the</span>
+<span class="sd">        original size</span>
+<span class="sd">    interpolation_order</span>
+<span class="sd">        interpolation order to use if image_size was set; 0 - nearest neighbors,</span>
+<span class="sd">        1 - bilinear, 2 - Bi-quadratic, 3 - Bi-cubic</span>
+<span class="sd">    result_dtype</span>
+<span class="sd">        dtype of the resulted image; if it is different from float32, first</span>
+<span class="sd">        float32 image will be loaded with values in [0, 1] and then it will be</span>
+<span class="sd">        multiplied with a constant so that values are in [0, max_of_dtype]</span>
+
+<span class="sd">    Attributes</span>
+<span class="sd">    ----------</span>
+<span class="sd">    generated_keys</span>
+<span class="sd">        * images : images, [width, height, num_channels], result_dtype</span>
+<span class="sd">        * images_fnames : file names of images, str</span>
+<span class="sd">        * image_sizes : image sizes with shape [width, height], np.int32</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">file_list_keys</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="n">ImageDataFields</span><span class="o">.</span><span class="n">images</span><span class="p">,</span>
+    <span class="p">]</span>
+    <span class="n">generated_keys</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="n">ImageDataFields</span><span class="o">.</span><span class="n">images</span><span class="p">,</span>
+        <span class="n">ImageDataFields</span><span class="o">.</span><span class="n">images_fnames</span><span class="p">,</span>
+        <span class="n">ImageDataFields</span><span class="o">.</span><span class="n">image_sizes</span><span class="p">,</span>
+    <span class="p">]</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span>
+                 <span class="n">image_number_of_channels</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">3</span><span class="p">,</span>
+                 <span class="n">image_size</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">list</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+                 <span class="n">interpolation_order</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span>
+                 <span class="n">result_dtype</span><span class="o">=</span><span class="s2">&quot;float32&quot;</span><span class="p">,</span>
+                 <span class="o">**</span><span class="n">reader_kwargs</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">**</span><span class="n">reader_kwargs</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">interpolation_order</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">image_size</span><span class="p">:</span>
+            <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span>
+                <span class="s2">&quot;</span><span class="si">{}</span><span class="s2">: interpolation_order is only used to resize to new &quot;</span>
+                <span class="s2">&quot;image_size, which was not provided!&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">))</span>
+        <span class="k">if</span> <span class="n">image_size</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">image_size</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">2</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+                <span class="s2">&quot;</span><span class="si">{}</span><span class="s2">: image_size should be list with [width, height]!&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">image_number_of_channels</span> <span class="o">=</span> <span class="n">image_number_of_channels</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">image_size</span> <span class="o">=</span> <span class="n">image_size</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">interpolation_order</span> <span class="o">=</span> <span class="n">interpolation_order</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">result_dtype</span> <span class="o">=</span> <span class="n">result_dtype</span>
+
+<div class="viewcode-block" id="ImageDataReader.read"><a class="viewcode-back" href="../../../api/ncgenes7.data_readers.html#ncgenes7.data_readers.image.ImageDataReader.read">[docs]</a>    <span class="k">def</span> <span class="nf">read</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">images</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+        <span class="c1"># pylint: disable=arguments-differ</span>
+        <span class="c1"># parent method has more generic signature</span>
+        <span class="n">image</span> <span class="o">=</span> <span class="n">image_io_utils</span><span class="o">.</span><span class="n">read_image_with_number_of_channels</span><span class="p">(</span>
+            <span class="n">images</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">image_number_of_channels</span><span class="p">,</span>
+            <span class="n">image_size</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">image_size</span><span class="p">,</span>
+            <span class="n">interpolation_order</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">interpolation_order</span><span class="p">)</span>
+        <span class="n">image</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cast_to_result_dtype</span><span class="p">(</span><span class="n">image</span><span class="p">)</span>
+
+        <span class="n">result</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="n">ImageDataFields</span><span class="o">.</span><span class="n">images</span><span class="p">:</span> <span class="n">image</span><span class="p">,</span>
+            <span class="n">ImageDataFields</span><span class="o">.</span><span class="n">image_sizes</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">image</span><span class="o">.</span><span class="n">shape</span><span class="p">[:</span><span class="mi">2</span><span class="p">],</span> <span class="n">np</span><span class="o">.</span><span class="n">int32</span><span class="p">),</span>
+            <span class="n">ImageDataFields</span><span class="o">.</span><span class="n">images_fnames</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">images</span><span class="p">)}</span>
+        <span class="k">return</span> <span class="n">result</span></div>
+
+    <span class="k">def</span> <span class="nf">_cast_to_result_dtype</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">image</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">image</span><span class="o">.</span><span class="n">dtype</span> <span class="o">==</span> <span class="n">np</span><span class="o">.</span><span class="n">dtype</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">result_dtype</span><span class="p">):</span>
+            <span class="k">return</span> <span class="n">image</span>
+
+        <span class="n">image</span> <span class="o">=</span> <span class="n">image</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">iinfo</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">uint8</span><span class="p">)</span><span class="o">.</span><span class="n">max</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">result_dtype</span> <span class="o">==</span> <span class="s2">&quot;float32&quot;</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">image</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">result_dtype</span> <span class="o">==</span> <span class="s2">&quot;float64&quot;</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">image</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">)</span>
+
+        <span class="n">max_dtype_value</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">iinfo</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">result_dtype</span><span class="p">)</span><span class="o">.</span><span class="n">max</span>
+        <span class="n">image</span> <span class="o">=</span> <span class="p">(</span><span class="n">image</span> <span class="o">*</span> <span class="n">max_dtype_value</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">result_dtype</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">image</span></div>
+
+
+<div class="viewcode-block" id="ImageEncoder"><a class="viewcode-back" href="../../../api/ncgenes7.data_readers.html#ncgenes7.data_readers.image.ImageEncoder">[docs]</a><span class="k">class</span> <span class="nc">ImageEncoder</span><span class="p">(</span><span class="n">nc7</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">DataProcessor</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Encodes array image using specified encoding</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    encoding</span>
+<span class="sd">        encoding to use like &quot;PNG&quot;, &quot;JPEG&quot; etc.</span>
+<span class="sd">    additional_imsave_kwargs</span>
+<span class="sd">        additional kwargs to pass to `skimage.io.imsave`</span>
+
+<span class="sd">    Attributes</span>
+<span class="sd">    ----------</span>
+<span class="sd">    generated_keys</span>
+<span class="sd">        * images_{ENCODING} : encoded image, bytes; key name will be</span>
+<span class="sd">          `images_` + upper encoding</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">incoming_keys</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="n">ImageDataFields</span><span class="o">.</span><span class="n">images</span><span class="p">,</span>
+    <span class="p">]</span>
+    <span class="n">dynamic_generated_keys</span> <span class="o">=</span> <span class="kc">True</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span>
+                 <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;PNG&quot;</span><span class="p">,</span>
+                 <span class="n">additional_imsave_kwargs</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="o">**</span><span class="n">reader_kwargs</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">**</span><span class="n">reader_kwargs</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">encoding</span> <span class="o">=</span> <span class="n">encoding</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">additional_imsave_kwargs</span> <span class="o">=</span> <span class="n">additional_imsave_kwargs</span> <span class="ow">or</span> <span class="p">{}</span>
+
+<div class="viewcode-block" id="ImageEncoder.process"><a class="viewcode-back" href="../../../api/ncgenes7.data_readers.html#ncgenes7.data_readers.image.ImageEncoder.process">[docs]</a>    <span class="k">def</span> <span class="nf">process</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">images</span><span class="p">):</span>
+        <span class="c1"># pylint: disable=arguments-differ</span>
+        <span class="c1"># parent method has more generic signature</span>
+        <span class="k">if</span> <span class="n">images</span><span class="o">.</span><span class="n">ndim</span> <span class="o">==</span> <span class="mi">3</span> <span class="ow">and</span> <span class="n">images</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="n">images</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">squeeze</span><span class="p">(</span><span class="n">images</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+        <span class="k">with</span> <span class="n">io</span><span class="o">.</span><span class="n">BytesIO</span><span class="p">()</span> <span class="k">as</span> <span class="n">bytes_io</span><span class="p">:</span>
+            <span class="n">skimage</span><span class="o">.</span><span class="n">io</span><span class="o">.</span><span class="n">imsave</span><span class="p">(</span><span class="n">bytes_io</span><span class="p">,</span> <span class="n">images</span><span class="p">,</span> <span class="n">format_str</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">encoding</span><span class="p">)</span>
+            <span class="n">image_encoded</span> <span class="o">=</span> <span class="n">bytes_io</span><span class="o">.</span><span class="n">getvalue</span><span class="p">()</span>
+        <span class="n">image_encoded_key</span> <span class="o">=</span> <span class="s2">&quot;_&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="n">ImageDataFields</span><span class="o">.</span><span class="n">images</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">encoding</span><span class="p">])</span>
+        <span class="k">return</span> <span class="p">{</span><span class="n">image_encoded_key</span><span class="p">:</span> <span class="n">image_encoded</span><span class="p">}</span></div></div>
+
+
+<div class="viewcode-block" id="ImageDataReaderTf"><a class="viewcode-back" href="../../../api/ncgenes7.data_readers.html#ncgenes7.data_readers.image.ImageDataReaderTf">[docs]</a><span class="k">class</span> <span class="nc">ImageDataReaderTf</span><span class="p">(</span><span class="n">nc7</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">DataReader</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Read images from file name to tensorflow tensor</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    image_number_of_channels</span>
+<span class="sd">        number of image channels</span>
+<span class="sd">    image_size</span>
+<span class="sd">        size of image as  [height, width]; if specified, loaded images will be</span>
+<span class="sd">        resized to it; if not specified, then images will have the</span>
+<span class="sd">        original size</span>
+<span class="sd">    interpolation_order</span>
+<span class="sd">        interpolation order to use if image_size was set; 0 - nearest neighbors,</span>
+<span class="sd">        1 - bilinear, 2 - Bi-quadratic, 3 - Bi-cubic</span>
+<span class="sd">    result_dtype</span>
+<span class="sd">        dtype of the resulted image; if it is different from float32, first</span>
+<span class="sd">        float32 image will be loaded with values in [0, 1] and then it will be</span>
+<span class="sd">        multiplied with a constant so that values are in [0, max_of_dtype]</span>
+<span class="sd">    align_corners</span>
+<span class="sd">        see `tf.image.resize_images`</span>
+<span class="sd">    preserve_aspect_ratio</span>
+<span class="sd">        see `tf.image.resize_images`</span>
+
+<span class="sd">    Attributes</span>
+<span class="sd">    ----------</span>
+<span class="sd">    generated_keys</span>
+<span class="sd">        * images : images, [width, height, num_channels], np.uint8</span>
+<span class="sd">        * images_fnames : file names of images, str</span>
+<span class="sd">        * image_sizes : image sizes with shape [width, height], np.int32</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">file_list_keys</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="n">ImageDataFields</span><span class="o">.</span><span class="n">images</span><span class="p">,</span>
+    <span class="p">]</span>
+    <span class="n">generated_keys</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="n">ImageDataFields</span><span class="o">.</span><span class="n">images</span><span class="p">,</span>
+        <span class="n">ImageDataFields</span><span class="o">.</span><span class="n">images_fnames</span><span class="p">,</span>
+        <span class="n">ImageDataFields</span><span class="o">.</span><span class="n">image_sizes</span><span class="p">,</span>
+    <span class="p">]</span>
+    <span class="n">is_tensorflow</span> <span class="o">=</span> <span class="kc">True</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span>
+                 <span class="n">image_number_of_channels</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">3</span><span class="p">,</span>
+                 <span class="n">image_size</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">list</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+                 <span class="n">interpolation_order</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span>
+                 <span class="n">result_dtype</span><span class="o">=</span><span class="s2">&quot;float32&quot;</span><span class="p">,</span>
+                 <span class="n">preserve_aspect_ratio</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+                 <span class="n">align_corners</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+                 <span class="o">**</span><span class="n">reader_kwargs</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">**</span><span class="n">reader_kwargs</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">interpolation_order</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">image_size</span><span class="p">:</span>
+            <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span>
+                <span class="s2">&quot;</span><span class="si">{}</span><span class="s2">: interpolation_order is only used to resize to new &quot;</span>
+                <span class="s2">&quot;image_size, which was not provided!&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">))</span>
+        <span class="k">if</span> <span class="n">image_size</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">image_size</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">2</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+                <span class="s2">&quot;</span><span class="si">{}</span><span class="s2">: image_size should be list with [width, height]!&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">image_number_of_channels</span> <span class="o">=</span> <span class="n">image_number_of_channels</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">image_size</span> <span class="o">=</span> <span class="n">image_size</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">interpolation_order</span> <span class="o">=</span> <span class="n">interpolation_order</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">result_dtype</span> <span class="o">=</span> <span class="n">result_dtype</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">align_corners</span> <span class="o">=</span> <span class="n">align_corners</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">preserve_aspect_ratio</span> <span class="o">=</span> <span class="n">preserve_aspect_ratio</span>
+
+<div class="viewcode-block" id="ImageDataReaderTf.read"><a class="viewcode-back" href="../../../api/ncgenes7.data_readers.html#ncgenes7.data_readers.image.ImageDataReaderTf.read">[docs]</a>    <span class="k">def</span> <span class="nf">read</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">images</span><span class="p">):</span>
+        <span class="c1"># pylint: disable=arguments-differ</span>
+        <span class="c1"># parent method has more generic signature</span>
+        <span class="n">images_fnames</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">py_func</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">.</span><span class="n">decode</span><span class="p">(),</span>
+                                   <span class="p">[</span><span class="n">images</span><span class="p">],</span> <span class="p">[</span><span class="n">tf</span><span class="o">.</span><span class="n">string</span><span class="p">])[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">images_fnames</span><span class="o">.</span><span class="n">set_shape</span><span class="p">([])</span>
+        <span class="n">image_str</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">read_file</span><span class="p">(</span><span class="n">images</span><span class="p">)</span>
+        <span class="n">images</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">image</span><span class="o">.</span><span class="n">decode_image</span><span class="p">(</span>
+            <span class="n">image_str</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">image_number_of_channels</span><span class="p">)</span>
+        <span class="n">images</span><span class="o">.</span><span class="n">set_shape</span><span class="p">([</span><span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">image_number_of_channels</span><span class="p">])</span>
+        <span class="n">images</span> <span class="o">=</span> <span class="n">_resize_image</span><span class="p">(</span>
+            <span class="n">images</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">image_size</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">interpolation_order</span><span class="p">,</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">align_corners</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">preserve_aspect_ratio</span><span class="p">)</span>
+        <span class="n">images</span> <span class="o">=</span> <span class="n">_cast_to_result_dtype_tf</span><span class="p">(</span>
+            <span class="n">images</span><span class="p">,</span> <span class="n">result_dtype</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">result_dtype</span><span class="p">)</span>
+
+        <span class="n">image_sizes</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">cast</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">shape</span><span class="p">(</span><span class="n">images</span><span class="p">)[:</span><span class="mi">2</span><span class="p">],</span> <span class="n">tf</span><span class="o">.</span><span class="n">int32</span><span class="p">)</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="p">{</span><span class="n">ImageDataFields</span><span class="o">.</span><span class="n">images</span><span class="p">:</span> <span class="n">images</span><span class="p">,</span>
+                  <span class="n">ImageDataFields</span><span class="o">.</span><span class="n">images_fnames</span><span class="p">:</span> <span class="n">images_fnames</span><span class="p">,</span>
+                  <span class="n">ImageDataFields</span><span class="o">.</span><span class="n">image_sizes</span><span class="p">:</span> <span class="n">image_sizes</span><span class="p">}</span>
+        <span class="k">return</span> <span class="n">result</span></div></div>
+
+
+<span class="c1"># pylint: disable=too-many-instance-attributes</span>
+<span class="c1"># attributes cannot be combined or extracted further</span>
+<div class="viewcode-block" id="ImageDataReaderTfRecords"><a class="viewcode-back" href="../../../api/ncgenes7.data_readers.html#ncgenes7.data_readers.image.ImageDataReaderTfRecords">[docs]</a><span class="k">class</span> <span class="nc">ImageDataReaderTfRecords</span><span class="p">(</span><span class="n">nc7</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">TfRecordsDataReader</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Image reader from tfrecords files. Images are stored as raw bytes and so</span>
+<span class="sd">    have no compression inside.</span>
+
+<span class="sd">    Images inside of tfrecords file must have 3 dimensions.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    image_number_of_channels</span>
+<span class="sd">        number of image channels</span>
+<span class="sd">    image_encoding</span>
+<span class="sd">        encoding to use like &quot;PNG&quot;, &quot;JPEG&quot; etc.; if not provided, assumes that</span>
+<span class="sd">        images are stored as a raw bytes array of uint8 and are under `images`</span>
+<span class="sd">        key inside of tfrecords file; otherwise it looks for features with</span>
+<span class="sd">        key &quot;images_{ENCODING}&quot; inside of tfrecords files and decodes it</span>
+<span class="sd">        correspondingly; in case of encoding, `image_sizes` key from the</span>
+<span class="sd">        tfrecords file will be not used</span>
+<span class="sd">    image_size</span>
+<span class="sd">        size of image as  [height, width]; if specified, loaded images will be</span>
+<span class="sd">        resized to it; if not specified, then images will have the</span>
+<span class="sd">        original size, which will be inferred from `image_sizes` field of</span>
+<span class="sd">        tfrecords file; if none of the are specified, runtime error of</span>
+<span class="sd">        tensorflow will be raised.</span>
+<span class="sd">    interpolation_order</span>
+<span class="sd">        interpolation order to use if image_size was set; 0 - nearest neighbors,</span>
+<span class="sd">        1 - bilinear, 2 - cubic</span>
+<span class="sd">    result_dtype</span>
+<span class="sd">        result dtype</span>
+<span class="sd">    align_corners</span>
+<span class="sd">        see `tf.image.resize_images`</span>
+<span class="sd">    preserve_aspect_ratio</span>
+<span class="sd">        see `tf.image.resize_images`</span>
+<span class="sd">    tfrecords_image_key</span>
+<span class="sd">        key of image inside of tfrecords files; if image_encoding was specified,</span>
+<span class="sd">        it should be a key without encoding suffix</span>
+<span class="sd">    tfrecords_fname_key</span>
+<span class="sd">        key of file name inside of tfrecords files</span>
+<span class="sd">    tfrecords_sizes_key</span>
+<span class="sd">        key of image sizes inside of tfrecords files if encoding was not</span>
+<span class="sd">        provided</span>
+
+<span class="sd">    Attributes</span>
+<span class="sd">    ----------</span>
+<span class="sd">    generated_keys</span>
+<span class="sd">        * images : images, [width, height, num_channels], tf.uint8</span>
+<span class="sd">        * images_fnames : file names of images, tf.string</span>
+<span class="sd">        * image_sizes : image sizes with shape [width, height], tf.int32</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">generated_keys</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="n">ImageDataFields</span><span class="o">.</span><span class="n">images</span><span class="p">,</span>
+        <span class="n">ImageDataFields</span><span class="o">.</span><span class="n">images_fnames</span><span class="p">,</span>
+        <span class="n">ImageDataFields</span><span class="o">.</span><span class="n">image_sizes</span><span class="p">,</span>
+    <span class="p">]</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span>
+                 <span class="n">image_number_of_channels</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">3</span><span class="p">,</span>
+                 <span class="n">image_size</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">list</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+                 <span class="n">interpolation_order</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span>
+                 <span class="n">result_dtype</span><span class="o">=</span><span class="s2">&quot;float32&quot;</span><span class="p">,</span>
+                 <span class="n">image_encoding</span><span class="o">=</span><span class="s2">&quot;PNG&quot;</span><span class="p">,</span>
+                 <span class="n">preserve_aspect_ratio</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+                 <span class="n">align_corners</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+                 <span class="n">tfrecords_image_key</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">ImageDataFields</span><span class="o">.</span><span class="n">images</span><span class="p">,</span>
+                 <span class="n">tfrecords_fname_key</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">ImageDataFields</span><span class="o">.</span><span class="n">images_fnames</span><span class="p">,</span>
+                 <span class="n">tfrecords_sizes_key</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">ImageDataFields</span><span class="o">.</span><span class="n">image_sizes</span><span class="p">,</span>
+                 <span class="o">**</span><span class="n">reader_kwargs</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">**</span><span class="n">reader_kwargs</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">image_encoding</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;PNG&quot;</span><span class="p">,</span> <span class="s2">&quot;JPEG&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">]:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+                <span class="s2">&quot;</span><span class="si">{}</span><span class="s2">: Image encoding must be in [&#39;PNG&#39;, &#39;JPEG&#39;, None], &quot;</span>
+                <span class="s2">&quot;provided </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">image_encoding</span><span class="p">))</span>
+        <span class="k">if</span> <span class="n">interpolation_order</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">(</span>
+                <span class="n">image_utils</span><span class="o">.</span><span class="n">INTERPOLATION_ORDER_TO_RESIZE_METHOD</span><span class="p">):</span>
+            <span class="n">msg</span> <span class="o">=</span> <span class="p">(</span>
+                <span class="s2">&quot;</span><span class="si">{}</span><span class="s2">: not supported interpolation_order </span><span class="si">{}</span><span class="s2">. &quot;</span>
+                <span class="s2">&quot;Supported orders: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">interpolation_order</span><span class="p">,</span>
+                    <span class="n">image_utils</span><span class="o">.</span><span class="n">INTERPOLATION_ORDER_TO_RESIZE_METHOD</span><span class="p">))</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="nb">getattr</span><span class="p">(</span><span class="n">tf</span><span class="p">,</span> <span class="n">result_dtype</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span> <span class="n">tf</span><span class="o">.</span><span class="n">DType</span><span class="p">):</span>
+            <span class="n">msg</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="si">{}</span><span class="s2">: dtype </span><span class="si">{}</span><span class="s2"> is not valid!&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">result_dtype</span><span class="p">)</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">image_number_of_channels</span> <span class="o">=</span> <span class="n">image_number_of_channels</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">image_size</span> <span class="o">=</span> <span class="n">image_size</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">result_dtype</span> <span class="o">=</span> <span class="n">result_dtype</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">interpolation_order</span> <span class="o">=</span> <span class="n">interpolation_order</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">image_encoding</span> <span class="o">=</span> <span class="n">image_encoding</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">align_corners</span> <span class="o">=</span> <span class="n">align_corners</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">preserve_aspect_ratio</span> <span class="o">=</span> <span class="n">preserve_aspect_ratio</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">tfrecords_image_key</span> <span class="o">=</span> <span class="n">tfrecords_image_key</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">tfrecords_fname_key</span> <span class="o">=</span> <span class="n">tfrecords_fname_key</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">tfrecords_sizes_key</span> <span class="o">=</span> <span class="n">tfrecords_sizes_key</span>
+
+<div class="viewcode-block" id="ImageDataReaderTfRecords.get_tfrecords_output_types"><a class="viewcode-back" href="../../../api/ncgenes7.data_readers.html#ncgenes7.data_readers.image.ImageDataReaderTfRecords.get_tfrecords_output_types">[docs]</a>    <span class="k">def</span> <span class="nf">get_tfrecords_output_types</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">output_types</span> <span class="o">=</span> <span class="p">{</span><span class="bp">self</span><span class="o">.</span><span class="n">tfrecords_sizes_key</span><span class="p">:</span> <span class="n">tf</span><span class="o">.</span><span class="n">int32</span><span class="p">}</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">image_encoding</span><span class="p">:</span>
+            <span class="n">output_types</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">tfrecords_image_key</span><span class="p">]</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">uint8</span>
+        <span class="k">return</span> <span class="n">output_types</span></div>
+
+<div class="viewcode-block" id="ImageDataReaderTfRecords.decode_field"><a class="viewcode-back" href="../../../api/ncgenes7.data_readers.html#ncgenes7.data_readers.image.ImageDataReaderTfRecords.decode_field">[docs]</a>    <span class="k">def</span> <span class="nf">decode_field</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">field_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+                     <span class="n">field_value</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">tf</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">tf</span><span class="o">.</span><span class="n">SparseTensor</span><span class="p">],</span>
+                     <span class="n">field_type</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">tf</span><span class="o">.</span><span class="n">DType</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">tf</span><span class="o">.</span><span class="n">Tensor</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">field_name</span> <span class="o">==</span> <span class="s2">&quot;_&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="bp">self</span><span class="o">.</span><span class="n">tfrecords_image_key</span><span class="p">,</span> <span class="s2">&quot;PNG&quot;</span><span class="p">]):</span>
+            <span class="k">return</span> <span class="n">tf</span><span class="o">.</span><span class="n">image</span><span class="o">.</span><span class="n">decode_png</span><span class="p">(</span>
+                <span class="n">field_value</span><span class="p">,</span> <span class="n">channels</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">image_number_of_channels</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">field_name</span> <span class="o">==</span> <span class="s2">&quot;_&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="bp">self</span><span class="o">.</span><span class="n">tfrecords_image_key</span><span class="p">,</span> <span class="s2">&quot;JPEG&quot;</span><span class="p">]):</span>
+            <span class="k">return</span> <span class="n">tf</span><span class="o">.</span><span class="n">image</span><span class="o">.</span><span class="n">decode_jpeg</span><span class="p">(</span>
+                <span class="n">field_value</span><span class="p">,</span> <span class="n">channels</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">image_number_of_channels</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">decode_field</span><span class="p">(</span><span class="n">field_name</span><span class="p">,</span> <span class="n">field_value</span><span class="p">,</span> <span class="n">field_type</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="ImageDataReaderTfRecords.get_tfrecords_features"><a class="viewcode-back" href="../../../api/ncgenes7.data_readers.html#ncgenes7.data_readers.image.ImageDataReaderTfRecords.get_tfrecords_features">[docs]</a>    <span class="k">def</span> <span class="nf">get_tfrecords_features</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">features</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">tfrecords_fname_key</span><span class="p">:</span> <span class="n">tf</span><span class="o">.</span><span class="n">FixedLenFeature</span><span class="p">((),</span> <span class="n">tf</span><span class="o">.</span><span class="n">string</span><span class="p">,</span>
+                                                         <span class="s2">&quot;no_file_name&quot;</span><span class="p">)</span>
+        <span class="p">}</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">image_encoding</span><span class="p">:</span>
+            <span class="n">default_image_size</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">image_size</span> <span class="ow">or</span> <span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+            <span class="n">features</span><span class="o">.</span><span class="n">update</span><span class="p">({</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">tfrecords_image_key</span><span class="p">:</span> <span class="n">tf</span><span class="o">.</span><span class="n">FixedLenFeature</span><span class="p">((),</span> <span class="n">tf</span><span class="o">.</span><span class="n">string</span><span class="p">),</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">tfrecords_sizes_key</span><span class="p">:</span> <span class="n">tf</span><span class="o">.</span><span class="n">FixedLenFeature</span><span class="p">(</span>
+                    <span class="p">(),</span> <span class="n">tf</span><span class="o">.</span><span class="n">string</span><span class="p">,</span>
+                    <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">default_image_size</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">int32</span><span class="p">)</span><span class="o">.</span><span class="n">tostring</span><span class="p">())})</span>
+            <span class="k">return</span> <span class="n">features</span>
+
+        <span class="n">image_encoded_key</span> <span class="o">=</span> <span class="s2">&quot;_&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="bp">self</span><span class="o">.</span><span class="n">tfrecords_image_key</span><span class="p">,</span>
+                                      <span class="bp">self</span><span class="o">.</span><span class="n">image_encoding</span><span class="p">])</span>
+        <span class="n">features</span><span class="p">[</span><span class="n">image_encoded_key</span><span class="p">]</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">FixedLenFeature</span><span class="p">((),</span> <span class="n">tf</span><span class="o">.</span><span class="n">string</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">features</span></div>
+
+<div class="viewcode-block" id="ImageDataReaderTfRecords.postprocess_tfrecords"><a class="viewcode-back" href="../../../api/ncgenes7.data_readers.html#ncgenes7.data_readers.image.ImageDataReaderTfRecords.postprocess_tfrecords">[docs]</a>    <span class="k">def</span> <span class="nf">postprocess_tfrecords</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">image_data</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+        <span class="c1"># pylint: disable=arguments-differ</span>
+        <span class="c1"># parent method has more generic signature</span>
+        <span class="n">images_fnames</span> <span class="o">=</span> <span class="n">image_data</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">tfrecords_fname_key</span><span class="p">]</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">image_encoding</span><span class="p">:</span>
+            <span class="n">image_key</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">tfrecords_image_key</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">image_key</span> <span class="o">=</span> <span class="s2">&quot;_&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="bp">self</span><span class="o">.</span><span class="n">tfrecords_image_key</span><span class="p">,</span>
+                                  <span class="bp">self</span><span class="o">.</span><span class="n">image_encoding</span><span class="p">])</span>
+        <span class="n">images</span> <span class="o">=</span> <span class="n">image_data</span><span class="p">[</span><span class="n">image_key</span><span class="p">]</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">image_encoding</span><span class="p">:</span>
+            <span class="n">image_sizes</span> <span class="o">=</span> <span class="n">image_data</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">tfrecords_sizes_key</span><span class="p">]</span>
+            <span class="n">images</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">images</span><span class="p">,</span> <span class="p">[</span><span class="n">image_sizes</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">image_sizes</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span>
+                                         <span class="bp">self</span><span class="o">.</span><span class="n">image_number_of_channels</span><span class="p">])</span>
+
+        <span class="n">images</span> <span class="o">=</span> <span class="n">_resize_image</span><span class="p">(</span>
+            <span class="n">images</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">image_size</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">interpolation_order</span><span class="p">,</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">align_corners</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">preserve_aspect_ratio</span><span class="p">)</span>
+        <span class="n">images</span> <span class="o">=</span> <span class="n">_cast_to_result_dtype_tf</span><span class="p">(</span>
+            <span class="n">images</span><span class="p">,</span> <span class="n">result_dtype</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">result_dtype</span><span class="p">)</span>
+
+        <span class="n">image_sizes</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">cast</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">shape</span><span class="p">(</span><span class="n">images</span><span class="p">)[:</span><span class="mi">2</span><span class="p">],</span> <span class="n">tf</span><span class="o">.</span><span class="n">int32</span><span class="p">)</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="p">{</span><span class="n">ImageDataFields</span><span class="o">.</span><span class="n">images</span><span class="p">:</span> <span class="n">images</span><span class="p">,</span>
+                  <span class="n">ImageDataFields</span><span class="o">.</span><span class="n">images_fnames</span><span class="p">:</span> <span class="n">images_fnames</span><span class="p">,</span>
+                  <span class="n">ImageDataFields</span><span class="o">.</span><span class="n">image_sizes</span><span class="p">:</span> <span class="n">image_sizes</span><span class="p">}</span>
+        <span class="k">return</span> <span class="n">result</span></div></div>
+
+
+<span class="k">def</span> <span class="nf">_resize_image</span><span class="p">(</span><span class="n">images</span><span class="p">,</span> <span class="n">image_size</span><span class="p">,</span> <span class="n">interpolation_order</span><span class="p">,</span>
+                  <span class="n">align_corners</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">preserve_aspect_ratio</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">image_size</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">images</span>
+
+    <span class="n">tf_resize_method</span> <span class="o">=</span> <span class="n">image_utils</span><span class="o">.</span><span class="n">INTERPOLATION_ORDER_TO_RESIZE_METHOD</span><span class="p">[</span>
+        <span class="n">interpolation_order</span><span class="p">]</span>
+    <span class="n">image_resized</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">image</span><span class="o">.</span><span class="n">resize_images</span><span class="p">(</span>
+        <span class="n">images</span><span class="p">,</span> <span class="n">image_size</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="n">tf_resize_method</span><span class="p">,</span>
+        <span class="n">align_corners</span><span class="o">=</span><span class="n">align_corners</span><span class="p">,</span>
+        <span class="n">preserve_aspect_ratio</span><span class="o">=</span><span class="n">preserve_aspect_ratio</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">image_resized</span>
+
+
+<span class="k">def</span> <span class="nf">_cast_to_result_dtype_tf</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">result_dtype</span><span class="p">):</span>
+    <span class="n">result_dtype_tf</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">tf</span><span class="p">,</span> <span class="n">result_dtype</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">image</span><span class="o">.</span><span class="n">dtype</span> <span class="o">==</span> <span class="n">result_dtype_tf</span> <span class="o">==</span> <span class="n">tf</span><span class="o">.</span><span class="n">uint8</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">image</span>
+    <span class="n">image</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">cast</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">tf</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span> <span class="o">/</span> <span class="n">tf</span><span class="o">.</span><span class="n">uint8</span><span class="o">.</span><span class="n">max</span>
+    <span class="k">if</span> <span class="n">result_dtype</span> <span class="o">==</span> <span class="s2">&quot;float32&quot;</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">image</span>
+    <span class="k">if</span> <span class="n">result_dtype</span> <span class="o">==</span> <span class="s2">&quot;float64&quot;</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">tf</span><span class="o">.</span><span class="n">cast</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">tf</span><span class="o">.</span><span class="n">float64</span><span class="p">)</span>
+
+    <span class="n">max_dtype_value</span> <span class="o">=</span> <span class="n">result_dtype_tf</span><span class="o">.</span><span class="n">max</span>
+    <span class="n">image</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">cast</span><span class="p">(</span><span class="n">image</span> <span class="o">*</span> <span class="n">max_dtype_value</span><span class="p">,</span> <span class="n">result_dtype_tf</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">image</span>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Audi Electronics Venture GmbH
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

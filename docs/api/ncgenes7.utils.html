@@ -1,0 +1,1262 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>ncgenes7.utils package &mdash; ncgenes7 v0.10.0 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../_static/icon.ico"/>
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="ncgenes7.third_party.object_detection package" href="ncgenes7.third_party.object_detection.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> ncgenes7
+          
+
+          
+            
+            <img src="../_static/icon.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.10.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../Introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ProjectSamples.html">Sample projects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Contribution.html">Contribution</a></li>
+</ul>
+<p class="caption"><span class="caption-text">API:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="ncgenes7.augmentations.html">ncgenes7.augmentations package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ncgenes7.callbacks.html">ncgenes7.callbacks package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ncgenes7.data_feeders.html">ncgenes7.data_feeders package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ncgenes7.data_fields.html">ncgenes7.data_fields package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ncgenes7.data_filters.html">ncgenes7.data_filters package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ncgenes7.data_readers.html">ncgenes7.data_readers package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ncgenes7.file_lists.html">ncgenes7.file_lists package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ncgenes7.kpis.html">ncgenes7.kpis package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ncgenes7.learning_rate_manipulators.html">ncgenes7.learning_rate_manipulators package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ncgenes7.losses.html">ncgenes7.losses package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ncgenes7.metrics.html">ncgenes7.metrics package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ncgenes7.plugins.html">ncgenes7.plugins package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ncgenes7.plugins.cnns.html">ncgenes7.plugins.cnns package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ncgenes7.plugins.object_detection.html">ncgenes7.plugins.object_detection package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ncgenes7.plugins.preprocessing.html">ncgenes7.plugins.preprocessing package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ncgenes7.plugins.utils.html">ncgenes7.plugins.utils package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ncgenes7.postprocessors.html">ncgenes7.postprocessors package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ncgenes7.summaries.html">ncgenes7.summaries package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ncgenes7.third_party.html">ncgenes7.third_party package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ncgenes7.third_party.object_detection.html">ncgenes7.third_party.object_detection package</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">ncgenes7.utils package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-ncgenes7.utils.coco_utils">ncgenes7.utils.coco_utils module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-ncgenes7.utils.convolution_ops">ncgenes7.utils.convolution_ops module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#ncgenes7-utils-faster-rcnn-utils-module">ncgenes7.utils.faster_rcnn_utils module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-ncgenes7.utils.file_list_utils">ncgenes7.utils.file_list_utils module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-ncgenes7.utils.general_ops">ncgenes7.utils.general_ops module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-ncgenes7.utils.general_utils">ncgenes7.utils.general_utils module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-ncgenes7.utils.image_io_utils">ncgenes7.utils.image_io_utils module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-ncgenes7.utils.image_utils">ncgenes7.utils.image_utils module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-ncgenes7.utils.io_utils">ncgenes7.utils.io_utils module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-ncgenes7.utils.keras_utils">ncgenes7.utils.keras_utils module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#ncgenes7-utils-object-detection-io-utils-module">ncgenes7.utils.object_detection_io_utils module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#ncgenes7-utils-object-detection-utils-module">ncgenes7.utils.object_detection_utils module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-ncgenes7.utils.open_images_utils">ncgenes7.utils.open_images_utils module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-ncgenes7.utils.reshape_ops">ncgenes7.utils.reshape_ops module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-ncgenes7.utils.vis_utils">ncgenes7.utils.vis_utils module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-ncgenes7.utils">Module contents</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">ncgenes7</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>ncgenes7.utils package</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/api/ncgenes7.utils.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="ncgenes7-utils-package">
+<h1>ncgenes7.utils package<a class="headerlink" href="#ncgenes7-utils-package" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-ncgenes7.utils.coco_utils">
+<span id="ncgenes7-utils-coco-utils-module"></span><h2>ncgenes7.utils.coco_utils module<a class="headerlink" href="#module-ncgenes7.utils.coco_utils" title="Permalink to this headline">¶</a></h2>
+<p>Utils for coco dataset</p>
+<dl class="function">
+<dt id="ncgenes7.utils.coco_utils.get_class_descriptions_mapping">
+<code class="sig-prename descclassname">ncgenes7.utils.coco_utils.</code><code class="sig-name descname">get_class_descriptions_mapping</code><span class="sig-paren">(</span><em class="sig-param">fname_annotations</em>, <em class="sig-param">remove_unused_classes=False</em>, <em class="sig-param">sort_objects_by_class_and_id=True</em>, <em class="sig-param">with_keypoints=False</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ncgenes7/utils/coco_utils.html#get_class_descriptions_mapping"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ncgenes7.utils.coco_utils.get_class_descriptions_mapping" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create mapping of type
+{image_fname:
+[{class_label: , id: , bbox: [ymin, xmin, ymax, xmax]}, {…}]}</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>fname_annotations</strong> – file name of instances.json</p></li>
+<li><p><strong>remove_unused_classes</strong> – if the unused classes must be removed and so at the end there
+are 80 class ids instead of 90</p></li>
+<li><p><strong>sort_objects_by_class_and_id</strong> – if the result objects should be sorted first by class id and then by
+instance id</p></li>
+<li><p><strong>with_keypoints</strong> – if the keypoints data should be read from annotations; must be used
+only if fname_annotations points to person keypoints annotation file</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><dl class="simple">
+<dt>mapping of type</dt><dd><p>{image_fname:
+[{class_label: , id: , bbox: [ymin, xmin, ymax, xmax]}, {…}]}
+with normalized to particular image shape bounding box coordinates</p>
+</dd>
+</dl>
+</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>image_fname_to_objects</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="ncgenes7.utils.coco_utils.panoptic_categories_to_rgb_hash_fn">
+<code class="sig-prename descclassname">ncgenes7.utils.coco_utils.</code><code class="sig-name descname">panoptic_categories_to_rgb_hash_fn</code><span class="sig-paren">(</span><em class="sig-param">fname_panoptic_annotations</em>, <em class="sig-param">remove_unused_classes=False</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ncgenes7/utils/coco_utils.html#panoptic_categories_to_rgb_hash_fn"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ncgenes7.utils.coco_utils.panoptic_categories_to_rgb_hash_fn" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="simple">
+<dt>Read panoptic annotation file and create mapping in the form:</dt><dd><p>{file_name: {id: class label}}</p>
+</dd>
+</dl>
+<p>Inside of panoptic_annotations[‘segments_info’] all of segments have its
+category (coco class) and its id, where id = r + g*256 + b*256**2 uses
+as a hash to map rgb values on panoptic rgb images to its segment label.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>fname_panoptic_annotations</strong> – file name of panoptic annotations json file</p></li>
+<li><p><strong>remove_unused_classes</strong> – if the unused classes must be removed and so at the end there
+are 133 class ids instead of 200</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>mapping of type {file_name: {id: class label}}</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>panoptic_image_fname_to_class_id_hash_fn</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="ncgenes7.utils.coco_utils.read_keypoints_from_fname">
+<code class="sig-prename descclassname">ncgenes7.utils.coco_utils.</code><code class="sig-name descname">read_keypoints_from_fname</code><span class="sig-paren">(</span><em class="sig-param">image_id</em>, <em class="sig-param">image_fname_to_objects</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ncgenes7/utils/coco_utils.html#read_keypoints_from_fname"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ncgenes7.utils.coco_utils.read_keypoints_from_fname" title="Permalink to this definition">¶</a></dt>
+<dd><p>Read keypoints from image_fname_to_objects mapping under corresponding
+image file name</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>image_id</strong> – image id to read the objects for</p></li>
+<li><p><strong>image_fname_to_objects</strong> – <dl class="simple">
+<dt>mapping of type</dt><dd><p>{image_fname:
+[{keypoints: [17, 2], keypoints_visibilities: ]}
+with normalized to particular image shape bounding box coordinates</p>
+</dd>
+</dl>
+</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><em>keypoints</em> – keypoints with shape [num_objects, 17, 24] and normalized coordinates in
+format [y, x]</p></li>
+<li><p><em>keypoints_visibilities</em> – visibilities of keypoints as [num_objects, 17]</p></li>
+</ul>
+</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">tuple</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="ncgenes7.utils.coco_utils.read_objects_from_fname">
+<code class="sig-prename descclassname">ncgenes7.utils.coco_utils.</code><code class="sig-name descname">read_objects_from_fname</code><span class="sig-paren">(</span><em class="sig-param">image_id</em>, <em class="sig-param">image_fname_to_objects</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ncgenes7/utils/coco_utils.html#read_objects_from_fname"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ncgenes7.utils.coco_utils.read_objects_from_fname" title="Permalink to this definition">¶</a></dt>
+<dd><p>Read objects from image_fname_to_objects mapping under corresponding
+image file name</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>image_id</strong> – image id to read the objects for</p></li>
+<li><p><strong>image_fname_to_objects</strong> – <dl class="simple">
+<dt>mapping of type</dt><dd><p>{image_fname:
+[{class_label: , id: , bbox: [ymin, xmin, ymax, xmax]}, {…}]}
+with normalized to particular image shape bounding box coordinates</p>
+</dd>
+</dl>
+</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><em>bboxes</em> – bounding boxes with shape [num_objects, 4] and normalized coordinates in
+format [ymin, xmin, ymax, xmax]</p></li>
+<li><p><em>class_labels</em> – 1-based classes for objects with shape [num_objects]</p></li>
+<li><p><em>instnace_ids</em> – instance ids with shape [num_objects]</p></li>
+</ul>
+</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">tuple</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="ncgenes7.utils.coco_utils.read_segmentation_from_fname">
+<code class="sig-prename descclassname">ncgenes7.utils.coco_utils.</code><code class="sig-name descname">read_segmentation_from_fname</code><span class="sig-paren">(</span><em class="sig-param">panoptic_fname</em>, <em class="sig-param">panoptic_image_fname_to_class_id_hash_fn</em>, <em class="sig-param">image_size=None</em>, <em class="sig-param">dtype='uint8'</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ncgenes7/utils/coco_utils.html#read_segmentation_from_fname"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ncgenes7.utils.coco_utils.read_segmentation_from_fname" title="Permalink to this definition">¶</a></dt>
+<dd><p>Read segmentation labels from file name and panoptic coco labels</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>panoptic_fname</strong> – file name with panoptic image</p></li>
+<li><p><strong>panoptic_image_fname_to_class_id_hash_fn</strong> – mapping of type {file_name: {id: class label}}</p></li>
+<li><p><strong>image_size</strong> – image size if labels should be resized to; if not specified, labels will
+be used as is</p></li>
+<li><p><strong>dtype</strong> – dtype for the result</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>segmentation classes</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>segmentation_classes</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="module-ncgenes7.utils.convolution_ops">
+<span id="ncgenes7-utils-convolution-ops-module"></span><h2>ncgenes7.utils.convolution_ops module<a class="headerlink" href="#module-ncgenes7.utils.convolution_ops" title="Permalink to this headline">¶</a></h2>
+<p>Convolution ops</p>
+<dl class="function">
+<dt id="ncgenes7.utils.convolution_ops.layer_normalize">
+<code class="sig-prename descclassname">ncgenes7.utils.convolution_ops.</code><code class="sig-name descname">layer_normalize</code><span class="sig-paren">(</span><em class="sig-param">x_raw</em>, <em class="sig-param">factor</em>, <em class="sig-param">offset</em>, <em class="sig-param">example_rank=1</em>, <em class="sig-param">epsilon=1e-05</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ncgenes7/utils/convolution_ops.html#layer_normalize"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ncgenes7.utils.convolution_ops.layer_normalize" title="Permalink to this definition">¶</a></dt>
+<dd><p>Layer normalization</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>x_raw</strong> – data to normalize</p></li>
+<li><p><strong>factor</strong> – factor to use</p></li>
+<li><p><strong>offset</strong> – offset to use</p></li>
+<li><p><strong>example_rank</strong> – dimension on to normalize, usually 1</p></li>
+<li><p><strong>epsilon</strong> – small offset to prevent division by zero</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>normalized data</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>x_norm</p>
+</dd>
+</dl>
+<p class="rubric">References</p>
+<p>“Layer Normalization”, J. L. Ba, J. R. Kiros, G. E. Hinton, 2016
+arXiv:1607.06450</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">Tensor</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="ncgenes7-utils-faster-rcnn-utils-module">
+<h2>ncgenes7.utils.faster_rcnn_utils module<a class="headerlink" href="#ncgenes7-utils-faster-rcnn-utils-module" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-ncgenes7.utils.file_list_utils">
+<span id="ncgenes7-utils-file-list-utils-module"></span><h2>ncgenes7.utils.file_list_utils module<a class="headerlink" href="#module-ncgenes7.utils.file_list_utils" title="Permalink to this headline">¶</a></h2>
+<p>Utils for file list operations</p>
+<dl class="function">
+<dt id="ncgenes7.utils.file_list_utils.maybe_create_sub_dirs">
+<code class="sig-prename descclassname">ncgenes7.utils.file_list_utils.</code><code class="sig-name descname">maybe_create_sub_dirs</code><span class="sig-paren">(</span><em class="sig-param">parent_dir</em>, <em class="sig-param">subdir</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ncgenes7/utils/file_list_utils.html#maybe_create_sub_dirs"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ncgenes7.utils.file_list_utils.maybe_create_sub_dirs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create folders starting from parent_dir to subdir</p>
+<p>If parent_dir does not exists, will not create anything</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>parent_dir</strong> – directory to create subdirectories inside</p></li>
+<li><p><strong>subdir</strong> – name of subdirectory, possibly nested, to create</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="module-ncgenes7.utils.general_ops">
+<span id="ncgenes7-utils-general-ops-module"></span><h2>ncgenes7.utils.general_ops module<a class="headerlink" href="#module-ncgenes7.utils.general_ops" title="Permalink to this headline">¶</a></h2>
+<p>General ops</p>
+<dl class="function">
+<dt id="ncgenes7.utils.general_ops.softmax_np">
+<code class="sig-prename descclassname">ncgenes7.utils.general_ops.</code><code class="sig-name descname">softmax_np</code><span class="sig-paren">(</span><em class="sig-param">logits</em>, <em class="sig-param">axis=-1</em>, <em class="sig-param">keepdims=True</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ncgenes7/utils/general_ops.html#softmax_np"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ncgenes7.utils.general_ops.softmax_np" title="Permalink to this definition">¶</a></dt>
+<dd><p>softmax on the input array over axis</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>logits</strong> – array with logits</p></li>
+<li><p><strong>axis</strong> – axis for softmax</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>softmax</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>softmax</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="module-ncgenes7.utils.general_utils">
+<span id="ncgenes7-utils-general-utils-module"></span><h2>ncgenes7.utils.general_utils module<a class="headerlink" href="#module-ncgenes7.utils.general_utils" title="Permalink to this headline">¶</a></h2>
+<p>general utils</p>
+<dl class="function">
+<dt id="ncgenes7.utils.general_utils.broadcast_with_expand_to">
+<code class="sig-prename descclassname">ncgenes7.utils.general_utils.</code><code class="sig-name descname">broadcast_with_expand_to</code><span class="sig-paren">(</span><em class="sig-param">tensor1</em>, <em class="sig-param">tensor2</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ncgenes7/utils/general_utils.html#broadcast_with_expand_to"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ncgenes7.utils.general_utils.broadcast_with_expand_to" title="Permalink to this definition">¶</a></dt>
+<dd><p>Broadcast one tensor to another with possible expanding of last dimensions
+of tensor1</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>tensor1</strong> – tensor to broadcast</p></li>
+<li><p><strong>tensor2</strong> – tensor to broadcast to</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>tensor1 broadcasted to tensor 2 shape</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>broadcasted_tensor1</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="ncgenes7.utils.general_utils.check_if_dynamic_keys_flat">
+<code class="sig-prename descclassname">ncgenes7.utils.general_utils.</code><code class="sig-name descname">check_if_dynamic_keys_flat</code><span class="sig-paren">(</span><em class="sig-param">function</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ncgenes7/utils/general_utils.html#check_if_dynamic_keys_flat"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ncgenes7.utils.general_utils.check_if_dynamic_keys_flat" title="Permalink to this definition">¶</a></dt>
+<dd><p>Decorator to check if the provided dynamic keys are not nested</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>function</strong> – function to wrap</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>wrapped function</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>wrapped</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Callable" title="(in Python v3.8)"><code class="xref py py-data docutils literal notranslate"><span class="pre">Callable</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="module-ncgenes7.utils.image_io_utils">
+<span id="ncgenes7-utils-image-io-utils-module"></span><h2>ncgenes7.utils.image_io_utils module<a class="headerlink" href="#module-ncgenes7.utils.image_io_utils" title="Permalink to this headline">¶</a></h2>
+<p>Utils for image IO operations</p>
+<dl class="function">
+<dt id="ncgenes7.utils.image_io_utils.decode_images_with_fnames">
+<code class="sig-prename descclassname">ncgenes7.utils.image_io_utils.</code><code class="sig-name descname">decode_images_with_fnames</code><span class="sig-paren">(</span><em class="sig-param">inputs</em>, <em class="sig-param">image_size</em>, <em class="sig-param">number_of_channels</em>, <em class="sig-param">cast_dtypes=None</em>, <em class="sig-param">rescale_float32=True</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ncgenes7/utils/image_io_utils.html#decode_images_with_fnames"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ncgenes7.utils.image_io_utils.decode_images_with_fnames" title="Permalink to this definition">¶</a></dt>
+<dd><p>Decode the images from file names</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>inputs</strong> – dict with tensor / list / ndarray of file names</p></li>
+<li><p><strong>image_size</strong> – image size in format height / width</p></li>
+<li><p><strong>number_of_channels</strong> – number of channels to decode</p></li>
+<li><p><strong>cast_dtypes</strong> – dtype to cast to</p></li>
+<li><p><strong>rescale_float32</strong> – rescale to [0, 1] for tf.float32 dtype</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><em>dict with keys as in inputs and decoded images as values together</em></p></li>
+<li><p><em>with keys in form ‘fname_$input_key’ with corresponding file names</em></p></li>
+</ul>
+</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Dict" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Dict</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Tensor</span></code>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="ncgenes7.utils.image_io_utils.read_image_with_number_of_channels">
+<code class="sig-prename descclassname">ncgenes7.utils.image_io_utils.</code><code class="sig-name descname">read_image_with_number_of_channels</code><span class="sig-paren">(</span><em class="sig-param">image_file_name</em>, <em class="sig-param">number_of_channels=3</em>, <em class="sig-param">image_size=None</em>, <em class="sig-param">interpolation_order=1</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ncgenes7/utils/image_io_utils.html#read_image_with_number_of_channels"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ncgenes7.utils.image_io_utils.read_image_with_number_of_channels" title="Permalink to this definition">¶</a></dt>
+<dd><p>Read image from file name and if needed adjust it so it has
+number_of_channels channels:</p>
+<ul class="simple">
+<li><p>if image has less than number_of_channels, first channel will be
+repeated for number_of_channels times</p></li>
+<li><p>if image has more than number_of_channels, only first number_of_channels
+channels will be selected</p></li>
+</ul>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>image_file_name</strong> – image file name</p></li>
+<li><p><strong>number_of_channels</strong> – number of channels inside of the output image</p></li>
+<li><p><strong>image_size</strong> – if specified, image will be resized to it</p></li>
+<li><p><strong>interpolation_order</strong> – order of interpolation to resize</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>image from file with np.uint8 dtype</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>image_from_file</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="ncgenes7.utils.image_io_utils.save_16bit_png">
+<code class="sig-prename descclassname">ncgenes7.utils.image_io_utils.</code><code class="sig-name descname">save_16bit_png</code><span class="sig-paren">(</span><em class="sig-param">save_file_name</em>, <em class="sig-param">image</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ncgenes7/utils/image_io_utils.html#save_16bit_png"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ncgenes7.utils.image_io_utils.save_16bit_png" title="Permalink to this definition">¶</a></dt>
+<dd><p>Save depth image image as 16 bit png image
+image should be already cropped to [0, 1]</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>save_file_name</strong> – file name to save</p></li>
+<li><p><strong>image</strong> – image as float</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="ncgenes7.utils.image_io_utils.save_isolines">
+<code class="sig-prename descclassname">ncgenes7.utils.image_io_utils.</code><code class="sig-name descname">save_isolines</code><span class="sig-paren">(</span><em class="sig-param">save_file_name</em>, <em class="sig-param">depth_image</em>, <em class="sig-param">image</em>, <em class="sig-param">max_isodist=30</em>, <em class="sig-param">number_of_isolevels=12</em>, <em class="sig-param">border_offset=10</em>, <em class="sig-param">use_log_scale=True</em>, <em class="sig-param">dpi=100</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ncgenes7/utils/image_io_utils.html#save_isolines"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ncgenes7.utils.image_io_utils.save_isolines" title="Permalink to this definition">¶</a></dt>
+<dd><p>Draw isolines according to depth and store image</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>save_file_name</strong> – file name to save the image</p></li>
+<li><p><strong>depth_image</strong> – pixel wise depth, [m]</p></li>
+<li><p><strong>image</strong> – original image</p></li>
+<li><p><strong>max_isodist</strong> – max distance to draw the isolines on, [m]</p></li>
+<li><p><strong>number_of_isolevels</strong> – number of isolines</p></li>
+<li><p><strong>use_log_scale</strong> – if isolines should be drawn in log scale</p></li>
+<li><p><strong>border_offset</strong> – offset from border in pixels</p></li>
+<li><p><strong>dpi</strong> – dpi of saved figure</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="module-ncgenes7.utils.image_utils">
+<span id="ncgenes7-utils-image-utils-module"></span><h2>ncgenes7.utils.image_utils module<a class="headerlink" href="#module-ncgenes7.utils.image_utils" title="Permalink to this headline">¶</a></h2>
+<p>Utils for image operations</p>
+<dl class="function">
+<dt id="ncgenes7.utils.image_utils.blend_images">
+<code class="sig-prename descclassname">ncgenes7.utils.image_utils.</code><code class="sig-name descname">blend_images</code><span class="sig-paren">(</span><em class="sig-param">image1</em>, <em class="sig-param">image2</em>, <em class="sig-param">alpha=0.4</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ncgenes7/utils/image_utils.html#blend_images"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ncgenes7.utils.image_utils.blend_images" title="Permalink to this definition">¶</a></dt>
+<dd><p>Overlap 2 images with specified alpha</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>image1</strong> – first image</p></li>
+<li><p><strong>image2</strong> – second image</p></li>
+<li><p><strong>alpha</strong> – coefficient values of second image</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>image as weighted sum of image1*(1-alpha) + image2*(alpha)</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>blended_image</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="ncgenes7.utils.image_utils.concatenate_images">
+<code class="sig-prename descclassname">ncgenes7.utils.image_utils.</code><code class="sig-name descname">concatenate_images</code><span class="sig-paren">(</span><em class="sig-param">images</em>, <em class="sig-param">nrows=-1</em>, <em class="sig-param">ncols=1</em>, <em class="sig-param">image_rescale=None</em>, <em class="sig-param">image_grid_border_width=3</em>, <em class="sig-param">image_size=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ncgenes7/utils/image_utils.html#concatenate_images"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ncgenes7.utils.image_utils.concatenate_images" title="Permalink to this definition">¶</a></dt>
+<dd><p>Concatenates images over 1st dimension</p>
+<p>Images will be resized to size of first image.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>images</strong> – list of tensors with number of dimensions 3 or 4;
+if ndim == 4, then last dimension should be 3 or 1</p></li>
+<li><p><strong>nrows</strong> – number of rows for image concatenation</p></li>
+<li><p><strong>ncols</strong> – number of columns for image concatenation</p></li>
+<li><p><strong>image_rescale</strong> – image rescale factors; if provided, should be same as number of
+precessed images</p></li>
+<li><p><strong>image_grid_border_width</strong> – number of pixels as grid border; color of the grid is blue</p></li>
+<li><p><strong>image_size</strong> – single image size to use; if specified, all images will be resized to it</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>concatenated images according to image_concat_nrows and
+image_concat_ncols</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>image_concat</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="ncgenes7.utils.image_utils.decode_class_ids_from_rgb">
+<code class="sig-prename descclassname">ncgenes7.utils.image_utils.</code><code class="sig-name descname">decode_class_ids_from_rgb</code><span class="sig-paren">(</span><em class="sig-param">labels_rgb</em>, <em class="sig-param">rgb_class_ids_mapping_hashed</em>, <em class="sig-param">hash_fun=&lt;function rgb_hash_fun&gt;</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ncgenes7/utils/image_utils.html#decode_class_ids_from_rgb"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ncgenes7.utils.image_utils.decode_class_ids_from_rgb" title="Permalink to this definition">¶</a></dt>
+<dd><p>Decode class ids from rgb image</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>labels_rgb</strong> – labels as image in rgb format</p></li>
+<li><p><strong>rgb_class_ids_mapping_hashed</strong> – dict mapping hashed rgb values to class ids</p></li>
+<li><p><strong>hash_fun</strong> – hash function to hash rgb values to one value</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>image with decoded class ids, np.uint8</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>class_ids</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="ncgenes7.utils.image_utils.disparity2depth">
+<code class="sig-prename descclassname">ncgenes7.utils.image_utils.</code><code class="sig-name descname">disparity2depth</code><span class="sig-paren">(</span><em class="sig-param">disparity</em>, <em class="sig-param">baseline_dist=0.3</em>, <em class="sig-param">focal_length=0.0014</em>, <em class="sig-param">sensor_width=0.0074</em>, <em class="sig-param">clip_distance=125</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ncgenes7/utils/image_utils.html#disparity2depth"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ncgenes7.utils.image_utils.disparity2depth" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculate the depth array from disparity based on stereo camera setup</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>disparity</strong> – disparity</p></li>
+<li><p><strong>baseline_dist</strong> – distance between cameras, [m]</p></li>
+<li><p><strong>focal_length</strong> – focal length of the camera, [m]</p></li>
+<li><p><strong>sensor_width</strong> – width of the sensor, [m]</p></li>
+<li><p><strong>clip_distance</strong> – all values above that distance will be capped, [m]</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>depth image, [m]</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>depth</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="ncgenes7.utils.image_utils.extract_edges_from_classes">
+<code class="sig-prename descclassname">ncgenes7.utils.image_utils.</code><code class="sig-name descname">extract_edges_from_classes</code><span class="sig-paren">(</span><em class="sig-param">labels_rgb</em>, <em class="sig-param">class_ids</em>, <em class="sig-param">edge_classes=None</em>, <em class="sig-param">edge_thickness=3</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ncgenes7/utils/image_utils.html#extract_edges_from_classes"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ncgenes7.utils.image_utils.extract_edges_from_classes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Extract edges from class id image for specified class ids</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>labels_rgb</strong> – labels as image in rgb format</p></li>
+<li><p><strong>class_ids</strong> – image with decoded class ids, np.uint8</p></li>
+<li><p><strong>edge_classes</strong> – semantic classes to use for edge extraction; if not specified, edges
+will be extracted for all classes</p></li>
+<li><p><strong>edge_thickness</strong> – thickness of generated edges
+both values [0, 0, 10] and [0, 10, 0] correspond to class id 2</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>edges image</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>edges</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="ncgenes7.utils.image_utils.interpolation_method_by_dtype">
+<code class="sig-prename descclassname">ncgenes7.utils.image_utils.</code><code class="sig-name descname">interpolation_method_by_dtype</code><span class="sig-paren">(</span><em class="sig-param">x</em>, <em class="sig-param">as_str=False</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ncgenes7/utils/image_utils.html#interpolation_method_by_dtype"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ncgenes7.utils.image_utils.interpolation_method_by_dtype" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get interpolation method by dtype of x</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>x</strong> – array to interpolate</p></li>
+<li><p><strong>as_str</strong> – if result should be as string</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>0 or “BILINEAR” if x is float and 1 otherwise</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>interpolation_method</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Union" title="(in Python v3.8)"><code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>, <a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="ncgenes7.utils.image_utils.labels2rgb">
+<code class="sig-prename descclassname">ncgenes7.utils.image_utils.</code><code class="sig-name descname">labels2rgb</code><span class="sig-paren">(</span><em class="sig-param">label_image</em>, <em class="sig-param">rgb_class_mapping</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ncgenes7/utils/image_utils.html#labels2rgb"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ncgenes7.utils.image_utils.labels2rgb" title="Permalink to this definition">¶</a></dt>
+<dd><p>Encode rgb values from labels according to rgb_class_mapping.
+If mapping is not provided, returns same image</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>label_image</strong> – image with class ids in last dimension</p></li>
+<li><p><strong>rgb_class_mapping</strong> – mapping of type {class: [R, G, B]}</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>rgb_image</strong> – encoded rgb image</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>array_like</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="ncgenes7.utils.image_utils.maybe_resize_and_expand_image">
+<code class="sig-prename descclassname">ncgenes7.utils.image_utils.</code><code class="sig-name descname">maybe_resize_and_expand_image</code><span class="sig-paren">(</span><em class="sig-param">image1</em>, <em class="sig-param">image2</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ncgenes7/utils/image_utils.html#maybe_resize_and_expand_image"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ncgenes7.utils.image_utils.maybe_resize_and_expand_image" title="Permalink to this definition">¶</a></dt>
+<dd><p>Resize and expand image1 to have shape of image2</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>image1</strong> – image to image</p></li>
+<li><p><strong>image2</strong> – image with size to expand / resize to</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>image1 with shape of image2</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>image1_with_shape_of_image2</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="ncgenes7.utils.image_utils.rgb_hash_fun">
+<code class="sig-prename descclassname">ncgenes7.utils.image_utils.</code><code class="sig-name descname">rgb_hash_fun</code><span class="sig-paren">(</span><em class="sig-param">rgb</em>, <em class="sig-param">nd=False</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ncgenes7/utils/image_utils.html#rgb_hash_fun"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ncgenes7.utils.image_utils.rgb_hash_fun" title="Permalink to this definition">¶</a></dt>
+<dd><p>hash function for rgb values</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>rgb</strong> – image encoding rgb value</p></li>
+<li><p><strong>nd</strong> – if True, than the hash is done with 3-dimensional array (images)</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="ncgenes7.utils.image_utils.single_image_reshape_decoded_and_resize">
+<code class="sig-prename descclassname">ncgenes7.utils.image_utils.</code><code class="sig-name descname">single_image_reshape_decoded_and_resize</code><span class="sig-paren">(</span><em class="sig-param">image</em>, <em class="sig-param">decoded_image_size</em>, <em class="sig-param">number_of_channels</em>, <em class="sig-param">resize_to=None</em>, <em class="sig-param">method=1</em>, <em class="sig-param">cast_back=True</em>, <em class="sig-param">clip_values=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ncgenes7/utils/image_utils.html#single_image_reshape_decoded_and_resize"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ncgenes7.utils.image_utils.single_image_reshape_decoded_and_resize" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reshape to decoded shape and resize to new spatial size if needed</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>image</strong> – single image as vector with shape []</p></li>
+<li><p><strong>decoded_image_size</strong> – image size to reshape to in format [height, width]</p></li>
+<li><p><strong>number_of_channels</strong> – number of channels in decoded image</p></li>
+<li><p><strong>resize_to</strong> – image to resize to in format [height, width]</p></li>
+<li><p><strong>method</strong> – one of tf.image.ResizeMethod</p></li>
+<li><p><strong>cast_back</strong> – if the resized image should be casted back to initial dtype</p></li>
+<li><p><strong>clip_values</strong> – list of min and max values to clip before cast back</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>resized and reshaped image</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>image_resized</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">Tensor</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="module-ncgenes7.utils.io_utils">
+<span id="ncgenes7-utils-io-utils-module"></span><h2>ncgenes7.utils.io_utils module<a class="headerlink" href="#module-ncgenes7.utils.io_utils" title="Permalink to this headline">¶</a></h2>
+<p>Generic IO utils</p>
+<dl class="function">
+<dt id="ncgenes7.utils.io_utils.build_class_labels_to_names_mapping">
+<code class="sig-prename descclassname">ncgenes7.utils.io_utils.</code><code class="sig-name descname">build_class_labels_to_names_mapping</code><span class="sig-paren">(</span><em class="sig-param">num_classes=None</em>, <em class="sig-param">class_names_to_labels_mapping=None</em>, <em class="sig-param">class_id_offset=0</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ncgenes7/utils/io_utils.html#build_class_labels_to_names_mapping"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ncgenes7.utils.io_utils.build_class_labels_to_names_mapping" title="Permalink to this definition">¶</a></dt>
+<dd><p>Build mapping from class id to its names and vice-verse from that mapping or
+from num_classes only. If no mapping was provided, class names are
+“class_{class_id}”.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>num_classes</strong> – number of classes</p></li>
+<li><p><strong>class_names_to_labels_mapping</strong> – file name or mapping itself; mapping should be in format
+{“class name”: {“class_id”: 1}, “other class_name”: {“class_id”: 2}},
+where class_id is an unique integer; if multiple class names have same
+class id, then the last name inside of json file will be used as class
+name</p></li>
+<li><p><strong>class_id_offset</strong> – offset of class id</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><em>num_classes</em> – number of classes</p></li>
+<li><p><em>class_names_to_labels_mapping</em> – mapping in format
+{“class name”: {“class_id”: 1}, “other class_name”: {“class_id”: 2}}</p></li>
+<li><p><em>class_labels_to_names_mapping</em> – mapping from class id to class name</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="module-ncgenes7.utils.keras_utils">
+<span id="ncgenes7-utils-keras-utils-module"></span><h2>ncgenes7.utils.keras_utils module<a class="headerlink" href="#module-ncgenes7.utils.keras_utils" title="Permalink to this headline">¶</a></h2>
+<p>Utils for keras library</p>
+<dl class="class">
+<dt id="ncgenes7.utils.keras_utils.KerasCompositionalLayer">
+<em class="property">class </em><code class="sig-prename descclassname">ncgenes7.utils.keras_utils.</code><code class="sig-name descname">KerasCompositionalLayer</code><span class="sig-paren">(</span><em class="sig-param">trainable=True</em>, <em class="sig-param">name=None</em>, <em class="sig-param">dtype=None</em>, <em class="sig-param">dynamic=False</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ncgenes7/utils/keras_utils.html#KerasCompositionalLayer"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ncgenes7.utils.keras_utils.KerasCompositionalLayer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">tensorflow.python.keras.engine.base_layer.Layer</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">nucleus7.utils.model_utils.KerasLayersMixin</span></code></p>
+<p>The same class as the base keras layer, but it allows to reset the
+added using self.add_keras_layer interface layers to this layer
+inside of self.build</p>
+<dl class="method">
+<dt id="ncgenes7.utils.keras_utils.KerasCompositionalLayer.build">
+<code class="sig-name descname">build</code><span class="sig-paren">(</span><em class="sig-param">input_shape</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ncgenes7/utils/keras_utils.html#KerasCompositionalLayer.build"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ncgenes7.utils.keras_utils.KerasCompositionalLayer.build" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates the variables of the layer (optional, for subclass implementers).</p>
+<p>This is a method that implementers of subclasses of <cite>Layer</cite> or <cite>Model</cite>
+can override if they need a state-creation step in-between
+layer instantiation and layer call.</p>
+<p>This is typically used to create the weights of <cite>Layer</cite> subclasses.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>input_shape</strong> – Instance of <cite>TensorShape</cite>, or list of instances of
+<cite>TensorShape</cite> if the layer expects a list of inputs
+(one instance per input).</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="ncgenes7-utils-object-detection-io-utils-module">
+<h2>ncgenes7.utils.object_detection_io_utils module<a class="headerlink" href="#ncgenes7-utils-object-detection-io-utils-module" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="ncgenes7-utils-object-detection-utils-module">
+<h2>ncgenes7.utils.object_detection_utils module<a class="headerlink" href="#ncgenes7-utils-object-detection-utils-module" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-ncgenes7.utils.open_images_utils">
+<span id="ncgenes7-utils-open-images-utils-module"></span><h2>ncgenes7.utils.open_images_utils module<a class="headerlink" href="#module-ncgenes7.utils.open_images_utils" title="Permalink to this headline">¶</a></h2>
+<p>Utils for open images dataset</p>
+<dl class="function">
+<dt id="ncgenes7.utils.open_images_utils.get_annotation_mapping">
+<code class="sig-prename descclassname">ncgenes7.utils.open_images_utils.</code><code class="sig-name descname">get_annotation_mapping</code><span class="sig-paren">(</span><em class="sig-param">fname_annotations</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ncgenes7/utils/open_images_utils.html#get_annotation_mapping"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ncgenes7.utils.open_images_utils.get_annotation_mapping" title="Permalink to this definition">¶</a></dt>
+<dd><p>Read annotations</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>fname_annotations</strong> – file name of annotations.csv</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>data frame of annotations with ImageID as index</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>annotation</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">DataFrame</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="ncgenes7.utils.open_images_utils.get_class_descriptions_mapping">
+<code class="sig-prename descclassname">ncgenes7.utils.open_images_utils.</code><code class="sig-name descname">get_class_descriptions_mapping</code><span class="sig-paren">(</span><em class="sig-param">fname_class_descriptions</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ncgenes7/utils/open_images_utils.html#get_class_descriptions_mapping"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ncgenes7.utils.open_images_utils.get_class_descriptions_mapping" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create mapping {class_hash}: (class_id, class_name); the class ids is a
+range for sorted class names</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>fname_class_descriptions</strong> – file name with class_descriptions.csv</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>mapping of class hash string to tuple of (class id, class name)</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>class_descriptions</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="ncgenes7.utils.open_images_utils.query_labels_by_image_id">
+<code class="sig-prename descclassname">ncgenes7.utils.open_images_utils.</code><code class="sig-name descname">query_labels_by_image_id</code><span class="sig-paren">(</span><em class="sig-param">image_id</em>, <em class="sig-param">annotations</em>, <em class="sig-param">class_descriptions</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ncgenes7/utils/open_images_utils.html#query_labels_by_image_id"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ncgenes7.utils.open_images_utils.query_labels_by_image_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>Query labels from annotations by image id. If image id is not inside of
+annotations data frame, it will return zero boxes and class labels,
+otherwise will return all labels forund for this image id</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>image_id</strong> – image id to query the labels</p></li>
+<li><p><strong>annotations</strong> – open images annotations</p></li>
+<li><p><strong>class_descriptions</strong> – mapping of class hash to class id and class name</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><em>class_labels</em> – class labels</p></li>
+<li><p><em>bboxes</em> – boxes with normalized coordinates in format [ymin, xmin, ymax, xmax]</p></li>
+</ul>
+</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Tuple" title="(in Python v3.8)"><code class="xref py py-data docutils literal notranslate"><span class="pre">Tuple</span></code></a>[<code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="module-ncgenes7.utils.reshape_ops">
+<span id="ncgenes7-utils-reshape-ops-module"></span><h2>ncgenes7.utils.reshape_ops module<a class="headerlink" href="#module-ncgenes7.utils.reshape_ops" title="Permalink to this headline">¶</a></h2>
+<p>Helper functions for reshape operations</p>
+<dl class="function">
+<dt id="ncgenes7.utils.reshape_ops.expand_batch_dimension">
+<code class="sig-prename descclassname">ncgenes7.utils.reshape_ops.</code><code class="sig-name descname">expand_batch_dimension</code><span class="sig-paren">(</span><em class="sig-param">*output_names_to_expand</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ncgenes7/utils/reshape_ops.html#expand_batch_dimension"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ncgenes7.utils.reshape_ops.expand_batch_dimension" title="Permalink to this definition">¶</a></dt>
+<dd><p>Class decorator to expand batch dimension inside of decorated method</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>output_names_to_expand</strong> – list of output names to expand the dimension</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>class decorator</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>decorator</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Callable" title="(in Python v3.8)"><code class="xref py py-data docutils literal notranslate"><span class="pre">Callable</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="ncgenes7.utils.reshape_ops.get_conversion_function">
+<code class="sig-prename descclassname">ncgenes7.utils.reshape_ops.</code><code class="sig-name descname">get_conversion_function</code><span class="sig-paren">(</span><em class="sig-param">input_format</em>, <em class="sig-param">output_format</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ncgenes7/utils/reshape_ops.html#get_conversion_function"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ncgenes7.utils.reshape_ops.get_conversion_function" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get a conversion function from the input format to the output format</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>input_format</strong> – The input format of the data you want to convert</p></li>
+<li><p><strong>output_format</strong> – The wanted data format</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A function to convert the data from input_format to output_format</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>conversion_fn</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Callable" title="(in Python v3.8)"><code class="xref py py-data docutils literal notranslate"><span class="pre">Callable</span></code></a>[[<code class="xref py py-class docutils literal notranslate"><span class="pre">Tensor</span></code>], <code class="xref py py-class docutils literal notranslate"><span class="pre">Tensor</span></code>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="ncgenes7.utils.reshape_ops.maybe_reshape">
+<code class="sig-prename descclassname">ncgenes7.utils.reshape_ops.</code><code class="sig-name descname">maybe_reshape</code><span class="sig-paren">(</span><em class="sig-param">tensor</em>, <em class="sig-param">new_rank</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ncgenes7/utils/reshape_ops.html#maybe_reshape"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ncgenes7.utils.reshape_ops.maybe_reshape" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reshape a tensor to have the wanted rank. Additional dimensions will be
+added to the batch size</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>tensor</strong> – tensor with rank greater or equal wanted rank</p></li>
+<li><p><strong>new_rank</strong> – the rank the tensor should have after reshaping</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><em>out_tensor</em> – tensor of wanted rank</p></li>
+<li><p><em>new_shape</em> – part of the initial shape which is now hidden in the batch size</p></li>
+</ul>
+</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Tuple" title="(in Python v3.8)"><code class="xref py py-data docutils literal notranslate"><span class="pre">Tuple</span></code></a>[<code class="xref py py-class docutils literal notranslate"><span class="pre">Tensor</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Tensor</span></code>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="ncgenes7.utils.reshape_ops.maybe_restore">
+<code class="sig-prename descclassname">ncgenes7.utils.reshape_ops.</code><code class="sig-name descname">maybe_restore</code><span class="sig-paren">(</span><em class="sig-param">tensor</em>, <em class="sig-param">shape_now_in_batch</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ncgenes7/utils/reshape_ops.html#maybe_restore"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ncgenes7.utils.reshape_ops.maybe_restore" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reshape a tensor such that the batch size is extended to shape_now_in_batch
+E.g. given a tensor [bs_old, c] the new tensor will have the size
+<cite>[*shape_now_in_batch, c]</cite></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>tensor</strong> – tensor with rank greater or equal wanted rank</p></li>
+<li><p><strong>shape_now_in_batch</strong> – tensor containing the dimensionality to reshape the batch size to</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>the reshaped tensor</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>out_tensor</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">Tensor</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="ncgenes7.utils.reshape_ops.squeeze_batch_dimension">
+<code class="sig-prename descclassname">ncgenes7.utils.reshape_ops.</code><code class="sig-name descname">squeeze_batch_dimension</code><span class="sig-paren">(</span><em class="sig-param">*input_names_to_squeeze</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ncgenes7/utils/reshape_ops.html#squeeze_batch_dimension"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ncgenes7.utils.reshape_ops.squeeze_batch_dimension" title="Permalink to this definition">¶</a></dt>
+<dd><p>Class decorator to squeeze particular inputs inside of decorated
+method</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>input_names_to_squeeze</strong> – names of input to be squeezed</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>class decorator</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>decorator</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Callable" title="(in Python v3.8)"><code class="xref py py-data docutils literal notranslate"><span class="pre">Callable</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="module-ncgenes7.utils.vis_utils">
+<span id="ncgenes7-utils-vis-utils-module"></span><h2>ncgenes7.utils.vis_utils module<a class="headerlink" href="#module-ncgenes7.utils.vis_utils" title="Permalink to this headline">¶</a></h2>
+<p>Utils for visualization</p>
+<dl class="function">
+<dt id="ncgenes7.utils.vis_utils.add_legends">
+<code class="sig-prename descclassname">ncgenes7.utils.vis_utils.</code><code class="sig-name descname">add_legends</code><span class="sig-paren">(</span><em class="sig-param">image</em>, <em class="sig-param">legend_titles</em>, <em class="sig-param">legend_items_with_colors</em>, <em class="sig-param">legend_markers='line'</em>, <em class="sig-param">orientation='vertical'</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ncgenes7/utils/vis_utils.html#add_legends"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ncgenes7.utils.vis_utils.add_legends" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add legends to the image by stacking them in the direction of orientation</p>
+<p>Will add the legend in vertical (to the right of image) or in horizontal
+(to the bottom of image) orientations.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>image</strong> – image</p></li>
+<li><p><strong>legend_titles</strong> – list of legends titles</p></li>
+<li><p><strong>legend_items_with_colors</strong> – list of dict with mapping of legend items to its RGB colors;
+inside of legend items are sorted in alphabetical order</p></li>
+<li><p><strong>orientation</strong> – orientation of the legend - horizontal or vertical</p></li>
+<li><p><strong>legend_markers</strong> – which marks to use as a legend markers</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>image with legend</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>image_with_legend</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="ncgenes7.utils.vis_utils.draw_attributes_as_marks">
+<code class="sig-prename descclassname">ncgenes7.utils.vis_utils.</code><code class="sig-name descname">draw_attributes_as_marks</code><span class="sig-paren">(</span><em class="sig-param">image</em>, <em class="sig-param">object_boxes</em>, <em class="sig-param">attributes</em>, <em class="sig-param">class_ids_to_names_mapping</em>, <em class="sig-param">colors=None</em>, <em class="sig-param">thickness=5</em>, <em class="sig-param">add_legend=True</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ncgenes7/utils/vis_utils.html#draw_attributes_as_marks"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ncgenes7.utils.vis_utils.draw_attributes_as_marks" title="Permalink to this definition">¶</a></dt>
+<dd><p>Draws the small marks on the right or on the left of bounding boxes with
+colors corresponding to the attribute value and adds a legend for attributes
+to an image</p>
+<p>If add_legend is True, then it will add the legend to an image,
+so image width will be changed</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>image</strong> – image to draw on</p></li>
+<li><p><strong>object_boxes</strong> – object boxes with shape [num_objects, 4] and coordinates in format
+[ymin, xmin, ymax, xmax] represented as absolute coordinates</p></li>
+<li><p><strong>attributes</strong> – dict which holds the attributes for all objects with every value
+of shape [num_objects]; attributes with value &lt;=0 will be ignored</p></li>
+<li><p><strong>class_ids_to_names_mapping</strong> – mapping of type {attribute_name: {class_id: class_name}}</p></li>
+<li><p><strong>colors</strong> – colors as mypping of type {attribute_name: {class_id: rgb}}</p></li>
+<li><p><strong>thickness</strong> – thickness of the mark</p></li>
+<li><p><strong>add_legend</strong> – if the legend should be added to the right side of the image</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>image with attributes as marks and corresponding legend</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>image_with_attributes_and_legend</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="ncgenes7.utils.vis_utils.draw_keypoints_connections">
+<code class="sig-prename descclassname">ncgenes7.utils.vis_utils.</code><code class="sig-name descname">draw_keypoints_connections</code><span class="sig-paren">(</span><em class="sig-param">image</em>, <em class="sig-param">keypoints</em>, <em class="sig-param">connection_map</em>, <em class="sig-param">colors=None</em>, <em class="sig-param">thickness=2</em>, <em class="sig-param">add_legend=True</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ncgenes7/utils/vis_utils.html#draw_keypoints_connections"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ncgenes7.utils.vis_utils.draw_keypoints_connections" title="Permalink to this definition">¶</a></dt>
+<dd><p>Draw connections between keypoints according to connection map</p>
+<p>If add_legend is True, then it will add the legend to an image,
+so image width will be changed</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>image</strong> – np.uint8 image</p></li>
+<li><p><strong>keypoints</strong> – keypoints with shape [num_objects, num_keypoints, 2] in global, e.g.
+image coordinates and coordinates in format [y, x]</p></li>
+<li><p><strong>connection_map</strong> – connection map is a dict which maps the name of connection to the
+connection indices, e.g. {“joint1”: [1, 2]}</p></li>
+<li><p><strong>colors</strong> – dict with mapping of the same connection names as connection_map
+to the rgb colors</p></li>
+<li><p><strong>thickness</strong> – thickness of the connection</p></li>
+<li><p><strong>add_legend</strong> – if the legend should be added to the right side of the image</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>image with connections drawn</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>image</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="ncgenes7.utils.vis_utils.draw_keypoints_connections_single_object">
+<code class="sig-prename descclassname">ncgenes7.utils.vis_utils.</code><code class="sig-name descname">draw_keypoints_connections_single_object</code><span class="sig-paren">(</span><em class="sig-param">draw</em>, <em class="sig-param">keypoints</em>, <em class="sig-param">connection_map</em>, <em class="sig-param">colors</em>, <em class="sig-param">thickness=1</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ncgenes7/utils/vis_utils.html#draw_keypoints_connections_single_object"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ncgenes7.utils.vis_utils.draw_keypoints_connections_single_object" title="Permalink to this definition">¶</a></dt>
+<dd><p>Draw connections between keypoints according to connection map</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>draw</strong> – image draw</p></li>
+<li><p><strong>keypoints</strong> – keypoints with shape [num_keypoints, 2] in global, e.g.
+image coordinates and coordinates in format [y, x]</p></li>
+<li><p><strong>connection_map</strong> – connection as list of lists of connections specifying connected
+keypoints indices</p></li>
+<li><p><strong>colors</strong> – list of rgb values for each connection index</p></li>
+<li><p><strong>thickness</strong> – thickness of the connection</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>image with connections drawn</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>image</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="module-ncgenes7.utils">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-ncgenes7.utils" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="ncgenes7.third_party.object_detection.html" class="btn btn-neutral float-left" title="ncgenes7.third_party.object_detection package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Audi Electronics Venture GmbH
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

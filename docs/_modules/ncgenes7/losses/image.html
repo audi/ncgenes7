@@ -1,0 +1,596 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>ncgenes7.losses.image &mdash; ncgenes7 v0.10.0 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../../_static/icon.ico"/>
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> ncgenes7
+          
+
+          
+            
+            <img src="../../../_static/icon.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.10.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../Introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../ProjectSamples.html">Sample projects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Contribution.html">Contribution</a></li>
+</ul>
+<p class="caption"><span class="caption-text">API:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/ncgenes7.augmentations.html">ncgenes7.augmentations package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/ncgenes7.callbacks.html">ncgenes7.callbacks package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/ncgenes7.data_feeders.html">ncgenes7.data_feeders package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/ncgenes7.data_fields.html">ncgenes7.data_fields package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/ncgenes7.data_filters.html">ncgenes7.data_filters package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/ncgenes7.data_readers.html">ncgenes7.data_readers package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/ncgenes7.file_lists.html">ncgenes7.file_lists package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/ncgenes7.kpis.html">ncgenes7.kpis package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/ncgenes7.learning_rate_manipulators.html">ncgenes7.learning_rate_manipulators package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/ncgenes7.losses.html">ncgenes7.losses package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/ncgenes7.metrics.html">ncgenes7.metrics package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/ncgenes7.plugins.html">ncgenes7.plugins package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/ncgenes7.plugins.cnns.html">ncgenes7.plugins.cnns package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/ncgenes7.plugins.object_detection.html">ncgenes7.plugins.object_detection package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/ncgenes7.plugins.preprocessing.html">ncgenes7.plugins.preprocessing package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/ncgenes7.plugins.utils.html">ncgenes7.plugins.utils package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/ncgenes7.postprocessors.html">ncgenes7.postprocessors package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/ncgenes7.summaries.html">ncgenes7.summaries package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/ncgenes7.third_party.html">ncgenes7.third_party package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/ncgenes7.third_party.object_detection.html">ncgenes7.third_party.object_detection package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/ncgenes7.utils.html">ncgenes7.utils package</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">ncgenes7</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../index.html">Module code</a> &raquo;</li>
+        
+      <li>ncgenes7.losses.image</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for ncgenes7.losses.image</h1><div class="highlight"><pre>
+<span></span><span class="c1"># ==============================================================================</span>
+<span class="c1"># Copyright (c) 2019 Audi Electronics Venture GmbH. All rights reserved.</span>
+<span class="c1">#</span>
+<span class="c1"># This Source Code Form is subject to the terms of the Mozilla</span>
+<span class="c1"># Public License, v. 2.0. If a copy of the MPL was not distributed</span>
+<span class="c1"># with this file, You can obtain one at https://mozilla.org/MPL/2.0/.</span>
+<span class="c1"># ==============================================================================</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Implementation of ModelLoss for image related tasks</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="kn">from</span> <span class="nn">functools</span> <span class="kn">import</span> <span class="n">wraps</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">List</span>
+
+<span class="kn">import</span> <span class="nn">nucleus7</span> <span class="k">as</span> <span class="nn">nc7</span>
+<span class="kn">from</span> <span class="nn">nucleus7.utils.tf_varscopes_utils</span> <span class="kn">import</span> <span class="n">with_name_scope</span>
+<span class="kn">import</span> <span class="nn">tensorflow</span> <span class="k">as</span> <span class="nn">tf</span>
+
+<span class="kn">from</span> <span class="nn">ncgenes7.data_fields.images</span> <span class="kn">import</span> <span class="n">ImageDataFields</span>
+
+
+<span class="k">def</span> <span class="nf">_change_single_to_list</span><span class="p">(</span><span class="n">function</span><span class="p">):</span>
+    <span class="nd">@wraps</span><span class="p">(</span><span class="n">function</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">wrapped</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">data</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">each_key</span><span class="p">,</span> <span class="n">each_value</span> <span class="ow">in</span> <span class="n">data</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">each_value</span><span class="p">,</span> <span class="nb">list</span><span class="p">):</span>
+                <span class="n">data</span><span class="p">[</span><span class="n">each_key</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">each_value</span><span class="p">]</span>
+        <span class="k">return</span> <span class="n">function</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">data</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">wrapped</span>
+
+
+<div class="viewcode-block" id="StereoDepthLoss"><a class="viewcode-back" href="../../../api/ncgenes7.losses.html#ncgenes7.losses.image.StereoDepthLoss">[docs]</a><span class="k">class</span> <span class="nc">StereoDepthLoss</span><span class="p">(</span><span class="n">nc7</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">ModelLoss</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Loss for stereo depth estimation</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    use_2nd_order_gradients</span>
+<span class="sd">        if second order image gradient loss should be calculated</span>
+<span class="sd">    loss_ssim_alpha</span>
+<span class="sd">        ssim reconstruction coefficient</span>
+
+<span class="sd">    Attributes</span>
+<span class="sd">    ----------</span>
+<span class="sd">    incoming_keys</span>
+<span class="sd">        * images_left : left input image, {tf.float32, [tf.float32]*n},</span>
+<span class="sd">          [bs, h, w, num_channels]</span>
+<span class="sd">        * images_right : right image, {tf.float32, [tf.float32]*n},</span>
+<span class="sd">          [bs, h, w, num_channels]</span>
+<span class="sd">        * images_left_reconstructed : reconstructed left image,</span>
+<span class="sd">          {tf.float32, [tf.float32]*n}, [bs, h, w, num_channels]</span>
+<span class="sd">        * images_right_reconstructed : reconstructed right image,</span>
+<span class="sd">          {tf.float32, [tf.float32]*n}, [bs, h, w, num_channels]</span>
+<span class="sd">        * disparity_images_left : disparity for left image,</span>
+<span class="sd">          {tf.float32, [tf.float32]*n}, [bs, h, w, 1]</span>
+<span class="sd">        * disparity_images_right : disparity to right image,</span>
+<span class="sd">          {tf.float32, [tf.float32]*n}, [bs, h, w, 1]</span>
+<span class="sd">        * disparity_images_left_inverted : disparity reconstructed from right</span>
+<span class="sd">          disparity using left one as transformation,</span>
+<span class="sd">          {tf.float32, [tf.float32]*n}, [bs, h, w, 1]</span>
+<span class="sd">        * disparity_images_right_inverted : disparity reconstructed from left</span>
+<span class="sd">          disparity using right one as transformation,</span>
+<span class="sd">          {tf.float32, [tf.float32]*n}, [bs, h, w, 1]</span>
+
+<span class="sd">    generated_keys</span>
+<span class="sd">        * loss_appearance_matching : matching of reconstruction</span>
+<span class="sd">        * loss_disp_smoothness : disparity smoothness loss</span>
+<span class="sd">        * loss_disp_consistency : disparity consistency</span>
+<span class="sd">        * loss_disp_smoothness_2nd_order : (optional) second order</span>
+<span class="sd">          smoothness loss</span>
+
+<span class="sd">    References</span>
+<span class="sd">    ----------</span>
+<span class="sd">    loss_disp_smoothness, disp_consistency, appearance_matching</span>
+<span class="sd">        https://arxiv.org/abs/1609.03677</span>
+<span class="sd">    disp_smoothness_2nd_order</span>
+<span class="sd">        https://arxiv.org/abs/1704.07813</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">incoming_keys</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="n">ImageDataFields</span><span class="o">.</span><span class="n">images_left</span><span class="p">,</span>
+        <span class="n">ImageDataFields</span><span class="o">.</span><span class="n">images_right</span><span class="p">,</span>
+        <span class="n">ImageDataFields</span><span class="o">.</span><span class="n">images_left</span> <span class="o">+</span> <span class="s2">&quot;_reconstructed&quot;</span><span class="p">,</span>
+        <span class="n">ImageDataFields</span><span class="o">.</span><span class="n">images_right</span> <span class="o">+</span> <span class="s2">&quot;_reconstructed&quot;</span><span class="p">,</span>
+        <span class="n">ImageDataFields</span><span class="o">.</span><span class="n">disparity_images_left</span><span class="p">,</span>
+        <span class="n">ImageDataFields</span><span class="o">.</span><span class="n">disparity_images_right</span><span class="p">,</span>
+        <span class="n">ImageDataFields</span><span class="o">.</span><span class="n">disparity_images_left</span> <span class="o">+</span> <span class="s2">&quot;_inverted&quot;</span><span class="p">,</span>
+        <span class="n">ImageDataFields</span><span class="o">.</span><span class="n">disparity_images_right</span> <span class="o">+</span> <span class="s2">&quot;_inverted&quot;</span><span class="p">,</span>
+    <span class="p">]</span>
+    <span class="n">generated_keys</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="s2">&quot;loss_appearance_matching&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;loss_disp_smoothness&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;loss_disp_consistency&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;loss_disp_smoothness_2nd_order&quot;</span><span class="p">,</span>
+    <span class="p">]</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span>
+                 <span class="n">use_2nd_order_gradients</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+                 <span class="n">loss_ssim_alpha</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.85</span><span class="p">,</span>
+                 <span class="o">**</span><span class="n">loss_kwargs</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">**</span><span class="n">loss_kwargs</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">use_2nd_order_gradients</span> <span class="o">=</span> <span class="n">use_2nd_order_gradients</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">loss_ssim_alpha</span> <span class="o">=</span> <span class="n">loss_ssim_alpha</span>
+
+<div class="viewcode-block" id="StereoDepthLoss.process"><a class="viewcode-back" href="../../../api/ncgenes7.losses.html#ncgenes7.losses.image.StereoDepthLoss.process">[docs]</a>    <span class="nd">@_change_single_to_list</span>
+    <span class="k">def</span> <span class="nf">process</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span>
+                <span class="n">images_left</span><span class="p">,</span> <span class="n">images_right</span><span class="p">,</span>
+                <span class="n">images_left_reconstructed</span><span class="p">,</span> <span class="n">images_right_reconstructed</span><span class="p">,</span>
+                <span class="n">disparity_images_left</span><span class="p">,</span> <span class="n">disparity_images_right</span><span class="p">,</span>
+                <span class="n">disparity_images_left_inverted</span><span class="p">,</span> <span class="n">disparity_images_right_inverted</span>
+                <span class="p">):</span>
+        <span class="c1"># pylint: disable=arguments-differ</span>
+        <span class="c1"># parent save method has more generic signature</span>
+        <span class="k">assert</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">images_left</span><span class="p">)</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="n">images_right</span><span class="p">)</span> <span class="o">==</span>
+                <span class="nb">len</span><span class="p">(</span><span class="n">disparity_images_left</span><span class="p">)</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="n">disparity_images_right</span><span class="p">)</span> <span class="o">==</span>
+                <span class="nb">len</span><span class="p">(</span><span class="n">disparity_images_left_inverted</span><span class="p">)</span> <span class="o">==</span>
+                <span class="nb">len</span><span class="p">(</span><span class="n">disparity_images_right_inverted</span><span class="p">)</span>
+                <span class="p">),</span> <span class="p">(</span><span class="s2">&quot;Number of disparities should be the same for left &quot;</span>
+                    <span class="s2">&quot;and right and and be equal to number of images!!! &quot;</span>
+                    <span class="s2">&quot;images: </span><span class="si">{}</span><span class="s2">: </span><span class="si">{}</span><span class="s2">, disparities: </span><span class="si">{}</span><span class="s2"> : </span><span class="si">{}</span><span class="s2">, inv: </span><span class="si">{}</span><span class="s2"> : </span><span class="si">{}</span><span class="s2">&quot;</span>
+                    <span class="p">)</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">images_left</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="n">images_right</span><span class="p">),</span>
+                             <span class="nb">len</span><span class="p">(</span><span class="n">disparity_images_left</span><span class="p">),</span>
+                             <span class="nb">len</span><span class="p">(</span><span class="n">disparity_images_right</span><span class="p">),</span>
+                             <span class="nb">len</span><span class="p">(</span><span class="n">disparity_images_left_inverted</span><span class="p">),</span>
+                             <span class="nb">len</span><span class="p">(</span><span class="n">disparity_images_right_inverted</span><span class="p">))</span>
+
+        <span class="n">loss_appearance</span> <span class="o">=</span> <span class="n">_get_loss_appearance</span><span class="p">(</span>
+            <span class="n">alpha</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">loss_ssim_alpha</span><span class="p">,</span>
+            <span class="n">images_left</span><span class="o">=</span><span class="n">images_left</span><span class="p">,</span>
+            <span class="n">images_right</span><span class="o">=</span><span class="n">images_right</span><span class="p">,</span>
+            <span class="n">images_left_reconstructed</span><span class="o">=</span><span class="n">images_left_reconstructed</span><span class="p">,</span>
+            <span class="n">images_right_reconstructed</span><span class="o">=</span><span class="n">images_right_reconstructed</span><span class="p">,</span>
+        <span class="p">)</span>
+        <span class="n">loss_disp_smoothness</span> <span class="o">=</span> <span class="n">_get_loss_disp_smoothness</span><span class="p">(</span>
+            <span class="n">images_left</span><span class="o">=</span><span class="n">images_left</span><span class="p">,</span>
+            <span class="n">images_right</span><span class="o">=</span><span class="n">images_right</span><span class="p">,</span>
+            <span class="n">disparity_images_left</span><span class="o">=</span><span class="n">disparity_images_left</span><span class="p">,</span>
+            <span class="n">disparity_images_right</span><span class="o">=</span><span class="n">disparity_images_right</span><span class="p">,</span>
+        <span class="p">)</span>
+        <span class="n">loss_disp_consistency</span> <span class="o">=</span> <span class="n">_get_loss_disp_consistency</span><span class="p">(</span>
+            <span class="n">disparity_images_left</span><span class="o">=</span><span class="n">disparity_images_left</span><span class="p">,</span>
+            <span class="n">disparity_images_right</span><span class="o">=</span><span class="n">disparity_images_right</span><span class="p">,</span>
+            <span class="n">disparity_images_left_inverted</span><span class="o">=</span><span class="n">disparity_images_left_inverted</span><span class="p">,</span>
+            <span class="n">disparity_images_right_inverted</span><span class="o">=</span><span class="n">disparity_images_right_inverted</span><span class="p">,</span>
+        <span class="p">)</span>
+        <span class="n">losses</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;loss_appearance_matching&quot;</span><span class="p">:</span> <span class="n">loss_appearance</span><span class="p">,</span>
+                  <span class="s2">&quot;loss_disp_smoothness&quot;</span><span class="p">:</span> <span class="n">loss_disp_smoothness</span><span class="p">,</span>
+                  <span class="s2">&quot;loss_disp_consistency&quot;</span><span class="p">:</span> <span class="n">loss_disp_consistency</span><span class="p">}</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">use_2nd_order_gradients</span><span class="p">:</span>
+            <span class="n">loss_disp_smoothness_2nd_order</span> <span class="o">=</span> <span class="p">(</span>
+                <span class="n">_get_loss_disp_smoothness_2nd_order</span><span class="p">(</span>
+                    <span class="n">disparity_images_left</span><span class="p">,</span> <span class="n">disparity_images_right</span><span class="p">))</span>
+            <span class="n">losses</span><span class="p">[</span><span class="s2">&quot;loss_disp_smoothness_2nd_order&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span>
+                <span class="n">loss_disp_smoothness_2nd_order</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">losses</span></div></div>
+
+
+<div class="viewcode-block" id="SoftmaxLossWithResizedLabels"><a class="viewcode-back" href="../../../api/ncgenes7.losses.html#ncgenes7.losses.image.SoftmaxLossWithResizedLabels">[docs]</a><span class="k">class</span> <span class="nc">SoftmaxLossWithResizedLabels</span><span class="p">(</span><span class="n">nc7</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">ModelLoss</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Sparse softmax loss for case when spatial dimensions of predictions</span>
+<span class="sd">    are not the same as labels. It will resize labels to predictions size.</span>
+<span class="sd">    Resizing is done by :func:`tf.image.resize_nearest_neighbor`</span>
+
+<span class="sd">    Attributes</span>
+<span class="sd">    ----------</span>
+<span class="sd">    incoming_keys</span>
+<span class="sd">        * logits : logits, np.float</span>
+<span class="sd">        * labels : labels,  np.int32</span>
+<span class="sd">    generated_keys</span>
+<span class="sd">        * loss : calculated loss</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">incoming_keys</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="s2">&quot;logits&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;labels&quot;</span><span class="p">,</span>
+    <span class="p">]</span>
+    <span class="n">generated_keys</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="s2">&quot;loss&quot;</span><span class="p">,</span>
+    <span class="p">]</span>
+
+<div class="viewcode-block" id="SoftmaxLossWithResizedLabels.process"><a class="viewcode-back" href="../../../api/ncgenes7.losses.html#ncgenes7.losses.image.SoftmaxLossWithResizedLabels.process">[docs]</a>    <span class="k">def</span> <span class="nf">process</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">logits</span><span class="p">,</span> <span class="n">labels</span><span class="p">):</span>
+        <span class="c1"># pylint: disable=arguments-differ</span>
+        <span class="c1"># parent save method has more generic signature</span>
+        <span class="n">logits_size</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">shape</span><span class="p">(</span><span class="n">logits</span><span class="p">)[</span><span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="p">]</span>
+        <span class="k">if</span> <span class="n">labels</span><span class="o">.</span><span class="n">dtype</span> <span class="o">==</span> <span class="n">tf</span><span class="o">.</span><span class="n">uint8</span><span class="p">:</span>
+            <span class="n">labels</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">cast</span><span class="p">(</span><span class="n">labels</span><span class="p">,</span> <span class="n">tf</span><span class="o">.</span><span class="n">int64</span><span class="p">)</span>
+        <span class="n">labels_resized</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">image</span><span class="o">.</span><span class="n">resize_nearest_neighbor</span><span class="p">(</span><span class="n">labels</span><span class="p">,</span> <span class="n">logits_size</span><span class="p">)</span>
+        <span class="n">loss</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">losses</span><span class="o">.</span><span class="n">sparse_softmax_cross_entropy</span><span class="p">(</span>
+            <span class="n">labels</span><span class="o">=</span><span class="n">labels_resized</span><span class="p">,</span> <span class="n">logits</span><span class="o">=</span><span class="n">logits</span><span class="p">)</span>
+        <span class="k">return</span> <span class="p">{</span><span class="s1">&#39;loss&#39;</span><span class="p">:</span> <span class="n">loss</span><span class="p">}</span></div></div>
+
+
+<div class="viewcode-block" id="SSIMWithResizedLabels"><a class="viewcode-back" href="../../../api/ncgenes7.losses.html#ncgenes7.losses.image.SSIMWithResizedLabels">[docs]</a><span class="k">class</span> <span class="nc">SSIMWithResizedLabels</span><span class="p">(</span><span class="n">nc7</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">ModelLoss</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Structural Similarity Index (SSIM) for measuring image quality</span>
+<span class="sd">    when spatial dimensions of predictions</span>
+<span class="sd">    are not the same as labels. It will resize labels to predictions size.</span>
+<span class="sd">    Resizing is done by :func:`tf.image.resize_nearest_neighbor`</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    max_value</span>
+<span class="sd">        dynamic range of the images (i.e., the difference between the maximum</span>
+<span class="sd">        the and minimum allowed values)</span>
+
+<span class="sd">    Attributes</span>
+<span class="sd">    ----------</span>
+<span class="sd">    incoming_keys</span>
+<span class="sd">        * predictions : predicted images, tf.float</span>
+<span class="sd">        * labels : groundtruth images,  tf.float</span>
+<span class="sd">    generated_keys</span>
+<span class="sd">        * loss : calculated loss</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">incoming_keys</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="s2">&quot;predictions&quot;</span><span class="p">,</span>
+        <span class="s1">&#39;labels&#39;</span><span class="p">,</span>
+    <span class="p">]</span>
+    <span class="n">generated_keys</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="s2">&quot;loss&quot;</span><span class="p">,</span>
+    <span class="p">]</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">max_value</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">1.0</span><span class="p">,</span> <span class="o">**</span><span class="n">loss_kwargs</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">**</span><span class="n">loss_kwargs</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">max_value</span> <span class="o">=</span> <span class="n">max_value</span>
+
+<div class="viewcode-block" id="SSIMWithResizedLabels.process"><a class="viewcode-back" href="../../../api/ncgenes7.losses.html#ncgenes7.losses.image.SSIMWithResizedLabels.process">[docs]</a>    <span class="k">def</span> <span class="nf">process</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">predictions</span><span class="p">,</span> <span class="n">labels</span><span class="p">):</span>
+        <span class="c1"># pylint: disable=arguments-differ</span>
+        <span class="c1"># parent save method has more generic signature</span>
+        <span class="n">predictions_size</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">shape</span><span class="p">(</span><span class="n">predictions</span><span class="p">)[</span><span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="p">]</span>
+        <span class="n">labels_resized</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">image</span><span class="o">.</span><span class="n">resize_nearest_neighbor</span><span class="p">(</span>
+            <span class="n">labels</span><span class="p">,</span> <span class="n">predictions_size</span><span class="p">)</span>
+        <span class="n">ssim</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">image</span><span class="o">.</span><span class="n">ssim</span><span class="p">(</span><span class="n">img1</span><span class="o">=</span><span class="n">labels_resized</span><span class="p">,</span> <span class="n">img2</span><span class="o">=</span><span class="n">predictions</span><span class="p">,</span>
+                             <span class="n">max_val</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">max_value</span><span class="p">)</span>
+        <span class="n">loss</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="o">-</span> <span class="n">ssim</span>
+        <span class="n">loss</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">reduce_mean</span><span class="p">(</span><span class="n">loss</span><span class="p">)</span>
+        <span class="k">return</span> <span class="p">{</span><span class="s1">&#39;loss&#39;</span><span class="p">:</span> <span class="n">loss</span><span class="p">}</span></div></div>
+
+
+<span class="nd">@with_name_scope</span><span class="p">(</span><span class="s2">&quot;loss_appearance_matching&quot;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">_get_loss_appearance</span><span class="p">(</span><span class="n">alpha</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
+                         <span class="n">images_left</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">tf</span><span class="o">.</span><span class="n">Tensor</span><span class="p">],</span>
+                         <span class="n">images_right</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">tf</span><span class="o">.</span><span class="n">Tensor</span><span class="p">],</span>
+                         <span class="n">images_left_reconstructed</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">tf</span><span class="o">.</span><span class="n">Tensor</span><span class="p">],</span>
+                         <span class="n">images_right_reconstructed</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">tf</span><span class="o">.</span><span class="n">Tensor</span><span class="p">]</span>
+                         <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">tf</span><span class="o">.</span><span class="n">Tensor</span><span class="p">:</span>
+    <span class="c1"># pylint: disable=too-many-locals</span>
+    <span class="c1"># cannot reduce number of locals without more code complexity</span>
+    <span class="n">losses_at_scales</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">images_pairs</span> <span class="o">=</span> <span class="p">[(</span><span class="n">images_left</span><span class="p">,</span> <span class="n">images_left_reconstructed</span><span class="p">),</span>
+                    <span class="p">(</span><span class="n">images_right</span><span class="p">,</span> <span class="n">images_right_reconstructed</span><span class="p">)]</span>
+    <span class="n">number_of_scales</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">images_left</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">each_images</span><span class="p">,</span> <span class="n">each_images_reconstr</span> <span class="ow">in</span> <span class="n">images_pairs</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">i_scale</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">number_of_scales</span><span class="p">):</span>
+            <span class="n">images_at_scale</span> <span class="o">=</span> <span class="n">each_images</span><span class="p">[</span><span class="n">i_scale</span><span class="p">]</span>
+            <span class="n">images_reconstr_at_scale</span> <span class="o">=</span> <span class="n">each_images_reconstr</span><span class="p">[</span><span class="n">i_scale</span><span class="p">]</span>
+            <span class="n">ssim</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">image</span><span class="o">.</span><span class="n">ssim</span><span class="p">(</span><span class="n">images_at_scale</span><span class="p">,</span> <span class="n">images_reconstr_at_scale</span><span class="p">,</span>
+                                 <span class="n">max_val</span><span class="o">=</span><span class="mf">1.0</span><span class="p">)</span>
+            <span class="n">loss1</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">reduce_mean</span><span class="p">(</span>
+                <span class="n">alpha</span> <span class="o">*</span> <span class="n">tf</span><span class="o">.</span><span class="n">clip_by_value</span><span class="p">((</span><span class="mi">1</span> <span class="o">-</span> <span class="n">ssim</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+            <span class="n">loss2</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">alpha</span><span class="p">)</span> <span class="o">*</span> <span class="n">tf</span><span class="o">.</span><span class="n">losses</span><span class="o">.</span><span class="n">absolute_difference</span><span class="p">(</span>
+                <span class="n">images_at_scale</span><span class="p">,</span> <span class="n">images_reconstr_at_scale</span><span class="p">)</span>
+            <span class="n">losses_at_scales</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">loss1</span> <span class="o">+</span> <span class="n">loss2</span><span class="p">)</span>
+    <span class="n">loss</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">add_n</span><span class="p">(</span><span class="n">losses_at_scales</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;loss_appearance_matching&quot;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">loss</span>
+
+
+<span class="nd">@with_name_scope</span><span class="p">(</span><span class="s2">&quot;loss_disp_smoothness&quot;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">_get_loss_disp_smoothness</span><span class="p">(</span><span class="o">*</span><span class="p">,</span>
+                              <span class="n">images_left</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">tf</span><span class="o">.</span><span class="n">Tensor</span><span class="p">],</span>
+                              <span class="n">images_right</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">tf</span><span class="o">.</span><span class="n">Tensor</span><span class="p">],</span>
+                              <span class="n">disparity_images_left</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">tf</span><span class="o">.</span><span class="n">Tensor</span><span class="p">],</span>
+                              <span class="n">disparity_images_right</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">tf</span><span class="o">.</span><span class="n">Tensor</span><span class="p">]</span>
+                              <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">tf</span><span class="o">.</span><span class="n">Tensor</span><span class="p">:</span>
+    <span class="c1"># pylint: disable=too-many-locals</span>
+    <span class="c1"># cannot reduce number of locals without more code complexity</span>
+    <span class="n">losses_at_scales</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">images_pairs</span> <span class="o">=</span> <span class="p">[(</span><span class="n">images_left</span><span class="p">,</span> <span class="n">disparity_images_left</span><span class="p">),</span>
+                    <span class="p">(</span><span class="n">images_right</span><span class="p">,</span> <span class="n">disparity_images_right</span><span class="p">)]</span>
+    <span class="n">number_of_scales</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">images_left</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">each_images</span><span class="p">,</span> <span class="n">each_images_disparity</span> <span class="ow">in</span> <span class="n">images_pairs</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">i_scale</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">number_of_scales</span><span class="p">):</span>
+            <span class="n">images_at_scale</span> <span class="o">=</span> <span class="n">each_images</span><span class="p">[</span><span class="n">i_scale</span><span class="p">]</span>
+            <span class="n">disp_at_scale</span> <span class="o">=</span> <span class="n">each_images_disparity</span><span class="p">[</span><span class="n">i_scale</span><span class="p">]</span>
+
+            <span class="n">disp_dx</span> <span class="o">=</span> <span class="n">_get_image_dx</span><span class="p">(</span><span class="n">disp_at_scale</span><span class="p">)[:,</span> <span class="mi">1</span><span class="p">:,</span> <span class="p">:,</span> <span class="p">:]</span>
+            <span class="n">disp_dy</span> <span class="o">=</span> <span class="n">_get_image_dy</span><span class="p">(</span><span class="n">disp_at_scale</span><span class="p">)[:,</span> <span class="p">:,</span> <span class="mi">1</span><span class="p">:,</span> <span class="p">:]</span>
+
+            <span class="n">image_dx</span> <span class="o">=</span> <span class="n">_get_image_dx</span><span class="p">(</span><span class="n">images_at_scale</span><span class="p">)[:,</span> <span class="mi">1</span><span class="p">:,</span> <span class="p">:,</span> <span class="p">:]</span>
+            <span class="n">image_dy</span> <span class="o">=</span> <span class="n">_get_image_dy</span><span class="p">(</span><span class="n">images_at_scale</span><span class="p">)[:,</span> <span class="p">:,</span> <span class="mi">1</span><span class="p">:,</span> <span class="p">:]</span>
+
+            <span class="c1"># pylint: disable=invalid-unary-operand-type</span>
+            <span class="n">pow_x</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">tf</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">image_dx</span><span class="p">))</span>
+            <span class="n">pow_y</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">tf</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">image_dy</span><span class="p">))</span>
+            <span class="c1"># pylint: enable=invalid-unary-operand-type</span>
+
+            <span class="n">pow_x_at_scale</span> <span class="o">=</span> <span class="n">pow_x</span> <span class="o">/</span> <span class="mi">2</span> <span class="o">**</span> <span class="p">(</span><span class="n">number_of_scales</span> <span class="o">-</span> <span class="n">i_scale</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+            <span class="n">pow_y_at_scale</span> <span class="o">=</span> <span class="n">pow_y</span> <span class="o">/</span> <span class="mi">2</span> <span class="o">**</span> <span class="p">(</span><span class="n">number_of_scales</span> <span class="o">-</span> <span class="n">i_scale</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+
+            <span class="n">loss_x</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">disp_dx</span><span class="p">)</span> <span class="o">*</span> <span class="n">pow_x_at_scale</span>
+            <span class="n">loss_y</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">disp_dy</span><span class="p">)</span> <span class="o">*</span> <span class="n">pow_y_at_scale</span>
+            <span class="n">losses_at_scales</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">reduce_mean</span><span class="p">(</span><span class="n">loss_x</span> <span class="o">+</span> <span class="n">loss_y</span><span class="p">))</span>
+    <span class="n">loss</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">add_n</span><span class="p">(</span><span class="n">losses_at_scales</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;loss_disp_smoothness&quot;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">loss</span>
+
+
+<span class="nd">@with_name_scope</span><span class="p">(</span><span class="s2">&quot;loss_disp_smoothness_2nd_order&quot;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">_get_loss_disp_smoothness_2nd_order_single</span><span class="p">(</span><span class="n">disparity</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">tf</span><span class="o">.</span><span class="n">Tensor</span><span class="p">],</span>
+                                               <span class="n">name_suffix</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">tf</span><span class="o">.</span><span class="n">Tensor</span><span class="p">:</span>
+    <span class="n">losses_at_scales</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">number_of_scales</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">disparity</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">i_scale</span><span class="p">,</span> <span class="n">each_disparity</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">disparity</span><span class="p">):</span>
+        <span class="n">disp_dx</span> <span class="o">=</span> <span class="n">_get_image_dx</span><span class="p">(</span><span class="n">each_disparity</span><span class="p">)[:,</span> <span class="mi">1</span><span class="p">:,</span> <span class="p">:,</span> <span class="p">:]</span>
+        <span class="n">disp_dy</span> <span class="o">=</span> <span class="n">_get_image_dy</span><span class="p">(</span><span class="n">each_disparity</span><span class="p">)[:,</span> <span class="p">:,</span> <span class="mi">1</span><span class="p">:,</span> <span class="p">:]</span>
+
+        <span class="n">disp_d2x</span> <span class="o">=</span> <span class="n">_get_image_dx</span><span class="p">(</span><span class="n">disp_dx</span><span class="p">)[:,</span> <span class="mi">1</span><span class="p">:,</span> <span class="p">:,</span> <span class="p">:]</span>
+        <span class="n">disp_d2y</span> <span class="o">=</span> <span class="n">_get_image_dy</span><span class="p">(</span><span class="n">disp_dy</span><span class="p">)[:,</span> <span class="p">:,</span> <span class="mi">1</span><span class="p">:,</span> <span class="p">:]</span>
+
+        <span class="n">loss_x</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">disp_d2x</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span> <span class="o">**</span> <span class="p">(</span><span class="n">number_of_scales</span> <span class="o">-</span> <span class="n">i_scale</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="n">loss_y</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">disp_d2y</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span> <span class="o">**</span> <span class="p">(</span><span class="n">number_of_scales</span> <span class="o">-</span> <span class="n">i_scale</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="n">losses_at_scales</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">reduce_mean</span><span class="p">(</span><span class="n">loss_x</span> <span class="o">+</span> <span class="n">loss_y</span><span class="p">))</span>
+    <span class="n">loss</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">add_n</span><span class="p">(</span><span class="n">losses_at_scales</span><span class="p">,</span>
+                    <span class="n">name</span><span class="o">=</span><span class="s2">&quot;loss_disp_smoothness_2nd_order&quot;</span> <span class="o">+</span> <span class="n">name_suffix</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">loss</span>
+
+
+<span class="nd">@with_name_scope</span><span class="p">(</span><span class="s2">&quot;loss_disp_smoothness_2nd_order&quot;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">_get_loss_disp_smoothness_2nd_order</span><span class="p">(</span>
+        <span class="n">disparity_images_left</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">tf</span><span class="o">.</span><span class="n">Tensor</span><span class="p">],</span>
+        <span class="n">disparity_images_right</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">tf</span><span class="o">.</span><span class="n">Tensor</span><span class="p">]</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">tf</span><span class="o">.</span><span class="n">Tensor</span><span class="p">:</span>
+    <span class="n">loss_disp_smoothness_2nd_order_left</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="n">_get_loss_disp_smoothness_2nd_order_single</span><span class="p">(</span>
+            <span class="n">disparity</span><span class="o">=</span><span class="n">disparity_images_left</span><span class="p">,</span> <span class="n">name_suffix</span><span class="o">=</span><span class="s2">&quot;_left&quot;</span><span class="p">))</span>
+    <span class="n">loss_disp_smoothness_2nd_order_right</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="n">_get_loss_disp_smoothness_2nd_order_single</span><span class="p">(</span>
+            <span class="n">disparity</span><span class="o">=</span><span class="n">disparity_images_right</span><span class="p">,</span> <span class="n">name_suffix</span><span class="o">=</span><span class="s2">&quot;_right&quot;</span><span class="p">))</span>
+    <span class="n">loss_disp_smoothness_2nd_order</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">add_n</span><span class="p">(</span>
+        <span class="p">[</span><span class="n">loss_disp_smoothness_2nd_order_left</span><span class="p">,</span>
+         <span class="n">loss_disp_smoothness_2nd_order_right</span><span class="p">],</span>
+        <span class="n">name</span><span class="o">=</span><span class="s2">&quot;loss_disp_smoothness_2nd_order&quot;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">loss_disp_smoothness_2nd_order</span>
+
+
+<span class="nd">@with_name_scope</span><span class="p">(</span><span class="s2">&quot;loss_disp_consistency&quot;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">_get_loss_disp_consistency</span><span class="p">(</span><span class="o">*</span><span class="p">,</span>
+                               <span class="n">disparity_images_left</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">tf</span><span class="o">.</span><span class="n">Tensor</span><span class="p">],</span>
+                               <span class="n">disparity_images_right</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">tf</span><span class="o">.</span><span class="n">Tensor</span><span class="p">],</span>
+                               <span class="n">disparity_images_left_inverted</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">tf</span><span class="o">.</span><span class="n">Tensor</span><span class="p">],</span>
+                               <span class="n">disparity_images_right_inverted</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">tf</span><span class="o">.</span><span class="n">Tensor</span><span class="p">]</span>
+                               <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">tf</span><span class="o">.</span><span class="n">Tensor</span><span class="p">:</span>
+    <span class="n">losses_at_scales</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">images_pairs</span> <span class="o">=</span> <span class="p">[(</span><span class="n">disparity_images_left</span><span class="p">,</span> <span class="n">disparity_images_left_inverted</span><span class="p">),</span>
+                    <span class="p">(</span><span class="n">disparity_images_right</span><span class="p">,</span> <span class="n">disparity_images_right_inverted</span><span class="p">)]</span>
+    <span class="n">number_of_scales</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">disparity_images_left</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">each_disp</span><span class="p">,</span> <span class="n">each_disp_inv</span> <span class="ow">in</span> <span class="n">images_pairs</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">i_scale</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">number_of_scales</span><span class="p">):</span>
+            <span class="n">losses_at_scales</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+                <span class="n">tf</span><span class="o">.</span><span class="n">losses</span><span class="o">.</span><span class="n">absolute_difference</span><span class="p">(</span>
+                    <span class="n">each_disp</span><span class="p">[</span><span class="n">i_scale</span><span class="p">],</span> <span class="n">each_disp_inv</span><span class="p">[</span><span class="n">i_scale</span><span class="p">]))</span>
+    <span class="n">loss</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">add_n</span><span class="p">(</span><span class="n">losses_at_scales</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;loss_disp_consistency&quot;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">loss</span>
+
+
+<span class="k">def</span> <span class="nf">_get_image_dx</span><span class="p">(</span><span class="n">image</span><span class="p">:</span> <span class="n">tf</span><span class="o">.</span><span class="n">Tensor</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">tf</span><span class="o">.</span><span class="n">Tensor</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;calculates image gradients in x direction&quot;&quot;&quot;</span>
+    <span class="n">image_dx</span> <span class="o">=</span> <span class="n">image</span><span class="p">[:,</span> <span class="p">:,</span> <span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="p">:]</span> <span class="o">-</span> <span class="n">image</span><span class="p">[:,</span> <span class="p">:,</span> <span class="mi">1</span><span class="p">:,</span> <span class="p">:]</span>
+    <span class="k">return</span> <span class="n">image_dx</span>
+
+
+<span class="k">def</span> <span class="nf">_get_image_dy</span><span class="p">(</span><span class="n">image</span><span class="p">:</span> <span class="n">tf</span><span class="o">.</span><span class="n">Tensor</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">tf</span><span class="o">.</span><span class="n">Tensor</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;calculates image gradients in y direction&quot;&quot;&quot;</span>
+    <span class="n">image_dy</span> <span class="o">=</span> <span class="n">image</span><span class="p">[:,</span> <span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="p">:,</span> <span class="p">:]</span> <span class="o">-</span> <span class="n">image</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">:,</span> <span class="p">:,</span> <span class="p">:]</span>
+    <span class="k">return</span> <span class="n">image_dy</span>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Audi Electronics Venture GmbH
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

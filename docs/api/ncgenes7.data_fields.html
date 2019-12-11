@@ -1,0 +1,1203 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>ncgenes7.data_fields package &mdash; ncgenes7 v0.10.0 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../_static/icon.ico"/>
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="ncgenes7.data_filters package" href="ncgenes7.data_filters.html" />
+    <link rel="prev" title="ncgenes7.data_feeders package" href="ncgenes7.data_feeders.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> ncgenes7
+          
+
+          
+            
+            <img src="../_static/icon.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.10.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../Introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ProjectSamples.html">Sample projects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Contribution.html">Contribution</a></li>
+</ul>
+<p class="caption"><span class="caption-text">API:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="ncgenes7.augmentations.html">ncgenes7.augmentations package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ncgenes7.callbacks.html">ncgenes7.callbacks package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ncgenes7.data_feeders.html">ncgenes7.data_feeders package</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">ncgenes7.data_fields package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-ncgenes7.data_fields.images">ncgenes7.data_fields.images module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-ncgenes7.data_fields.object_detection">ncgenes7.data_fields.object_detection module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-ncgenes7.data_fields.semantic_segmentation">ncgenes7.data_fields.semantic_segmentation module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-ncgenes7.data_fields">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="ncgenes7.data_filters.html">ncgenes7.data_filters package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ncgenes7.data_readers.html">ncgenes7.data_readers package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ncgenes7.file_lists.html">ncgenes7.file_lists package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ncgenes7.kpis.html">ncgenes7.kpis package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ncgenes7.learning_rate_manipulators.html">ncgenes7.learning_rate_manipulators package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ncgenes7.losses.html">ncgenes7.losses package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ncgenes7.metrics.html">ncgenes7.metrics package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ncgenes7.plugins.html">ncgenes7.plugins package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ncgenes7.plugins.cnns.html">ncgenes7.plugins.cnns package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ncgenes7.plugins.object_detection.html">ncgenes7.plugins.object_detection package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ncgenes7.plugins.preprocessing.html">ncgenes7.plugins.preprocessing package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ncgenes7.plugins.utils.html">ncgenes7.plugins.utils package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ncgenes7.postprocessors.html">ncgenes7.postprocessors package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ncgenes7.summaries.html">ncgenes7.summaries package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ncgenes7.third_party.html">ncgenes7.third_party package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ncgenes7.third_party.object_detection.html">ncgenes7.third_party.object_detection package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ncgenes7.utils.html">ncgenes7.utils package</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">ncgenes7</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>ncgenes7.data_fields package</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/api/ncgenes7.data_fields.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="ncgenes7-data-fields-package">
+<h1>ncgenes7.data_fields package<a class="headerlink" href="#ncgenes7-data-fields-package" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-ncgenes7.data_fields.images">
+<span id="ncgenes7-data-fields-images-module"></span><h2>ncgenes7.data_fields.images module<a class="headerlink" href="#module-ncgenes7.data_fields.images" title="Permalink to this headline">¶</a></h2>
+<p>Containers with names of input / outputs to use with images</p>
+<dl class="class">
+<dt id="ncgenes7.data_fields.images.ImageDataFields">
+<em class="property">class </em><code class="sig-prename descclassname">ncgenes7.data_fields.images.</code><code class="sig-name descname">ImageDataFields</code><a class="reference internal" href="../_modules/ncgenes7/data_fields/images.html#ImageDataFields"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ncgenes7.data_fields.images.ImageDataFields" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>Names for the input tensors.</p>
+<p>Holds the standard data field names to use for identifying input tensors.
+This should be used by the decoder to identify keys for the returned
+tensor_dict containing input tensors.
+And it should be used by the model to identify the tensors it needs.</p>
+<dl class="attribute">
+<dt id="ncgenes7.data_fields.images.ImageDataFields.images">
+<code class="sig-name descname">images</code><a class="headerlink" href="#ncgenes7.data_fields.images.ImageDataFields.images" title="Permalink to this definition">¶</a></dt>
+<dd><p>images</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ncgenes7.data_fields.images.ImageDataFields.images_PNG">
+<code class="sig-name descname">images_PNG</code><a class="headerlink" href="#ncgenes7.data_fields.images.ImageDataFields.images_PNG" title="Permalink to this definition">¶</a></dt>
+<dd><p>images encoded with PNG</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ncgenes7.data_fields.images.ImageDataFields.images_JPEG">
+<code class="sig-name descname">images_JPEG</code><a class="headerlink" href="#ncgenes7.data_fields.images.ImageDataFields.images_JPEG" title="Permalink to this definition">¶</a></dt>
+<dd><p>images encoded with JPG</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ncgenes7.data_fields.images.ImageDataFields.images_left">
+<code class="sig-name descname">images_left</code><a class="headerlink" href="#ncgenes7.data_fields.images.ImageDataFields.images_left" title="Permalink to this definition">¶</a></dt>
+<dd><p>left images</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ncgenes7.data_fields.images.ImageDataFields.images_right">
+<code class="sig-name descname">images_right</code><a class="headerlink" href="#ncgenes7.data_fields.images.ImageDataFields.images_right" title="Permalink to this definition">¶</a></dt>
+<dd><p>right images</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ncgenes7.data_fields.images.ImageDataFields.image_pairs">
+<code class="sig-name descname">image_pairs</code><a class="headerlink" href="#ncgenes7.data_fields.images.ImageDataFields.image_pairs" title="Permalink to this definition">¶</a></dt>
+<dd><p>paired images</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ncgenes7.data_fields.images.ImageDataFields.images_fnames">
+<code class="sig-name descname">images_fnames</code><a class="headerlink" href="#ncgenes7.data_fields.images.ImageDataFields.images_fnames" title="Permalink to this definition">¶</a></dt>
+<dd><p>file name of images</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ncgenes7.data_fields.images.ImageDataFields.images_original_size">
+<code class="sig-name descname">images_original_size</code><a class="headerlink" href="#ncgenes7.data_fields.images.ImageDataFields.images_original_size" title="Permalink to this definition">¶</a></dt>
+<dd><p>original sizes of image before it was resized</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ncgenes7.data_fields.images.ImageDataFields.images_left_fnames">
+<code class="sig-name descname">images_left_fnames</code><a class="headerlink" href="#ncgenes7.data_fields.images.ImageDataFields.images_left_fnames" title="Permalink to this definition">¶</a></dt>
+<dd><p>file name of left images</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ncgenes7.data_fields.images.ImageDataFields.image_sizes">
+<code class="sig-name descname">image_sizes</code><a class="headerlink" href="#ncgenes7.data_fields.images.ImageDataFields.image_sizes" title="Permalink to this definition">¶</a></dt>
+<dd><p>image sizes</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ncgenes7.data_fields.images.ImageDataFields.images_right_fnames">
+<code class="sig-name descname">images_right_fnames</code><a class="headerlink" href="#ncgenes7.data_fields.images.ImageDataFields.images_right_fnames" title="Permalink to this definition">¶</a></dt>
+<dd><p>file name of right images</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ncgenes7.data_fields.images.ImageDataFields.image_pairs_fnames">
+<code class="sig-name descname">image_pairs_fnames</code><a class="headerlink" href="#ncgenes7.data_fields.images.ImageDataFields.image_pairs_fnames" title="Permalink to this definition">¶</a></dt>
+<dd><p>file name of paired images</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ncgenes7.data_fields.images.ImageDataFields.depth_images">
+<code class="sig-name descname">depth_images</code><a class="headerlink" href="#ncgenes7.data_fields.images.ImageDataFields.depth_images" title="Permalink to this definition">¶</a></dt>
+<dd><p>depth images</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ncgenes7.data_fields.images.ImageDataFields.disparity_images">
+<code class="sig-name descname">disparity_images</code><a class="headerlink" href="#ncgenes7.data_fields.images.ImageDataFields.disparity_images" title="Permalink to this definition">¶</a></dt>
+<dd><p>disparity images</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ncgenes7.data_fields.images.ImageDataFields.disparity_images_left">
+<code class="sig-name descname">disparity_images_left</code><a class="headerlink" href="#ncgenes7.data_fields.images.ImageDataFields.disparity_images_left" title="Permalink to this definition">¶</a></dt>
+<dd><p>left disparity image</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ncgenes7.data_fields.images.ImageDataFields.disparity_images_right">
+<code class="sig-name descname">disparity_images_right</code><a class="headerlink" href="#ncgenes7.data_fields.images.ImageDataFields.disparity_images_right" title="Permalink to this definition">¶</a></dt>
+<dd><p>right disparity image</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt>
+<code class="sig-name descname">depth_images</code><em class="property"> = 'depth_images'</em></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt>
+<code class="sig-name descname">disparity_images</code><em class="property"> = 'disparity_images'</em></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt>
+<code class="sig-name descname">disparity_images_left</code><em class="property"> = 'disparity_images_left'</em></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt>
+<code class="sig-name descname">disparity_images_right</code><em class="property"> = 'disparity_images_right'</em></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt>
+<code class="sig-name descname">image_pairs</code><em class="property"> = 'image_pairs'</em></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt>
+<code class="sig-name descname">image_pairs_fnames</code><em class="property"> = 'image_pairs_fnames'</em></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt>
+<code class="sig-name descname">image_sizes</code><em class="property"> = 'image_sizes'</em></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt>
+<code class="sig-name descname">images</code><em class="property"> = 'images'</em></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt>
+<code class="sig-name descname">images_JPEG</code><em class="property"> = 'images_JPEG'</em></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt>
+<code class="sig-name descname">images_PNG</code><em class="property"> = 'images_PNG'</em></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt>
+<code class="sig-name descname">images_fnames</code><em class="property"> = 'images_fnames'</em></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt>
+<code class="sig-name descname">images_left</code><em class="property"> = 'images_left'</em></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt>
+<code class="sig-name descname">images_left_fnames</code><em class="property"> = 'images_left_fnames'</em></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt>
+<code class="sig-name descname">images_original_size</code><em class="property"> = 'images_original_size'</em></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt>
+<code class="sig-name descname">images_right</code><em class="property"> = 'images_right'</em></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt>
+<code class="sig-name descname">images_right_fnames</code><em class="property"> = 'images_right_fnames'</em></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-ncgenes7.data_fields.object_detection">
+<span id="ncgenes7-data-fields-object-detection-module"></span><h2>ncgenes7.data_fields.object_detection module<a class="headerlink" href="#module-ncgenes7.data_fields.object_detection" title="Permalink to this headline">¶</a></h2>
+<p>Containers with names of input / outputs to use for object detection</p>
+<p>Similar to <code class="xref py py-obj docutils literal notranslate"><span class="pre">object_detection.core.standard_fields</span></code></p>
+<dl class="class">
+<dt id="ncgenes7.data_fields.object_detection.DetectionDataFields">
+<em class="property">class </em><code class="sig-prename descclassname">ncgenes7.data_fields.object_detection.</code><code class="sig-name descname">DetectionDataFields</code><a class="reference internal" href="../_modules/ncgenes7/data_fields/object_detection.html#DetectionDataFields"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ncgenes7.data_fields.object_detection.DetectionDataFields" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>Naming conventions for storing the output of the detector.</p>
+<dl class="attribute">
+<dt id="ncgenes7.data_fields.object_detection.DetectionDataFields.detection_object_instance_ids">
+<code class="sig-name descname">detection_object_instance_ids</code><a class="headerlink" href="#ncgenes7.data_fields.object_detection.DetectionDataFields.detection_object_instance_ids" title="Permalink to this definition">¶</a></dt>
+<dd><p>instance ids of detections</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ncgenes7.data_fields.object_detection.DetectionDataFields.detection_object_boxes">
+<code class="sig-name descname">detection_object_boxes</code><a class="headerlink" href="#ncgenes7.data_fields.object_detection.DetectionDataFields.detection_object_boxes" title="Permalink to this definition">¶</a></dt>
+<dd><p>coordinates of the detection boxes in the image.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ncgenes7.data_fields.object_detection.DetectionDataFields.detection_object_orientations">
+<code class="sig-name descname">detection_object_orientations</code><a class="headerlink" href="#ncgenes7.data_fields.object_detection.DetectionDataFields.detection_object_orientations" title="Permalink to this definition">¶</a></dt>
+<dd><p>predicted orientations of objects</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ncgenes7.data_fields.object_detection.DetectionDataFields.detection_object_scores">
+<code class="sig-name descname">detection_object_scores</code><a class="headerlink" href="#ncgenes7.data_fields.object_detection.DetectionDataFields.detection_object_scores" title="Permalink to this definition">¶</a></dt>
+<dd><p>detection scores for the detection boxes in the image.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ncgenes7.data_fields.object_detection.DetectionDataFields.detection_object_classes">
+<code class="sig-name descname">detection_object_classes</code><a class="headerlink" href="#ncgenes7.data_fields.object_detection.DetectionDataFields.detection_object_classes" title="Permalink to this definition">¶</a></dt>
+<dd><p>detection-level class labels.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ncgenes7.data_fields.object_detection.DetectionDataFields.detection_object_instance_masks">
+<code class="sig-name descname">detection_object_instance_masks</code><a class="headerlink" href="#ncgenes7.data_fields.object_detection.DetectionDataFields.detection_object_instance_masks" title="Permalink to this definition">¶</a></dt>
+<dd><p>contains a segmentation mask for each detection box.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ncgenes7.data_fields.object_detection.DetectionDataFields.detection_object_instance_masks_on_image">
+<code class="sig-name descname">detection_object_instance_masks_on_image</code><a class="headerlink" href="#ncgenes7.data_fields.object_detection.DetectionDataFields.detection_object_instance_masks_on_image" title="Permalink to this definition">¶</a></dt>
+<dd><p>object masks remapped to image</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ncgenes7.data_fields.object_detection.DetectionDataFields.detection_object_boundaries">
+<code class="sig-name descname">detection_object_boundaries</code><a class="headerlink" href="#ncgenes7.data_fields.object_detection.DetectionDataFields.detection_object_boundaries" title="Permalink to this definition">¶</a></dt>
+<dd><p>contains an object boundary for each detection box.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ncgenes7.data_fields.object_detection.DetectionDataFields.detection_object_keypoints">
+<code class="sig-name descname">detection_object_keypoints</code><a class="headerlink" href="#ncgenes7.data_fields.object_detection.DetectionDataFields.detection_object_keypoints" title="Permalink to this definition">¶</a></dt>
+<dd><p>contains detection keypoints for each detection box.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ncgenes7.data_fields.object_detection.DetectionDataFields.detection_object_keypoints_heatmaps">
+<code class="sig-name descname">detection_object_keypoints_heatmaps</code><a class="headerlink" href="#ncgenes7.data_fields.object_detection.DetectionDataFields.detection_object_keypoints_heatmaps" title="Permalink to this definition">¶</a></dt>
+<dd><p>contains object keypoint heatmaps</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ncgenes7.data_fields.object_detection.DetectionDataFields.detection_object_keypoints_heatmaps_on_image">
+<code class="sig-name descname">detection_object_keypoints_heatmaps_on_image</code><a class="headerlink" href="#ncgenes7.data_fields.object_detection.DetectionDataFields.detection_object_keypoints_heatmaps_on_image" title="Permalink to this definition">¶</a></dt>
+<dd><p>object keypoint heatmaps remapped to image</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ncgenes7.data_fields.object_detection.DetectionDataFields.detection_object_keypoints_scores">
+<code class="sig-name descname">detection_object_keypoints_scores</code><a class="headerlink" href="#ncgenes7.data_fields.object_detection.DetectionDataFields.detection_object_keypoints_scores" title="Permalink to this definition">¶</a></dt>
+<dd><p>scores for object keypoints</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ncgenes7.data_fields.object_detection.DetectionDataFields.num_object_detections">
+<code class="sig-name descname">num_object_detections</code><a class="headerlink" href="#ncgenes7.data_fields.object_detection.DetectionDataFields.num_object_detections" title="Permalink to this definition">¶</a></dt>
+<dd><p>number of detections in the batch.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ncgenes7.data_fields.object_detection.DetectionDataFields.detection_object_fnames">
+<code class="sig-name descname">detection_object_fnames</code><a class="headerlink" href="#ncgenes7.data_fields.object_detection.DetectionDataFields.detection_object_fnames" title="Permalink to this definition">¶</a></dt>
+<dd><p>file name with detections</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt>
+<code class="sig-name descname">detection_object_boundaries</code><em class="property"> = 'detection_object_boundaries'</em></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt>
+<code class="sig-name descname">detection_object_boxes</code><em class="property"> = 'detection_object_boxes'</em></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt>
+<code class="sig-name descname">detection_object_classes</code><em class="property"> = 'detection_object_classes'</em></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt>
+<code class="sig-name descname">detection_object_fnames</code><em class="property"> = 'detection_object_fnames'</em></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt>
+<code class="sig-name descname">detection_object_instance_ids</code><em class="property"> = 'detection_object_instance_ids'</em></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt>
+<code class="sig-name descname">detection_object_instance_masks</code><em class="property"> = 'detection_object_instance_masks'</em></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt>
+<code class="sig-name descname">detection_object_instance_masks_on_image</code><em class="property"> = 'detection_object_instance_masks_on_image'</em></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt>
+<code class="sig-name descname">detection_object_keypoints</code><em class="property"> = 'detection_object_keypoints'</em></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt>
+<code class="sig-name descname">detection_object_keypoints_heatmaps</code><em class="property"> = 'detection_object_keypoints_heatmaps'</em></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt>
+<code class="sig-name descname">detection_object_keypoints_heatmaps_on_image</code><em class="property"> = 'detection_object_keypoints_heatmaps_on_image'</em></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt>
+<code class="sig-name descname">detection_object_keypoints_scores</code><em class="property"> = 'detection_object_keypoints_scores'</em></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt>
+<code class="sig-name descname">detection_object_orientations</code><em class="property"> = 'detection_object_orientations'</em></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt>
+<code class="sig-name descname">detection_object_scores</code><em class="property"> = 'detection_object_scores'</em></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt>
+<code class="sig-name descname">num_object_detections</code><em class="property"> = 'num_object_detections'</em></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="ncgenes7.data_fields.object_detection.GroundtruthDataFields">
+<em class="property">class </em><code class="sig-prename descclassname">ncgenes7.data_fields.object_detection.</code><code class="sig-name descname">GroundtruthDataFields</code><a class="reference internal" href="../_modules/ncgenes7/data_fields/object_detection.html#GroundtruthDataFields"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ncgenes7.data_fields.object_detection.GroundtruthDataFields" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>Names for the groundtruth object data.</p>
+<dl class="attribute">
+<dt id="ncgenes7.data_fields.object_detection.GroundtruthDataFields.groundtruth_object_boxes">
+<code class="sig-name descname">groundtruth_object_boxes</code><a class="headerlink" href="#ncgenes7.data_fields.object_detection.GroundtruthDataFields.groundtruth_object_boxes" title="Permalink to this definition">¶</a></dt>
+<dd><p>coordinates of the ground truth boxes in the image.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ncgenes7.data_fields.object_detection.GroundtruthDataFields.groundtruth_object_truncation">
+<code class="sig-name descname">groundtruth_object_truncation</code><a class="headerlink" href="#ncgenes7.data_fields.object_detection.GroundtruthDataFields.groundtruth_object_truncation" title="Permalink to this definition">¶</a></dt>
+<dd><p>truncation information of object</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ncgenes7.data_fields.object_detection.GroundtruthDataFields.groundtruth_object_occlusion">
+<code class="sig-name descname">groundtruth_object_occlusion</code><a class="headerlink" href="#ncgenes7.data_fields.object_detection.GroundtruthDataFields.groundtruth_object_occlusion" title="Permalink to this definition">¶</a></dt>
+<dd><p>occlusion information of object</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ncgenes7.data_fields.object_detection.GroundtruthDataFields.groundtruth_object_observation_angle">
+<code class="sig-name descname">groundtruth_object_observation_angle</code><a class="headerlink" href="#ncgenes7.data_fields.object_detection.GroundtruthDataFields.groundtruth_object_observation_angle" title="Permalink to this definition">¶</a></dt>
+<dd><p>observation angle of object</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ncgenes7.data_fields.object_detection.GroundtruthDataFields.groundtruth_object_instance_ids">
+<code class="sig-name descname">groundtruth_object_instance_ids</code><a class="headerlink" href="#ncgenes7.data_fields.object_detection.GroundtruthDataFields.groundtruth_object_instance_ids" title="Permalink to this definition">¶</a></dt>
+<dd><p>instance ids of ground truth objects</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ncgenes7.data_fields.object_detection.GroundtruthDataFields.groundtruth_object_classes">
+<code class="sig-name descname">groundtruth_object_classes</code><a class="headerlink" href="#ncgenes7.data_fields.object_detection.GroundtruthDataFields.groundtruth_object_classes" title="Permalink to this definition">¶</a></dt>
+<dd><p>box-level class labels.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ncgenes7.data_fields.object_detection.GroundtruthDataFields.groundtruth_object_instance_masks">
+<code class="sig-name descname">groundtruth_object_instance_masks</code><a class="headerlink" href="#ncgenes7.data_fields.object_detection.GroundtruthDataFields.groundtruth_object_instance_masks" title="Permalink to this definition">¶</a></dt>
+<dd><p>ground truth instance masks.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ncgenes7.data_fields.object_detection.GroundtruthDataFields.groundtruth_object_instance_masks_on_image">
+<code class="sig-name descname">groundtruth_object_instance_masks_on_image</code><a class="headerlink" href="#ncgenes7.data_fields.object_detection.GroundtruthDataFields.groundtruth_object_instance_masks_on_image" title="Permalink to this definition">¶</a></dt>
+<dd><p>object masks remapped to image</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ncgenes7.data_fields.object_detection.GroundtruthDataFields.groundtruth_object_instance_classes">
+<code class="sig-name descname">groundtruth_object_instance_classes</code><a class="headerlink" href="#ncgenes7.data_fields.object_detection.GroundtruthDataFields.groundtruth_object_instance_classes" title="Permalink to this definition">¶</a></dt>
+<dd><p>instance mask-level class labels.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ncgenes7.data_fields.object_detection.GroundtruthDataFields.groundtruth_object_keypoints">
+<code class="sig-name descname">groundtruth_object_keypoints</code><a class="headerlink" href="#ncgenes7.data_fields.object_detection.GroundtruthDataFields.groundtruth_object_keypoints" title="Permalink to this definition">¶</a></dt>
+<dd><p>ground truth keypoints.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ncgenes7.data_fields.object_detection.GroundtruthDataFields.groundtruth_object_keypoints_visibilities">
+<code class="sig-name descname">groundtruth_object_keypoints_visibilities</code><a class="headerlink" href="#ncgenes7.data_fields.object_detection.GroundtruthDataFields.groundtruth_object_keypoints_visibilities" title="Permalink to this definition">¶</a></dt>
+<dd><p>ground truth keypoint visibilities.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ncgenes7.data_fields.object_detection.GroundtruthDataFields.groundtruth_object_keypoints_heatmaps">
+<code class="sig-name descname">groundtruth_object_keypoints_heatmaps</code><a class="headerlink" href="#ncgenes7.data_fields.object_detection.GroundtruthDataFields.groundtruth_object_keypoints_heatmaps" title="Permalink to this definition">¶</a></dt>
+<dd><p>contains object keypoint heatmaps</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ncgenes7.data_fields.object_detection.GroundtruthDataFields.groundtruth_object_keypoints_heatmaps_on_image">
+<code class="sig-name descname">groundtruth_object_keypoints_heatmaps_on_image</code><a class="headerlink" href="#ncgenes7.data_fields.object_detection.GroundtruthDataFields.groundtruth_object_keypoints_heatmaps_on_image" title="Permalink to this definition">¶</a></dt>
+<dd><p>object keypoint heatmaps remapped to image</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ncgenes7.data_fields.object_detection.GroundtruthDataFields.groundtruth_object_keypoints_scores">
+<code class="sig-name descname">groundtruth_object_keypoints_scores</code><a class="headerlink" href="#ncgenes7.data_fields.object_detection.GroundtruthDataFields.groundtruth_object_keypoints_scores" title="Permalink to this definition">¶</a></dt>
+<dd><p>scores for object keypoints</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ncgenes7.data_fields.object_detection.GroundtruthDataFields.groundtruth_object_label_scores">
+<code class="sig-name descname">groundtruth_object_label_scores</code><a class="headerlink" href="#ncgenes7.data_fields.object_detection.GroundtruthDataFields.groundtruth_object_label_scores" title="Permalink to this definition">¶</a></dt>
+<dd><p>groundtruth label scores.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ncgenes7.data_fields.object_detection.GroundtruthDataFields.groundtruth_object_weights">
+<code class="sig-name descname">groundtruth_object_weights</code><a class="headerlink" href="#ncgenes7.data_fields.object_detection.GroundtruthDataFields.groundtruth_object_weights" title="Permalink to this definition">¶</a></dt>
+<dd><p>groundtruth weight factor for bounding boxes.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ncgenes7.data_fields.object_detection.GroundtruthDataFields.num_groundtruth_objects">
+<code class="sig-name descname">num_groundtruth_objects</code><a class="headerlink" href="#ncgenes7.data_fields.object_detection.GroundtruthDataFields.num_groundtruth_objects" title="Permalink to this definition">¶</a></dt>
+<dd><p>number of groundtruth boxes.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ncgenes7.data_fields.object_detection.GroundtruthDataFields.groundtruth_object_fnames">
+<code class="sig-name descname">groundtruth_object_fnames</code><a class="headerlink" href="#ncgenes7.data_fields.object_detection.GroundtruthDataFields.groundtruth_object_fnames" title="Permalink to this definition">¶</a></dt>
+<dd><p>file name of groundtruth data</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt>
+<code class="sig-name descname">groundtruth_object_boxes</code><em class="property"> = 'groundtruth_object_boxes'</em></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt>
+<code class="sig-name descname">groundtruth_object_classes</code><em class="property"> = 'groundtruth_object_classes'</em></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt>
+<code class="sig-name descname">groundtruth_object_fnames</code><em class="property"> = 'groundtruth_object_fnames'</em></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ncgenes7.data_fields.object_detection.GroundtruthDataFields.groundtruth_object_instance_boundaries">
+<code class="sig-name descname">groundtruth_object_instance_boundaries</code><em class="property"> = 'groundtruth_object_instance_boundaries'</em><a class="headerlink" href="#ncgenes7.data_fields.object_detection.GroundtruthDataFields.groundtruth_object_instance_boundaries" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt>
+<code class="sig-name descname">groundtruth_object_instance_classes</code><em class="property"> = 'groundtruth_object_instance_classes'</em></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt>
+<code class="sig-name descname">groundtruth_object_instance_ids</code><em class="property"> = 'groundtruth_object_instance_ids'</em></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt>
+<code class="sig-name descname">groundtruth_object_instance_masks</code><em class="property"> = 'groundtruth_object_instance_masks'</em></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt>
+<code class="sig-name descname">groundtruth_object_instance_masks_on_image</code><em class="property"> = 'groundtruth_object_instance_masks_on_image'</em></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt>
+<code class="sig-name descname">groundtruth_object_keypoints</code><em class="property"> = 'groundtruth_object_keypoints'</em></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt>
+<code class="sig-name descname">groundtruth_object_keypoints_heatmaps</code><em class="property"> = 'groundtruth_object_keypoints_heatmaps'</em></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt>
+<code class="sig-name descname">groundtruth_object_keypoints_heatmaps_on_image</code><em class="property"> = 'groundtruth_object_keypoints_heatmaps_on_image'</em></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt>
+<code class="sig-name descname">groundtruth_object_keypoints_scores</code><em class="property"> = 'groundtruth_object_keypoints_scores'</em></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt>
+<code class="sig-name descname">groundtruth_object_keypoints_visibilities</code><em class="property"> = 'groundtruth_object_keypoints_visibilities'</em></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt>
+<code class="sig-name descname">groundtruth_object_label_scores</code><em class="property"> = 'groundtruth_object_label_scores'</em></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt>
+<code class="sig-name descname">groundtruth_object_observation_angle</code><em class="property"> = 'groundtruth_object_observation_angle'</em></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt>
+<code class="sig-name descname">groundtruth_object_occlusion</code><em class="property"> = 'groundtruth_object_occlusion'</em></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt>
+<code class="sig-name descname">groundtruth_object_truncation</code><em class="property"> = 'groundtruth_object_truncation'</em></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt>
+<code class="sig-name descname">groundtruth_object_weights</code><em class="property"> = 'groundtruth_object_weights'</em></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt>
+<code class="sig-name descname">num_groundtruth_objects</code><em class="property"> = 'num_groundtruth_objects'</em></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="ncgenes7.data_fields.object_detection.ObjectDataFields">
+<em class="property">class </em><code class="sig-prename descclassname">ncgenes7.data_fields.object_detection.</code><code class="sig-name descname">ObjectDataFields</code><a class="reference internal" href="../_modules/ncgenes7/data_fields/object_detection.html#ObjectDataFields"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ncgenes7.data_fields.object_detection.ObjectDataFields" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>Naming conventions for storing the output of the objects.</p>
+<dl class="attribute">
+<dt id="ncgenes7.data_fields.object_detection.ObjectDataFields.object_instance_ids">
+<code class="sig-name descname">object_instance_ids</code><a class="headerlink" href="#ncgenes7.data_fields.object_detection.ObjectDataFields.object_instance_ids" title="Permalink to this definition">¶</a></dt>
+<dd><p>instance ids of detections</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ncgenes7.data_fields.object_detection.ObjectDataFields.object_boxes">
+<code class="sig-name descname">object_boxes</code><a class="headerlink" href="#ncgenes7.data_fields.object_detection.ObjectDataFields.object_boxes" title="Permalink to this definition">¶</a></dt>
+<dd><p>coordinates of the object boxes in the image.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ncgenes7.data_fields.object_detection.ObjectDataFields.object_truncation">
+<code class="sig-name descname">object_truncation</code><a class="headerlink" href="#ncgenes7.data_fields.object_detection.ObjectDataFields.object_truncation" title="Permalink to this definition">¶</a></dt>
+<dd><p>truncation information of object</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ncgenes7.data_fields.object_detection.ObjectDataFields.object_occlusion">
+<code class="sig-name descname">object_occlusion</code><a class="headerlink" href="#ncgenes7.data_fields.object_detection.ObjectDataFields.object_occlusion" title="Permalink to this definition">¶</a></dt>
+<dd><p>occlusion information of object</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ncgenes7.data_fields.object_detection.ObjectDataFields.object_observation_angle">
+<code class="sig-name descname">object_observation_angle</code><a class="headerlink" href="#ncgenes7.data_fields.object_detection.ObjectDataFields.object_observation_angle" title="Permalink to this definition">¶</a></dt>
+<dd><p>observation angle of object</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ncgenes7.data_fields.object_detection.ObjectDataFields.object_scores">
+<code class="sig-name descname">object_scores</code><a class="headerlink" href="#ncgenes7.data_fields.object_detection.ObjectDataFields.object_scores" title="Permalink to this definition">¶</a></dt>
+<dd><p>detection scores for the object boxes in the image.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ncgenes7.data_fields.object_detection.ObjectDataFields.object_classes">
+<code class="sig-name descname">object_classes</code><a class="headerlink" href="#ncgenes7.data_fields.object_detection.ObjectDataFields.object_classes" title="Permalink to this definition">¶</a></dt>
+<dd><p>detection-level class labels.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ncgenes7.data_fields.object_detection.ObjectDataFields.object_instance_masks">
+<code class="sig-name descname">object_instance_masks</code><a class="headerlink" href="#ncgenes7.data_fields.object_detection.ObjectDataFields.object_instance_masks" title="Permalink to this definition">¶</a></dt>
+<dd><p>contains a segmentation mask for each object box.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ncgenes7.data_fields.object_detection.ObjectDataFields.object_instance_masks_on_image">
+<code class="sig-name descname">object_instance_masks_on_image</code><a class="headerlink" href="#ncgenes7.data_fields.object_detection.ObjectDataFields.object_instance_masks_on_image" title="Permalink to this definition">¶</a></dt>
+<dd><p>object masks remapped to image</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ncgenes7.data_fields.object_detection.ObjectDataFields.object_boundaries">
+<code class="sig-name descname">object_boundaries</code><a class="headerlink" href="#ncgenes7.data_fields.object_detection.ObjectDataFields.object_boundaries" title="Permalink to this definition">¶</a></dt>
+<dd><p>contains an object boundary for each object box.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ncgenes7.data_fields.object_detection.ObjectDataFields.object_keypoints">
+<code class="sig-name descname">object_keypoints</code><a class="headerlink" href="#ncgenes7.data_fields.object_detection.ObjectDataFields.object_keypoints" title="Permalink to this definition">¶</a></dt>
+<dd><p>contains object keypoints for each object box.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ncgenes7.data_fields.object_detection.ObjectDataFields.object_keypoints_visibilities">
+<code class="sig-name descname">object_keypoints_visibilities</code><a class="headerlink" href="#ncgenes7.data_fields.object_detection.ObjectDataFields.object_keypoints_visibilities" title="Permalink to this definition">¶</a></dt>
+<dd><p>object keypoint visibilities</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ncgenes7.data_fields.object_detection.ObjectDataFields.object_keypoints_heatmaps">
+<code class="sig-name descname">object_keypoints_heatmaps</code><a class="headerlink" href="#ncgenes7.data_fields.object_detection.ObjectDataFields.object_keypoints_heatmaps" title="Permalink to this definition">¶</a></dt>
+<dd><p>contains object keypoint heatmaps</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ncgenes7.data_fields.object_detection.ObjectDataFields.object_keypoints_heatmaps_on_image">
+<code class="sig-name descname">object_keypoints_heatmaps_on_image</code><a class="headerlink" href="#ncgenes7.data_fields.object_detection.ObjectDataFields.object_keypoints_heatmaps_on_image" title="Permalink to this definition">¶</a></dt>
+<dd><p>object keypoint heatmaps remapped to image</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ncgenes7.data_fields.object_detection.ObjectDataFields.object_keypoints_scores">
+<code class="sig-name descname">object_keypoints_scores</code><a class="headerlink" href="#ncgenes7.data_fields.object_detection.ObjectDataFields.object_keypoints_scores" title="Permalink to this definition">¶</a></dt>
+<dd><p>scores for object keypoints</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ncgenes7.data_fields.object_detection.ObjectDataFields.num_objects">
+<code class="sig-name descname">num_objects</code><a class="headerlink" href="#ncgenes7.data_fields.object_detection.ObjectDataFields.num_objects" title="Permalink to this definition">¶</a></dt>
+<dd><p>number of detections in the batch.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ncgenes7.data_fields.object_detection.ObjectDataFields.object_fnames">
+<code class="sig-name descname">object_fnames</code><a class="headerlink" href="#ncgenes7.data_fields.object_detection.ObjectDataFields.object_fnames" title="Permalink to this definition">¶</a></dt>
+<dd><p>file name with stored object</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ncgenes7.data_fields.object_detection.ObjectDataFields.images_with_objects">
+<code class="sig-name descname">images_with_objects</code><a class="headerlink" href="#ncgenes7.data_fields.object_detection.ObjectDataFields.images_with_objects" title="Permalink to this definition">¶</a></dt>
+<dd><p>images with objects</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt>
+<code class="sig-name descname">images_with_objects</code><em class="property"> = 'images_with_objects'</em></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt>
+<code class="sig-name descname">num_objects</code><em class="property"> = 'num_objects'</em></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt>
+<code class="sig-name descname">object_boundaries</code><em class="property"> = 'object_boundaries'</em></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt>
+<code class="sig-name descname">object_boxes</code><em class="property"> = 'object_boxes'</em></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt>
+<code class="sig-name descname">object_classes</code><em class="property"> = 'object_classes'</em></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt>
+<code class="sig-name descname">object_fnames</code><em class="property"> = 'object_fnames'</em></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt>
+<code class="sig-name descname">object_instance_ids</code><em class="property"> = 'object_instance_ids'</em></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt>
+<code class="sig-name descname">object_instance_masks</code><em class="property"> = 'object_instance_masks'</em></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt>
+<code class="sig-name descname">object_instance_masks_on_image</code><em class="property"> = 'object_instance_masks_on_image'</em></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt>
+<code class="sig-name descname">object_keypoints</code><em class="property"> = 'object_keypoints'</em></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt>
+<code class="sig-name descname">object_keypoints_heatmaps</code><em class="property"> = 'object_keypoints_heatmaps'</em></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt>
+<code class="sig-name descname">object_keypoints_heatmaps_on_image</code><em class="property"> = 'object_keypoints_heatmaps_on_image'</em></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt>
+<code class="sig-name descname">object_keypoints_scores</code><em class="property"> = 'object_keypoints_scores'</em></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt>
+<code class="sig-name descname">object_keypoints_visibilities</code><em class="property"> = 'object_keypoints_visibilities'</em></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt>
+<code class="sig-name descname">object_observation_angle</code><em class="property"> = 'object_observation_angle'</em></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt>
+<code class="sig-name descname">object_occlusion</code><em class="property"> = 'object_occlusion'</em></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt>
+<code class="sig-name descname">object_scores</code><em class="property"> = 'object_scores'</em></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt>
+<code class="sig-name descname">object_truncation</code><em class="property"> = 'object_truncation'</em></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-ncgenes7.data_fields.semantic_segmentation">
+<span id="ncgenes7-data-fields-semantic-segmentation-module"></span><h2>ncgenes7.data_fields.semantic_segmentation module<a class="headerlink" href="#module-ncgenes7.data_fields.semantic_segmentation" title="Permalink to this headline">¶</a></h2>
+<p>Containers with names of input / outputs to use for semantic segmentation</p>
+<dl class="class">
+<dt id="ncgenes7.data_fields.semantic_segmentation.GroundtruthDataFields">
+<em class="property">class </em><code class="sig-prename descclassname">ncgenes7.data_fields.semantic_segmentation.</code><code class="sig-name descname">GroundtruthDataFields</code><a class="reference internal" href="../_modules/ncgenes7/data_fields/semantic_segmentation.html#GroundtruthDataFields"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ncgenes7.data_fields.semantic_segmentation.GroundtruthDataFields" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>Names for the groundtruth data.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>groundtruth_segmentation_classes</strong> – image with segmentation labels</p></li>
+<li><p><strong>groundtruth_segmentation_class_probabilities</strong> – raw class probabilities</p></li>
+<li><p><strong>groundtruth_segmentation_class_logits</strong> – class logits</p></li>
+<li><p><strong>groundtruth_segmentation_rgb_codings</strong> – rgb encodings for segmentation classes</p></li>
+<li><p><strong>groundtruth_segmentation_edges</strong> – image with edges</p></li>
+<li><p><strong>groundtruth_segmentation_classes_fnames</strong> – file name of groundtruth</p></li>
+<li><p><strong>groundtruth_groundtruth_edges_fnames</strong> – file name of groundtruth edge</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="attribute">
+<dt id="ncgenes7.data_fields.semantic_segmentation.GroundtruthDataFields.groundtruth_segmentation_class_logits">
+<code class="sig-name descname">groundtruth_segmentation_class_logits</code><em class="property"> = 'groundtruth_segmentation_class_logits'</em><a class="headerlink" href="#ncgenes7.data_fields.semantic_segmentation.GroundtruthDataFields.groundtruth_segmentation_class_logits" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ncgenes7.data_fields.semantic_segmentation.GroundtruthDataFields.groundtruth_segmentation_class_probabilities">
+<code class="sig-name descname">groundtruth_segmentation_class_probabilities</code><em class="property"> = 'groundtruth_segmentation_class_probabilities'</em><a class="headerlink" href="#ncgenes7.data_fields.semantic_segmentation.GroundtruthDataFields.groundtruth_segmentation_class_probabilities" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ncgenes7.data_fields.semantic_segmentation.GroundtruthDataFields.groundtruth_segmentation_classes">
+<code class="sig-name descname">groundtruth_segmentation_classes</code><em class="property"> = 'groundtruth_segmentation_classes'</em><a class="headerlink" href="#ncgenes7.data_fields.semantic_segmentation.GroundtruthDataFields.groundtruth_segmentation_classes" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ncgenes7.data_fields.semantic_segmentation.GroundtruthDataFields.groundtruth_segmentation_classes_fnames">
+<code class="sig-name descname">groundtruth_segmentation_classes_fnames</code><em class="property"> = 'groundtruth_segmentation_classes_fnames'</em><a class="headerlink" href="#ncgenes7.data_fields.semantic_segmentation.GroundtruthDataFields.groundtruth_segmentation_classes_fnames" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ncgenes7.data_fields.semantic_segmentation.GroundtruthDataFields.groundtruth_segmentation_edges">
+<code class="sig-name descname">groundtruth_segmentation_edges</code><em class="property"> = 'groundtruth_segmentation_edges'</em><a class="headerlink" href="#ncgenes7.data_fields.semantic_segmentation.GroundtruthDataFields.groundtruth_segmentation_edges" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ncgenes7.data_fields.semantic_segmentation.GroundtruthDataFields.groundtruth_segmentation_edges_fnames">
+<code class="sig-name descname">groundtruth_segmentation_edges_fnames</code><em class="property"> = 'groundtruth_segmentation_edges_fnames'</em><a class="headerlink" href="#ncgenes7.data_fields.semantic_segmentation.GroundtruthDataFields.groundtruth_segmentation_edges_fnames" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ncgenes7.data_fields.semantic_segmentation.GroundtruthDataFields.groundtruth_segmentation_rgb_codings">
+<code class="sig-name descname">groundtruth_segmentation_rgb_codings</code><em class="property"> = 'groundtruth_segmentation_rgb_codings'</em><a class="headerlink" href="#ncgenes7.data_fields.semantic_segmentation.GroundtruthDataFields.groundtruth_segmentation_rgb_codings" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="ncgenes7.data_fields.semantic_segmentation.PredictionDataFields">
+<em class="property">class </em><code class="sig-prename descclassname">ncgenes7.data_fields.semantic_segmentation.</code><code class="sig-name descname">PredictionDataFields</code><a class="reference internal" href="../_modules/ncgenes7/data_fields/semantic_segmentation.html#PredictionDataFields"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ncgenes7.data_fields.semantic_segmentation.PredictionDataFields" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>Names for the groundtruth data.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>prediction_segmentation_classes</strong> – image with segmentation labels</p></li>
+<li><p><strong>prediction_segmentation_class_probabilities</strong> – raw class probabilities</p></li>
+<li><p><strong>prediction_segmentation_rgb_codings</strong> – rgb encodings for segmentation classes</p></li>
+<li><p><strong>prediction_segmentation_edges</strong> – image with edges</p></li>
+<li><p><strong>prediction_segmentation_classes_fnames</strong> – file name of groundtruth</p></li>
+<li><p><strong>prediction_groundtruth_edges_fnames</strong> – file name of groundtruth edge</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="attribute">
+<dt id="ncgenes7.data_fields.semantic_segmentation.PredictionDataFields.prediction_segmentation_class_logits">
+<code class="sig-name descname">prediction_segmentation_class_logits</code><em class="property"> = 'prediction_segmentation_class_logits'</em><a class="headerlink" href="#ncgenes7.data_fields.semantic_segmentation.PredictionDataFields.prediction_segmentation_class_logits" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ncgenes7.data_fields.semantic_segmentation.PredictionDataFields.prediction_segmentation_class_probabilities">
+<code class="sig-name descname">prediction_segmentation_class_probabilities</code><em class="property"> = 'prediction_segmentation_class_probabilities'</em><a class="headerlink" href="#ncgenes7.data_fields.semantic_segmentation.PredictionDataFields.prediction_segmentation_class_probabilities" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ncgenes7.data_fields.semantic_segmentation.PredictionDataFields.prediction_segmentation_classes">
+<code class="sig-name descname">prediction_segmentation_classes</code><em class="property"> = 'prediction_segmentation_classes'</em><a class="headerlink" href="#ncgenes7.data_fields.semantic_segmentation.PredictionDataFields.prediction_segmentation_classes" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ncgenes7.data_fields.semantic_segmentation.PredictionDataFields.prediction_segmentation_classes_fnames">
+<code class="sig-name descname">prediction_segmentation_classes_fnames</code><em class="property"> = 'prediction_segmentation_classes_fnames'</em><a class="headerlink" href="#ncgenes7.data_fields.semantic_segmentation.PredictionDataFields.prediction_segmentation_classes_fnames" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ncgenes7.data_fields.semantic_segmentation.PredictionDataFields.prediction_segmentation_edges">
+<code class="sig-name descname">prediction_segmentation_edges</code><em class="property"> = 'prediction_segmentation_edges'</em><a class="headerlink" href="#ncgenes7.data_fields.semantic_segmentation.PredictionDataFields.prediction_segmentation_edges" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ncgenes7.data_fields.semantic_segmentation.PredictionDataFields.prediction_segmentation_edges_fnames">
+<code class="sig-name descname">prediction_segmentation_edges_fnames</code><em class="property"> = 'prediction_segmentation_edges_fnames'</em><a class="headerlink" href="#ncgenes7.data_fields.semantic_segmentation.PredictionDataFields.prediction_segmentation_edges_fnames" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ncgenes7.data_fields.semantic_segmentation.PredictionDataFields.prediction_segmentation_rgb_codings">
+<code class="sig-name descname">prediction_segmentation_rgb_codings</code><em class="property"> = 'prediction_segmentation_rgb_codings'</em><a class="headerlink" href="#ncgenes7.data_fields.semantic_segmentation.PredictionDataFields.prediction_segmentation_rgb_codings" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="ncgenes7.data_fields.semantic_segmentation.SegmentationDataFields">
+<em class="property">class </em><code class="sig-prename descclassname">ncgenes7.data_fields.semantic_segmentation.</code><code class="sig-name descname">SegmentationDataFields</code><a class="reference internal" href="../_modules/ncgenes7/data_fields/semantic_segmentation.html#SegmentationDataFields"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ncgenes7.data_fields.semantic_segmentation.SegmentationDataFields" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>Names for the groundtruth data.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>segmentation_classes</strong> – image with segmentation labels</p></li>
+<li><p><strong>segmentation_classes_PNG</strong> – image with segmentation labels with PNG encoding</p></li>
+<li><p><strong>segmentation_class_probabilities</strong> – raw class probabilities</p></li>
+<li><p><strong>segmentation_class_logits</strong> – segmentation class logits</p></li>
+<li><p><strong>segmentation_rgb_codings</strong> – rgb encodings for segmentation classes</p></li>
+<li><p><strong>segmentation_edges</strong> – image with edges</p></li>
+<li><p><strong>segmentation_edges_PNG</strong> – image with edges with PNG encoding</p></li>
+<li><p><strong>segmentation_classes_fnames</strong> – file name of segmentation classes</p></li>
+<li><p><strong>segmentation_edges_fnames</strong> – file name of edges</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="attribute">
+<dt id="ncgenes7.data_fields.semantic_segmentation.SegmentationDataFields.segmentation_class_logits">
+<code class="sig-name descname">segmentation_class_logits</code><em class="property"> = 'segmentation_class_logits'</em><a class="headerlink" href="#ncgenes7.data_fields.semantic_segmentation.SegmentationDataFields.segmentation_class_logits" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ncgenes7.data_fields.semantic_segmentation.SegmentationDataFields.segmentation_class_probabilities">
+<code class="sig-name descname">segmentation_class_probabilities</code><em class="property"> = 'segmentation_class_probabilities'</em><a class="headerlink" href="#ncgenes7.data_fields.semantic_segmentation.SegmentationDataFields.segmentation_class_probabilities" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ncgenes7.data_fields.semantic_segmentation.SegmentationDataFields.segmentation_classes">
+<code class="sig-name descname">segmentation_classes</code><em class="property"> = 'segmentation_classes'</em><a class="headerlink" href="#ncgenes7.data_fields.semantic_segmentation.SegmentationDataFields.segmentation_classes" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ncgenes7.data_fields.semantic_segmentation.SegmentationDataFields.segmentation_classes_PNG">
+<code class="sig-name descname">segmentation_classes_PNG</code><em class="property"> = 'segmentation_classes_PNG'</em><a class="headerlink" href="#ncgenes7.data_fields.semantic_segmentation.SegmentationDataFields.segmentation_classes_PNG" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ncgenes7.data_fields.semantic_segmentation.SegmentationDataFields.segmentation_classes_fnames">
+<code class="sig-name descname">segmentation_classes_fnames</code><em class="property"> = 'segmentation_classes_fnames'</em><a class="headerlink" href="#ncgenes7.data_fields.semantic_segmentation.SegmentationDataFields.segmentation_classes_fnames" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ncgenes7.data_fields.semantic_segmentation.SegmentationDataFields.segmentation_edges">
+<code class="sig-name descname">segmentation_edges</code><em class="property"> = 'segmentation_edges'</em><a class="headerlink" href="#ncgenes7.data_fields.semantic_segmentation.SegmentationDataFields.segmentation_edges" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ncgenes7.data_fields.semantic_segmentation.SegmentationDataFields.segmentation_edges_PNG">
+<code class="sig-name descname">segmentation_edges_PNG</code><em class="property"> = 'segmentation_edges_PNG'</em><a class="headerlink" href="#ncgenes7.data_fields.semantic_segmentation.SegmentationDataFields.segmentation_edges_PNG" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ncgenes7.data_fields.semantic_segmentation.SegmentationDataFields.segmentation_edges_fnames">
+<code class="sig-name descname">segmentation_edges_fnames</code><em class="property"> = 'segmentation_edges_fnames'</em><a class="headerlink" href="#ncgenes7.data_fields.semantic_segmentation.SegmentationDataFields.segmentation_edges_fnames" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ncgenes7.data_fields.semantic_segmentation.SegmentationDataFields.segmentation_rgb_codings">
+<code class="sig-name descname">segmentation_rgb_codings</code><em class="property"> = 'segmentation_rgb_codings'</em><a class="headerlink" href="#ncgenes7.data_fields.semantic_segmentation.SegmentationDataFields.segmentation_rgb_codings" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-ncgenes7.data_fields">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-ncgenes7.data_fields" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="ncgenes7.data_filters.html" class="btn btn-neutral float-right" title="ncgenes7.data_filters package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="ncgenes7.data_feeders.html" class="btn btn-neutral float-left" title="ncgenes7.data_feeders package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Audi Electronics Venture GmbH
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
