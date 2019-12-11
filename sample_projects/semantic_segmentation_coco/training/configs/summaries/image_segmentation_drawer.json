@@ -1,0 +1,24 @@
+{
+  "class_name": "ncgenes7.summaries.generic.BaseSummary",
+  "name": "image_segmentation_drawer",
+  "inbound_nodes": [
+    "dataset",
+    "segmentation_predictions"
+  ],
+  "incoming_keys_mapping": {
+    "dataset": {
+      "images": "images:0",
+      "groundtruth_segmentation_classes": "images:1"
+    },
+    "segmentation_predictions": {
+      "prediction_segmentation_classes": "images:2"
+    }
+  },
+  "image_rescale": [
+    1.0,
+    255.0,
+    255.0
+  ],
+  "image_concat_nrows": 1,
+  "image_concat_ncols": -1
+}

@@ -1,0 +1,14 @@
+{
+  "class_name": "ncgenes7.metrics.image.SemanticSegmentationMetrics",
+  "name": "segmentation_metrics",
+  "inbound_nodes": [
+    "dataset",
+    "segmentation_predictions"
+  ],
+  "incoming_keys_mapping": {
+    "dataset": {
+      "sample_mask_segmentation": "mask"
+    }
+  },
+  "num_classes": 201
+}

@@ -1,0 +1,39 @@
+name: Testing
+
+on:
+  pull_request:
+    branches:
+      - '*'
+  push:
+    branches:
+      - master
+      - '!refs/tags/*'
+
+jobs:
+
+  tests:
+
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: [ '3.5', '3.6', '3.7' ]
+
+    steps:
+      - uses: actions/checkout@v1
+      - uses: actions/setup-python@v1
+        with:
+          python-version: ${{ matrix.python-version }}
+          architecture: x64
+      - name: Install tox and other deps
+        run: |
+          wget -O protobuf.zip https://github.com/google/protobuf/releases/download/v3.0.0/protoc-3.0.0-linux-x86_64.zip
+          unzip protobuf.zip -d protoc3
+          sudo mv protoc3/bin/* /usr/local/bin/
+          sudo mv protoc3/include/* /usr/local/include/
+          rm -rf protoc3 protobuf.zip
+          python -m pip install --upgrade pip
+          pip install tox
+      - name: Test with tox
+        run: |
+          tox_envs=$(tox -l | grep `echo "py${{ matrix.python-version }}" | tr -d '.'` | paste -s -d, -)
+          tox -e $tox_envs

@@ -1,0 +1,7 @@
+include README.md
+include LICENSE.txt
+include ncgenes7/VERSION
+recursive-include tests *
+recursive-include sample_projects *
+global-exclude *.py[co]
+global-exclude __pycache__

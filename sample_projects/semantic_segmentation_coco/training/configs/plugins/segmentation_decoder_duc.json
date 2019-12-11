@@ -1,0 +1,13 @@
+{
+  "class_name": "ncgenes7.plugins.cnns.duc.DUCPlugin",
+  "name": "segmentation_decoder_DUC",
+  "inbound_nodes": "segmentation_decoder",
+  "kernel_size": 3,
+  "stride_upsample": 2,
+  "dilation_rates": [
+    2,
+    4,
+    8,
+    16
+  ]
+}

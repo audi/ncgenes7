@@ -1,0 +1,8 @@
+{
+  "file_name_instance_annotations": "raw_data/annotations/instances_val2017.json",
+  "file_name_panoptic_annotations": "raw_data/annotations/panoptic_val2017.json",
+  "file_name_person_keypoints_annotations": "raw_data/annotations/person_keypoints_val2017.json",
+  "number_of_samples_per_file": 1000,
+  "save_suffix": "eval"
+}
+

@@ -1,0 +1,538 @@
+{
+  "background": {
+    "class_id": 0,
+    "class_id_original": 0
+  },
+  "airplane": {
+    "class_id": 5,
+    "class_id_original": 5
+  },
+  "apple": {
+    "class_id": 48,
+    "class_id_original": 53
+  },
+  "backpack": {
+    "class_id": 25,
+    "class_id_original": 27
+  },
+  "banana": {
+    "class_id": 47,
+    "class_id_original": 52
+  },
+  "banner": {
+    "class_id": 81,
+    "class_id_original": 92
+  },
+  "baseball bat": {
+    "class_id": 35,
+    "class_id_original": 39
+  },
+  "baseball glove": {
+    "class_id": 36,
+    "class_id_original": 40
+  },
+  "bear": {
+    "class_id": 22,
+    "class_id_original": 23
+  },
+  "bed": {
+    "class_id": 60,
+    "class_id_original": 65
+  },
+  "bench": {
+    "class_id": 14,
+    "class_id_original": 15
+  },
+  "bicycle": {
+    "class_id": 2,
+    "class_id_original": 2
+  },
+  "bird": {
+    "class_id": 15,
+    "class_id_original": 16
+  },
+  "blanket": {
+    "class_id": 82,
+    "class_id_original": 93
+  },
+  "boat": {
+    "class_id": 9,
+    "class_id_original": 9
+  },
+  "book": {
+    "class_id": 74,
+    "class_id_original": 84
+  },
+  "bottle": {
+    "class_id": 40,
+    "class_id_original": 44
+  },
+  "bowl": {
+    "class_id": 46,
+    "class_id_original": 51
+  },
+  "bridge": {
+    "class_id": 83,
+    "class_id_original": 95
+  },
+  "broccoli": {
+    "class_id": 51,
+    "class_id_original": 56
+  },
+  "building-other-merged": {
+    "class_id": 130,
+    "class_id_original": 197
+  },
+  "bus": {
+    "class_id": 6,
+    "class_id_original": 6
+  },
+  "cabinet-merged": {
+    "class_id": 121,
+    "class_id_original": 188
+  },
+  "cake": {
+    "class_id": 56,
+    "class_id_original": 61
+  },
+  "car": {
+    "class_id": 3,
+    "class_id_original": 3
+  },
+  "cardboard": {
+    "class_id": 84,
+    "class_id_original": 100
+  },
+  "carrot": {
+    "class_id": 52,
+    "class_id_original": 57
+  },
+  "cat": {
+    "class_id": 16,
+    "class_id_original": 17
+  },
+  "ceiling-merged": {
+    "class_id": 119,
+    "class_id_original": 186
+  },
+  "cell phone": {
+    "class_id": 68,
+    "class_id_original": 77
+  },
+  "chair": {
+    "class_id": 57,
+    "class_id_original": 62
+  },
+  "clock": {
+    "class_id": 75,
+    "class_id_original": 85
+  },
+  "couch": {
+    "class_id": 58,
+    "class_id_original": 63
+  },
+  "counter": {
+    "class_id": 85,
+    "class_id_original": 107
+  },
+  "cow": {
+    "class_id": 20,
+    "class_id_original": 21
+  },
+  "cup": {
+    "class_id": 42,
+    "class_id_original": 47
+  },
+  "curtain": {
+    "class_id": 86,
+    "class_id_original": 109
+  },
+  "dining table": {
+    "class_id": 61,
+    "class_id_original": 67
+  },
+  "dirt-merged": {
+    "class_id": 127,
+    "class_id_original": 194
+  },
+  "dog": {
+    "class_id": 17,
+    "class_id_original": 18
+  },
+  "donut": {
+    "class_id": 55,
+    "class_id_original": 60
+  },
+  "door-stuff": {
+    "class_id": 87,
+    "class_id_original": 112
+  },
+  "elephant": {
+    "class_id": 21,
+    "class_id_original": 22
+  },
+  "fence-merged": {
+    "class_id": 118,
+    "class_id_original": 185
+  },
+  "fire hydrant": {
+    "class_id": 11,
+    "class_id_original": 11
+  },
+  "floor-other-merged": {
+    "class_id": 123,
+    "class_id_original": 190
+  },
+  "floor-wood": {
+    "class_id": 88,
+    "class_id_original": 118
+  },
+  "flower": {
+    "class_id": 89,
+    "class_id_original": 119
+  },
+  "food-other-merged": {
+    "class_id": 129,
+    "class_id_original": 196
+  },
+  "fork": {
+    "class_id": 43,
+    "class_id_original": 48
+  },
+  "frisbee": {
+    "class_id": 30,
+    "class_id_original": 34
+  },
+  "fruit": {
+    "class_id": 90,
+    "class_id_original": 122
+  },
+  "giraffe": {
+    "class_id": 24,
+    "class_id_original": 25
+  },
+  "grass-merged": {
+    "class_id": 126,
+    "class_id_original": 193
+  },
+  "gravel": {
+    "class_id": 91,
+    "class_id_original": 125
+  },
+  "hair drier": {
+    "class_id": 79,
+    "class_id_original": 89
+  },
+  "handbag": {
+    "class_id": 27,
+    "class_id_original": 31
+  },
+  "horse": {
+    "class_id": 18,
+    "class_id_original": 19
+  },
+  "hot dog": {
+    "class_id": 53,
+    "class_id_original": 58
+  },
+  "house": {
+    "class_id": 92,
+    "class_id_original": 128
+  },
+  "keyboard": {
+    "class_id": 67,
+    "class_id_original": 76
+  },
+  "kite": {
+    "class_id": 34,
+    "class_id_original": 38
+  },
+  "knife": {
+    "class_id": 44,
+    "class_id_original": 49
+  },
+  "laptop": {
+    "class_id": 64,
+    "class_id_original": 73
+  },
+  "light": {
+    "class_id": 93,
+    "class_id_original": 130
+  },
+  "microwave": {
+    "class_id": 69,
+    "class_id_original": 78
+  },
+  "mirror-stuff": {
+    "class_id": 94,
+    "class_id_original": 133
+  },
+  "motorcycle": {
+    "class_id": 4,
+    "class_id_original": 4
+  },
+  "mountain-merged": {
+    "class_id": 125,
+    "class_id_original": 192
+  },
+  "mouse": {
+    "class_id": 65,
+    "class_id_original": 74
+  },
+  "net": {
+    "class_id": 95,
+    "class_id_original": 138
+  },
+  "orange": {
+    "class_id": 50,
+    "class_id_original": 55
+  },
+  "oven": {
+    "class_id": 70,
+    "class_id_original": 79
+  },
+  "paper-merged": {
+    "class_id": 128,
+    "class_id_original": 195
+  },
+  "parking meter": {
+    "class_id": 13,
+    "class_id_original": 14
+  },
+  "pavement-merged": {
+    "class_id": 124,
+    "class_id_original": 191
+  },
+  "person": {
+    "class_id": 1,
+    "class_id_original": 1
+  },
+  "pillow": {
+    "class_id": 96,
+    "class_id_original": 141
+  },
+  "pizza": {
+    "class_id": 54,
+    "class_id_original": 59
+  },
+  "platform": {
+    "class_id": 97,
+    "class_id_original": 144
+  },
+  "playingfield": {
+    "class_id": 98,
+    "class_id_original": 145
+  },
+  "potted plant": {
+    "class_id": 59,
+    "class_id_original": 64
+  },
+  "railroad": {
+    "class_id": 99,
+    "class_id_original": 147
+  },
+  "refrigerator": {
+    "class_id": 73,
+    "class_id_original": 82
+  },
+  "remote": {
+    "class_id": 66,
+    "class_id_original": 75
+  },
+  "river": {
+    "class_id": 100,
+    "class_id_original": 148
+  },
+  "road": {
+    "class_id": 101,
+    "class_id_original": 149
+  },
+  "rock-merged": {
+    "class_id": 131,
+    "class_id_original": 198
+  },
+  "roof": {
+    "class_id": 102,
+    "class_id_original": 151
+  },
+  "rug-merged": {
+    "class_id": 133,
+    "class_id_original": 200
+  },
+  "sand": {
+    "class_id": 103,
+    "class_id_original": 154
+  },
+  "sandwich": {
+    "class_id": 49,
+    "class_id_original": 54
+  },
+  "scissors": {
+    "class_id": 77,
+    "class_id_original": 87
+  },
+  "sea": {
+    "class_id": 104,
+    "class_id_original": 155
+  },
+  "sheep": {
+    "class_id": 19,
+    "class_id_original": 20
+  },
+  "shelf": {
+    "class_id": 105,
+    "class_id_original": 156
+  },
+  "sink": {
+    "class_id": 72,
+    "class_id_original": 81
+  },
+  "skateboard": {
+    "class_id": 37,
+    "class_id_original": 41
+  },
+  "skis": {
+    "class_id": 31,
+    "class_id_original": 35
+  },
+  "sky-other-merged": {
+    "class_id": 120,
+    "class_id_original": 187
+  },
+  "snow": {
+    "class_id": 106,
+    "class_id_original": 159
+  },
+  "snowboard": {
+    "class_id": 32,
+    "class_id_original": 36
+  },
+  "spoon": {
+    "class_id": 45,
+    "class_id_original": 50
+  },
+  "sports ball": {
+    "class_id": 33,
+    "class_id_original": 37
+  },
+  "stairs": {
+    "class_id": 107,
+    "class_id_original": 161
+  },
+  "stop sign": {
+    "class_id": 12,
+    "class_id_original": 13
+  },
+  "suitcase": {
+    "class_id": 29,
+    "class_id_original": 33
+  },
+  "surfboard": {
+    "class_id": 38,
+    "class_id_original": 42
+  },
+  "table-merged": {
+    "class_id": 122,
+    "class_id_original": 189
+  },
+  "teddy bear": {
+    "class_id": 78,
+    "class_id_original": 88
+  },
+  "tennis racket": {
+    "class_id": 39,
+    "class_id_original": 43
+  },
+  "tent": {
+    "class_id": 108,
+    "class_id_original": 166
+  },
+  "tie": {
+    "class_id": 28,
+    "class_id_original": 32
+  },
+  "toaster": {
+    "class_id": 71,
+    "class_id_original": 80
+  },
+  "toilet": {
+    "class_id": 62,
+    "class_id_original": 70
+  },
+  "toothbrush": {
+    "class_id": 80,
+    "class_id_original": 90
+  },
+  "towel": {
+    "class_id": 109,
+    "class_id_original": 168
+  },
+  "traffic light": {
+    "class_id": 10,
+    "class_id_original": 10
+  },
+  "train": {
+    "class_id": 7,
+    "class_id_original": 7
+  },
+  "tree-merged": {
+    "class_id": 117,
+    "class_id_original": 184
+  },
+  "truck": {
+    "class_id": 8,
+    "class_id_original": 8
+  },
+  "tv": {
+    "class_id": 63,
+    "class_id_original": 72
+  },
+  "umbrella": {
+    "class_id": 26,
+    "class_id_original": 28
+  },
+  "vase": {
+    "class_id": 76,
+    "class_id_original": 86
+  },
+  "wall-brick": {
+    "class_id": 110,
+    "class_id_original": 171
+  },
+  "wall-other-merged": {
+    "class_id": 132,
+    "class_id_original": 199
+  },
+  "wall-stone": {
+    "class_id": 111,
+    "class_id_original": 175
+  },
+  "wall-tile": {
+    "class_id": 112,
+    "class_id_original": 176
+  },
+  "wall-wood": {
+    "class_id": 113,
+    "class_id_original": 177
+  },
+  "water-other": {
+    "class_id": 114,
+    "class_id_original": 178
+  },
+  "window-blind": {
+    "class_id": 115,
+    "class_id_original": 180
+  },
+  "window-other": {
+    "class_id": 116,
+    "class_id_original": 181
+  },
+  "wine glass": {
+    "class_id": 41,
+    "class_id_original": 46
+  },
+  "zebra": {
+    "class_id": 23,
+    "class_id_original": 24
+  }
+}

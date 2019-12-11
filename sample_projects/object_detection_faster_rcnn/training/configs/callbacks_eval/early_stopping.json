@@ -1,0 +1,15 @@
+{
+  "class_name": "ncgenes7.callbacks.monitor.EarlyStoppingCallback",
+  "name": "early_stopping_objects_kpi_matching_0.5",
+  "inbound_nodes": [
+    "objects_kpi_matching_0.5"
+  ],
+  "incoming_keys_mapping": {
+    "objects_kpi_matching_0.5": {
+      "mAP": "monitor"
+    }
+  },
+  "min_delta": 0.005,
+  "patience": 10,
+  "monitor_mode": "max"
+}

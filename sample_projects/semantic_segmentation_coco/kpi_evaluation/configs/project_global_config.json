@@ -1,0 +1,28 @@
+{
+  "image_size": [
+    480,
+    640
+  ],
+  "num_classes": 201,
+  "rgb_class_mapping": "../data_extraction/coco/rgb_class_mapping_coco_panoptic.json",
+  "file_name_panoptic_annotations": "../data_extraction/coco/raw_data/annotations/panoptic_val2017.json",
+  "class_names_to_labels_mapping": "../data_extraction/coco/class_names_to_labels_mapping_coco_panoptic.json",
+  "KPIPlugin": {
+    "cachers": [
+      {
+        "class_name": "KPIMD5Cacher"
+      }
+    ]
+  },
+  "KPIAccumulator": {
+    "savers": [
+      {
+        "class_name": "KPIJsonSaver"
+      },
+      {
+        "class_name": "MlflowKPILogger"
+      }
+    ]
+  }
+}
+

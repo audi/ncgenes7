@@ -1,0 +1,23 @@
+{
+  "num_classes": 90,
+  "class_names_to_labels_mapping": "../data_extraction/coco/class_names_to_labels_mapping_coco_instances.json",
+  "file_name_instance_annotations": "../data_extraction/coco/raw_data/annotations/instances_val2017.json",
+  "KPIPlugin": {
+    "cachers": [
+      {
+        "class_name": "KPIMD5Cacher"
+      }
+    ]
+  },
+  "KPIAccumulator": {
+    "savers": [
+      {
+        "class_name": "KPIJsonSaver"
+      },
+      {
+        "class_name": "MlflowKPILogger"
+      }
+    ]
+  }
+}
+

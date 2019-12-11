@@ -1,0 +1,16 @@
+{
+  "class_name": "ncgenes7.callbacks.object_detection.ObjectDrawerCallback",
+  "name": "detections_drawer",
+  "inbound_nodes": [
+    "dataset",
+    "detections"
+  ],
+  "incoming_keys_mapping": {
+    "detections": {
+      "detection_object_boxes": "object_boxes",
+      "detection_object_classes": "object_classes",
+      "detection_object_scores": "object_scores"
+    }
+  },
+  "boxes_in_normalized_coordinates": false
+}

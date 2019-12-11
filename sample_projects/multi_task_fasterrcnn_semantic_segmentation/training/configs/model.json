@@ -1,0 +1,4 @@
+{
+  "regularization_l1": 1e-7,
+  "regularization_l2": 1e-6
+}

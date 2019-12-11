@@ -1,0 +1,198 @@
+{
+  "train": {
+    "data_pipe": [
+      {
+        "class_name": "ncgenes7.data_readers.image.ImageDataReaderTfRecords",
+        "name": "image_reader"
+      },
+      {
+        "class_name": "ncgenes7.data_readers.object_detection.ObjectDetectionReaderTfRecords",
+        "name": "objects_reader"
+      },
+      {
+        "class_name": "ncgenes7.augmentations.image.ImageRandomBrightness",
+        "name": "image_random_brightness",
+        "inbound_nodes": [
+          "image_reader"
+        ],
+        "max_delta": 0.1
+      },
+      {
+        "class_name": "ncgenes7.augmentations.image.ImageRandomContrast",
+        "name": "image_random_contrast",
+        "inbound_nodes": [
+          "image_random_brightness"
+        ],
+        "incoming_keys_mapping": {
+          "image_random_brightness": {
+            "images": "images",
+            "*": "_"
+          }
+        },
+        "lower": 0.5,
+        "upper": 0.5
+      },
+      {
+        "class_name": "ncgenes7.augmentations.image.ImageHorizontalFlip",
+        "name": "image_horizontal_flip",
+        "inbound_nodes": [
+          "image_random_contrast"
+        ],
+        "incoming_keys_mapping": {
+          "image_random_contrast": {
+            "images": "images",
+            "*": "_"
+          }
+        }
+      },
+      {
+        "class_name": "ncgenes7.augmentations.object_detection.ObjectsHorizontalFlip",
+        "name": "objects_horizontal_flip",
+        "inbound_nodes": [
+          "image_horizontal_flip",
+          "objects_reader"
+        ],
+        "incoming_keys_mapping": {
+          "image_horizontal_flip": {
+            "images": "_"
+          },
+          "objects_reader": {
+            "object_fnames": "_",
+            "num_objects": "_"
+          }
+        }
+      },
+      {
+        "class_name": "ncgenes7.augmentations.image.ImageRandomCrop",
+        "name": "image_random_crop",
+        "inbound_nodes": [
+          "image_horizontal_flip"
+        ],
+        "incoming_keys_mapping": {
+          "image_horizontal_flip": {
+            "images": "images",
+            "*": "_"
+          }
+        },
+        "min_scale": 0.4,
+        "max_scale": 0.9,
+        "resize_to_original": true
+      },
+      {
+        "class_name": "ncgenes7.augmentations.object_detection.ObjectsRandomCrop",
+        "name": "objects_random_crop",
+        "inbound_nodes": [
+          "image_random_crop",
+          "objects_horizontal_flip"
+        ],
+        "incoming_keys_mapping": {
+          "image_random_crop": {
+            "images": "_"
+          },
+          "objects_horizontal_flip": {
+            "augment": "_"
+          }
+        },
+        "min_scale": 0.0,
+        "max_scale": 0.0
+      },
+      {
+        "class_name": "ncgenes7.augmentations.image.ImageRandomCutout",
+        "name": "image_random_cutout",
+        "inbound_nodes": [
+          "image_random_crop"
+        ],
+        "incoming_keys_mapping": {
+          "image_random_crop": {
+            "images": "images",
+            "*": "_"
+          }
+        },
+        "min_cut_length": 0.01,
+        "max_cut_length": 0.05,
+        "is_normalized": false
+      },
+      {
+        "class_name": "ncgenes7.augmentations.object_detection.ObjectsRandomCutout",
+        "name": "objects_random_cutout",
+        "inbound_nodes": [
+          "image_random_cutout",
+          "objects_random_crop"
+        ],
+        "incoming_keys_mapping": {
+          "image_random_cutout": {
+            "images": "_"
+          },
+          "objects_random_crop": {
+            "augment": "_",
+            "crop_offset": "_",
+            "crop_scale": "_"
+          }
+        },
+        "min_cut_length": 0.0,
+        "max_cut_length": 0.0
+      }
+    ],
+    "output_keys_mapping": {
+      "image_reader": {
+        "image_sizes": "original_image_sizes",
+        "images_fnames": "images_fnames",
+        "*": "_"
+      },
+      "image_random_cutout": {
+        "images": "images"
+      },
+      "objects_random_cutout": {
+        "object_boxes": "groundtruth_object_boxes",
+        "object_classes": "groundtruth_object_classes",
+        "object_instance_ids": "groundtruth_object_instance_ids",
+        "object_scores": "groundtruth_object_scores",
+        "num_objects": "groundtruth_num_objects",
+        "object_fname": "groundtruth_object_fname"
+      },
+      "*": "_"
+    },
+    "file_list": {
+      "file_names": {
+        "data": "../data_extraction/coco/data_extraction/train/extracted/coco-train*.tfrecords"
+      }
+    },
+    "initial_shuffle": true,
+    "shuffle_buffer_size": 200,
+    "prefetch_buffer_size": 10,
+    "compression_type": "GZIP"
+  },
+  "eval": {
+    "data_pipe": [
+      {
+        "class_name": "ncgenes7.data_readers.image.ImageDataReaderTfRecords",
+        "name": "image_reader"
+      },
+      {
+        "class_name": "ncgenes7.data_readers.object_detection.ObjectDetectionReaderTfRecords",
+        "name": "objects_reader"
+      }
+    ],
+    "output_keys_mapping": {
+      "image_reader": {
+        "image_sizes": "original_image_sizes"
+      },
+      "objects_reader": {
+        "object_boxes": "groundtruth_object_boxes",
+        "object_classes": "groundtruth_object_classes",
+        "object_instance_ids": "groundtruth_object_instance_ids",
+        "object_scores": "groundtruth_object_scores",
+        "num_objects": "groundtruth_num_objects",
+        "object_fname": "groundtruth_object_fname"
+      }
+    },
+    "file_list": {
+      "file_names": {
+        "data": "../data_extraction/coco/data_extraction/eval/extracted/coco-eval*.tfrecords"
+      }
+    },
+    "prefetch_buffer_size": 1,
+    "compression_type": "GZIP"
+  }
+}
+

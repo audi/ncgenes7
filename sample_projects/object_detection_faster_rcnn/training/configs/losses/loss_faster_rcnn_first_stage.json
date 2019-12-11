@@ -1,0 +1,12 @@
+{
+  "class_name": "ncgenes7.losses.object_detection.FasterRCNNFirstStageLoss",
+  "name": "loss_first_stage",
+  "inbound_nodes": [
+    "dataset",
+    "box_predictor_first_stage"
+  ],
+  "loss_weights": {
+    "loss_rpn_localization": 2.0,
+    "loss_rpn_objectness": 1.0
+  }
+}

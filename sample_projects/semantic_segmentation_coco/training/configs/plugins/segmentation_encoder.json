@@ -1,0 +1,43 @@
+{
+  "class_name": "ncgenes7.plugins.cnns.aev_nips2017.AEVNips2017Plugin",
+  "name": "segmentation_encoder",
+  "inbound_nodes": "dataset",
+  "incoming_keys_mapping": {
+    "dataset": {
+      "images": "feature_maps"
+    }
+  },
+  "sampling_type": "encoder",
+  "first_conv_params": {
+    "filters": 16,
+    "kernel_size": 5,
+    "strides": 2,
+    "padding": "same"
+  },
+  "filters": [
+    16,
+    32,
+    48,
+    64
+  ],
+  "inception_kernel_size": [
+    1,
+    3,
+    5
+  ],
+  "dilated_inception_kernel_size": [
+    3,
+    3
+  ],
+  "dilated_inception_dilation_rate": [
+    2,
+    8
+  ],
+  "last_block_with_sampling": false,
+  "add_block_residual_connections": true,
+  "block_residual_connection_type": "concat",
+  "activation": "elu",
+  "dropout": {
+    "rate": 0.2
+  }
+}

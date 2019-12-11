@@ -1,0 +1,12 @@
+{
+  "class_name": "ncgenes7.losses.object_detection.FasterRCNNSecondStageLoss",
+  "name": "loss_second_stage",
+  "inbound_nodes": [
+    "dataset",
+    "box_predictor_second_stage"
+  ],
+  "loss_weights": {
+    "loss_second_stage_localization": 2.0,
+    "loss_second_stage_classification": 1.0
+  }
+}

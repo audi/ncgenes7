@@ -1,0 +1,85 @@
+[
+  {
+    "class_name": "ncgenes7.summaries.object_detection.ObjectDrawerSummary",
+    "inbound_nodes": [
+      "dataset"
+    ],
+    "name": "groundtruth_objects_drawer",
+    "incoming_keys_mapping": {
+      "dataset": {
+        "groundtruth_object_classes": "object_classes",
+        "groundtruth_object_boxes": "object_boxes"
+      }
+    },
+    "store_inside_tensorboard": false
+  },
+  {
+    "class_name": "ncgenes7.summaries.object_detection.ObjectDrawerSummary",
+    "inbound_nodes": [
+      "dataset",
+      "detections_first_stage"
+    ],
+    "name": "detections_first_stage_drawer",
+    "incoming_keys_mapping": {
+      "detections_first_stage": {
+        "detection_object_scores": "object_scores",
+        "detection_object_classes": "object_classes",
+        "detection_object_boxes": "object_boxes"
+      }
+    },
+    "class_names_to_labels_mapping": {
+      "proposal": {
+        "class_id": 1
+      }
+    },
+    "num_classes": 1,
+    "store_inside_tensorboard": false,
+    "use_normalized_coordinates": false
+  },
+  {
+    "class_name": "ncgenes7.summaries.object_detection.ObjectDrawerSummary",
+    "inbound_nodes": [
+      "dataset",
+      "detections"
+    ],
+    "name": "detections_second_stage_drawer",
+    "incoming_keys_mapping": {
+      "detections": {
+        "detection_object_scores": "object_scores",
+        "detection_object_classes": "object_classes",
+        "detection_object_boxes": "object_boxes"
+      }
+    },
+    "store_inside_tensorboard": false,
+    "use_normalized_coordinates": false
+  },
+  {
+    "class_name": "ncgenes7.summaries.generic.BaseSummary",
+    "name": "image_objects_and_detections_drawer",
+    "inbound_nodes": [
+      "dataset",
+      "groundtruth_objects_drawer",
+      "detections_first_stage_drawer",
+      "detections_second_stage_drawer"
+    ],
+    "incoming_keys_mapping": {
+      "detections_first_stage_drawer": {
+        "images_with_objects": "images"
+      },
+      "detections_second_stage_drawer": {
+        "images_with_objects": "images"
+      },
+      "groundtruth_objects_drawer": {
+        "images_with_objects": "images"
+      }
+    },
+    "image_rescale": [
+      1.0,
+      256.0,
+      256.0,
+      256.0
+    ],
+    "image_concat_nrows": -1,
+    "image_concat_ncols": 1
+  }
+]

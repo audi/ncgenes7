@@ -1,0 +1,18 @@
+{
+  "class_name": "ncgenes7.callbacks.generic.BaseLogger",
+  "inbound_nodes": [
+    "loss_first_stage",
+    "loss_second_stage"
+  ],
+  "incoming_keys_mapping": {
+    "loss_first_stage": {
+      "loss_rpn_localization": "loss:first_loc",
+      "loss_rpn_objectness": "loss:first_obj"
+    },
+    "loss_second_stage": {
+      "loss_second_stage_localization": "loss:second_loc",
+      "loss_second_stage_classification": "loss:second_obj"
+    }
+  },
+  "print_header_n_lines": 20
+}

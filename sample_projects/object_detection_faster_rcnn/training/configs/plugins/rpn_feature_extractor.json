@@ -1,0 +1,16 @@
+{
+  "class_name": "ncgenes7.plugins.keras_applications.TFKerasApplicationsPlugin",
+  "name": "rpn_feature_extractor",
+  "inbound_nodes": "dataset",
+  "incoming_keys_mapping": {
+    "dataset": {
+      "images": "features"
+    }
+  },
+  "keras_application_model_name": "DenseNet121",
+  "model_params": {
+    "weights": "imagenet",
+    "include_top": false
+  },
+  "dropout": null
+}

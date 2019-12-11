@@ -1,0 +1,10 @@
+{
+  "class_name": "nucleus7.coordinator.TfRecordsSaverCallback",
+  "name": "detections_saver",
+  "inbound_nodes": [
+    "dataset"
+  ],
+  "save_prefix": "coco",
+  "compression_type": "GZIP"
+}
+

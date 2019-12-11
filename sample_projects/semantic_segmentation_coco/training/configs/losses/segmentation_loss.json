@@ -1,0 +1,16 @@
+{
+  "class_name": "ncgenes7.losses.image.SoftmaxLossWithResizedLabels",
+  "name": "segmentation_loss",
+  "inbound_nodes": [
+    "dataset",
+    "segmentation_decoder_DUC"
+  ],
+  "incoming_keys_mapping": {
+    "segmentation_decoder_DUC": {
+      "feature_maps": "logits"
+    },
+    "dataset": {
+      "groundtruth_segmentation_classes": "labels"
+    }
+  }
+}

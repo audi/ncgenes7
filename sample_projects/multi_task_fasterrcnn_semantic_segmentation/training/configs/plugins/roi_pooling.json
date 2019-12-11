@@ -1,0 +1,9 @@
+{
+  "class_name": "ncgenes7.plugins.object_detection.faster_rcnn.ROIPoolingPlugin",
+  "name": "roi_pooling",
+  "inbound_nodes": [
+    "rpn_feature_extractor",
+    "box_predictor_first_stage"
+  ],
+  "use_matmul_crop_and_resize": true
+}

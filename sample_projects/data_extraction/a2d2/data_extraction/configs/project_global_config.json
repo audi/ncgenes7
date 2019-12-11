@@ -1,0 +1,6 @@
+{
+  "image_number_of_channels": 3,
+  "extract_edges": false,
+  "rgb_class_mapping": "rgb_class_mapping_a2d2.json"
+}
+

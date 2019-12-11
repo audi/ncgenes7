@@ -1,0 +1,49 @@
+[
+  {
+    "class_name": "ncgenes7.postprocessors.object_detection.ConverterToImageFramePostprocessor",
+    "name": "detections_second_stage_image_frame",
+    "inbound_nodes": [
+      "dataset",
+      "box_predictor_second_stage"
+    ]
+  },
+  {
+    "class_name": "ncgenes7.postprocessors.object_detection.DetectionsFilterPostprocessor",
+    "name": "detections_second_stage_image_frame_filtered",
+    "inbound_nodes": [
+      "box_predictor_second_stage",
+      "detections_second_stage_image_frame"
+    ],
+    "incoming_keys_mapping": {
+      "box_predictor_second_stage": {
+        "detection_object_boxes": "_",
+        "anchors": "_",
+        "rpn_box_encodings": "_",
+        "rpn_objectness_predictions_with_background": "_",
+        "refined_box_encodings": "_",
+        "class_predictions_with_background": "_",
+        "proposal_boxes": "_",
+        "num_proposals": "_"
+      }
+    },
+    "min_object_width": 0,
+    "max_object_width": 0,
+    "min_object_height": 0,
+    "max_object_height": 0
+  },
+  {
+    "class_name": "ncgenes7.postprocessors.object_detection.NonMaxSuppressionPostprocessor",
+    "name": "detections_second_stage_image_frame_filtered_nms",
+    "inbound_nodes": [
+      "detections_second_stage_image_frame_filtered"
+    ]
+  },
+  {
+    "class_name": "ncgenes7.postprocessors.object_detection.DetectionsPostprocessor",
+    "name": "detections",
+    "inbound_nodes": [
+      "detections_second_stage_image_frame_filtered_nms"
+    ],
+    "offset_detection_classes": true
+  }
+]

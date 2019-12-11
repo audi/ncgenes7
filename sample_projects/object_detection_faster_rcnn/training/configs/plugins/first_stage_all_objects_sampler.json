@@ -1,0 +1,8 @@
+{
+  "class_name": "ncgenes7.plugins.object_detection.faster_rcnn.ProposalsSampler",
+  "name": "first_stage_all_objects_sampler",
+  "inbound_nodes": [
+    "dataset",
+    "box_predictor_first_stage"
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "class_name": "ncgenes7.callbacks.image.ImageSaver",
+  "name": "images_with_detections_saver",
+  "inbound_nodes": [
+    "dataset",
+    "detections_drawer"
+  ],
+  "incoming_keys_mapping": {
+    "dataset": {
+      "images": "_",
+      "images_fnames": "save_names"
+    },
+    "detections_drawer": {
+      "images_with_objects": "images"
+    }
+  }
+}

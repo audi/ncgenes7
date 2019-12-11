@@ -1,0 +1,34 @@
+{
+  "data_pipe": [
+    {
+      "class_name": "ncgenes7.data_readers.coco.CocoSemanticSegmentationReader",
+      "name": "groundtruth_reader"
+    },
+    {
+      "class_name": "ncgenes7.data_readers.semantic_segmentation.SemanticSegmentationReader",
+      "name": "predictions_reader",
+      "file_list_keys_mapping": {
+        "predictions": "labels"
+      }
+    }
+  ],
+  "output_keys_mapping": {
+    "groundtruth_reader": {
+      "segmentation_classes": "groundtruth_segmentation_classes",
+      "segmentation_classes_fnames": "groundtruth_segmentation_classes_fnames"
+    },
+    "predictions_reader": {
+      "segmentation_classes": "prediction_segmentation_classes",
+      "segmentation_classes_fnames": "prediction_segmentation_classes_fnames"
+    }
+  },
+  "file_list": {
+    "file_names": {
+      "panoptic": "../data_extraction/coco/raw_data/annotations/panoptic_val2017/*.png",
+      "predictions": "inference/last_run/results/*_segmentation_classes.png"
+    },
+    "match_suffixes": {
+      "predictions": "_segmentation_classes"
+    }
+  }
+}

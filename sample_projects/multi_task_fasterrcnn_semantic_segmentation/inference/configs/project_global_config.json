@@ -1,0 +1,11 @@
+{
+  "image_size": [
+    480,
+    640
+  ],
+  "image_number_of_channels": 3,
+  "num_classes": 90,
+  "parallel_iterations": 32,
+  "class_names_to_labels_mapping": "../data_extraction/coco/class_names_to_labels_mapping_coco_instances.json",
+  "rgb_class_mapping": "../data_extraction/coco/rgb_class_mapping_coco_panoptic.json"
+}

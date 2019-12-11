@@ -1,0 +1,26 @@
+[
+  {
+    "class_name": "ncgenes7.postprocessors.object_detection.ConverterToImageFramePostprocessor",
+    "name": "detections_first_stage_image_frame",
+    "inbound_nodes": [
+      "dataset",
+      "box_predictor_first_stage"
+    ]
+  },
+  {
+    "class_name": "ncgenes7.postprocessors.object_detection.DetectionsPostprocessor",
+    "name": "detections_first_stage",
+    "inbound_nodes": [
+      "box_predictor_first_stage",
+      "detections_first_stage_image_frame"
+    ],
+    "incoming_keys_mapping": {
+      "box_predictor_first_stage": {
+        "detection_object_boxes": "_",
+        "anchors": "_",
+        "rpn_box_encodings": "_",
+        "rpn_objectness_predictions_with_background": "_"
+      }
+    }
+  }
+]

@@ -1,0 +1,15 @@
+{
+  "class_name": "ncgenes7.kpis.generic.ConfusionMatrixKPI",
+  "name": "segmentation_confusion_matrix",
+  "inbound_nodes": [
+    "dataset"
+  ],
+  "incoming_keys_mapping": {
+    "dataset": {
+        "groundtruth_segmentation_classes": "labels",
+        "prediction_segmentation_classes": "predictions"
+    }
+  },
+  "num_classes": 201
+}
+

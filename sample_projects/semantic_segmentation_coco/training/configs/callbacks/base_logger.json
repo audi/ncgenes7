@@ -1,0 +1,6 @@
+{
+  "class_name": "ncgenes7.callbacks.generic.BaseLogger",
+  "inbound_nodes": [
+    "segmentation_loss"
+  ]
+}

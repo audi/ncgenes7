@@ -1,0 +1,5 @@
+{
+  "class_name": "ncgenes7.callbacks.generic.BaseLogger",
+  "inbound_nodes": [],
+  "print_header_n_lines": 20
+}

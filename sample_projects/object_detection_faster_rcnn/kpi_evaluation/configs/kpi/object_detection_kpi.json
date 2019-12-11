@@ -1,0 +1,8 @@
+{
+  "class_name": "ncgenes7.kpis.object_detection.ObjectDetectionKPIAccumulator",
+  "inbound_nodes": [
+    "detections_matcher_iou_0.5"
+  ],
+  "name": "kpi_matching_0.5",
+  "evaluate_corlocs": true
+}

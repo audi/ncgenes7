@@ -1,0 +1,17 @@
+{
+  "class_name": "ncgenes7.callbacks.semantic_segmentation.SemanticSegmentationSaver",
+  "name": "predictions_saver",
+  "inbound_nodes": [
+    "dataset",
+    "predictions"
+  ],
+  "incoming_keys_mapping": {
+    "dataset": {
+      "images": "_",
+      "images_fnames": "save_names"
+    },
+    "predictions": {
+      "prediction_segmentation_classes": "segmentation_classes"
+    }
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "class_name": "ncgenes7.callbacks.monitor.EarlyStoppingCallback",
+  "name": "early_stopping_segmentation_metrics",
+  "inbound_nodes": [
+    "segmentation_metrics"
+  ],
+  "incoming_keys_mapping": {
+    "segmentation_metrics": {
+      "scalar_iou": "monitor"
+    }
+  },
+  "min_delta": 0.005,
+  "patience": 10,
+  "monitor_mode": "max"
+}

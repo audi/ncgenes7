@@ -1,0 +1,13 @@
+{
+  "image_size": [
+    480,
+    640
+  ],
+  "image_encoding": "PNG",
+  "num_classes": 201,
+  "parallel_iterations": 32,
+  "RandomAugmentationTf": {
+    "augmentation_probability": 0.5,
+    "random_seed": 6547
+  }
+}

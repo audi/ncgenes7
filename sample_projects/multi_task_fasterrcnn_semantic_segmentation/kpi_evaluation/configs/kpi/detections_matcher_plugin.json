@@ -1,0 +1,8 @@
+{
+  "class_name": "ncgenes7.kpis.object_detection.DetectionsMatcherKPIPlugin",
+  "name": "detections_matcher_iou_0.5",
+  "inbound_nodes": [
+    "dataset"
+  ],
+  "matching_iou_threshold": 0.5
+}

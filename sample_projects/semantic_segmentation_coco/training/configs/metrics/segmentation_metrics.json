@@ -1,0 +1,8 @@
+{
+  "class_name": "ncgenes7.metrics.image.SemanticSegmentationMetrics",
+  "name": "segmentation_metrics",
+  "inbound_nodes": [
+    "dataset",
+    "segmentation_predictions"
+  ]
+}

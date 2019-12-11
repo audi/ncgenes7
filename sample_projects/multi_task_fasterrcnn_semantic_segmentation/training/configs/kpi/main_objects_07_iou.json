@@ -1,0 +1,21 @@
+[
+  {
+    "class_name": "ncgenes7.kpis.object_detection.DetectionsMatcherKPIPlugin",
+    "name": "detections_matcher_iou_0.7",
+    "inbound_nodes": [
+      "dataset",
+      "detections"
+    ],
+    "matching_iou_threshold": 0.7,
+    "groundtruth_boxes_in_normalized": true,
+    "detection_boxes_in_normalized": false
+  },
+  {
+    "class_name": "ncgenes7.kpis.object_detection.ObjectDetectionKPIAccumulator",
+    "inbound_nodes": [
+      "detections_matcher_iou_0.7"
+    ],
+    "name": "objects_kpi_matching_0.7",
+    "evaluate_corlocs": true
+  }
+]

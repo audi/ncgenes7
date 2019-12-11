@@ -1,0 +1,116 @@
+{
+  "Animals": {
+    "class_id": 1
+  },
+  "Bicycle": {
+    "class_id": 2
+  },
+  "Blurred_area": {
+    "class_id": 3
+  },
+  "Buildings": {
+    "class_id": 4
+  },
+  "Car": {
+    "class_id": 5
+  },
+  "Curbstone": {
+    "class_id": 6
+  },
+  "Dashed_line": {
+    "class_id": 7
+  },
+  "Drivable_cobbleston": {
+    "class_id": 8
+  },
+  "Ego_car": {
+    "class_id": 9
+  },
+  "Electronic_traffic": {
+    "class_id": 10
+  },
+  "Grid_structure": {
+    "class_id": 11
+  },
+  "Irrelevant_signs": {
+    "class_id": 12
+  },
+  "Nature_object": {
+    "class_id": 13
+  },
+  "Non-drivable_street": {
+    "class_id": 14
+  },
+  "Obstacles_/_trash": {
+    "class_id": 15
+  },
+  "Painted_driv._instr.": {
+    "class_id": 16
+  },
+  "Parking_area": {
+    "class_id": 17
+  },
+  "Pedestrian": {
+    "class_id": 18
+  },
+  "Poles": {
+    "class_id": 19
+  },
+  "RD_normal_street": {
+    "class_id": 20
+  },
+  "RD_restricted_area": {
+    "class_id": 21
+  },
+  "Rain_dirt": {
+    "class_id": 22
+  },
+  "Road_blocks": {
+    "class_id": 23
+  },
+  "Sidebars": {
+    "class_id": 24
+  },
+  "Sidewalk": {
+    "class_id": 25
+  },
+  "Signal_corpus": {
+    "class_id": 26
+  },
+  "Sky": {
+    "class_id": 27
+  },
+  "Slow_drive_area": {
+    "class_id": 28
+  },
+  "Small_vehicles": {
+    "class_id": 29
+  },
+  "Solid_line": {
+    "class_id": 30
+  },
+  "Speed_bumper": {
+    "class_id": 31
+  },
+  "Tractor": {
+    "class_id": 32
+  },
+  "Traffic_guide_obj.": {
+    "class_id": 33
+  },
+  "Traffic_sign": {
+    "class_id": 34
+  },
+  "Traffic_signal": {
+    "class_id": 35
+  },
+  "Truck": {
+    "class_id": 36
+  },
+  "Utility_vehicle": {
+    "class_id": 37
+  },
+  "Zebra_crossing": {
+    "class_id": 38
+  }
+}

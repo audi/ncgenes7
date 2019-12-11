@@ -1,0 +1,27 @@
+{
+  "class_name": "ncgenes7.plugins.cnns.aev_nips2017.AEVNips2017Plugin",
+  "name": "segmentation_decoder",
+  "inbound_nodes": "segmentation_encoder",
+  "sampling_type": "decoder",
+  "filters": [
+    48,
+    32,
+    24,
+    16
+  ],
+  "inception_kernel_size": [
+    1,
+    3
+  ],
+  "dilated_inception_kernel_size": [
+    3,
+    3
+  ],
+  "dilated_inception_dilation_rate": [
+    2,
+    8
+  ],
+  "add_skip_connections": true,
+  "skip_connection_resize_type": "imresize",
+  "activation": "elu"
+}

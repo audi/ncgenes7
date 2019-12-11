@@ -1,0 +1,65 @@
+{
+  "data_pipe": [
+    {
+      "class_name": "ncgenes7.data_readers.coco.CocoObjectsReader",
+      "name": "groundtruth_objects_reader",
+      "file_list_keys_mapping": {
+        "detections": "images"
+      }
+    },
+    {
+      "class_name": "ncgenes7.data_readers.object_detection.ObjectDetectionReader",
+      "name": "detections_reader",
+      "file_list_keys_mapping": {
+        "detections": "labels"
+      }
+    },
+    {
+      "class_name": "ncgenes7.data_readers.coco.CocoSemanticSegmentationReader",
+      "name": "groundtruth_segmentation_reader"
+    },
+    {
+      "class_name": "ncgenes7.data_readers.semantic_segmentation.SemanticSegmentationReader",
+      "name": "predictions_segmentation_reader",
+      "file_list_keys_mapping": {
+        "segmentation_predictions": "labels"
+      }
+    }
+  ],
+  "output_keys_mapping": {
+    "groundtruth_objects_reader": {
+      "object_boxes": "groundtruth_object_boxes",
+      "object_classes": "groundtruth_object_classes",
+      "object_instance_ids": "groundtruth_object_instance_ids",
+      "object_scores": "groundtruth_object_scores",
+      "num_objects": "groundtruth_num_objects",
+      "object_fname": "groundtruth_object_fname"
+    },
+    "detections_reader": {
+      "object_boxes": "detection_object_boxes",
+      "object_classes": "detection_object_classes",
+      "object_instance_ids": "detection_object_instance_ids",
+      "object_scores": "detection_object_scores",
+      "num_objects": "detection_num_objects",
+      "object_fname": "detection_object_fname"
+    },
+    "groundtruth_segmentation_reader": {
+      "segmentation_classes": "groundtruth_segmentation_classes",
+      "segmentation_classes_fnames": "groundtruth_segmentation_classes_fnames"
+    },
+    "predictions_segmentation_reader": {
+      "segmentation_classes": "prediction_segmentation_classes",
+      "segmentation_classes_fnames": "prediction_segmentation_classes_fnames"
+    }
+  },
+  "file_list": {
+    "file_names": {
+      "detections": "inference/last_run/results/*.json",
+      "panoptic": "../data_extraction/coco/raw_data/annotations/panoptic_val2017/*.png",
+      "segmentation_predictions": "inference/last_run/results/*_segmentation_classes.png"
+    },
+    "match_suffixes": {
+      "segmentation_predictions": "_segmentation_classes"
+    }
+  }
+}

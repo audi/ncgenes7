@@ -1,0 +1,27 @@
+[
+  {
+    "class_name": "ncgenes7.postprocessors.generic.ArgmaxPostProcessor",
+    "name": "segmentation_argmax",
+    "inbound_nodes": [
+      "segmentation_decoder"
+    ],
+    "incoming_keys_mapping": {
+      "segmentation_decoder": {
+        "feature_maps": "features"
+      }
+    },
+    "keepdims": true
+  },
+  {
+    "class_name": "ncgenes7.postprocessors.generic.IdentityPostProcessor",
+    "name": "segmentation_predictions",
+    "inbound_nodes": [
+      "segmentation_argmax"
+    ],
+    "incoming_keys_mapping": {
+      "segmentation_argmax": {
+        "argmax": "prediction_segmentation_classes"
+      }
+    }
+  }
+]

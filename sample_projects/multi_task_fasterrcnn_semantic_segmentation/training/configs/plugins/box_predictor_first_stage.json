@@ -1,0 +1,38 @@
+{
+  "class_name": "ncgenes7.plugins.object_detection.faster_rcnn.FasterRCNNFirstStagePlugin",
+  "name": "box_predictor_first_stage",
+  "inbound_nodes": [
+    "dataset",
+    "rpn_feature_extractor"
+  ],
+  "incoming_keys_mapping": {
+    "dataset": {
+      "groundtruth_object_boxes": "_",
+      "groundtruth_object_classes": "_",
+      "groundtruth_object_weights": "_"
+    }
+  },
+  "fuse_sampler": false,
+  "anchor_generator_config": {
+    "scales": [
+      0.01,
+      0.05,
+      0.1,
+      0.25
+    ],
+    "aspect_ratios": [
+      0.33,
+      0.5,
+      1,
+      2.0
+    ],
+    "relative": true,
+    "rescale_aspect_ratios": true
+  },
+  "rpn_feature_extractor_config": {
+    "filters": 512,
+    "kernel_size": 3,
+    "atrous_rate": 2
+  }
+}
+

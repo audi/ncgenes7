@@ -1,0 +1,22 @@
+{
+  "model_parameters": {
+    "box_predictor_first_stage": {
+      "max_num_proposals": 100,
+      "nms_iou_threshold": 0.7,
+      "nms_score_threshold": 0.2
+    },
+    "detections_second_stage_image_frame_filtered_nms": {
+      "iou_threshold": 0.7,
+      "score_threshold": 0.2,
+      "max_size_per_class": 300,
+      "max_total_size": 300
+    },
+    "detections_second_stage_image_frame_filtered": {
+      "min_object_height": 10,
+      "min_object_width": 10
+    }
+  },
+  "tensorrt_config": {
+    "precision_mode": "FP16"
+  }
+}

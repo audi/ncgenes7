@@ -1,0 +1,12 @@
+{
+  "data_pipe":[
+    {
+      "class_name": "ncgenes7.data_readers.image.ImageDataReader"
+    }
+  ],
+  "file_list": {
+    "file_names": {
+      "images": "../data_extraction/coco/raw_data/val2017/*.jpg"
+    }
+  }
+}

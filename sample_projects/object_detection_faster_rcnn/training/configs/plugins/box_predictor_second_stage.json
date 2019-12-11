@@ -1,0 +1,15 @@
+{
+  "class_name": "ncgenes7.plugins.object_detection.faster_rcnn.FasterRCNNSecondStagePlugin",
+  "name": "box_predictor_second_stage",
+  "inbound_nodes": [
+    "dataset",
+    "first_stage_all_objects_sampler",
+    "second_stage_feature_extractor"
+  ],
+  "incoming_keys_mapping": {
+    "first_stage_all_objects_sampler": {
+      "num_object_detections": "num_proposals",
+      "detection_object_boxes": "proposal_boxes"
+    }
+  }
+}

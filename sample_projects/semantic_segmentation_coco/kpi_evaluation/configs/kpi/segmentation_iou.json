@@ -1,0 +1,8 @@
+{
+  "class_name": "ncgenes7.kpis.semantic_segmentation.SemanticSegmentationMeanIOUKPI",
+  "name": "segmentation_iou",
+  "inbound_nodes": [
+    "segmentation_confusion_matrix"
+  ]
+}
+

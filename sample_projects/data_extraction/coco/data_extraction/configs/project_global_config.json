@@ -1,0 +1,5 @@
+{
+  "normalize_detections_boxes": true,
+  "image_number_of_channels": 3
+}
+

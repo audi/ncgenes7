@@ -1,0 +1,8 @@
+{
+  "file_name_instance_annotations": "raw_data/annotations/instances_train2017.json",
+  "file_name_panoptic_annotations": "raw_data/annotations/panoptic_train2017.json",
+  "file_name_person_keypoints_annotations": "raw_data/annotations/person_keypoints_train2017.json",
+  "number_of_samples_per_file": 50,
+  "save_suffix": "train"
+}
+

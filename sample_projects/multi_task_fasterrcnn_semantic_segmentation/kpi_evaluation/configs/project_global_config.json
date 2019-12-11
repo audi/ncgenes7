@@ -1,0 +1,30 @@
+{
+  "image_size": [
+    480,
+    640
+  ],
+  "num_classes": 90,
+  "class_names_to_labels_mapping": "../data_extraction/coco/class_names_to_labels_mapping_coco_instances.json",
+  "rgb_class_mapping": "../data_extraction/coco/rgb_class_mapping_coco_panoptic.json",
+  "file_name_instance_annotations": "../data_extraction/coco/raw_data/annotations/instances_val2017.json",
+  "file_name_panoptic_annotations": "../data_extraction/coco/raw_data/annotations/panoptic_val2017.json",
+  "normalize_detections_boxes": true,
+  "KPIPlugin": {
+    "cachers": [
+      {
+        "class_name": "KPIMD5Cacher"
+      }
+    ]
+  },
+  "KPIAccumulator": {
+    "savers": [
+      {
+        "class_name": "KPIJsonSaver"
+      },
+      {
+        "class_name": "MlflowKPILogger"
+      }
+    ]
+  }
+}
+

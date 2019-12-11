@@ -1,0 +1,20 @@
+{
+  "class_name": "ncgenes7.losses.image.SoftmaxLossWithResizedLabels",
+  "name": "segmentation_loss",
+  "inbound_nodes": [
+    "dataset",
+    "segmentation_decoder"
+  ],
+  "incoming_keys_mapping": {
+    "segmentation_decoder": {
+      "feature_maps": "logits"
+    },
+    "dataset": {
+      "groundtruth_segmentation_classes": "labels",
+      "sample_mask_segmentation": "sample_mask"
+    }
+  },
+  "loss_scale_factors": {
+    "loss": 0.25
+  }
+}

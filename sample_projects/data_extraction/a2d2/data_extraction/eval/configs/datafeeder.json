@@ -1,0 +1,52 @@
+{
+  "data_pipe":[
+    {
+      "class_name": "ncgenes7.data_readers.image.ImageDataReader",
+      "name": "image_reader"
+    },
+    {
+      "class_name": "ncgenes7.data_readers.semantic_segmentation.SemanticSegmentationReader",
+      "name": "segmentation_reader"
+    },
+    {
+      "class_name": "ncgenes7.data_readers.image.ImageEncoder",
+      "name": "image_encoder",
+      "inbound_nodes": "image_reader"
+    },
+    {
+      "class_name": "ncgenes7.data_readers.image.ImageEncoder",
+      "name": "segmentation_encoder",
+      "inbound_nodes": "segmentation_reader",
+      "incoming_keys_mapping": {
+        "segmentation_reader": {
+          "segmentation_classes": "images"
+        }
+      }
+    }
+  ],
+  "output_keys_mapping": {
+    "image_reader": {
+      "images": "_"
+    },
+    "segmentation_encoder": {
+      "images_PNG": "segmentation_classes_PNG"
+    }
+  },
+  "file_list": {
+    "class_name": "ncgenes7.file_lists.generic.MatchSubStringFileList",
+    "match_indices": [0, 2, 3],
+    "file_names": {
+      "images": "raw_data/camera_lidar_semantic/*/camera/*/*.png",
+      "labels": "raw_data/camera_lidar_semantic/*/label/*/*.png"
+    },
+    "data_filter": {
+      "class_name": "ncgenes7.data_filters.file_list.FilterFnamesInSet",
+      "include": "random_split_eval_fnames.txt",
+      "predicate_keys_mapping": {
+        "images": "fnames",
+        "labels": "_"
+      }
+    }
+  }
+}
+

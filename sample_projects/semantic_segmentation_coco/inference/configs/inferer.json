@@ -1,0 +1,5 @@
+{
+  "tensorrt_config": {
+    "precision_mode": "FP16"
+  }
+}

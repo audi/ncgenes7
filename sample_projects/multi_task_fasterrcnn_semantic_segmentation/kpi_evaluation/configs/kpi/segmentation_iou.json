@@ -1,0 +1,10 @@
+{
+  "class_name": "ncgenes7.kpis.semantic_segmentation.SemanticSegmentationMeanIOUKPI",
+  "name": "segmentation_iou",
+  "inbound_nodes": [
+    "segmentation_confusion_matrix"
+  ],
+  "class_names_to_labels_mapping": "../data_extraction/coco/class_names_to_labels_mapping_coco_panoptic.json",
+  "num_classes": 201
+}
+

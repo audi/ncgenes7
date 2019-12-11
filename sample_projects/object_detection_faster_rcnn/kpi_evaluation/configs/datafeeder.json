@@ -1,0 +1,41 @@
+{
+  "data_pipe": [
+    {
+      "class_name": "ncgenes7.data_readers.coco.CocoObjectsReader",
+      "name": "groundtruth_reader",
+      "file_list_keys_mapping": {
+        "detections": "images"
+      }
+    },
+    {
+      "class_name": "ncgenes7.data_readers.object_detection.ObjectDetectionReader",
+      "name": "detections_reader",
+      "file_list_keys_mapping": {
+        "detections": "labels"
+      }
+    }
+  ],
+  "output_keys_mapping": {
+    "groundtruth_reader": {
+      "object_boxes": "groundtruth_object_boxes",
+      "object_classes": "groundtruth_object_classes",
+      "object_instance_ids": "groundtruth_object_instance_ids",
+      "object_scores": "groundtruth_object_scores",
+      "num_objects": "groundtruth_num_objects",
+      "object_fname": "groundtruth_object_fname"
+    },
+    "detections_reader": {
+      "object_boxes": "detection_object_boxes",
+      "object_classes": "detection_object_classes",
+      "object_instance_ids": "detection_object_instance_ids",
+      "object_scores": "detection_object_scores",
+      "num_objects": "detection_num_objects",
+      "object_fname": "detection_object_fname"
+    }
+  },
+  "file_list": {
+    "file_names": {
+      "detections": "inference/last_run/results/*.json"
+    }
+  }
+}

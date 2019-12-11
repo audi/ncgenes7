@@ -1,0 +1,36 @@
+{
+  "batch_size": {
+    "train": 6,
+    "eval": 8
+  },
+  "iterations_per_epoch": {
+    "train": 10000
+  },
+  "samples_per_epoch": {
+    "eval": 5000
+  },
+  "optimization_config": {
+    "optimizer_name": "AdamOptimizer",
+    "learning_rate": 0.0005,
+    "learning_rate_manipulator": {
+      "class_name": "tf",
+      "decay_type_name": "piecewise_constant",
+      "boundaries": [
+        300000,
+        500000
+      ],
+      "values": [
+        0.00005,
+        0.000005
+      ]
+    },
+    "gradient_clip": 10
+  },
+  "save_summary_steps": {
+    "train": 50,
+    "eval": 50
+  },
+  "num_epochs": 2000,
+  "random_seed": 44571,
+  "inference_inputs_have_variable_shape": true
+}
