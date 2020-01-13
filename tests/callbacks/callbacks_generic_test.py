@@ -28,7 +28,7 @@ class TestBaseLogger(unittest.TestCase):
         iter_per_epoch = 256
         data = {'loss': {'total_loss': 10, 'loss_2': 20},
                 'metric': {'metric_1': np.array([10]),
-                           'metric_2': np.array([10, 10])}}
+                           'metric_2': None}}
 
         iteration_info = RunIterationInfo(epoch_number=epoch,
                                           iteration_number=iter_n,
@@ -72,3 +72,26 @@ class TestBaseLogger(unittest.TestCase):
         printed = mock_stdout.getvalue()
         printed_lines = printed.split('\n')[:-1]
         self.assertEqual(len(printed_lines), 1)
+
+    def test_on_iteration_end_invalid_values(self):
+        callback = BaseLogger(inbound_nodes=['node1'])
+        mode = 'train'
+        epoch = 10
+        iter_n = 112
+        time_exec = 10.1
+        iter_per_epoch = 256
+        iteration_info = RunIterationInfo(epoch_number=epoch,
+                                          iteration_number=iter_n,
+                                          execution_time=time_exec)
+        callback.iteration_info = iteration_info
+        callback.mode = mode
+        callback.number_iterations_per_epoch = iter_per_epoch
+        with self.assertRaises(ValueError):
+            data = {'loss': {'total_loss': 10, 'loss_2': [20, 10]},
+                    'metric': {'metric_1': None}}
+            callback.on_iteration_end(**data)
+
+        with self.assertRaises(ValueError):
+            data = {'loss': 0.1,
+                    'metric': 'some_str_value'}
+            callback.on_iteration_end(**data)

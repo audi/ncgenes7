@@ -109,15 +109,18 @@ class BaseLogger(nc7.coordinator.CoordinatorCallback):
 
 
 def _get_value_printable(value):
-    if isinstance(value, numbers.Number):
-        return value
-    if (isinstance(value, np.ndarray)
-            and value.ndim == 1 and value.shape[0] == 1):
-        return value[0]
-    if (isinstance(value, np.ndarray)
-            and value.ndim == 0):
-        return value
-    return None
+    expected_value_types = (numbers.Number, list, tuple, np.ndarray,
+                            type(None))
+    if isinstance(value, expected_value_types):
+        value_np = np.array(value)
+        if value_np.ndim == 0:
+            return value_np.item()
+        if value_np.ndim == 1 and value_np.shape[0] == 1:
+            return value_np[0]
+        raise ValueError(
+            "single values are expected but received {}".format(value))
+    raise ValueError("{} is not in expected value types {}".format(
+        value, expected_value_types))
 
 
 def _get_printable_names_and_values(loss, metric):
