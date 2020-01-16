@@ -172,8 +172,8 @@ class NonlinearityPostProcessor(nc7.model.ModelPostProcessor):
 
     def __init__(self, *,
                  activation_name: str,
-                 **plugin_kwargs):
-        super().__init__(**plugin_kwargs)
+                 **postprocessor_kwargs: dict):
+        super().__init__(**postprocessor_kwargs)
         if not hasattr(tf.keras.activations, activation_name):
             raise AttributeError(
                 '{} activation not found in tf.keras.activations'
