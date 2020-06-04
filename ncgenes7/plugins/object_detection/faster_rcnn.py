@@ -797,6 +797,7 @@ class FasterRCNNSecondStagePlugin(nc7.model.ModelPlugin):
         return result
 
     def _get_mask_rcnn_box_predictor(self):
+        use_dropout = self.is_training and self._dropout_keep_prob is not None
         conv_hyperparams = KerasLayerHyperparamsFromData(
             activation=self.activation, initializer=self.initializer,
             batch_norm_params=self.batch_norm_params
@@ -811,7 +812,7 @@ class FasterRCNNSecondStagePlugin(nc7.model.ModelPlugin):
                 add_background_class=True,
                 fc_hyperparams=fc_hyperparams,
                 freeze_batchnorm=self.freeze_batchnorm,
-                use_dropout=self._dropout_keep_prob is not None,
+                use_dropout=use_dropout,
                 dropout_keep_prob=self._dropout_keep_prob,
                 box_code_size=4,
                 conv_hyperparams=conv_hyperparams))

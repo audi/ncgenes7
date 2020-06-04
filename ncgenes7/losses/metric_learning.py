@@ -17,11 +17,6 @@ class ProxyEmbeddingLoss(nc7.model.ModelLoss):
     """
     Loss metric learning with proxy embedding
 
-    Parameters
-    ----------
-    num_proxies
-        Number of proxies to use. Will raise error if left at default value
-
     Attributes
     ----------
     incoming_keys

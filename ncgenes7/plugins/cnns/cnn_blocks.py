@@ -444,7 +444,8 @@ class PSPNetLayer(KerasCompositionalLayer):
                 tf.keras.layers.MaxPool2D(each_pool_size, name="pool_%s" % i))
             x = pool_layer(inputs)
             x = self._pyramid_conv_layers[i](x)
-            x = tf.image.resize_bilinear(x, inputs_shape[1:3])
+            x = tf.image.resize_bilinear(x, inputs_shape[1:3],
+                                         align_corners=True)
             psp_outputs.append(x)
 
         x = tf.keras.layers.Concatenate(-1)(psp_outputs)
@@ -452,7 +453,7 @@ class PSPNetLayer(KerasCompositionalLayer):
         if self._logits_conv_layer:
             x = self._logits_conv_layer(x)
         output_sizes = self._get_output_sizes(inputs)
-        x = tf.image.resize_bilinear(x, output_sizes)
+        x = tf.image.resize_bilinear(x, output_sizes, align_corners=True)
         return x
 
     def _get_pool_sizes(self, inputs: tf.Tensor):
