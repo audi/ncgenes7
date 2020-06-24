@@ -16,6 +16,7 @@ import tensorflow as tf
 from ncgenes7.postprocessors.generic import ArgmaxPostProcessor
 from ncgenes7.postprocessors.generic import IdentityPostProcessor
 from ncgenes7.postprocessors.generic import SoftmaxPostProcessor
+from ncgenes7.postprocessors.generic import NonlinearityPostProcessor
 
 
 class TestIdentityPostProcessor(tf.test.TestCase):
@@ -128,3 +129,29 @@ class TestSoftmaxPostProcessor(parameterized.TestCase, tf.test.TestCase):
         output_eval = self.evaluate(result)
         self.assertAllClose({"softmax": result_must},
                             output_eval)
+
+
+class TestNonlinearityPostProcessor(parameterized.TestCase, tf.test.TestCase):
+
+    @parameterized.parameters(
+        {"activation_name": "relu", "features": [[-0.5, 0.2, 1.0, -10]]},
+        {"activation_name": "sigmoid", "features": [[-0.5, 0.2, 1.0, -10]]}
+    )
+    def test_process(self, activation_name, features):
+        tf.reset_default_graph()
+        features = np.asarray(features)
+        if activation_name == 'relu':
+            result_must = np.array(features)
+            result_must[result_must < 0] = 0
+        elif activation_name == 'sigmoid':
+            result_must = 1/(1 + np.exp(-features))
+        processor = NonlinearityPostProcessor(activation_name=activation_name)
+        result = processor.process(tf.constant(features))
+        output_eval = self.evaluate(result)
+        self.assertAllClose({'features': result_must},
+                            output_eval)
+
+    def test_invalid_activation_name(self):
+        tf.reset_default_graph()
+        with self.assertRaises(AttributeError):
+            _ = NonlinearityPostProcessor(activation_name='abc')

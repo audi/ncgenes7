@@ -839,10 +839,12 @@ class TestKeypointsFilterPostprocessor(tf.test.TestCase):
 class TestInstanceMasksToImageFrame(tf.test.TestCase,
                                     parameterized.TestCase):
 
-    @parameterized.parameters({"masks_num_channels": 0},
-                              {"masks_num_channels": 3})
-    def test_process(self, masks_num_channels):
-        images = tf.placeholder(tf.float32, [None, None, None, 3])
+    @parameterized.parameters(
+        {"masks_num_channels": 0, "image_shape": (100, 100)},
+        {"masks_num_channels": 3, "image_shape": (None, None)})
+    def test_process(self, masks_num_channels, image_shape):
+        images = tf.placeholder(
+            tf.float32, [None, image_shape[0], image_shape[1], 3])
         boxes = tf.placeholder(tf.float32, [None, None, 4])
         if masks_num_channels > 0:
             object_instance_masks = tf.placeholder(
@@ -859,7 +861,7 @@ class TestInstanceMasksToImageFrame(tf.test.TestCase,
         self.assertSetEqual(set(postprocessor.generated_keys),
                             set(result))
         self.assertListEqual(
-            [None, None, None, None],
+            [None, None, image_shape[0], image_shape[1]],
             result["object_instance_masks_on_image"].shape.as_list())
 
 

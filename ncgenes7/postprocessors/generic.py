@@ -97,7 +97,8 @@ class ArgmaxPostProcessor(nc7.model.ModelPostProcessor):
                 ) -> Dict[str, tf.Tensor]:
         # pylint: disable=arguments-differ
         # base class has more generic signature
-        argmax_indices = tf.argmax(features, axis=self.axis)
+        argmax_indices = tf.argmax(features, axis=self.axis,
+                                   output_type=tf.int32)
         if self.keepdims:
             argmax_indices = tf.expand_dims(argmax_indices, self.axis)
         result = {"argmax": argmax_indices}
@@ -149,3 +150,38 @@ class SoftmaxPostProcessor(nc7.model.ModelPostProcessor):
         # base class has more generic signature
         softmax = tf.nn.softmax(logits, axis=self.axis)
         return {"softmax": softmax}
+
+
+class NonlinearityPostProcessor(nc7.model.ModelPostProcessor):
+    """
+    Generic post-processor for non-linear activations
+
+    Parameters
+    ----------
+    activation
+        Name of the Keras activation, e.g. 'relu', 'selu'
+
+    Attributes
+    ----------
+    incoming_keys
+        * features : original tensor, tf.Tensor
+    generated_keys
+        * features : tensor after applying the activation, tf.Tensor
+    """
+    incoming_keys = ["features"]
+    generated_keys = ["features"]
+
+    def __init__(self, *,
+                 activation_name: str,
+                 **postprocessor_kwargs: dict):
+        super().__init__(**postprocessor_kwargs)
+        if not hasattr(tf.keras.activations, activation_name):
+            raise AttributeError(
+                '{} activation not found in tf.keras.activations'
+                'namespace'.format(activation_name))
+        self.activation = getattr(tf.keras.activations, activation_name)
+
+    def process(self, features: tf.Tensor) -> Dict[str, tf.Tensor]:
+        # pylint: disable=arguments-differ
+        # base class has more generic signature
+        return {'features': self.activation(features)}

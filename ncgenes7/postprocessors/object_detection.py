@@ -807,6 +807,9 @@ class InstanceMasksToImageFrame(nc7.model.ModelPostProcessor):
             object_instance_masks, object_boxes, image_sizes)
         masks_on_image_binary = tf.cast(tf.greater(
             masks_on_image, binary_threshold), tf.uint8)
+        batch, height, width = images.shape[:3]
+        masks_on_image_binary.set_shape(
+            [batch, object_boxes.shape[1], height, width])
         return {
             ObjectDataFields.object_instance_masks_on_image:
                 masks_on_image_binary
