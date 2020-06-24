@@ -97,7 +97,8 @@ class ArgmaxPostProcessor(nc7.model.ModelPostProcessor):
                 ) -> Dict[str, tf.Tensor]:
         # pylint: disable=arguments-differ
         # base class has more generic signature
-        argmax_indices = tf.argmax(features, axis=self.axis)
+        argmax_indices = tf.argmax(features, axis=self.axis,
+                                   output_type=tf.int32)
         if self.keepdims:
             argmax_indices = tf.expand_dims(argmax_indices, self.axis)
         result = {"argmax": argmax_indices}
